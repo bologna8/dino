@@ -5,33 +5,24 @@ using UnityEngine;
 public class CheckCheck : MonoBehaviour
 {
      public bool touching = false;
+     [HideInInspector] public Collider2D lastCollided;
 
-     private Collider2D lastCollided;
-     private Collider2D myBox;
+     public LayerMask checkMask;
 
-     //public LayerMask checkMask;
-     public int collisionLayer;
+     public void Start()
+     {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-          myBox = GetComponent<Collider2D>();
-    }
+     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+     public void Update()
+     {
+          
+     }
 
      private void OnTriggerStay2D(Collider2D collision)
      {
-          //myBox.IsTouchingLayers(checkMask)
-          if (collision.gameObject.layer == collisionLayer)
-          {
-               touching = true;
-               lastCollided = collision;
-          }          
+          if ((checkMask.value & (1 << collision.transform.gameObject.layer)) > 0) 
+          { touching = true; lastCollided = collision; }        
      }
 
      private void OnTriggerExit2D(Collider2D collision)
