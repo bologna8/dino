@@ -11,20 +11,25 @@ public class Movement : MonoBehaviour
     public float jumpForce = 100f;
     private float jumpDelay = 0.1f;
 
-    private CheckCheck[] colliders;
+    [HideInInspector] public CheckCheck[] colliders;
     private GameObject mySelf;
 
     [HideInInspector] public int moveInput;
     [HideInInspector] public float verticalInput;
     [HideInInspector] public bool faceRight = true;
     [HideInInspector] public bool onGround = false;
-
-    private Rigidbody2D myBod;
+    [HideInInspector] public Rigidbody2D myBod;
     private float startGrav;
     private bool onEdge;
-    private bool turning = false;
+    [HideInInspector] public bool turning = false;
     public float turnTime = 0.1f;
     public bool grabLedges = false;
+
+    public float dashForce = 100f;
+    public float dashTime = 0.1f;
+    public float dashCooldown = 0.3f;
+    private float dashCurrent;
+    private Health myHP;
 
 
     // Start is called before the first frame update
@@ -32,6 +37,8 @@ public class Movement : MonoBehaviour
     {
         myBod = GetComponent<Rigidbody2D>();
         startGrav = myBod.gravityScale;
+
+        myHP = GetComponent<Health>();
 
         mySelf = transform.Find("Self").gameObject;
         colliders = mySelf.transform.GetComponentsInChildren<CheckCheck>();
@@ -51,15 +58,15 @@ public class Movement : MonoBehaviour
         momentumCurrent = Mathf.Clamp(momentumCurrent, 0, momentumTime);
 
         if (jumpDelay > 0) { jumpDelay -= Time.deltaTime; }
+        if (dashCurrent > 0) { dashCurrent -= Time.deltaTime; }
     }
 
     private void FixedUpdate()
     {
         Run();
-
     }
 
-    void Turn()
+    public void Turn()
     {
         if (!turning)
         {
@@ -93,25 +100,38 @@ public class Movement : MonoBehaviour
 
     void Run()
     {
-        if (moveInput < 0 && faceRight) { Turn(); }
-        if (moveInput > 0 && !faceRight) { Turn(); }
-
-        if (!colliders[1].touching)
+        if (myHP.stunTime <= 0)
         {
-            float Xforce = accelerate * moveInput;
-            myBod.AddForce(Vector2.right * Xforce);
+            if (moveInput < 0 && faceRight) { Turn(); }
+            if (moveInput > 0 && !faceRight) { Turn(); }
 
-            var max = Mathf.Lerp(0, baseSpeed, momentumCurrent / momentumTime);
-            var moveX = Mathf.Clamp(myBod.velocity.x, -max, max);
-            myBod.velocity = new Vector2(moveX, myBod.velocity.y);
+            if (!colliders[1].touching)
+            {
+                float Xforce = accelerate * moveInput;
+                myBod.AddForce(Vector2.right * Xforce);
+
+                var max = Mathf.Lerp(0, baseSpeed, momentumCurrent / momentumTime);
+                var moveX = Mathf.Clamp(myBod.velocity.x, -max, max);
+                myBod.velocity = new Vector2(moveX, myBod.velocity.y);
+            }
         }
 
     }
 
+    public void Dash()
+    {
+        if (dashCurrent <= 0 && myHP.stunTime <= 0) 
+        {
+            var d = Vector2.right * dashForce;
+            if (!faceRight) { d *= -1; }
+            myHP.TakeDamage(0, dashTime, d); 
+            dashCurrent = dashCooldown;
+        }
+    }
 
     public void Jump()
     {
-        if (jumpDelay <= 0)
+        if (jumpDelay <= 0 && myHP.stunTime <= 0)
         {
             if (onGround || onEdge)
             {
@@ -131,6 +151,7 @@ public class Movement : MonoBehaviour
         if (verticalInput < 0) { tryGrab = false; }
         if (turning) { tryGrab = false; }
         if (jumpDelay > 0) { tryGrab = false; }
+        if (myHP.stunTime > 0) { tryGrab = false; }
         
         if (!onGround && colliders[2].touching && !colliders[3].touching && tryGrab)
         { 
@@ -142,7 +163,8 @@ public class Movement : MonoBehaviour
             if (!faceRight) { offset = new Vector2(offset.x *-1, offset.y); }
             transform.position = cornerHit - offset;
         }
-        else { myBod.gravityScale = startGrav; onEdge = false; }          
+        else { myBod.gravityScale = startGrav; onEdge = false; }
+
     }
 
 

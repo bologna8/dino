@@ -19,5 +19,6 @@ public class PlayerControls : MonoBehaviour
         myMove.verticalInput = (int)Input.GetAxis("Vertical");
 
         if (Input.GetButtonDown("Jump")) { myMove.Jump(); }
+        if (Input.GetButtonDown("Dash")) { myMove.Dash(); }
     }
 }

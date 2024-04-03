@@ -48,6 +48,8 @@ public class Health : MonoBehaviour
     {
         currentHP -= dmg;
         if (stunTime <= stun) { stunTime = stun; }
+
+        if (myMovement) { myMovement.myBod.AddForce(KB); }
         
     }
 
