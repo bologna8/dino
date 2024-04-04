@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5896731305440466388}
   - component: {fileID: 737799960840323982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3835476192359994223}
   - component: {fileID: 413421527834168905}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3618403229091680725}
   - component: {fileID: 7321052295207170199}
   - component: {fileID: 1614846256608694652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ledge Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1263067511500736725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 3110806373359810682}
   - component: {fileID: 7858261272643532538}
   - component: {fileID: 7571021604714277753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5135921828996419061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Self
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 3491743162720787004}
   - component: {fileID: 238067087955223135}
   - component: {fileID: 5470531693155833388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,10 +532,12 @@ GameObject:
   - component: {fileID: 2661674118543948784}
   - component: {fileID: 4586916901848197137}
   - component: {fileID: 100242706955534290}
+  - component: {fileID: 8754165084863843932}
+  - component: {fileID: 2383316620427195789}
   - component: {fileID: 5878165766446439010}
   - component: {fileID: 340933065370478967}
   - component: {fileID: 3261265262026701807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,6 +600,34 @@ MonoBehaviour:
   dashForce: 666
   dashTime: 0.15
   dashCooldown: 0.5
+--- !u!114 &8754165084863843932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649990236531220739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1021e41c0a1768b4ab066d0bbd465a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePrefab: {fileID: 6738095107012820417, guid: e9a3eef1ac185f54cb33107479e4946a, type: 3}
+  attacking: 0
+--- !u!114 &2383316620427195789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649990236531220739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1021e41c0a1768b4ab066d0bbd465a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePrefab: {fileID: 6738095107012820417, guid: 733c4076e63f47244b5ed4febcfaab97, type: 3}
+  attacking: 0
 --- !u!114 &5878165766446439010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5843820978727579790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Appearance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +751,7 @@ GameObject:
   - component: {fileID: 6861225669189219322}
   - component: {fileID: 2588931704308185975}
   - component: {fileID: 8619068533023192896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Above Ledge Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

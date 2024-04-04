@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2583030209534479069}
   - component: {fileID: 2533371475656127935}
   - component: {fileID: 3114745957394100174}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3451946994082897951}
   - component: {fileID: 4618508251851183006}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8715248155314447756}
   - component: {fileID: 954547861960205246}
   - component: {fileID: 8638874390460346377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Above Ledge Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8771273468703904806}
   - component: {fileID: 3627932320218854973}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2429555520982180975}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3725311033548146593}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Appearance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,9 +439,10 @@ GameObject:
   - component: {fileID: 1313445173318852837}
   - component: {fileID: 1031915429222613423}
   - component: {fileID: 6137932678400629512}
+  - component: {fileID: 1043106949246640294}
   - component: {fileID: 3014230376865057890}
   - component: {fileID: 7149501744368925184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,6 +523,19 @@ MonoBehaviour:
   stunTime: 0
   invincibleTime: 0
   myMovement: {fileID: 0}
+--- !u!114 &1043106949246640294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642430743830889882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1021e41c0a1768b4ab066d0bbd465a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePrefab: {fileID: 0}
 --- !u!50 &3014230376865057890
 Rigidbody2D:
   serializedVersion: 4
@@ -595,7 +609,7 @@ GameObject:
   - component: {fileID: 2010469017563815830}
   - component: {fileID: 8984772427297977667}
   - component: {fileID: 8930401616988431728}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ledge Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +704,7 @@ GameObject:
   - component: {fileID: 8332899407663562203}
   - component: {fileID: 4289862309955116345}
   - component: {fileID: 7454251993337362959}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +799,7 @@ GameObject:
   - component: {fileID: 4412251417179694215}
   - component: {fileID: 3871426340265926192}
   - component: {fileID: 5711608253902987649}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5061649654954868854}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Self
   m_TagString: Untagged
   m_Icon: {fileID: 0}

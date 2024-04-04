@@ -63,7 +63,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Run();
+        if (myHP.stunTime <= 0) { Run(); }
     }
 
     public void Turn()
@@ -100,27 +100,24 @@ public class Movement : MonoBehaviour
 
     void Run()
     {
-        if (myHP.stunTime <= 0)
+        if (moveInput < 0 && faceRight) { Turn(); }
+        if (moveInput > 0 && !faceRight) { Turn(); }
+
+        if (!colliders[1].touching)
         {
-            if (moveInput < 0 && faceRight) { Turn(); }
-            if (moveInput > 0 && !faceRight) { Turn(); }
+            float Xforce = accelerate * moveInput;
+            myBod.AddForce(Vector2.right * Xforce);
 
-            if (!colliders[1].touching)
-            {
-                float Xforce = accelerate * moveInput;
-                myBod.AddForce(Vector2.right * Xforce);
-
-                var max = Mathf.Lerp(0, baseSpeed, momentumCurrent / momentumTime);
-                var moveX = Mathf.Clamp(myBod.velocity.x, -max, max);
-                myBod.velocity = new Vector2(moveX, myBod.velocity.y);
-            }
+            var max = Mathf.Lerp(0, baseSpeed, momentumCurrent / momentumTime);
+            var moveX = Mathf.Clamp(myBod.velocity.x, -max, max);
+            myBod.velocity = new Vector2(moveX, myBod.velocity.y);
         }
 
     }
 
     public void Dash()
     {
-        if (dashCurrent <= 0 && myHP.stunTime <= 0) 
+        if (dashCurrent <= 0) 
         {
             var d = Vector2.right * dashForce;
             if (!faceRight) { d *= -1; }
@@ -131,7 +128,7 @@ public class Movement : MonoBehaviour
 
     public void Jump()
     {
-        if (jumpDelay <= 0 && myHP.stunTime <= 0)
+        if (jumpDelay <= 0)
         {
             if (onGround || onEdge)
             {
