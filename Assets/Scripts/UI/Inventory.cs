@@ -4,34 +4,38 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+
     #region singleton
-    
-    public static Inventory instance; 
-    
+
+    public static Inventory instance;
     private void Awake()
     {
         if(instance == null)
         {
-            instance = this; 
+            instance = this;
         }
     }
 
+    #endregion
+
     public delegate void OnItemChange();
-    public OnItemChange onItemChange = delegate{};
+    public OnItemChange onItemChange = delegate {};
 
     public List<Item> inventoryItemList = new List<Item>();
+
     public List<Item> hotbarItemList = new List<Item>();
     public HotbarController hotbarController;
 
     public void SwitchHotbarInventory(Item item)
     {
-        foreach (Item i in inventoryItemList)
+        //inventory to hotbar, CHECK if we have enaugh space
+        foreach(Item i in inventoryItemList)
         {
-            if (i == item)
+            if(i == item)
             {
-                if (hotbarItemList.Count >= hotbarController.HotbarSlotSize)
+                if(hotbarItemList.Count >= hotbarController.HotbarSlotSize)
                 {
-                    Debug.Log("No more slots available");
+                    Debug.Log("No more slots available in hotbar");
                 }
                 else
                 {
@@ -43,10 +47,10 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        // hotbar to Inventory
-        foreach (Item i in hotbarItemList)
+        //hotbar to inventory
+        foreach(Item i in hotbarItemList)
         {
-            if (i == item)
+            if( i == item)
             {
                 hotbarItemList.Remove(item);
                 inventoryItemList.Add(item);
@@ -54,6 +58,7 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+
     }
 
     public void AddItem(Item item)
@@ -72,7 +77,38 @@ public class Inventory : MonoBehaviour
         {
             hotbarItemList.Remove(item);
         }
+
+        onItemChange.Invoke();
+    }
+    
+    public bool ContainsItem(Item item, int amount)
+    {
+        int itemCounter = 0;
+
+        foreach(Item i in inventoryItemList)
+        {
+            if(i == item)
+            {
+                itemCounter++;
+            }
+        }
+
+        if(itemCounter >= amount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    #endregion 
+    public void RemoveItems(Item item, int amount)
+    {
+        for(int i = 0; i < amount; ++i)
+        {
+            RemoveItem(item);
+        }
+    }
+
 }
