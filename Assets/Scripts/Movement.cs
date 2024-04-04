@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     public float accelerate = 10f;
     public float baseSpeed = 10f;
     public float momentumTime = 1f;
-    private float momentumCurrent;
+    [HideInInspector] public float momentumCurrent;
     public float jumpForce = 100f;
     private float jumpDelay = 0.1f;
 

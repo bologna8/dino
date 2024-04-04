@@ -65,11 +65,12 @@ public class Weapon : MonoBehaviour
         }
 
         //Start Actual Attack
-        myHealth.TakeDamage(0, attackStats.windup, preMove);
+        myHealth.TakeDamage(0, attackStats.windup + attackStats.attackDuration, preMove);
         yield return new WaitForSeconds(attackStats.windup);
-        myHealth.TakeDamage(0, attackStats.windup, midMove);
+        myHealth.TakeDamage(0, attackStats.attackDuration, midMove);
 
         var newAttack = Instantiate(damagePrefab, transform.position, startAngle).GetComponent<Damage>();
+        newAttack.origin = transform;
         newAttack.gameObject.layer = gameObject.layer;
         if (!myMovement.faceRight) { newAttack.Flip(); }
 

@@ -177,7 +177,14 @@ MonoBehaviour:
   movementPreAttack: {x: 0, y: 0}
   windup: 0.1
   movementMidAttack: {x: 0, y: 0}
-  attackDuration: 2
-  cooldown: 2
-  attackMovementSpeed: 420
+  attackDuration: 0.1
+  cooldown: 1
+  offset: {x: 0.3, y: 1, z: 0}
+  projectileSpeed: 420
+  attackLifetime: 1
+  origin: {fileID: 0}
   faceRight: 1
+  bounceMask:
+    serializedVersion: 2
+    m_Bits: 129
+  returnTime: 1

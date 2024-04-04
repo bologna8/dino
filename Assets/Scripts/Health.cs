@@ -49,7 +49,12 @@ public class Health : MonoBehaviour
         currentHP -= dmg;
         if (stunTime <= stun) { stunTime = stun; }
 
-        if (myMovement) { myMovement.myBod.AddForce(KB); }
+        if (myMovement) 
+        { 
+            myMovement.myBod.velocity = Vector2.zero;
+            myMovement.myBod.AddForce(KB);
+            myMovement.momentumCurrent = 0f;
+        }
         
     }
 
