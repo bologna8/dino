@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-
+    public GameObject aimingPrefab;
     private Movement myMove;
     private Weapon[] myWeapons;
     private Health myHealth;
@@ -14,7 +14,16 @@ public class PlayerControls : MonoBehaviour
     {
         myMove = GetComponent<Movement>();
         myWeapons = GetComponents<Weapon>();
-        myHealth = GetComponent<Health>();
+        myHealth = GetComponentInChildren<Health>();
+        myHealth.team = gameObject.layer;
+
+        if (aimingPrefab)
+        {
+            var myAim = Instantiate(aimingPrefab).GetComponent<Aim>();
+            myAim.lockT = transform;
+
+            foreach (Weapon w in myWeapons) { w.myAim = myAim; }
+        }
     }
 
     // Update is called once per frame

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+    [HideInInspector] public int team;
     public float damage = 1f;
     public float stunTime = 0.1f;
     public float knockback = 100f;
 
-    public Vector2 movementPreAttack;
+    public bool onlyMoveHorizontal = true;
+    public float movementPreAttack;
+    public float movementMidAttack;
     public float windup = 0.1f;
-    public Vector2 movementMidAttack;
     public float attackDuration = 0.1f;
     public float cooldown = 0.1f;
 
-    public Vector3 offset;
+    [HideInInspector] public Vector3 offset;
     public float projectileSpeed;
 
     [Tooltip("Set == to Attack Duration if melee")] public float attackLifetime = 1f;
@@ -36,8 +38,8 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!faceRight) { offset.x *= -1; }
-        transform.position += offset;
+        //if (!faceRight) { offset.x *= -1; }
+        //transform.position += offset;
 
         myBod = GetComponent<Rigidbody2D>();
         if (projectileSpeed != 0f) 
@@ -78,6 +80,7 @@ public class Damage : MonoBehaviour
         attackLifetime = returnTime;
         bounced = true;
         endPosition = transform.position;
+        //hitList.Clear();
         Flip();
     }
 
@@ -92,23 +95,25 @@ public class Damage : MonoBehaviour
     }
     void CheckHit(Collider2D other)
     {
-        if (other.gameObject.layer != gameObject.layer)
+        var hitHealth = other.gameObject.GetComponent<Health>();
+        if (hitHealth)
         {
-            var hitHealth = other.gameObject.GetComponent<Health>();
-            if (hitHealth)
+            if (!hitList.Contains(hitHealth) && hitHealth.team != team)
             {
-                if (!hitList.Contains(hitHealth))
-                {
-                    hitList.Add(hitHealth);
+                hitList.Add(hitHealth);
 
-                    var dir = (other.transform.position - transform.position).normalized; //Find angle of attacker to attack
-                    dir.x = Mathf.Abs(dir.x); if (!faceRight) { dir.x *= -1; } //KB only in the direction the attack is facing
+                var dir = (other.transform.position - transform.position).normalized; //Find angle of attacker to attack
+                dir.x = Mathf.Abs(dir.x); if (!faceRight) { dir.x *= -1; } //KB only in the direction the attack is facing
 
-                    hitHealth.TakeDamage(damage, stunTime, dir * knockback);
-                }
+                hitHealth.TakeDamage(damage, stunTime, dir * knockback);
+
+                if (returnTime > 0 && !bounced) { BounceBack(); }
             }
         }
-        else if (bounced) { Destroy(gameObject); }
+
+        //ok boomerang
+        if (other.gameObject.layer == gameObject.layer && bounced)
+        { Destroy(gameObject); }
 
         if ((bounceMask.value & (1 << other.gameObject.layer)) > 0 && !bounced)
         { BounceBack(); }

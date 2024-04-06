@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2023438636614848505}
   - component: {fileID: 7052570873879961560}
   - component: {fileID: 4889065652542798219}
-  - component: {fileID: 4145707213577463174}
+  - component: {fileID: 6968340740570764669}
   - component: {fileID: 2323528429717655627}
-  m_Layer: 0
-  m_Name: Boomerang
+  m_Layer: 8
+  m_Name: Claws
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 6738095107012820417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.385843, y: 1.2937189, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5882353, g: 0.19428623, b: 0.19428623, a: 0.27058825}
+  m_Color: {r: 0.48235294, g: 0.08235294, b: 0.08235294, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &4145707213577463174
+--- !u!50 &6968340740570764669
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -172,19 +172,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  stunTime: 0.1
-  knockback: 1000
-  movementPreAttack: {x: 0, y: 0}
+  stunTime: 0.2
+  knockback: 333
+  onlyMoveHorizontal: 1
+  movementPreAttack: -222
+  movementMidAttack: 333
   windup: 0.1
-  movementMidAttack: {x: 0, y: 0}
-  attackDuration: 0.1
-  cooldown: 1
-  offset: {x: 0.3, y: 1, z: 0}
-  projectileSpeed: 420
-  attackLifetime: 1
+  attackDuration: 0.5
+  cooldown: 0.1
+  offset: {x: 1, y: 0, z: 0}
+  projectileSpeed: 0
+  attackLifetime: 0.1
   origin: {fileID: 0}
   faceRight: 1
   bounceMask:
     serializedVersion: 2
-    m_Bits: 129
-  returnTime: 1
+    m_Bits: 0
+  returnTime: 0

@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     [HideInInspector] public float momentumCurrent;
     public float jumpForce = 100f;
     private float jumpDelay = 0.1f;
+    public GameObject jumpEffect;
 
     [HideInInspector] public CheckCheck[] colliders;
     private GameObject mySelf;
@@ -38,7 +39,7 @@ public class Movement : MonoBehaviour
         myBod = GetComponent<Rigidbody2D>();
         startGrav = myBod.gravityScale;
 
-        myHP = GetComponent<Health>();
+        myHP = GetComponentInChildren<Health>();
 
         mySelf = transform.Find("Self").gameObject;
         colliders = mySelf.transform.GetComponentsInChildren<CheckCheck>();
@@ -121,7 +122,8 @@ public class Movement : MonoBehaviour
         {
             var d = Vector2.right * dashForce;
             if (!faceRight) { d *= -1; }
-            myHP.TakeDamage(0, dashTime, d); 
+            myHP.TakeDamage(0, dashTime, d);
+            myHP.invincibleTime = dashTime;
             dashCurrent = dashCooldown;
         }
     }
@@ -135,6 +137,13 @@ public class Movement : MonoBehaviour
                 myBod.velocity = new Vector2(myBod.velocity.x, 0);
                 myBod.AddForce(Vector2.up * jumpForce);
                 jumpDelay = 0.1f;
+
+                if (jumpEffect) 
+                { 
+                    var effectSpot = colliders[0].transform.position;
+                    if (onEdge) { effectSpot = colliders[2].transform.position; }
+                    Instantiate(jumpEffect, effectSpot, Quaternion.identity); 
+                }
             } 
         }
             

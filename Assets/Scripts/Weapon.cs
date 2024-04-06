@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [HideInInspector] public Aim myAim;
     public GameObject damagePrefab;
     private Damage attackStats;
     private bool attackReady = true;
@@ -16,7 +17,7 @@ public class Weapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myHealth = GetComponent<Health>();
+        myHealth = GetComponentInChildren<Health>();
         myMovement = GetComponent<Movement>();
 
         if (damagePrefab) { changeAttack(damagePrefab); }        
@@ -45,33 +46,48 @@ public class Weapon : MonoBehaviour
     {
         attackReady = false;
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); mousePos.z = 0f;
-        var dir = mousePos - transform.position;
+        var startSpot = transform.position;
+        var dir = Vector2.right;
         var startAngle = Quaternion.FromToRotation(Vector3.right, dir);
 
-        if (mousePos.x > transform.position.x) //
-        { if(!myMovement.faceRight) { myMovement.Turn(); } }
-        else { if(myMovement.faceRight) { myMovement.Turn(); } }
-
-        //Turn if mouse is on other side and move accordingly
-        var preMove = attackStats.movementPreAttack;
-        var midMove = attackStats.movementMidAttack;
-        if (myMovement.faceRight)
-        { if (mousePos.x < transform.position.x) {myMovement.Turn(); } }
-        else //Facing left
+        if (myAim)
         {
-            if (mousePos.x > transform.position.x) {myMovement.Turn(); }
-            preMove.x *= -1; midMove.x *= -1;
+            //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); mousePos.z = 0f;
+            //var dir = (mousePos - transform.position).normalized;
+            dir = myAim.direction;
+            startAngle = Quaternion.FromToRotation(Vector3.right, dir);
+            startSpot = myAim.transform.position;
+
+            if (myAim.transform.position.x > transform.position.x) //Betta look to the left
+            { if(!myMovement.faceRight) { myMovement.Turn(); } }
+            else { if(myMovement.faceRight) { myMovement.Turn(); } }
         }
+        
+
+        //Attack move directionally
+        var preMove = dir * attackStats.movementPreAttack;
+        var midMove = dir * attackStats.movementMidAttack;
+        if (attackStats.onlyMoveHorizontal) 
+        {
+            preMove = new Vector3(attackStats.movementPreAttack, 0, 0);
+            midMove = new Vector3(attackStats.movementMidAttack, 0, 0);
+            if (!myMovement.faceRight) { preMove.x *= -1; midMove *= -1; }
+        }
+
+        //if (myMovement.faceRight) // Betta look to the left!
+        //{ if (mousePos.x < transform.position.x) { myMovement.Turn(); } }
+        //else 
+        //{ if (mousePos.x > transform.position.x) {myMovement.Turn(); } }
 
         //Start Actual Attack
         myHealth.TakeDamage(0, attackStats.windup + attackStats.attackDuration, preMove);
         yield return new WaitForSeconds(attackStats.windup);
         myHealth.TakeDamage(0, attackStats.attackDuration, midMove);
 
-        var newAttack = Instantiate(damagePrefab, transform.position, startAngle).GetComponent<Damage>();
+        var newAttack = Instantiate(damagePrefab, startSpot, startAngle).GetComponent<Damage>();
         newAttack.origin = transform;
-        newAttack.gameObject.layer = gameObject.layer;
+        newAttack.offset = startSpot - transform.position;
+        newAttack.team = myHealth.team;
         if (!myMovement.faceRight) { newAttack.Flip(); }
 
         yield return new WaitForSeconds(attackStats.attackDuration);
