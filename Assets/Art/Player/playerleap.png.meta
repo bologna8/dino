@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23167697f1cd84df19f36b689f42c1a8
+guid: 6d5cf9d068b71034db4546b9dc117e63
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_0
+      name: playerleap_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 105
-        height: 100
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0e9da6376231aa4593e590527c9203a
-      internalID: -1180112944
+      spriteID: bf737307b9c8acb4891d62b1e2907f11
+      internalID: -171904398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_1
+      name: playerleap_1
       rect:
         serializedVersion: 2
-        x: 105
-        y: 0
-        width: 105
-        height: 100
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a26fafdc78067d64783ea226038a1dd8
-      internalID: 865415966
+      spriteID: 345269ed790de1341a8a3dbcc6281c56
+      internalID: -122879695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_2
+      name: playerleap_2
       rect:
         serializedVersion: 2
-        x: 210
-        y: 0
-        width: 105
-        height: 100
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 101a14b51f92df74c9fb351ef6014129
-      internalID: 739084031
+      spriteID: c73da56307f3c3b48add6dec99cba207
+      internalID: 196922061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_3
+      name: playerleap_3
       rect:
         serializedVersion: 2
-        x: 315
-        y: 0
-        width: 105
-        height: 100
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a75d7f4d8adca94eb867326f5c279fd
-      internalID: -1109282272
+      spriteID: ee70c7d6fd91ff34b868b279e79309b8
+      internalID: -6574248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_4
+      name: playerleap_4
       rect:
         serializedVersion: 2
-        x: 420
-        y: 0
-        width: 105
-        height: 100
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e7ae6a10eab63746ac0b2397c8ff243
-      internalID: -1110556156
+      spriteID: 1ef4c9c52b0cf55438b72dea7cdf99d6
+      internalID: -1494219177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_5
+      name: playerleap_5
       rect:
         serializedVersion: 2
-        x: 525
-        y: 0
-        width: 105
-        height: 100
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b8f2791a08f48e41a84ee5a03f5f6bb
-      internalID: 810023978
+      spriteID: 88d69baf2de682d4b99d6708d9d82e69
+      internalID: -1679403960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_6
+      name: playerleap_6
       rect:
         serializedVersion: 2
-        x: 630
-        y: 0
-        width: 105
-        height: 100
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a336e980ffbd8c74ab4f386b1750ea61
-      internalID: 1133484934
+      spriteID: b51bcd15400f60c4bb8c2eb94fd1e5f0
+      internalID: -1241640992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_7
+      name: playerleap_7
       rect:
         serializedVersion: 2
-        x: 735
-        y: 0
-        width: 105
-        height: 100
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 040d21f969341864e859643c886921da
-      internalID: 2065024152
+      spriteID: a9ab6fd3b4c1d51479dd8398229a57ff
+      internalID: -413372280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_8
+      name: playerleap_8
       rect:
         serializedVersion: 2
-        x: 840
-        y: 0
-        width: 105
-        height: 100
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e95f8acf3abf888489d483882944ac4b
-      internalID: 1134307383
+      spriteID: d02b591649f321248bb5d5b4b0eabd50
+      internalID: -2045558618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_9
+      name: playerleap_9
       rect:
         serializedVersion: 2
-        x: 945
-        y: 0
-        width: 105
-        height: 100
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +326,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 248a768e0e0a48a42af4a03df165881b
-      internalID: 921309583
+      spriteID: cd1f9d92df5a88c40ad50664c4280a16
+      internalID: -1840394923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_10
+      name: playerleap_10
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 0
-        width: 105
-        height: 100
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +347,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15f4040da90768d49be678cf613099d6
-      internalID: 1007638764
+      spriteID: 42244417598cdcb43b1acde56926f923
+      internalID: 1930725872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_11
+      name: playerleap_11
       rect:
         serializedVersion: 2
-        x: 1155
-        y: 0
-        width: 105
-        height: 100
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +368,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8dc85af5652274fa19e8a281b7621b
-      internalID: -1652088575
+      spriteID: 59ab7693ad14fe649ba5bdc294befed7
+      internalID: -888973897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_12
+      name: playerleap_12
       rect:
         serializedVersion: 2
-        x: 1260
-        y: 0
-        width: 105
-        height: 100
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b070fd064d8ff4aaeb81bca6af4c6b
-      internalID: -1733004610
+      spriteID: 42304c4673b655445bfd4d4e2b3662ff
+      internalID: 1177414072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_13
+      name: playerleap_13
       rect:
         serializedVersion: 2
-        x: 1365
-        y: 0
-        width: 105
-        height: 100
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +410,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39114788c2e3f2c44911180b70167532
-      internalID: -234686456
+      spriteID: 10635dc18c4721d4ebd828fbddbc7e31
+      internalID: -1262733074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_14
+      name: playerleap_14
       rect:
         serializedVersion: 2
-        x: 1470
-        y: 0
-        width: 105
-        height: 100
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cbde3fd52fba67449c167e177abc839
-      internalID: -1318594362
+      spriteID: eca89d446e1350d4da24738a0633ec1e
+      internalID: 1044202041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_15
+      name: playerleap_15
       rect:
         serializedVersion: 2
-        x: 1575
-        y: 0
-        width: 105
-        height: 100
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +452,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac7c862fae5b62b4c9c3e9e92d158921
-      internalID: 1323817430
+      spriteID: a37ed657a331d6243b8958553666f42f
+      internalID: 699171644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_16
+      name: playerleap_16
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 0
-        width: 105
-        height: 100
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,20 +473,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e758ed70bcdc5b741b591ff026c80568
-      internalID: -540522246
+      spriteID: 0bef87704b13edb4c9ca7b21eee4017a
+      internalID: 1003725094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_17
+      name: playerleap_17
       rect:
         serializedVersion: 2
-        x: 1785
-        y: 0
-        width: 105
-        height: 100
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,20 +494,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f519d5f1a6135444bf69f1d0cfeb28d
-      internalID: 1349631217
+      spriteID: 19d825e16a6143846b532b130815e768
+      internalID: 1113026677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_18
+      name: playerleap_18
       rect:
         serializedVersion: 2
-        x: 1890
-        y: 0
-        width: 105
-        height: 100
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,20 +515,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f348f01d5da5b9049b7ec83d137a4c37
-      internalID: -792371430
+      spriteID: bf5eef5587ab6ee43992a5958f30a8f6
+      internalID: 1616400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_19
+      name: playerleap_19
       rect:
         serializedVersion: 2
-        x: 1995
-        y: 0
-        width: 105
-        height: 100
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,20 +536,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb8db0b7f7c34c849b025c2dd74a3d9a
-      internalID: 528305628
+      spriteID: 0559aa6a18dda9346b3c7325ac0c6e07
+      internalID: -324699099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_20
+      name: playerleap_20
       rect:
         serializedVersion: 2
-        x: 2100
-        y: 0
-        width: 105
-        height: 100
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,20 +557,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3ed1825b02c9da4cafae68692702c47
-      internalID: -1342910387
+      spriteID: 96afae51b422d824f88bae221e413368
+      internalID: 1357002644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_21
+      name: playerleap_21
       rect:
         serializedVersion: 2
-        x: 2205
-        y: 0
-        width: 105
-        height: 100
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,20 +578,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9eb2cc8acf38b604fb345c1bc9bef79c
-      internalID: 75701822
+      spriteID: 38fc1386a96906a48a6ab884e13edcaa
+      internalID: 1402827363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_22
+      name: playerleap_22
       rect:
         serializedVersion: 2
-        x: 2310
-        y: 0
-        width: 105
-        height: 100
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,20 +599,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6abd83b63c4137c4b882d18df4d1c61a
-      internalID: -683116139
+      spriteID: bbedcc8bba32b33449551f05579e7089
+      internalID: 362012901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_23
+      name: playerleap_23
       rect:
         serializedVersion: 2
-        x: 2415
-        y: 0
-        width: 105
-        height: 100
+        x: 1792
+        y: 1280
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -620,20 +620,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f726a0e19f53d1a4cb99d10804a25ab4
-      internalID: -1848962714
+      spriteID: 0c6450873df066a49bff2690be3a9193
+      internalID: -1681136995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_24
+      name: playerleap_24
       rect:
         serializedVersion: 2
-        x: 2520
-        y: 0
-        width: 105
-        height: 100
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -641,20 +641,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 310ff8daee7ddaa41852b68f1c40776f
-      internalID: -1813707467
+      spriteID: 6baa9b85b26283740b37bc97989f56a2
+      internalID: -1622558300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_25
+      name: playerleap_25
       rect:
         serializedVersion: 2
-        x: 2625
-        y: 0
-        width: 105
-        height: 100
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -662,20 +662,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3717b039d00787c41a2c09a5afaa80ba
-      internalID: -1720790547
+      spriteID: 245892c4b363e194f89fa24ae388f259
+      internalID: -1106712508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_26
+      name: playerleap_26
       rect:
         serializedVersion: 2
-        x: 2730
-        y: 0
-        width: 105
-        height: 100
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -683,20 +683,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ff17c3bf1709a44eb6c1bdc97cae3f5
-      internalID: -1029835176
+      spriteID: c5212908bec95114ba8e13fc2eae1eb8
+      internalID: 575805458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_27
+      name: playerleap_27
       rect:
         serializedVersion: 2
-        x: 2835
-        y: 0
-        width: 105
-        height: 100
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -704,20 +704,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db4b0cceebd6ef24d95c9d8d092c25c0
-      internalID: -1161570370
+      spriteID: 6881a0ce5c0a29c47ae3cd73bb8a0896
+      internalID: -261937613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_28
+      name: playerleap_28
       rect:
         serializedVersion: 2
-        x: 2940
-        y: 0
-        width: 105
-        height: 100
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -725,20 +725,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c26ccededcad7b04f9292794d9691556
-      internalID: -780754649
+      spriteID: 99251ec1db7fbd148a335d194aad4f21
+      internalID: -146908204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: startcompyfullspriteeggroar_29
+      name: playerleap_29
       rect:
         serializedVersion: 2
-        x: 3045
-        y: 0
-        width: 105
-        height: 100
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -746,8 +746,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3ace105b6a913048a638bf117622e51
-      internalID: 1125477880
+      spriteID: 8e46dc0007f0aba42a1cc20a417db4ca
+      internalID: -1261136730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerleap_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95592bf18d9d6c4489d326eaaeae0807
+      internalID: 2112501447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerleap_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0805609f4e2e541861fcca3a743fb1
+      internalID: 1205535459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerleap_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb8b2327987a8b4cb4c6e27efb897ec
+      internalID: 1451108860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerleap_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acacd324c6e507b44b3532b0d1ffd338
+      internalID: -1863294361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerleap_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5a1315271bbe54e9f65ae0f42a3842
+      internalID: -2046378318
       vertices: []
       indices: 
       edges: []
@@ -763,36 +868,41 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      startcompyfullspriteeggroar_0: -1180112944
-      startcompyfullspriteeggroar_1: 865415966
-      startcompyfullspriteeggroar_10: 1007638764
-      startcompyfullspriteeggroar_11: -1652088575
-      startcompyfullspriteeggroar_12: -1733004610
-      startcompyfullspriteeggroar_13: -234686456
-      startcompyfullspriteeggroar_14: -1318594362
-      startcompyfullspriteeggroar_15: 1323817430
-      startcompyfullspriteeggroar_16: -540522246
-      startcompyfullspriteeggroar_17: 1349631217
-      startcompyfullspriteeggroar_18: -792371430
-      startcompyfullspriteeggroar_19: 528305628
-      startcompyfullspriteeggroar_2: 739084031
-      startcompyfullspriteeggroar_20: -1342910387
-      startcompyfullspriteeggroar_21: 75701822
-      startcompyfullspriteeggroar_22: -683116139
-      startcompyfullspriteeggroar_23: -1848962714
-      startcompyfullspriteeggroar_24: -1813707467
-      startcompyfullspriteeggroar_25: -1720790547
-      startcompyfullspriteeggroar_26: -1029835176
-      startcompyfullspriteeggroar_27: -1161570370
-      startcompyfullspriteeggroar_28: -780754649
-      startcompyfullspriteeggroar_29: 1125477880
-      startcompyfullspriteeggroar_3: -1109282272
-      startcompyfullspriteeggroar_4: -1110556156
-      startcompyfullspriteeggroar_5: 810023978
-      startcompyfullspriteeggroar_6: 1133484934
-      startcompyfullspriteeggroar_7: 2065024152
-      startcompyfullspriteeggroar_8: 1134307383
-      startcompyfullspriteeggroar_9: 921309583
+      playerleap_0: -171904398
+      playerleap_1: -122879695
+      playerleap_10: 1930725872
+      playerleap_11: -888973897
+      playerleap_12: 1177414072
+      playerleap_13: -1262733074
+      playerleap_14: 1044202041
+      playerleap_15: 699171644
+      playerleap_16: 1003725094
+      playerleap_17: 1113026677
+      playerleap_18: 1616400
+      playerleap_19: -324699099
+      playerleap_2: 196922061
+      playerleap_20: 1357002644
+      playerleap_21: 1402827363
+      playerleap_22: 362012901
+      playerleap_23: -1681136995
+      playerleap_24: -1622558300
+      playerleap_25: -1106712508
+      playerleap_26: 575805458
+      playerleap_27: -261937613
+      playerleap_28: -146908204
+      playerleap_29: -1261136730
+      playerleap_3: -6574248
+      playerleap_30: 2112501447
+      playerleap_31: 1205535459
+      playerleap_32: 1451108860
+      playerleap_33: -1863294361
+      playerleap_34: -2046378318
+      playerleap_4: -1494219177
+      playerleap_5: -1679403960
+      playerleap_6: -1241640992
+      playerleap_7: -413372280
+      playerleap_8: -2045558618
+      playerleap_9: -1840394923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

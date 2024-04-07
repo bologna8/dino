@@ -32,6 +32,8 @@ public class Movement : MonoBehaviour
     private float dashCurrent;
     private Health myHP;
 
+    [HideInInspector] public Animator myAnim;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class Movement : MonoBehaviour
         startGrav = myBod.gravityScale;
 
         myHP = GetComponentInChildren<Health>();
+        myAnim = GetComponentInChildren<Animator>();
 
         mySelf = transform.Find("Self").gameObject;
         colliders = mySelf.transform.GetComponentsInChildren<CheckCheck>();
@@ -57,6 +60,8 @@ public class Movement : MonoBehaviour
         { if (onGround || onEdge) { momentumCurrent -= Time.deltaTime; } }
         else { momentumCurrent += Time.deltaTime; }
         momentumCurrent = Mathf.Clamp(momentumCurrent, 0, momentumTime);
+
+        if (myAnim) { myAnim.SetFloat("moveValue", momentumCurrent / momentumTime); }
 
         if (jumpDelay > 0) { jumpDelay -= Time.deltaTime; }
         if (dashCurrent > 0) { dashCurrent -= Time.deltaTime; }
@@ -137,6 +142,8 @@ public class Movement : MonoBehaviour
                 myBod.velocity = new Vector2(myBod.velocity.x, 0);
                 myBod.AddForce(Vector2.up * jumpForce);
                 jumpDelay = 0.1f;
+
+                if (myAnim) { myAnim.SetTrigger("jumped"); }
 
                 if (jumpEffect) 
                 { 
