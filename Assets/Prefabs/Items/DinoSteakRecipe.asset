@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce1be3aa6eb56843b32fdf4352dac54, type: 3}
   m_Name: DinoSteakRecipe
   m_EditorClassIdentifier: 
-  name: Default Item
+  name: Dino Steak
   icon: {fileID: 0}
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: 2d973719df871894ca5abd7dd0fcfac2, type: 2}
   ingredients:
   - item: {fileID: 11400000, guid: 2d973719df871894ca5abd7dd0fcfac2, type: 2}
     amount: 1
