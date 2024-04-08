@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d7950e6c18835cd459770ca962da7745
+guid: f91e1feb1ba0eb44b94705f7083b1415
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,19 +81,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,64 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playeridle1_0
+      name: PF1_Gas_02
       rect:
         serializedVersion: 2
-        x: 61
-        y: 396
-        width: 49
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 100
+        y: 4
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a7ed06d48260c4b86fc1c415e34e4e
-      internalID: 1199212770
+      spriteID: cfdd46b7ac548524f8282fad7187f9f3
+      internalID: 2122868826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playeridle1_1
+      name: PF2_Gas_02
       rect:
         serializedVersion: 2
-        x: 231
-        y: 396
-        width: 49
-        height: 99
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 147
+        y: 3
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ffa8e00327782047b0eb735e12601f4
-      internalID: -1759608610
+      spriteID: e2534cc0ed6e7a54cb4c832f2a31092f
+      internalID: 11402726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playeridle1_2
+      name: PF2_Gas_01
       rect:
         serializedVersion: 2
-        x: 401
-        y: 396
-        width: 49
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 46
+        y: 4
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9571aab1b9d772d48b67285e3f30c2aa
-      internalID: -1704159659
+      spriteID: 2236a9e26fdc80b408e298e4e833aa6a
+      internalID: 82965538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PF1_Gas_01
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1be5bec8e82cf47915a31666bb31d0
+      internalID: -2045770902
       vertices: []
       indices: 
       edges: []
@@ -196,9 +204,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playeridle1_0: 1199212770
-      playeridle1_1: -1759608610
-      playeridle1_2: -1704159659
+      PF1_Gas_01: -2045770902
+      PF1_Gas_02: 2122868826
+      PF2_Gas_01: 82965538
+      PF2_Gas_02: 11402726
+      Poison Flower Gas_10: -931078387
+      Poison Flower Gas_11: 1345491091
+      Poison Flower Gas_2: 1292450814
+      Poison Flower Gas_5: -1087721041
+      Poison Flower Gas_6: -1935454947
+      Poison Flower Gas_7: 1922966387
+      Poison Flower Gas_8: 1475238947
+      Poison Flower Gas_9: 365358169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

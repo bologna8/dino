@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d7950e6c18835cd459770ca962da7745
+guid: df90ae2acaf870e4e96b018b78fa8af9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,19 +81,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,64 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playeridle1_0
+      name: Fire_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 396
-        width: 49
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3
+        y: 4
+        width: 42
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2a7ed06d48260c4b86fc1c415e34e4e
-      internalID: 1199212770
+      spriteID: e6ed378bd130b7f4abc0351a80dbfa42
+      internalID: -1707200199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playeridle1_1
+      name: Fire_1
       rect:
         serializedVersion: 2
-        x: 231
-        y: 396
-        width: 49
-        height: 99
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 53
+        y: 4
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ffa8e00327782047b0eb735e12601f4
-      internalID: -1759608610
+      spriteID: 5cf9047f095148941b579297e1a1311d
+      internalID: -2120032798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playeridle1_2
+      name: Fire_2
       rect:
         serializedVersion: 2
-        x: 401
-        y: 396
-        width: 49
-        height: 98
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 103
+        y: 4
+        width: 42
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9571aab1b9d772d48b67285e3f30c2aa
-      internalID: -1704159659
+      spriteID: d67f7cd88db107543a6580161109e29c
+      internalID: 361132983
       vertices: []
       indices: 
       edges: []
@@ -196,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playeridle1_0: 1199212770
-      playeridle1_1: -1759608610
-      playeridle1_2: -1704159659
+      Fire_0: -1707200199
+      Fire_1: -2120032798
+      Fire_2: 361132983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
