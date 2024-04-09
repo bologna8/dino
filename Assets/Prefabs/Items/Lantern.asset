@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce1be3aa6eb56843b32fdf4352dac54, type: 3}
-  m_Name: DinoSteakRecipe
+  m_Script: {fileID: 11500000, guid: 1569f4d78dabf05428872ca329c73c4e, type: 3}
+  m_Name: Lantern
   m_EditorClassIdentifier: 
-  name: Dino Steak
+  name: Lantern
   icon: {fileID: 0}
-  result: {fileID: 11400000, guid: 2d973719df871894ca5abd7dd0fcfac2, type: 2}
-  ingredients:
-  - item: {fileID: 11400000, guid: 2d973719df871894ca5abd7dd0fcfac2, type: 2}
-    amount: 1
+  prefab: {fileID: 7210958724586473036, guid: e38cf52fc147d0b489a15c6c525b8890, type: 3}

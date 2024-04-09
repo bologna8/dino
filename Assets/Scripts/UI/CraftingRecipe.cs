@@ -45,7 +45,7 @@ public class CraftingRecipe : Item
         }
         else
         {
-            Debug.Log("You dont have enaugh ingredients to craft: " + result.name);
+            Debug.Log("You dont have enough ingredients to craft: " + result.name);
         }
 
 

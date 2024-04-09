@@ -9,6 +9,7 @@ public class Item : ScriptableObject
 {
 	new public string name = "Default Item";
 	public Sprite icon = null; 
+	public GameObject prefab  = null;
 
 	public virtual void Use()
 	{
