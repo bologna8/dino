@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     private float dashCurrent;
     private Health myHP;
 
+    private Coroutine climbingCoroutine;
     [HideInInspector] public Animator myAnim;
 
 
@@ -118,6 +119,7 @@ public class Movement : MonoBehaviour
             var moveX = Mathf.Clamp(myBod.velocity.x, -max, max);
             myBod.velocity = new Vector2(moveX, myBod.velocity.y);
         }
+        //else if (onEdge && moveInput != 0 && !turning) { Jump(); }
 
     }
 
@@ -137,7 +139,7 @@ public class Movement : MonoBehaviour
     {
         if (jumpDelay <= 0)
         {
-            if (onGround || onEdge)
+            if (onGround)
             {
                 myBod.velocity = new Vector2(myBod.velocity.x, 0);
                 myBod.AddForce(Vector2.up * jumpForce);
@@ -145,36 +147,61 @@ public class Movement : MonoBehaviour
 
                 if (myAnim) { myAnim.SetTrigger("jumped"); }
 
-                if (jumpEffect) 
-                { 
-                    var effectSpot = colliders[0].transform.position;
-                    if (onEdge) { effectSpot = colliders[2].transform.position; }
-                    Instantiate(jumpEffect, effectSpot, Quaternion.identity); 
-                }
-            } 
-        }
+                if (jumpEffect) { Instantiate(jumpEffect, colliders[0].transform.position, Quaternion.identity); }
+            }
+            else if (onEdge && climbingCoroutine == null) 
+            { climbingCoroutine = StartCoroutine(ledgeClimb()); }
             
+        }        
+            
+    }
+
+    public IEnumerator ledgeClimb()
+    {
+        myAnim.SetTrigger("climbed");
+        var ledgeDelay = 0.75f;
+        myHP.TakeDamage(0, ledgeDelay, Vector2.zero);
+        myBod.velocity = new Vector2(myBod.velocity.x, 0);
+        myBod.gravityScale = 0f;
+        
+        yield return new WaitForSeconds(ledgeDelay);
+        myBod.gravityScale = startGrav;
+        jumpDelay = 0.1f;
+        if (jumpEffect) { Instantiate(jumpEffect, colliders[2].transform.position, Quaternion.identity); }
+        myBod.velocity = new Vector2(myBod.velocity.x, 0);
+        myBod.AddForce(Vector2.up * jumpForce);
+        climbingCoroutine = null;
     }
 
 
     private void ledgeGrab()
     {
         bool tryGrab = true;
-        if (verticalInput > 0) { Jump(); }
         if (verticalInput < 0) { tryGrab = false; }
         if (turning) { tryGrab = false; }
         if (jumpDelay > 0) { tryGrab = false; }
         if (myHP.stunTime > 0) { tryGrab = false; }
         
+
+        if(climbingCoroutine != null) { tryGrab = true; }
+        
         if (!onGround && colliders[2].touching && !colliders[3].touching && tryGrab)
         { 
             myBod.gravityScale = 0; onEdge = true;
             myBod.velocity = Vector2.zero;
+            momentumCurrent = 0f;
 
             var cornerHit = colliders[2].findTopCorner(faceRight);
             var offset = colliders[2].transform.localPosition;
+            var checkParent = colliders[2].transform.parent;
+            if (checkParent) { offset += checkParent.transform.localPosition; }
+
             if (!faceRight) { offset = new Vector2(offset.x *-1, offset.y); }
             transform.position = cornerHit - offset;
+
+            if (verticalInput > 0) { Jump(); }
+            if (moveInput > 0 && faceRight) { Jump(); }
+            if (moveInput < 0 && !faceRight) { Jump(); }
         }
         else { myBod.gravityScale = startGrav; onEdge = false; }
 

@@ -14,6 +14,10 @@ public class Aim : MonoBehaviour
     [HideInInspector] public Vector3 direction;
     [HideInInspector] public AI myAI;
 
+
+    private Vector3 lastMousePos;
+    private Vector3 lastControllerAim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,15 +35,26 @@ public class Aim : MonoBehaviour
             }
             if (myType == FollowType.Mouse) 
             {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); mousePos.z = 0f;
-                direction = (mousePos - lockT.position).normalized;
+                lastMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); lastMousePos.z = 0f;
+                direction = (lastMousePos - lockT.position).normalized;
+
+                if (Input.GetAxis("aimX") != 0 || Input.GetAxis("aimY") != 0) 
+                { myType = FollowType.Controller; }
 
             }
             if (myType == FollowType.Controller) 
             {
+                var mousePos = Input.mousePosition;  mousePos.z = 0f;
+                if (mousePos != lastMousePos) { myType = FollowType.Mouse; }
+
+                if (Input.GetAxis("aimX") != 0 || Input.GetAxis("aimY") != 0)
+                { lastControllerAim = new Vector3(Input.GetAxis("aimX"), Input.GetAxis("aimY"), 0f).normalized; }
+                direction = lastControllerAim;
+                //Debug.Log(lastControllerAim);
                 
             }
 
+            //Debug.Log(Input.GetAxis("aimX") + " , " + Input.GetAxis("aimY"));
             transform.position = lockT.position + (direction * lockLength) + offset;
         }
         else { Destroy(gameObject); }

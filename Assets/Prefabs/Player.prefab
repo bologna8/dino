@@ -262,7 +262,7 @@ MonoBehaviour:
   lastCollided: {fileID: 0}
   checkMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1024
 --- !u!1 &2108404027885116378
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 2108404027885116378}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.715, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -325,7 +325,7 @@ Transform:
   m_GameObject: {fileID: 2436658209766706471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.715, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -491,7 +491,7 @@ MonoBehaviour:
   lastCollided: {fileID: 0}
   checkMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 3073
 --- !u!1 &5218774938298618956
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
   lastCollided: {fileID: 0}
   checkMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
 --- !u!1 &5649990236531220739
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,8 +790,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7381575}
-  m_Size: {x: 1, y: 2.0486698}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!1 &5978276510002102356
 GameObject:
@@ -820,7 +820,7 @@ Transform:
   m_GameObject: {fileID: 5978276510002102356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -995,4 +995,4 @@ MonoBehaviour:
   lastCollided: {fileID: 0}
   checkMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1024
