@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     [HideInInspector] public bool onGround = false;
     [HideInInspector] public Rigidbody2D myBod;
     private float startGrav;
-    private bool onEdge;
+    [HideInInspector] public bool onEdge;
     [HideInInspector] public bool turning = false;
     public float turnTime = 0.1f;
     public bool grabLedges = false;
@@ -204,6 +204,8 @@ public class Movement : MonoBehaviour
             if (moveInput < 0 && !faceRight) { Jump(); }
         }
         else { myBod.gravityScale = startGrav; onEdge = false; }
+
+        if (myAnim) { myAnim.SetBool("onEdge", onEdge); }
 
     }
 

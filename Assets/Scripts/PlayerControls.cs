@@ -9,6 +9,9 @@ public class PlayerControls : MonoBehaviour
     private Weapon[] myWeapons;
     private Health myHealth;
 
+    private Animator myAnim;
+    [HideInInspector] public bool interacting = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,8 @@ public class PlayerControls : MonoBehaviour
         myWeapons = GetComponents<Weapon>();
         myHealth = GetComponentInChildren<Health>();
         myHealth.team = gameObject.layer;
+
+        myAnim = GetComponentInChildren<Animator>();
 
         if (aimingPrefab)
         {
@@ -33,6 +38,7 @@ public class PlayerControls : MonoBehaviour
         {
             myMove.moveInput = 0;
             myMove.verticalInput = 0;
+            interacting = false;
         }
         else //not stunned, can input
         {
@@ -40,23 +46,32 @@ public class PlayerControls : MonoBehaviour
             myMove.verticalInput = (int)Input.GetAxis("Vertical");
 
             if (Input.GetButtonDown("Jump")) { myMove.Jump(); }
-            if (Input.GetButtonDown("Dash")) { myMove.Dash(); }
 
-            if (Input.GetButton("Primary")) { myWeapons[0].tryAttack(); }
-            else if (Input.GetButton("Secondary")) { myWeapons[1].tryAttack(); }
+            if (!myMove.onEdge)
+            {
+                if (Input.GetButtonDown("Dash")) { myMove.Dash(); }
+
+                if (Input.GetButton("Primary")) { myWeapons[0].tryAttack(); }
+                else if (Input.GetButton("Secondary")) { myWeapons[1].tryAttack(); }
+
+                if (Input.GetButton("Interact")) { interacting = true; }
+                else { interacting = false; }
+            }
+            
         }
         
-        
-        /*
-        var attacking = false;
-        foreach (Weapon w in myWeapons) { if (w.attacking) { attacking = true; } }
+    }
 
-        if(!attacking)
-        {
-            if (Input.GetButton("Primary")) { myWeapons[0].tryAttack(); }
-            else if (Input.GetButton("Secondary")) { myWeapons[1].tryAttack(); }
-        }
-        */
-        
+    public void Dig(float digTime)
+    {
+        StartCoroutine(StartDigging(digTime));
+    }
+
+    IEnumerator StartDigging(float digTime)
+    {
+        myHealth.TakeDamage(0, digTime, Vector3.zero);
+        interacting = false;
+        if (myAnim) { myAnim.SetTrigger("dug"); }
+        yield return new WaitForSeconds(digTime);
     }
 }
