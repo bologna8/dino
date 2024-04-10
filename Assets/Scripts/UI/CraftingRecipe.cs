@@ -45,11 +45,22 @@ public class CraftingRecipe : Item
         }
         else
         {
-            Debug.Log("You dont have enough ingredients to craft: " + result.name);
+            Debug.Log("You dont have enaugh ingredients to craft: " + result.name);
+        }
+    }
+
+    public override string GetItemDescription()
+    {
+        string itemIngredients = "";
+
+        foreach (Ingredient ingredient in ingredients)
+        {
+            itemIngredients += "- " + ingredient.amount + " " + ingredient.item.name + "\n";
         }
 
-
+        return itemIngredients;
     }
+
 
     [System.Serializable]
     public class Ingredient

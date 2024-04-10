@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d58ce0ce4b81e47b1151f3844d68e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 1135938004}
+  inventoryUi: {fileID: 1135938004}
 --- !u!4 &595261751
 Transform:
   m_ObjectHideFlags: 0
@@ -1294,9 +1294,10 @@ MonoBehaviour:
   inventoryParent: {fileID: 1701277862}
   inventoryTab: {fileID: 2032788060}
   craftingTab: {fileID: 1284597270}
-  itemSlotPrefab: {fileID: 3933648733552199952, guid: 4ccc7dc6fe5528e4682b4f7a5a51b119, type: 3}
-  inventoryItemTransform: {fileID: 1485948131}
-  craftingItemTransform: {fileID: 909312626}
+  inventorySlotPrefab: {fileID: 3933648733552199952, guid: 4ccc7dc6fe5528e4682b4f7a5a51b119, type: 3}
+  craftingSlotPrefab: {fileID: 3933648733552199952, guid: 7599a5e72f521da4598f25c3f6e05976, type: 3}
+  invetoryItemTransform: {fileID: 1485948131}
+  craftingItemTranform: {fileID: 909312626}
 --- !u!1 &1169697475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,10 +2834,10 @@ RectTransform:
   - {fileID: 1284597271}
   m_Father: {fileID: 1135938003}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 208, y: 63}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -198, y: 347}
+  m_SizeDelta: {x: 490.12024, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701277864
 MonoBehaviour:
@@ -2909,7 +2910,7 @@ RectTransform:
   m_Father: {fileID: 1308009047}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.017472934, y: 0}
-  m_AnchorMax: {x: 0.95834607, y: 1}
+  m_AnchorMax: {x: 0.9583459, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3000,6 +3001,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d220cfc6ecdb09f488f1620ca19c88d5, type: 2}
   craftingRecipes:
   - {fileID: 11400000, guid: d48fe323ae413694bb42aa11cf90615e, type: 2}
+  canvas: {fileID: 0}
+  itemInfoPrefab: {fileID: 0}
+  moveX: 0
+  moveY: 0
 --- !u!1 &1794903541
 GameObject:
   m_ObjectHideFlags: 0

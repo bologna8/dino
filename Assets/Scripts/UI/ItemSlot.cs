@@ -33,22 +33,34 @@ public class ItemSlot : MonoBehaviour
         {
             item.Use();
         }
-    }
-
+    }   
+    
     public void DestroySlot()
     {
         Destroy(gameObject);
     }
 
+    public void OnRemoveButtonClicked()
+    {
+        if(item != null)
+        {
+            Inventory.instance.RemoveItem(item);
+        }
+    }
+
+    
     public void OnCursorEnter()
     {
         if (item == null) return;
 
+        //display item info
+        GameManager.instance.DisplayItemInfo(item.name, item.GetItemDescription(), transform.position);
     }
 
     public void OnCursorExit()
     {
         if (item == null) return;
 
+        GameManager.instance.DestroyItemInfo();
     }
 }

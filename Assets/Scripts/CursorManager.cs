@@ -3,14 +3,14 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     [SerializeField]
-    private InventoryUI inventoryUI;
+    private InventoryUi inventoryUi; 
     void Start()
     {
         Cursor.visible = false;
         
         Cursor.lockState = CursorLockMode.Locked;
 
-        if(inventoryUI.InventoryOpen)
+        if(inventoryUi.InventoryOpen)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
