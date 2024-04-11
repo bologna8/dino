@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,12 +126,12 @@ TextureImporter:
       name: attacktest_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 26
+        y: 925
+        width: 98
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: attacktest_1
       rect:
         serializedVersion: 2
-        x: 126
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 152
+        y: 925
+        width: 98
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: attacktest_2
       rect:
         serializedVersion: 2
-        x: 252
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 278
+        y: 925
+        width: 99
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: attacktest_3
       rect:
         serializedVersion: 2
-        x: 378
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 404
+        y: 925
+        width: 99
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: attacktest_4
       rect:
         serializedVersion: 2
-        x: 504
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 530
+        y: 925
+        width: 100
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: attacktest_5
       rect:
         serializedVersion: 2
-        x: 630
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 656
+        y: 925
+        width: 100
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: attacktest_6
       rect:
         serializedVersion: 2
-        x: 756
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 782
+        y: 925
+        width: 100
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: attacktest_7
       rect:
         serializedVersion: 2
-        x: 882
-        y: 882
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 908
+        y: 925
+        width: 100
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: attacktest_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 756
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 26
+        y: 799
+        width: 100
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: attacktest_9
       rect:
         serializedVersion: 2
-        x: 126
-        y: 756
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 152
+        y: 799
+        width: 100
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,12 +336,12 @@ TextureImporter:
       name: attacktest_10
       rect:
         serializedVersion: 2
-        x: 252
-        y: 756
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 278
+        y: 799
+        width: 100
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,12 +357,12 @@ TextureImporter:
       name: attacktest_11
       rect:
         serializedVersion: 2
-        x: 378
-        y: 756
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 404
+        y: 799
+        width: 100
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
