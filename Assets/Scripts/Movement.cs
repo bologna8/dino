@@ -54,6 +54,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         onGround = colliders[0].touching;
+        if (myAnim) { myAnim.SetBool("onGround", onGround); }
 
         if (grabLedges) { ledgeGrab(); }
 
@@ -158,8 +159,8 @@ public class Movement : MonoBehaviour
 
     public IEnumerator ledgeClimb()
     {
-        myAnim.SetTrigger("climbed");
-        var ledgeDelay = 0.75f;
+        if (myAnim) { myAnim.SetTrigger("climbed"); }
+        var ledgeDelay = 0.4f;
         myHP.TakeDamage(0, ledgeDelay, Vector2.zero);
         myBod.velocity = new Vector2(myBod.velocity.x, 0);
         myBod.gravityScale = 0f;
@@ -177,7 +178,7 @@ public class Movement : MonoBehaviour
     private void ledgeGrab()
     {
         bool tryGrab = true;
-        if (verticalInput < 0) { tryGrab = false; }
+        if (verticalInput < 0) { jumpDelay = 0.2f; }     
         if (turning) { tryGrab = false; }
         if (jumpDelay > 0) { tryGrab = false; }
         if (myHP.stunTime > 0) { tryGrab = false; }

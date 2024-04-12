@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour
     private Health myHealth;
     private Movement myMovement;
 
+    private Animator myAnim;
+
     //[HideInInspector] public bool attacking = false;
 
 
@@ -19,6 +21,7 @@ public class Weapon : MonoBehaviour
     {
         myHealth = GetComponentInChildren<Health>();
         myMovement = GetComponent<Movement>();
+        myAnim = GetComponentInChildren<Animator>();
 
         if (damagePrefab) { changeAttack(damagePrefab); }        
     }
@@ -45,6 +48,8 @@ public class Weapon : MonoBehaviour
     public IEnumerator AttackRoutine()
     {
         attackReady = false;
+
+        if (myAnim) { myAnim.SetTrigger("attack"); }
 
         var startSpot = transform.position;
         var dir = Vector2.right;

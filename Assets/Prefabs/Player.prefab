@@ -672,6 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimingPrefab: {fileID: 4847762660224406124, guid: 275a611ad9b1a5744bf4d33d7ecc9715, type: 3}
+  interacting: 0
 --- !u!114 &100242706955534290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,6 +697,7 @@ MonoBehaviour:
   faceRight: 1
   onGround: 0
   myBod: {fileID: 0}
+  onEdge: 0
   turning: 0
   turnTime: 0.123
   grabLedges: 1
