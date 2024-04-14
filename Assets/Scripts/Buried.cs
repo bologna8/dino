@@ -5,7 +5,7 @@ using UnityEngine;
 public class Buried : MonoBehaviour
 {
     public GameObject digEffect;
-    public GameObject[] BuriedTreasures;
+    public Item[] BuriedItems;
     public float timeToDig = 1f;
     [HideInInspector] public bool playerTouching = false;
 
@@ -46,10 +46,16 @@ public class Buried : MonoBehaviour
         yield return new WaitForSeconds(digTime);
         if (playerTouching) 
         {
-            var r = Random.Range(0, BuriedTreasures.Length);
-            var treasure = BuriedTreasures[r];
-            if (treasure) { Instantiate(treasure, transform.position, transform.rotation); }
-            if (digEffect) { Instantiate(digEffect, transform.position, transform.rotation); }
+            var r = Random.Range(0, BuriedItems.Length);
+            var item = BuriedItems[r];
+            if (item) 
+            {
+                // Add the item to the player's inventory
+                Inventory.instance.AddItem(item);
+
+                // Instantiate the dig effect
+                if (digEffect) { Instantiate(digEffect, transform.position, transform.rotation); }
+            }
         }
     }
 }

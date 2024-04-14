@@ -17,7 +17,7 @@ MonoBehaviour:
   itemDescription: Used for crafting
   result: {fileID: 11400000, guid: b278cf38ae13a3a499b7fb2e270ee2a5, type: 2}
   ingredients:
-  - item: {fileID: 11400000, guid: e633e4382defd224082a125546287b35, type: 2}
-    amount: 1
   - item: {fileID: 11400000, guid: d220cfc6ecdb09f488f1620ca19c88d5, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: e633e4382defd224082a125546287b35, type: 2}
     amount: 1
