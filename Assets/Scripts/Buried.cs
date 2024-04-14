@@ -1,36 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Buried : MonoBehaviour
 {
     public GameObject digEffect;
-    public Item[] BuriedItems;
+    public CraftingRecipe[] BuriedRecipes;
     public float timeToDig = 1f;
     [HideInInspector] public bool playerTouching = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         var player = other.gameObject.GetComponent<PlayerControls>();
         if (player)
-        { 
+        {
             playerTouching = true;
-            if (player.interacting) 
-            { 
+            if (player.interacting)
+            {
                 player.Dig(timeToDig);
-                StartCoroutine(delayedDig(timeToDig));
+                StartCoroutine(delayedDig(timeToDig, player));
             }
         }
     }
@@ -41,17 +40,17 @@ public class Buried : MonoBehaviour
         if (player && playerTouching) { playerTouching = false; }
     }
 
-    IEnumerator delayedDig(float digTime)
+    IEnumerator delayedDig(float digTime, PlayerControls player)
     {
         yield return new WaitForSeconds(digTime);
-        if (playerTouching) 
+        if (playerTouching)
         {
-            var r = Random.Range(0, BuriedItems.Length);
-            var item = BuriedItems[r];
-            if (item) 
+            var r = Random.Range(0, BuriedRecipes.Length);
+            var recipe = BuriedRecipes[r];
+            if (recipe)
             {
-                // Add the item to the player's inventory
-                Inventory.instance.AddItem(item);
+                // Unlock the recipe for the player
+                player.UnlockRecipe(recipe);
 
                 // Instantiate the dig effect
                 if (digEffect) { Instantiate(digEffect, transform.position, transform.rotation); }

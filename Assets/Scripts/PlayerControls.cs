@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,26 @@ public class PlayerControls : MonoBehaviour
     [HideInInspector] public List<Bush> bushesTouched = new List<Bush>();
     [HideInInspector] public bool hidden = false;
     public GameObject hideEffect;
+
+    // Event to notify when a recipe is unlocked
+    public static event Action<CraftingRecipe> onRecipeUnlocked;
+
+    private List<CraftingRecipe> unlockedRecipes = new List<CraftingRecipe>();
+    
+    public void UnlockRecipe(CraftingRecipe recipe)
+    {
+        if(!unlockedRecipes.Contains(recipe))
+        {
+            unlockedRecipes.Add(recipe);
+            Debug.Log("Recipe unlocked " + recipe.name);
+
+            // Trigger the event when a recipe is unlocked
+            onRecipeUnlocked?.Invoke(recipe);
+        }
+        else{
+            Debug.Log("Recipe already unlocked "+recipe.name);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

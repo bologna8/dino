@@ -21,9 +21,12 @@ public class InventoryUi : MonoBehaviour
 
     private void Start()
     {
+        PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
         Inventory.instance.onItemChange += UpdateInventoryUI;
         UpdateInventoryUI();
         SetUpCraftingRecipes();
+        
+
     }
 
     // Update is called once per frame
@@ -42,6 +45,12 @@ public class InventoryUi : MonoBehaviour
                 OpenInventory();
             }
         }
+    }
+    private void UpdateCraftingUI(CraftingRecipe recipe)
+    {
+        GameObject go = Instantiate(craftingSlotPrefab, craftingItemTranform);
+        ItemSlot slot = go.GetComponent<ItemSlot>();
+        slot.AddItem(recipe);
     }
 
     private void SetUpCraftingRecipes()
@@ -98,6 +107,7 @@ public class InventoryUi : MonoBehaviour
     {
         ChangeCursorState(false);
         inventoryOpen = true;
+        Time.timeScale = 0f; 
         inventoryParent.SetActive(true);
     }
 
@@ -105,6 +115,7 @@ public class InventoryUi : MonoBehaviour
     {
         ChangeCursorState(true);
         inventoryOpen = false;
+        Time.timeScale = 1f; 
         inventoryParent.SetActive(false);
     }
 
