@@ -16,6 +16,10 @@ public class AI : MonoBehaviour
     public Vector2 patrolTime = new Vector2(2,4);
     private float patrolCurrent;
 
+    public float attackRange = 1f;
+    public float sightRange = 10f;
+    public LayerMask sightLayers;
+
     [HideInInspector] public Transform chasing;
     public Vector2 agroMemoryTime = new Vector2(3,6);
     private float memoryCurrent;
@@ -44,15 +48,31 @@ public class AI : MonoBehaviour
     {
         if (myMovement && myHealth)
         {
-            if (myMovement.colliders.Length > 5) 
-            { 
-                if(myMovement.colliders[5].touching) { Agro(myMovement.colliders[5].lastCollided.transform); }
-                else if (currentState == State.chase) 
+            //Look Ahead
+            var facing = Vector2.right;
+            if (!myMovement.faceRight) { facing *= -1;}
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, facing, sightRange, sightLayers);
+
+            if (hit.collider != null) 
+            {
+                var debugColor = Color.yellow;
+                var player = hit.transform.gameObject.GetComponent<PlayerControls>();
+                if (player) 
                 {
-                    memoryCurrent -= Time.deltaTime; //They forgor
-                    if (memoryCurrent <= 0) { Chill(); }
+                    if(!player.hidden) { debugColor = Color.red; Agro(player.transform); }
                 }
+                Debug.DrawRay(transform.position, facing * hit.distance, debugColor);
             }
+            else { Debug.DrawRay(transform.position, facing * sightRange, Color.green); } 
+
+
+            if (currentState == State.chase) 
+            {
+                memoryCurrent -= Time.deltaTime; //They forgor
+                if (memoryCurrent <= 0) { Chill(); }
+            }
+            
 
             if (myHealth.stunTime > 0) { myMovement.moveInput = 0; }
             else
@@ -100,7 +120,7 @@ public class AI : MonoBehaviour
         chasing = null;
     }
 
-    void Agro(Transform target)
+    public void Agro(Transform target)
     {
         currentState = State.chase; 
         memoryCurrent = Random.Range(agroMemoryTime.x, agroMemoryTime.y);
@@ -111,7 +131,11 @@ public class AI : MonoBehaviour
     {
         if (chasing)
         {
-            if (myMovement.colliders[6].touching) { Attack(); }
+            if (Vector3.Distance(chasing.position, transform.position) < attackRange)
+            {
+                myMovement.moveInput = 0;
+                Attack();
+            }
             else
             {
                 if (chasing.position.x > transform.position.x) 

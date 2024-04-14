@@ -7,7 +7,7 @@ public class Buried : MonoBehaviour
     public GameObject digEffect;
     public GameObject[] BuriedTreasures;
     public float timeToDig = 1f;
-    public bool playerTouching = false;
+    [HideInInspector] public bool playerTouching = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class Buried : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        var player = other.gameObject.GetComponentInParent<PlayerControls>();
+        var player = other.gameObject.GetComponent<PlayerControls>();
         if (player)
         { 
             playerTouching = true;
@@ -37,7 +37,7 @@ public class Buried : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        var player = other.gameObject.GetComponentInParent<PlayerControls>();
+        var player = other.gameObject.GetComponent<PlayerControls>();
         if (player && playerTouching) { playerTouching = false; }
     }
 

@@ -28,12 +28,16 @@ public class Damage : MonoBehaviour
     private List<Health> hitList = new List<Health>();
 
     //Boomerang stuff
-    public LayerMask bounceMask;
+    public LayerMask hitMask;
+
+    public bool breakable = false;
     public float returnTime;
     private float returnCurrent;
     private Vector3 rotateSpeed = new Vector3(0,0, 420);
     private bool bounced;
     private Vector3 endPosition;
+
+    public GameObject destroyEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -107,15 +111,29 @@ public class Damage : MonoBehaviour
 
                 hitHealth.TakeDamage(damage, stunTime, dir * knockback);
 
-                if (returnTime > 0 && !bounced) { BounceBack(); }
+                var ai = other.gameObject.GetComponentInParent<AI>();
+                if (ai && origin) { ai.Agro(origin); }
+
+                if (breakable) { Destroy(gameObject); }
+                else if (hitHealth.currentHP > 0 && returnTime > 0 && !bounced) 
+                { BounceBack(); } //Boomerang bounce if enemy don't die
             }
         }
 
         //ok boomerang
-        if (other.gameObject.layer == gameObject.layer && bounced)
+        if (other.transform == origin && bounced)
         { Destroy(gameObject); }
 
-        if ((bounceMask.value & (1 << other.gameObject.layer)) > 0 && !bounced)
-        { BounceBack(); }
+        if ((hitMask.value & (1 << other.gameObject.layer)) > 0)
+        {
+            if (breakable) { Destroy(gameObject); }
+            else if (!bounced) { BounceBack(); }
+        }
+
+    }
+
+    void OnDestroy()
+    {
+        if (destroyEffect) { Instantiate(destroyEffect, transform.position, Quaternion.identity); }
     }
 }

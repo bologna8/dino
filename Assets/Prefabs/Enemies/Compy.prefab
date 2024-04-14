@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1031915429222613423, guid: d81d36a8458cf244abbe513ff2e096d8, type: 3}
+      propertyPath: baseSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031915429222613423, guid: d81d36a8458cf244abbe513ff2e096d8, type: 3}
+      propertyPath: accelerate
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1792351589807638911, guid: d81d36a8458cf244abbe513ff2e096d8, type: 3}
       propertyPath: m_Controller
       value: 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public bool destroyParent = true;
     [HideInInspector] public int team;
     private float respawnTime = 0.1f;
     public GameObject HealthBarPrefab;
@@ -75,7 +76,7 @@ public class Health : MonoBehaviour
         if (deathEffect) { Instantiate(deathEffect, transform.position, Quaternion.identity); }
         
         var checkParent = transform.parent;
-        if (checkParent) { Destroy(checkParent.gameObject); }
+        if (checkParent && destroyParent) { Destroy(checkParent.gameObject); }
         else { Destroy(gameObject); }        
     }
 

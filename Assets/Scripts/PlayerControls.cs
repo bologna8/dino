@@ -10,7 +10,11 @@ public class PlayerControls : MonoBehaviour
     private Health myHealth;
 
     private Animator myAnim;
+    private SpriteRenderer mySprite;
     [HideInInspector] public bool interacting = false;
+    [HideInInspector] public List<Bush> bushesTouched = new List<Bush>();
+    [HideInInspector] public bool hidden = false;
+    public GameObject hideEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,7 @@ public class PlayerControls : MonoBehaviour
         myHealth.team = gameObject.layer;
 
         myAnim = GetComponentInChildren<Animator>();
+        mySprite = GetComponentInChildren<SpriteRenderer>();
 
         if (aimingPrefab)
         {
@@ -39,6 +44,7 @@ public class PlayerControls : MonoBehaviour
             myMove.moveInput = 0;
             myMove.verticalInput = 0;
             interacting = false;
+            hidden = false;
         }
         else //not stunned, can input
         {
@@ -54,10 +60,30 @@ public class PlayerControls : MonoBehaviour
                 if (Input.GetButton("Primary")) { myWeapons[0].tryAttack(); }
                 else if (Input.GetButton("Secondary")) { myWeapons[1].tryAttack(); }
 
+                
                 if (Input.GetButton("Interact")) { interacting = true; }
                 else { interacting = false; }
+
+                //Bush stuff
+                if (bushesTouched.Count > 0) 
+                { 
+                    if (Input.GetButtonDown("Interact")) 
+                    { 
+                        hidden = !hidden; 
+                        if(hidden && hideEffect) { Instantiate(hideEffect, transform.position, Quaternion.identity); } 
+                    } 
+                }
+                else if (hidden) { hidden = false;}
+
             }
             
+        }
+
+        //stealth stuff
+        if(mySprite) 
+        {
+            if(hidden) { mySprite.sortingOrder = -10; }
+            else { mySprite.sortingOrder = 0; }
         }
         
     }

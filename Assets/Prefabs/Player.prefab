@@ -673,6 +673,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimingPrefab: {fileID: 4847762660224406124, guid: 275a611ad9b1a5744bf4d33d7ecc9715, type: 3}
   interacting: 0
+  bushesTouched: []
+  hidden: 0
+  hideEffect: {fileID: 749027114909299004, guid: c7bc877688e091e46a3864ab27a6def5, type: 3}
 --- !u!114 &100242706955534290
 MonoBehaviour:
   m_ObjectHideFlags: 0
