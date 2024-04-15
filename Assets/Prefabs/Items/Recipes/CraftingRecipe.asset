@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1569f4d78dabf05428872ca329c73c4e, type: 3}
-  m_Name: Lantern
+  m_Script: {fileID: 11500000, guid: fce1be3aa6eb56843b32fdf4352dac54, type: 3}
+  m_Name: CraftingRecipe
   m_EditorClassIdentifier: 
-  name: Lantern
-  icon: {fileID: -1883283394, guid: c684e740d95da0c4892004a4d698f05a, type: 3}
-  itemDescription: 'Used for light '
+  name: Default Item
+  icon: {fileID: 0}
+  itemDescription: Used for crafting
+  result: {fileID: 0}
+  ingredients: []

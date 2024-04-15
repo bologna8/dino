@@ -709,6 +709,7 @@ MonoBehaviour:
   dashForce: 666
   dashTime: 0.15
   dashCooldown: 0.5
+  slowPercent: 1
   myAnim: {fileID: 0}
 --- !u!114 &8754165084863843932
 MonoBehaviour:
@@ -724,6 +725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: e9a3eef1ac185f54cb33107479e4946a, type: 3}
+  ignoreTeams: 0
 --- !u!114 &2383316620427195789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,6 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: 733c4076e63f47244b5ed4febcfaab97, type: 3}
+  ignoreTeams: 0
 --- !u!50 &340933065370478967
 Rigidbody2D:
   serializedVersion: 4
@@ -891,7 +894,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
