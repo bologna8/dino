@@ -24,6 +24,9 @@ public class AI : MonoBehaviour
     public Vector2 agroMemoryTime = new Vector2(3,6);
     private float memoryCurrent;
 
+    public bool carnivore = true;
+    [HideInInspector] public bool frenzied;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +60,17 @@ public class AI : MonoBehaviour
             if (hit.collider != null) 
             {
                 var debugColor = Color.yellow;
+
                 var player = hit.transform.gameObject.GetComponent<PlayerControls>();
-                if (player) 
-                {
-                    if(!player.hidden) { debugColor = Color.red; Agro(player.transform); }
-                }
+                bool seePlayer = false; 
+                if (player) { if (!player.hidden) { seePlayer = true; } }
+                
+                var decoy = hit.transform.gameObject.GetComponent<Decoy>();
+                bool takeTheBait = false; 
+                if (decoy) { if  (decoy.bait && carnivore) { takeTheBait = true; } }
+
+                if (seePlayer || takeTheBait) { debugColor = Color.red; Agro(hit.transform); }
+
                 Debug.DrawRay(transform.position, facing * hit.distance, debugColor);
             }
             else { Debug.DrawRay(transform.position, facing * sightRange, Color.green); } 
@@ -151,6 +160,7 @@ public class AI : MonoBehaviour
         if (myWeapons.Length > 0 && myHealth.stunTime <= 0)
         {
             var randomAttack = myWeapons[Random.Range(0, myWeapons.Length)];
+            randomAttack.ignoreTeams = frenzied;
             randomAttack.tryAttack();
         }
     }

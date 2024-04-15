@@ -80,6 +80,9 @@ public class PlayerControls : MonoBehaviour
         }
 
         //stealth stuff
+        myMove.slowPercent = 1f;
+        if (hidden) { myMove.slowPercent = 0.25f; }
+
         if(mySprite) 
         {
             if(hidden) { mySprite.sortingOrder = -10; }

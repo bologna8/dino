@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &322461243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,9 +415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digEffect: {fileID: 749027114909299004, guid: 3e12770f3bae7184897f62cf20064719, type: 3}
-  BuriedTreasures:
+  BuriedItems:
   - {fileID: 0}
-  - {fileID: 3561253398169580007, guid: 5107f3e1abe315b44a898093eda24298, type: 3}
   timeToDig: 1
   playerTouching: 0
 --- !u!61 &322461244
@@ -4099,6 +4098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8754165084863843932, guid: ee28a845d3197574b981cbfc853297e6, type: 3}
+      propertyPath: damagePrefab
+      value: 
+      objectReference: {fileID: 6738095107012820417, guid: e48789f26c6519644b26a3d2770b8a49, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

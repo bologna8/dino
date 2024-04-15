@@ -5,6 +5,8 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     [HideInInspector] public int team;
+    [HideInInspector] public bool ignoreTeams = false;
+
     public float damage = 1f;
     public float stunTime = 0.1f;
     public float knockback = 100f;
@@ -102,7 +104,14 @@ public class Damage : MonoBehaviour
         var hitHealth = other.gameObject.GetComponent<Health>();
         if (hitHealth)
         {
-            if (!hitList.Contains(hitHealth) && hitHealth.team != team)
+            bool hitIt = true;
+            if (damage <= 0) { hitIt = false; }
+            if (hitList.Contains(hitHealth)) { hitIt = false; } 
+            if (hitHealth.team == team && !ignoreTeams) { hitIt = false; }
+            var checkOrigin = other.transform.GetComponentInParent<Weapon>(); 
+            if (checkOrigin) { if(checkOrigin.transform == origin) { hitIt = false; } }
+
+            if (hitIt)
             {
                 hitList.Add(hitHealth);
 

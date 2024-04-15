@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     public float baseSpeed = 10f;
     public float momentumTime = 1f;
     [HideInInspector] public float momentumCurrent;
+
+    private float maxMomentum;
     public float jumpForce = 100f;
     private float jumpDelay = 0.1f;
     public GameObject jumpEffect;
@@ -31,6 +33,8 @@ public class Movement : MonoBehaviour
     public float dashCooldown = 0.3f;
     private float dashCurrent;
     private Health myHP;
+
+    [HideInInspector] public float slowPercent = 1f;
 
     private Coroutine climbingCoroutine;
     [HideInInspector] public Animator myAnim;
@@ -62,8 +66,9 @@ public class Movement : MonoBehaviour
         { if (onGround || onEdge) { momentumCurrent -= Time.deltaTime; } }
         else { momentumCurrent += Time.deltaTime; }
         momentumCurrent = Mathf.Clamp(momentumCurrent, 0, momentumTime);
+        maxMomentum = Mathf.Clamp(momentumCurrent / momentumTime, 0f, slowPercent);
 
-        if (myAnim) { myAnim.SetFloat("moveValue", momentumCurrent / momentumTime); }
+        if (myAnim) { myAnim.SetFloat("moveValue", maxMomentum); }
 
         if (jumpDelay > 0) { jumpDelay -= Time.deltaTime; }
         if (dashCurrent > 0) { dashCurrent -= Time.deltaTime; }
@@ -116,7 +121,7 @@ public class Movement : MonoBehaviour
             float Xforce = accelerate * moveInput;
             myBod.AddForce(Vector2.right * Xforce);
 
-            var max = Mathf.Lerp(0, baseSpeed, momentumCurrent / momentumTime);
+            var max = Mathf.Lerp(0, baseSpeed, maxMomentum);
             var moveX = Mathf.Clamp(myBod.velocity.x, -max, max);
             myBod.velocity = new Vector2(moveX, myBod.velocity.y);
         }

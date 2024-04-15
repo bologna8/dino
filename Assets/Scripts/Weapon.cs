@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
     private Animator myAnim;
 
-    //[HideInInspector] public bool attacking = false;
+    [HideInInspector] public bool ignoreTeams;
 
 
     // Start is called before the first frame update
@@ -79,11 +79,6 @@ public class Weapon : MonoBehaviour
             if (!myMovement.faceRight) { preMove.x *= -1; midMove *= -1; }
         }
 
-        //if (myMovement.faceRight) // Betta look to the left!
-        //{ if (mousePos.x < transform.position.x) { myMovement.Turn(); } }
-        //else 
-        //{ if (mousePos.x > transform.position.x) {myMovement.Turn(); } }
-
         //Start Actual Attack
         myHealth.TakeDamage(0, attackStats.windup + attackStats.attackDuration, preMove);
         yield return new WaitForSeconds(attackStats.windup);
@@ -93,6 +88,7 @@ public class Weapon : MonoBehaviour
         newAttack.origin = transform;
         newAttack.offset = startSpot - transform.position;
         newAttack.team = myHealth.team;
+        newAttack.ignoreTeams = ignoreTeams;
         if (!myMovement.faceRight) { newAttack.Flip(); }
 
         yield return new WaitForSeconds(attackStats.attackDuration);
