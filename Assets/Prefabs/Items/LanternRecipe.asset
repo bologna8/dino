@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Lantern Recipe
   icon: {fileID: -1883283394, guid: c684e740d95da0c4892004a4d698f05a, type: 3}
-  itemDescription: Used for crafting
+  itemDescription: Used to craft lantern
   result: {fileID: 11400000, guid: b278cf38ae13a3a499b7fb2e270ee2a5, type: 2}
   ingredients:
   - item: {fileID: 11400000, guid: d220cfc6ecdb09f488f1620ca19c88d5, type: 2}
