@@ -8,14 +8,35 @@ public class ItemSlot : MonoBehaviour
     public Image icon;
     private Item item;
 
+    public delegate void OnItemUsed();
+    public event OnItemUsed ItemUsed;
+
+    private void Start()
+    {
+        if (item != null)
+        {
+            // Subscribe to the ItemUsed event of the item
+            item.ItemUsed += OnItemUsedEventHandler;
+        }
+    }
+
     public void AddItem(Item newItem)
     {
         item = newItem;
         icon.sprite = newItem.icon;
+
+        // Subscribe to the ItemUsed event of the item
+        item.ItemUsed += OnItemUsedEventHandler;
     }
 
     public void ClearSlot()
     {
+        // Unsubscribe from the ItemUsed event before clearing the slot
+        if (item != null)
+        {
+            item.ItemUsed -= OnItemUsedEventHandler;
+        }
+
         item = null;
         icon.sprite = null;
     }
@@ -32,11 +53,18 @@ public class ItemSlot : MonoBehaviour
         else
         {
             item.Use();
+            ItemUsed?.Invoke(); // Trigger the ItemUsed event of the item slot
         }
     }   
-    
+
     public void DestroySlot()
     {
+        // Unsubscribe from the ItemUsed event before destroying the slot
+        if (item != null)
+        {
+            item.ItemUsed -= OnItemUsedEventHandler;
+        }
+
         Destroy(gameObject);
     }
 
@@ -48,7 +76,6 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
-    
     public void OnCursorEnter()
     {
         if (item == null) return;
@@ -62,5 +89,10 @@ public class ItemSlot : MonoBehaviour
         if (item == null) return;
 
         GameManager.instance.DestroyItemInfo();
+    }
+
+    private void OnItemUsedEventHandler()
+    {
+        // Empty method, used only to handle event subscription
     }
 }

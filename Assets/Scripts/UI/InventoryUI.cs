@@ -6,9 +6,11 @@ public class InventoryUi : MonoBehaviour
 {
     private bool inventoryOpen = false;
     public bool InventoryOpen => inventoryOpen;
+
     public GameObject inventoryParent;
     public GameObject inventoryTab;
     public GameObject craftingTab;
+    public GameObject itemDescriptionPanel; // Reference to the item description panel GameObject
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
 
@@ -18,7 +20,6 @@ public class InventoryUi : MonoBehaviour
     public Transform invetoryItemTransform;
     public Transform craftingItemTranform;
     
-
     private void Start()
     {
         PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
@@ -26,7 +27,11 @@ public class InventoryUi : MonoBehaviour
         UpdateInventoryUI();
         SetUpCraftingRecipes();
         
-
+        // Subscribe to the ItemUsed event of all item slots
+        foreach (ItemSlot slot in itemSlotList)
+        {
+            slot.ItemUsed += DeactivateItemDescriptionPanel;
+        }
     }
 
     // Update is called once per frame
@@ -36,16 +41,38 @@ public class InventoryUi : MonoBehaviour
         {
             if (inventoryOpen)
             {
-                //close inventory
                 CloseInventory();
             }
             else
             {
-                //openInventory
                 OpenInventory();
             }
         }
     }
+
+    private void OpenInventory()
+    {
+        ChangeCursorState(false);
+        inventoryOpen = true;
+        inventoryParent.SetActive(true);
+    }
+
+    private void CloseInventory()
+    {
+        ChangeCursorState(true);
+        inventoryOpen = false;
+        inventoryParent.SetActive(false);
+        DeactivateItemDescriptionPanel(); // Deactivate item description panel when the inventory closes
+    }
+
+    private void DeactivateItemDescriptionPanel()
+    {
+        if (itemDescriptionPanel != null)
+        {
+            itemDescriptionPanel.SetActive(false);
+        }
+    }
+
     private void UpdateCraftingUI(CraftingRecipe recipe)
     {
         GameObject go = Instantiate(craftingSlotPrefab, craftingItemTranform);
@@ -71,7 +98,6 @@ public class InventoryUi : MonoBehaviour
 
         if(currentItemCount > itemSlotList.Count)
         {
-            //Add more item slots
             AddItemSlots(currentItemCount);
         }
 
@@ -79,7 +105,6 @@ public class InventoryUi : MonoBehaviour
         {
             if(i < currentItemCount)
             {
-                //update the current item in the slot
                 itemSlotList[i].AddItem(Inventory.instance.inventoryItemList[i]);
             }
             else
@@ -102,35 +127,6 @@ public class InventoryUi : MonoBehaviour
         }
     }
 
-
-    private void OpenInventory()
-    {
-        ChangeCursorState(false);
-        inventoryOpen = true;
-        Time.timeScale = 0f; 
-        inventoryParent.SetActive(true);
-    }
-
-    private void CloseInventory()
-    {
-        ChangeCursorState(true);
-        inventoryOpen = false;
-        Time.timeScale = 1f; 
-        inventoryParent.SetActive(false);
-    }
-
-    public void OnCraftingTabClicked()
-    {
-        craftingTab.SetActive(true);
-        inventoryTab.SetActive(false);
-    }
-
-    public void OnInventoryTabClicked()
-    {
-        craftingTab.SetActive(false);
-        inventoryTab.SetActive(true);
-    }
-
     private void ChangeCursorState(bool lockCursor)
     {
         if (lockCursor)
@@ -144,5 +140,4 @@ public class InventoryUi : MonoBehaviour
             Cursor.visible = true;
         }
     }
-
 }

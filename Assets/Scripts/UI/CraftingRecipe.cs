@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "Item", menuName = "CraftingRecipe/baseRecipe")]
+[CreateAssetMenu(fileName = "CraftingRecipe", menuName = "CraftingRecipe/baseRecipe")]
 public class CraftingRecipe : Item
 {
     public Item result;
@@ -11,7 +9,7 @@ public class CraftingRecipe : Item
 
     private bool CanCraft()
     {
-        foreach(Ingredient ingredient in ingredients)
+        foreach (Ingredient ingredient in ingredients)
         {
             bool containsCurrentIngredient = Inventory.instance.ContainsItem(ingredient.item, ingredient.amount);
 
@@ -24,7 +22,7 @@ public class CraftingRecipe : Item
         return true;
     }
 
-    private void RemoveIngredientsFromIventory()
+    private void RemoveIngredientsFromInventory()
     {
         foreach (Ingredient ingredient in ingredients)
         {
@@ -32,23 +30,25 @@ public class CraftingRecipe : Item
         }
     }
 
+    // Override the Use method to handle crafting
     public override void Use()
     {
         if (CanCraft())
         {
-            //remove items
-            RemoveIngredientsFromIventory();
+            // Remove ingredients
+            RemoveIngredientsFromInventory();
 
-            //add a item to the inventory
+            // Add crafted item to the inventory
             Inventory.instance.AddItem(result);
             Debug.Log("You just crafted a: " + result.name);
         }
         else
         {
-            Debug.Log("You dont have enaugh ingredients to craft: " + result.name);
+            Debug.Log("You don't have enough ingredients to craft: " + result.name);
         }
     }
 
+    // Override the GetItemDescription method to include ingredient details
     public override string GetItemDescription()
     {
         string itemIngredients = "";
@@ -60,7 +60,6 @@ public class CraftingRecipe : Item
 
         return itemIngredients;
     }
-
 
     [System.Serializable]
     public class Ingredient

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8928bc7627c9a0b4ab588f34cd039611, type: 3}
+  m_Name: Lantern
+  m_EditorClassIdentifier: 
+  name: Lantern
+  icon: {fileID: -1883283394, guid: c684e740d95da0c4892004a4d698f05a, type: 3}
+  itemDescription: Can omit light
+  lightSourcePrefab: {fileID: 1909686587708451657, guid: 29cc5a7cbbebeb74892b795680f24ff2, type: 3}
+  currentLightSource: {fileID: 0}
+  isLightActive: 1
