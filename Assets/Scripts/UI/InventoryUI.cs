@@ -54,6 +54,7 @@ public class InventoryUi : MonoBehaviour
     {
         ChangeCursorState(false);
         inventoryOpen = true;
+        Time.timeScale = 0f;
         inventoryParent.SetActive(true);
     }
 
@@ -61,6 +62,7 @@ public class InventoryUi : MonoBehaviour
     {
         ChangeCursorState(true);
         inventoryOpen = false;
+        Time.timeScale = 1f; 
         inventoryParent.SetActive(false);
         DeactivateItemDescriptionPanel(); // Deactivate item description panel when the inventory closes
     }
