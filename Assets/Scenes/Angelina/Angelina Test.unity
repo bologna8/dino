@@ -3725,6 +3725,14 @@ PrefabInstance:
       value: Dirt
       objectReference: {fileID: 0}
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: recipeSprite
+      value: 
+      objectReference: {fileID: -1883283394, guid: c684e740d95da0c4892004a4d698f05a, type: 3}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: pickupEffectPrefab
+      value: 
+      objectReference: {fileID: 3561253398169580007, guid: 5107f3e1abe315b44a898093eda24298, type: 3}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: BuriedItems.Array.size
       value: 2
       objectReference: {fileID: 0}

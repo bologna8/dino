@@ -3,22 +3,11 @@ using UnityEngine;
 
 public class Buried : MonoBehaviour
 {
-    public GameObject digEffect;
+    public GameObject pickupEffectPrefab; // Prefab for the pick-up effect
+    public Sprite recipeSprite; // Sprite of the recipe item
     public CraftingRecipe[] BuriedRecipes;
     public float timeToDig = 1f;
     [HideInInspector] public bool playerTouching = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     void OnTriggerStay2D(Collider2D other)
     {
@@ -52,8 +41,21 @@ public class Buried : MonoBehaviour
                 // Unlock the recipe for the player
                 player.UnlockRecipe(recipe);
 
-                // Instantiate the dig effect
-                if (digEffect) { Instantiate(digEffect, transform.position, transform.rotation); }
+                // Display the recipe sprite
+                if (recipeSprite)
+                {
+                    // Instantiate a GameObject to display the sprite
+                    GameObject spriteObject = new GameObject("RecipeSprite");
+                    spriteObject.transform.position = transform.position;
+                    SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
+                    spriteRenderer.sprite = recipeSprite;
+                }
+
+                // Show the pick-up effect
+                if (pickupEffectPrefab)
+                {
+                    Instantiate(pickupEffectPrefab, transform.position, Quaternion.identity);
+                }
             }
         }
     }
