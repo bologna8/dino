@@ -15,6 +15,8 @@ public class Weapon : MonoBehaviour
 
     [HideInInspector] public bool ignoreTeams;
 
+    public GameObject attackArm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,11 @@ public class Weapon : MonoBehaviour
         myMovement = GetComponent<Movement>();
         myAnim = GetComponentInChildren<Animator>();
 
-        if (damagePrefab) { changeAttack(damagePrefab); }        
+        if (damagePrefab) { changeAttack(damagePrefab); }
+
+        //attackArm = transform.Find("Arm").gameObject;
+        if (attackArm) { attackArm.SetActive(false); }
+
     }
 
     // Update is called once per frame
@@ -67,6 +73,20 @@ public class Weapon : MonoBehaviour
             { if(!myMovement.faceRight) { myMovement.Turn(); } }
             else { if(myMovement.faceRight) { myMovement.Turn(); } }
         }
+
+        //point Arm at Aim
+        if (attackArm) 
+        {
+            attackArm.SetActive(true);
+            //Debug.Log(startAngle);
+            attackArm.transform.rotation = startAngle;
+            
+            //if (myMovement.faceRight) { attackArm.transform.localScale = new Vector3(1,1,1); }
+            //else { attackArm.transform.localScale = new Vector3(-1,1,1); }
+            
+            //if (myMovement.faceRight) { attackArm.transform.rotation = startAngle; }
+            //else { attackArm.transform.rotation = Quaternion.Inverse(startAngle); }
+        }
         
 
         //Attack move directionally
@@ -92,6 +112,8 @@ public class Weapon : MonoBehaviour
         if (!myMovement.faceRight) { newAttack.Flip(); }
 
         yield return new WaitForSeconds(attackStats.attackDuration);
+
+        if (attackArm) { attackArm.SetActive(false); }
 
         yield return new WaitForSeconds(attackStats.cooldown);
 

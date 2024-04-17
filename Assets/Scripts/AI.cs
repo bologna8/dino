@@ -15,10 +15,12 @@ public class AI : MonoBehaviour
     private float idleCurrent;
     public Vector2 patrolTime = new Vector2(2,4);
     private float patrolCurrent;
+    public GameObject curiousIcon;
 
     public float attackRange = 1f;
     public float sightRange = 10f;
     public LayerMask sightLayers;
+    public GameObject angryIcon;
 
     [HideInInspector] public Transform chasing;
     public Vector2 agroMemoryTime = new Vector2(3,6);
@@ -124,6 +126,11 @@ public class AI : MonoBehaviour
 
     void Chill()
     {
+        if(currentState == State.chase)
+        {
+            Emote(curiousIcon);
+        }
+
         currentState = State.idle; 
         idleCurrent = Random.Range(idleTime.x, idleTime.y);
         chasing = null;
@@ -131,9 +138,32 @@ public class AI : MonoBehaviour
 
     public void Agro(Transform target)
     {
+        if (target != chasing)
+        {
+            var player = target.GetComponent<PlayerControls>();
+            if(player) { Emote(angryIcon); }
+            else { Emote(curiousIcon); }
+
+            if (currentState == State.chase)
+            {
+                //if(player) { (Emote(angryIconIcon)); }
+                //else { Emote(curiousIcon); }   
+            }
+            else
+            {
+
+            }
+        }
+
         currentState = State.chase; 
         memoryCurrent = Random.Range(agroMemoryTime.x, agroMemoryTime.y);
         chasing = target;
+    }
+
+    void Emote(GameObject emoteEffect)
+    {
+        myHealth.TakeDamage(0, 0.1f, Vector2.zero);
+        Instantiate(emoteEffect, transform);
     }
 
     void Chase()

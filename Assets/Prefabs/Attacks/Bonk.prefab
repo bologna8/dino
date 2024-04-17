@@ -171,21 +171,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910707473a047bc4e83a69e7e6f43730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
+  ignoreTeams: 0
   damage: 1
   stunTime: 0.2
   knockback: 333
   onlyMoveHorizontal: 1
   movementPreAttack: -222
   movementMidAttack: 333
-  windup: 0.1
-  attackDuration: 0.5
+  windup: 0.2
+  attackDuration: 0.4
   cooldown: 0.1
   offset: {x: 1, y: 0, z: 0}
   projectileSpeed: 0
-  attackLifetime: 0.1
+  attackLifetime: 0.6
   origin: {fileID: 0}
   faceRight: 1
-  bounceMask:
+  hitMask:
     serializedVersion: 2
     m_Bits: 0
+  breakable: 0
   returnTime: 0
+  destroyEffect: {fileID: 0}

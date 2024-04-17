@@ -655,13 +655,17 @@ MonoBehaviour:
   currentState: 1
   idleTime: {x: 1, y: 2}
   patrolTime: {x: 2, y: 4}
+  curiousIcon: {fileID: 2344926815703226935, guid: 7c715ce3e286b914798030381979fb06, type: 3}
   attackRange: 1
   sightRange: 10
   sightLayers:
     serializedVersion: 2
     m_Bits: 1089
+  angryIcon: {fileID: 5518582692977729794, guid: a74661340bae1dc46a9c9642ae7a1ef7, type: 3}
   chasing: {fileID: 0}
   agroMemoryTime: {x: 3, y: 6}
+  carnivore: 1
+  frenzied: 0
 --- !u!114 &1031915429222613423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +697,7 @@ MonoBehaviour:
   dashForce: 100
   dashTime: 0.1
   dashCooldown: 0.3
+  slowPercent: 1
   myAnim: {fileID: 0}
 --- !u!114 &1043106949246640294
 MonoBehaviour:
@@ -708,6 +713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: 803b2e8d570dadb4dad276aac002f4c6, type: 3}
+  ignoreTeams: 0
+  attackArm: {fileID: 0}
 --- !u!50 &3014230376865057890
 Rigidbody2D:
   serializedVersion: 4

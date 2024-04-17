@@ -55,6 +55,7 @@ public class PlayerControls : MonoBehaviour
 
             foreach (Weapon w in myWeapons) { w.myAim = myAim; }
         }
+        
     }
 
     // Update is called once per frame
@@ -76,7 +77,11 @@ public class PlayerControls : MonoBehaviour
 
             if (!myMove.onEdge)
             {
-                if (Input.GetButtonDown("Dash")) { myMove.Dash(); }
+                if (Input.GetButtonDown("Dash")) 
+                { 
+                    myMove.Dash();
+                    if (myAnim) { myAnim.SetTrigger("dashed"); }
+                }
 
                 if (Input.GetButton("Primary")) { myWeapons[0].tryAttack(); }
                 else if (Input.GetButton("Secondary")) { myWeapons[1].tryAttack(); }

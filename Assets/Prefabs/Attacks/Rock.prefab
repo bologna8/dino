@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  ignoreTeams: 0
   damage: 2
   stunTime: 0.2
   knockback: 1234
@@ -180,7 +181,7 @@ MonoBehaviour:
   movementPreAttack: 0
   movementMidAttack: 0
   windup: 0.1
-  attackDuration: 0.1
+  attackDuration: 0.5
   cooldown: 1
   offset: {x: 0.3, y: 1, z: 0}
   projectileSpeed: 420
