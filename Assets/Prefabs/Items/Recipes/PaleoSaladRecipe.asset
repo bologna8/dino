@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PaleoSaladRecipe
   m_EditorClassIdentifier: 
   name: Paleo Salad Recipe
-  icon: {fileID: 0}
-  itemDescription: Use to craft Paleo Salad
+  icon: {fileID: -1019155705, guid: 0aa0fdfc6d3b15544a39a8caaec0d5af, type: 3}
+  itemDescription: Can Consume
   result: {fileID: 11400000, guid: 3403bc8a03464cc448be540a492682d7, type: 2}
   ingredients:
   - item: {fileID: 11400000, guid: 871686d110d5f3d4f84a744dc694f69b, type: 2}

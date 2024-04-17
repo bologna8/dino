@@ -15,5 +15,9 @@ MonoBehaviour:
   name: Dino Kabob
   icon: {fileID: 1409259530, guid: 1265425c81abfa442a97ec875129a8e6, type: 3}
   itemDescription: Can consume
-  result: {fileID: 0}
-  ingredients: []
+  result: {fileID: 11400000, guid: a4558c03a35624944a0bbe40f072abdd, type: 2}
+  ingredients:
+  - item: {fileID: 11400000, guid: 479123dbf7a47504daf511ebac43a53b, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: 871686d110d5f3d4f84a744dc694f69b, type: 2}
+    amount: 2

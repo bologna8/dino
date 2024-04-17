@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
        // }
   //  }
 
-    public void OnStatItemuUse(StatItemType itemType, int amount)
+    public void OnStatItemUse(StatItemType itemType, int amount)
     {
         Debug.Log("Consuming " + itemType + " Add amount: " + amount);
     }

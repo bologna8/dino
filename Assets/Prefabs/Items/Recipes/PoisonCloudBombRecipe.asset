@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce1be3aa6eb56843b32fdf4352dac54, type: 3}
   m_Name: PoisonCloudBombRecipe
   m_EditorClassIdentifier: 
-  name: Default Item
-  icon: {fileID: 0}
-  itemDescription: Used for crafting
-  result: {fileID: 0}
-  ingredients: []
+  name: Poison Cloud Bomb Recipe
+  icon: {fileID: 1855234568, guid: 14e2ec7db4fe2fd4e8f4c2157e430b4a, type: 3}
+  itemDescription: Use to attack
+  result: {fileID: 11400000, guid: afa4d266ef39e9a45a18328a643e886c, type: 2}
+  ingredients:
+  - item: {fileID: 11400000, guid: bbde9d81da9295548a94f2a1da0b557a, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: 871686d110d5f3d4f84a744dc694f69b, type: 2}
+    amount: 1

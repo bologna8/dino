@@ -19,11 +19,12 @@ public class Health : MonoBehaviour
     private TrailRenderer hitTrail;
     public GameObject deathEffect;
 
-    // Start is called before the first frame update
     void Start()
     {
-        if (HealthBarPrefab) 
-        { Instantiate(HealthBarPrefab, GameObject.Find("Canvas").transform).GetComponent<HealthUI>().tracking = this; }
+        if (HealthBarPrefab)
+        {
+            Instantiate(HealthBarPrefab, GameObject.Find("Canvas").transform).GetComponent<HealthUI>().tracking = this;
+        }
 
         myMovement = GetComponentInParent<Movement>();
 
@@ -32,10 +33,8 @@ public class Health : MonoBehaviour
 
         hitTrail = GetComponent<TrailRenderer>();
         if (hitTrail) { hitTrail.enabled = false; }
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (invincibleTime > 0) { invincibleTime -= Time.deltaTime; }
@@ -48,39 +47,41 @@ public class Health : MonoBehaviour
         if (invincibleTime > 0) { getHit = false; } //can't touch this
 
         if (dmg == 0f) { getHit = true; } //no damage dash movements always work
-        else if (getHit && hitEffect) 
-        { Instantiate(hitEffect, transform.position, Quaternion.identity); }
+        else if (getHit && hitEffect)
+        {
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+        }
 
         if (getHit)
         {
             currentHP -= dmg;
             if (currentHP <= 0) { Die(); }
-            else 
+            else
             {
                 if (stunTime <= stun) { stunTime = stun; }
 
-                if (myMovement) 
-                { 
+                if (myMovement)
+                {
                     myMovement.myBod.velocity = Vector2.zero;
                     myMovement.myBod.AddForce(KB);
                     myMovement.momentumCurrent = 0f;
                 }
             }
         }
-        
-
     }
 
     public void Die()
     {
         if (deathEffect) { Instantiate(deathEffect, transform.position, Quaternion.identity); }
-        
+
         var checkParent = transform.parent;
         if (checkParent && destroyParent) { Destroy(checkParent.gameObject); }
-        else { Destroy(gameObject); }        
+        else { Destroy(gameObject); }
     }
 
-    
-
-
+    public void RegenerateHealth(int amount)
+    {
+        currentHP += amount;
+        currentHP = Mathf.Clamp(currentHP, 0f, maxHP);
+    }
 }
