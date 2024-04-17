@@ -49669,6 +49669,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6040956147427388315, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
+      propertyPath: recipeSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040956147427388315, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
+      propertyPath: pickupEffectPrefab
+      value: 
+      objectReference: {fileID: 3561253398169580007, guid: 5107f3e1abe315b44a898093eda24298, type: 3}
+    - target: {fileID: 6040956147427388315, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: BuriedRecipes.Array.size
       value: 1
       objectReference: {fileID: 0}
