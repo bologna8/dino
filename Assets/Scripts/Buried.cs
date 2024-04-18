@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Buried : MonoBehaviour
 {
-    public GameObject pickupEffectPrefab; // Prefab for the pick-up effect
-    public Sprite recipeSprite; // Sprite of the recipe item
+    public GameObject pickupEffectPrefab; 
+    public Sprite recipeSprite;
     public CraftingRecipe[] BuriedRecipes;
     public float timeToDig = 1f;
     [HideInInspector] public bool playerTouching = false;
@@ -38,24 +38,22 @@ public class Buried : MonoBehaviour
             var recipe = BuriedRecipes[r];
             if (recipe)
             {
-                // Unlock the recipe for the player
                 player.UnlockRecipe(recipe);
 
-                // Display the recipe sprite
                 if (recipeSprite)
                 {
-                    // Instantiate a GameObject to display the sprite
                     GameObject spriteObject = new GameObject("RecipeSprite");
                     spriteObject.transform.position = transform.position;
                     SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
                     spriteRenderer.sprite = recipeSprite;
                 }
 
-                // Show the pick-up effect
                 if (pickupEffectPrefab)
                 {
                     Instantiate(pickupEffectPrefab, transform.position, Quaternion.identity);
                 }
+
+                Destroy(gameObject);
             }
         }
     }

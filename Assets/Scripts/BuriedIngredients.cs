@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class BuriedIngrdients : MonoBehaviour
 {
-    public GameObject pickupEffectPrefab; // Prefab for the pick-up effect
-    public Sprite ingredientSprite; // Sprite of the ingredient item
-    public Item[] buriedIngredientItems; // Array of buried ingredient items
+    public GameObject pickupEffectPrefab; 
+    public Sprite ingredientSprite; 
+    public Item[] buriedIngredientItems;
     public float timeToDig = 1f;
     [HideInInspector] public bool playerTouching = false;
-    private Inventory inventory; // Reference to the player's inventory script
+    private Inventory inventory; t
 
     void Start()
     {
-        inventory = FindObjectOfType<Inventory>(); // Find the player's inventory script
+        inventory = FindObjectOfType<Inventory>(); 
         if (inventory == null)
         {
             Debug.LogError("Inventory script not found in the scene!");
@@ -48,13 +48,10 @@ public class BuriedIngrdients : MonoBehaviour
             {
                 if (item)
                 {
-                    // Add the buried ingredient item to the player's inventory
                     inventory.AddItem(item);
 
-                    // Display the ingredient sprite
                     if (ingredientSprite)
                     {
-                        // Instantiate a GameObject to display the sprite
                         GameObject spriteObject = new GameObject("IngredientSprite");
                         spriteObject.transform.position = transform.position;
                         SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
@@ -63,13 +60,11 @@ public class BuriedIngrdients : MonoBehaviour
                 }
             }
 
-            // Show the pick-up effect
             if (pickupEffectPrefab)
             {
                 Instantiate(pickupEffectPrefab, transform.position, Quaternion.identity);
             }
 
-            // Destroy the buried ingredient items handler object after digging them up
             Destroy(gameObject);
         }
     }
