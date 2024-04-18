@@ -123,6 +123,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &110272868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1543361405783925401, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+  m_PrefabInstance: {fileID: 1847233130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &110272873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110272868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4492179121e304b9ac5e3b3d54d798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupEffectPrefab: {fileID: 3561253398169580007, guid: d401be1e337722e42bdfc18cd398578b, type: 3}
+  ingredientSprite: {fileID: 0}
+  buriedIngredientItems:
+  - {fileID: 11400000, guid: 479123dbf7a47504daf511ebac43a53b, type: 2}
+  timeToDig: 1
+  playerTouching: 0
 --- !u!1 &200622413
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +700,126 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &979056621
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.074
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234723906782172537, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543361405783925401, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: m_Name
+      value: Dirt (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: recipeSprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: pickupEffectPrefab
+      value: 
+      objectReference: {fileID: 3561253398169580007, guid: 5107f3e1abe315b44a898093eda24298, type: 3}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: BuriedItems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: BuriedRecipes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: BuriedItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: BuriedItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: IngredientItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: BuriedRecipes.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: IngredientItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 479123dbf7a47504daf511ebac43a53b, type: 2}
+    m_RemovedComponents:
+    - {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1543361405783925401, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 979056623}
+  m_SourcePrefab: {fileID: 100100000, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+--- !u!1 &979056622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1543361405783925401, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+  m_PrefabInstance: {fileID: 979056621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &979056623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979056622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7134b7b208df325438e0fef7d404f1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupEffectPrefab: {fileID: 3561253398169580007, guid: e8d93bcec03aacb47ab9e6d4254a2332, type: 3}
+  recipeSprite: {fileID: 0}
+  BuriedRecipes:
+  - {fileID: 11400000, guid: 365d3a68eeabbe240882a5edbf9ba2e8, type: 2}
+  timeToDig: 1
+  playerTouching: 0
 --- !u!114 &1135938004 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2724816815403399151, guid: ee28a845d3197574b981cbfc853297e6, type: 3}
@@ -743,35 +886,47 @@ PrefabInstance:
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: recipeSprite
       value: 
-      objectReference: {fileID: -1883283394, guid: c684e740d95da0c4892004a4d698f05a, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: pickupEffectPrefab
       value: 
       objectReference: {fileID: 3561253398169580007, guid: 5107f3e1abe315b44a898093eda24298, type: 3}
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: BuriedItems.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: BuriedRecipes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: BuriedItems.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: e633e4382defd224082a125546287b35, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: BuriedItems.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: d220cfc6ecdb09f488f1620ca19c88d5, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: IngredientItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
       propertyPath: BuriedRecipes.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 365d3a68eeabbe240882a5edbf9ba2e8, type: 2}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      propertyPath: IngredientItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 479123dbf7a47504daf511ebac43a53b, type: 2}
+    m_RemovedComponents:
+    - {fileID: 2274321619641950613, guid: e6d69b4023779044492fbdc238549c81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1543361405783925401, guid: e6d69b4023779044492fbdc238549c81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 110272873}
   m_SourcePrefab: {fileID: 100100000, guid: e6d69b4023779044492fbdc238549c81, type: 3}
 --- !u!1 &1946023845
 GameObject:
@@ -1172,5 +1327,6 @@ SceneRoots:
   - {fileID: 595261751}
   - {fileID: 1946023848}
   - {fileID: 1847233130}
+  - {fileID: 979056621}
   - {fileID: 804902166}
   - {fileID: 291736651}
