@@ -26,6 +26,7 @@ public class Bush : MonoBehaviour
         { 
             player = findPlayer;
             player.bushesTouched.Add(this);
+            playerTouching = true;
         }
     }
 
@@ -36,6 +37,7 @@ public class Bush : MonoBehaviour
         { 
             player.bushesTouched.Remove(this);
             player = null;
+            playerTouching = false;
         }
     }
 

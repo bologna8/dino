@@ -19,6 +19,8 @@ public class Health : MonoBehaviour
     private TrailRenderer hitTrail;
     public GameObject deathEffect;
 
+    public Vector3 deathOffset;
+
     void Start()
     {
         if (HealthBarPrefab)
@@ -72,7 +74,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        if (deathEffect) { Instantiate(deathEffect, transform.position, Quaternion.identity); }
+        if (deathEffect) { Instantiate(deathEffect, transform.position + deathOffset, Quaternion.identity); }
 
         var checkParent = transform.parent;
         if (checkParent && destroyParent) { Destroy(checkParent.gameObject); }

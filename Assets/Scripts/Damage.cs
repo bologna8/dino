@@ -44,12 +44,13 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //if (!faceRight) { offset.x *= -1; }
-        //transform.position += offset;
 
         myBod = GetComponent<Rigidbody2D>();
         if (projectileSpeed != 0f) 
         { myBod.AddForce(transform.right * projectileSpeed); }
+
+        if (!faceRight) 
+        { transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z); }
     }
 
     // Update is called once per frame
@@ -63,7 +64,7 @@ public class Damage : MonoBehaviour
         }
 
         if (projectileSpeed == 0f && origin) 
-        { transform.position = origin.transform.position + offset; }
+        { transform.position = origin.transform.position + (offset ); }
 
         //Boomerang stuff
         if (returnTime > 0f) { transform.Rotate(rotateSpeed * Time.deltaTime); }

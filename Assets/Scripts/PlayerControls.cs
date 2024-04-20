@@ -80,7 +80,6 @@ public class PlayerControls : MonoBehaviour
                 if (Input.GetButtonDown("Dash")) 
                 { 
                     myMove.Dash();
-                    if (myAnim) { myAnim.SetTrigger("dashed"); }
                 }
 
                 if (Input.GetButton("Primary")) { myWeapons[0].tryAttack(); }

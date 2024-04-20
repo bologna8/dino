@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     private float jumpDelay = 0.1f;
     public GameObject jumpEffect;
 
+    private Collider2D myCollider;
     [HideInInspector] public CheckCheck[] colliders;
     private GameObject mySelf;
 
@@ -27,6 +28,7 @@ public class Movement : MonoBehaviour
     [HideInInspector] public bool turning = false;
     public float turnTime = 0.1f;
     public bool grabLedges = false;
+    private float hangTime;
 
     public float dashForce = 100f;
     public float dashTime = 0.1f;
@@ -51,6 +53,7 @@ public class Movement : MonoBehaviour
 
         mySelf = transform.Find("Self").gameObject;
         colliders = mySelf.transform.GetComponentsInChildren<CheckCheck>();
+        myCollider = GetComponent<Collider2D>();
 
     }
 
@@ -138,6 +141,8 @@ public class Movement : MonoBehaviour
             myHP.TakeDamage(0, dashTime, d);
             myHP.invincibleTime = dashTime;
             dashCurrent = dashCooldown;
+
+            if (myAnim) { myAnim.SetTrigger("dashed"); }
         }
     }
 
@@ -145,7 +150,11 @@ public class Movement : MonoBehaviour
     {
         if (jumpDelay <= 0)
         {
-            if (onGround)
+            if (colliders[4].touching && verticalInput < 0f)
+            {
+                StartCoroutine(drop());
+            }
+            else if (onGround)
             {
                 myBod.velocity = new Vector2(myBod.velocity.x, 0);
                 myBod.AddForce(Vector2.up * jumpForce);
@@ -155,11 +164,20 @@ public class Movement : MonoBehaviour
 
                 if (jumpEffect) { Instantiate(jumpEffect, colliders[0].transform.position, Quaternion.identity); }
             }
-            else if (onEdge && climbingCoroutine == null) 
+            else if (onEdge && climbingCoroutine == null && hangTime > 0.2f) 
             { climbingCoroutine = StartCoroutine(ledgeClimb()); }
             
         }        
             
+    }
+
+    public IEnumerator drop()
+    {
+        jumpDelay = 0.2f;
+        myCollider.enabled = false;
+        myBod.AddForce(Vector2.up * -jumpForce);
+        yield return new WaitForSeconds(0.2f);
+        myCollider.enabled = true;
     }
 
     public IEnumerator ledgeClimb()
@@ -183,7 +201,7 @@ public class Movement : MonoBehaviour
     private void ledgeGrab()
     {
         bool tryGrab = true;
-        if (verticalInput < 0) { jumpDelay = 0.2f; }     
+        if (verticalInput < 0 && onEdge) { jumpDelay = 0.2f; }     
         if (turning) { tryGrab = false; }
         if (jumpDelay > 0) { tryGrab = false; }
         if (myHP.stunTime > 0) { tryGrab = false; }
@@ -205,11 +223,13 @@ public class Movement : MonoBehaviour
             if (!faceRight) { offset = new Vector2(offset.x *-1, offset.y); }
             transform.position = cornerHit - offset;
 
+            hangTime += Time.deltaTime;
+
             if (verticalInput > 0) { Jump(); }
             if (moveInput > 0 && faceRight) { Jump(); }
             if (moveInput < 0 && !faceRight) { Jump(); }
         }
-        else { myBod.gravityScale = startGrav; onEdge = false; }
+        else { myBod.gravityScale = startGrav; onEdge = false; hangTime = 0f; }
 
         if (myAnim) { myAnim.SetBool("onEdge", onEdge); }
 

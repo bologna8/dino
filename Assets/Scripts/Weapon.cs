@@ -55,11 +55,11 @@ public class Weapon : MonoBehaviour
     {
         attackReady = false;
 
-        if (myAnim) { myAnim.SetTrigger("attack"); }
-
         var startSpot = transform.position;
-        var dir = Vector2.right;
+        var dir = Vector3.right;
         var startAngle = Quaternion.FromToRotation(Vector3.right, dir);
+
+        if (myAnim) { myAnim.SetTrigger("attack"); }
 
         if (myAim)
         {
@@ -72,6 +72,17 @@ public class Weapon : MonoBehaviour
             if (myAim.transform.position.x > transform.position.x) //Betta look to the left
             { if(!myMovement.faceRight) { myMovement.Turn(); } }
             else { if(myMovement.faceRight) { myMovement.Turn(); } }
+
+            
+            if (myAnim)
+            {
+                var offset = 0.21f;
+                if ( myAim.transform.position.y > transform.position.y +offset) { myAnim.SetFloat("attackDir", 0f); }
+                else if (myAim.transform.position.y < transform.position.y - offset) {myAnim.SetFloat("attackDir", 1f); }
+                else { myAnim.SetFloat("attackDir", 0.5f); }
+                
+            }
+
         }
 
         //point Arm at Aim

@@ -115,7 +115,8 @@ MonoBehaviour:
   invincibleTime: 0
   myMovement: {fileID: 0}
   hitEffect: {fileID: 0}
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 4404173520793160998, guid: 9fb41ff96abaa574bae259295230ec82, type: 3}
+  deathOffset: {x: 0, y: -1, z: 0}
 --- !u!212 &6662887053368702288
 SpriteRenderer:
   m_ObjectHideFlags: 0

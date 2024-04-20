@@ -29,6 +29,8 @@ public class AI : MonoBehaviour
     public bool carnivore = true;
     [HideInInspector] public bool frenzied;
 
+    [HideInInspector] public Budding touchingBud;
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,15 +65,38 @@ public class AI : MonoBehaviour
             {
                 var debugColor = Color.yellow;
 
-                var player = hit.transform.gameObject.GetComponent<PlayerControls>();
-                bool seePlayer = false; 
-                if (player) { if (!player.hidden) { seePlayer = true; } }
-                
-                var decoy = hit.transform.gameObject.GetComponent<Decoy>();
-                bool takeTheBait = false; 
-                if (decoy) { if  (decoy.bait && carnivore) { takeTheBait = true; } }
+                if (carnivore) //Meat eater
+                { 
+                    var player = hit.transform.gameObject.GetComponent<PlayerControls>();
+                    bool seePlayer = false; 
+                    if (player) { if (!player.hidden) { seePlayer = true; } }
+                    
+                    var decoy = hit.transform.gameObject.GetComponent<Decoy>();
+                    bool takeTheBait = false;
+                    if (decoy) { if  (decoy.bait) { takeTheBait = true; } }
 
-                if (seePlayer || takeTheBait) { debugColor = Color.red; Agro(hit.transform); }
+                    if (seePlayer || takeTheBait) { debugColor = Color.red; Agro(hit.transform); }
+                }
+                else //Herbivor stuff
+                {
+                    if (touchingBud) 
+                    { 
+                        if (touchingBud.flower) { debugColor = Color.red; Agro (touchingBud.transform); }
+                        else if (touchingBud.linked) { debugColor = Color.red; Agro (touchingBud.linked.transform); }
+                        else { currentState = State.patrol; }
+                    }
+                    else
+                    {
+                        var bud = hit.transform.gameObject.GetComponent<Budding>();
+                        if (bud)
+                        {
+                            if (bud.flower) { debugColor = Color.red; Agro(hit.transform); }
+                            else { currentState = State.patrol; }
+                        }
+                        else { currentState = State.patrol; }
+                    }
+                    
+                }
 
                 Debug.DrawRay(transform.position, facing * hit.distance, debugColor);
             }
@@ -100,18 +125,21 @@ public class AI : MonoBehaviour
     void Idle()
     {
         myMovement.moveInput = 0;
+
         idleCurrent -= Time.deltaTime;
-        if (idleCurrent <= 0) 
+        if (idleCurrent <= 0 && carnivore) 
         { 
             currentState = State.patrol; 
             patrolCurrent = Random.Range(patrolTime.x, patrolTime.y); 
         }
+        
     }
 
     void Patrol()
     {
         patrolCurrent -= Time.deltaTime;
-        if (patrolCurrent <= 0) { Chill(); }
+
+        if (patrolCurrent <= 0 && carnivore) { Chill(); }
         else
         {
             if (myMovement.colliders[1].touching) { myMovement.Turn(); }
@@ -128,7 +156,7 @@ public class AI : MonoBehaviour
     {
         if(currentState == State.chase)
         {
-            Emote(curiousIcon);
+            if (curiousIcon) {Emote(curiousIcon); }
         }
 
         currentState = State.idle; 
@@ -141,8 +169,8 @@ public class AI : MonoBehaviour
         if (target != chasing)
         {
             var player = target.GetComponent<PlayerControls>();
-            if(player) { Emote(angryIcon); }
-            else { Emote(curiousIcon); }
+            if(player) { if(angryIcon) { Emote(angryIcon); } }
+            else { if (curiousIcon) { Emote(curiousIcon); } }
 
             if (currentState == State.chase)
             {

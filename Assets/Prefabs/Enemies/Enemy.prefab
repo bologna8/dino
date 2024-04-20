@@ -150,6 +150,7 @@ MonoBehaviour:
   myMovement: {fileID: 0}
   hitEffect: {fileID: 749027114909299004, guid: b514d7a711668c7458facc5c14b20e77, type: 3}
   deathEffect: {fileID: 8920488775500866778, guid: 3e4881c95cbcd5a42ac5dfa519f6e8f3, type: 3}
+  deathOffset: {x: 0, y: 0, z: 0}
 --- !u!61 &194118977582525011
 BoxCollider2D:
   m_ObjectHideFlags: 0

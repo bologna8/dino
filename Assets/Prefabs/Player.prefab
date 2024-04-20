@@ -660,6 +660,101 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1327237381141930826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5004898105027118541}
+  - component: {fileID: 9174766847223538309}
+  - component: {fileID: 837134566391783776}
+  m_Layer: 3
+  m_Name: Pass Ground Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5004898105027118541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327237381141930826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1263067511500736725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &9174766847223538309
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327237381141930826}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.1}
+  m_EdgeRadius: 0
+--- !u!114 &837134566391783776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327237381141930826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47acaebbc16492d45a0307099eb920c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touching: 0
+  lastCollided: {fileID: 0}
+  checkMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &1465002264861480660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,6 +1099,7 @@ Transform:
   - {fileID: 3491743162720787004}
   - {fileID: 3618403229091680725}
   - {fileID: 6861225669189219322}
+  - {fileID: 5004898105027118541}
   m_Father: {fileID: 5135921828996419061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2412764038300271053
@@ -1170,6 +1266,7 @@ MonoBehaviour:
   myMovement: {fileID: 0}
   hitEffect: {fileID: 749027114909299004, guid: b514d7a711668c7458facc5c14b20e77, type: 3}
   deathEffect: {fileID: 8920488775500866778, guid: 3e4881c95cbcd5a42ac5dfa519f6e8f3, type: 3}
+  deathOffset: {x: 0, y: 0, z: 0}
 --- !u!61 &7034523859284741065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2268,7 +2365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7683416034215220313
 Transform:
   m_ObjectHideFlags: 0
@@ -3223,8 +3320,8 @@ MonoBehaviour:
   turnTime: 0.123
   grabLedges: 1
   dashForce: 666
-  dashTime: 0.5
-  dashCooldown: 0.5
+  dashTime: 0.6
+  dashCooldown: 0.9
   slowPercent: 1
   myAnim: {fileID: 0}
 --- !u!114 &8754165084863843932
@@ -3242,7 +3339,7 @@ MonoBehaviour:
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: e9a3eef1ac185f54cb33107479e4946a, type: 3}
   ignoreTeams: 0
-  attackArm: {fileID: 4379747048768771212}
+  attackArm: {fileID: 0}
 --- !u!114 &2383316620427195789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3258,7 +3355,7 @@ MonoBehaviour:
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: 733c4076e63f47244b5ed4febcfaab97, type: 3}
   ignoreTeams: 0
-  attackArm: {fileID: 4379747048768771212}
+  attackArm: {fileID: 0}
 --- !u!50 &340933065370478967
 Rigidbody2D:
   serializedVersion: 4
