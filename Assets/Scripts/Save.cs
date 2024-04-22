@@ -9,17 +9,20 @@ public class Save : MonoBehaviour
     public static Checkpoint[] allPoints;
     public Transform checkpointParent;
     public GameObject playerPrefab;
-
     public static Transform player;
-
-    public static float deadTime;
     private Image fadeSprite;
+
+    public GameObject deathText;
     private bool fading = false;
+
+    private bool readyToRespawn = false;
 
     // Start is called before the first frame update
     void Start()
     {
         fadeSprite = GetComponentInChildren<Image>();
+        if (fadeSprite) { fadeSprite.gameObject.SetActive(false); }
+        if (deathText) { deathText.SetActive(false); }
 
         if (checkpointParent)
         {
@@ -29,37 +32,25 @@ public class Save : MonoBehaviour
         for(int i = 0; i <  allPoints.Length; i++) { allPoints[i].Number = i; }
 
         Spawn();
+        StartCoroutine(Fade(Color.black, Color.clear, 2.2f));
     }
 
     // Update is called once per frame
     void Update()
     {
         //Death effect stuff
-        if (player) { deadTime = 0f; }
-        else { deadTime += Time.deltaTime; }
-
-        var flashTime = 0.1f;
-        var flashFade = 0.4f;
-
-        if (fadeSprite)
+        if (!player)
         {
-            if (deadTime > 0) { fadeSprite.gameObject.SetActive(true); }
-            else { fadeSprite.gameObject.SetActive(false); }
-
-            if (deadTime < flashTime) { fadeSprite.color = new Color(1,1,1, deadTime / (flashTime)); }
-            else { fadeSprite.color = new Color(1,1,1, (flashTime + flashFade - deadTime) / (flashTime + flashFade)); }
-        }   
-
-        bool respawnReady = false;
-        if (deadTime > (flashTime + flashFade)) { respawnReady = true; }
-
-        if (Input.anyKey && respawnReady && !fading) { StartCoroutine(FadeToBlack()); }
+            if (!readyToRespawn) 
+            { StartCoroutine(FlashSequence(0.123f, 0.42f)); }
+            else if (!fading && Input.anyKey)
+            { StartCoroutine(Fade(Color.clear, Color.black, 2.2f, true)); }
+        }
 
     }
 
     public void Spawn()
     {
-        deadTime = 0f;
         var currentPoint = allPoints[PlayerPrefs.GetInt("CurrentCheckpoint", 0)];
         currentPoint.active = true;
         var spawnSpot = currentPoint.transform.position;
@@ -74,23 +65,31 @@ public class Save : MonoBehaviour
         point.active = true;
     }
 
-    IEnumerator FadeToBlack()
+    IEnumerator FlashSequence(float brightenTime, float fadeTime)
+    {
+        readyToRespawn = true;
+        StartCoroutine(Fade(Color.clear, Color.white, brightenTime));
+        yield return new WaitForSeconds(brightenTime);
+        StartCoroutine(Fade(Color.white, Color.clear, fadeTime));
+        if (deathText) { deathText.SetActive(true); }
+    }
+    IEnumerator Fade(Color startColor, Color targetColor, float fadeDuration = 1, bool reloadScene = false)
     {
         fading = true;
-        
-        var initialColor = new Color (0,0,0,0);
-        var targetColor = Color.black;
         float elapsedTime = 0f;
-        float fadeDuration = 1f;
+        if (fadeSprite) { fadeSprite.gameObject.SetActive(true); }
+        if (deathText) { deathText.SetActive(false); }
 
         while (elapsedTime < fadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            if (fadeSprite) { fadeSprite.color = Color.Lerp(initialColor, targetColor, elapsedTime / fadeDuration); }      
+            if (fadeSprite) { fadeSprite.color = Color.Lerp(startColor, targetColor, elapsedTime / fadeDuration); }      
             yield return null;
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        fading = false;
+        if (reloadScene) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+        else if (fadeSprite) { fadeSprite.gameObject.SetActive(false); }
     }
 
     

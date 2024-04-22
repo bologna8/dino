@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     public bool destroyParent = true;
     [HideInInspector] public int team;
-    private float respawnTime = 0.1f;
+    private float respawnTime = 1f;
     public GameObject HealthBarPrefab;
     public float maxHP = 10f;
     public float currentHP;

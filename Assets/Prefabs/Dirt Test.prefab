@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2820480433193173314}
   - component: {fileID: 2274321619641950613}
   m_Layer: 3
-  m_Name: Dirt
+  m_Name: Dirt Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,9 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7134b7b208df325438e0fef7d404f1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  digEffect: {fileID: 749027114909299004, guid: 3e12770f3bae7184897f62cf20064719, type: 3}
-  BuriedTreasures:
-  - {fileID: 0}
-  - {fileID: 3561253398169580007, guid: 5107f3e1abe315b44a898093eda24298, type: 3}
+  pickupEffectPrefab: {fileID: 0}
+  recipeSprite: {fileID: 0}
+  BuriedRecipes: []
   timeToDig: 1
   playerTouching: 0
