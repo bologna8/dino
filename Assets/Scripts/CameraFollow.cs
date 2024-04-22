@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform Follow;
+    public static Transform target;
     private Vector3 lastPos;
     private float zOffset;
     public float timeToTrack = 0.5f;
@@ -18,18 +18,21 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Follow)
+        if (target)
         {
-            if (Follow.position != lastPos) 
-            { lastPos = Follow.position; currentTrackingTime = 0f; }
+            if (target.position != lastPos) 
+            { lastPos = target.position; currentTrackingTime = 0f; }
 
             if (currentTrackingTime < timeToTrack)
             { currentTrackingTime += Time.deltaTime; }            
 
-            var nextPos = Vector3.Lerp(transform.position, Follow.position, currentTrackingTime / timeToTrack);
+            var nextPos = Vector3.Lerp(transform.position, target.position, currentTrackingTime / timeToTrack);
             nextPos.z = zOffset;
 
             transform.position = nextPos;
         }
+
     }
+
+
 }

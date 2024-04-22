@@ -55,6 +55,8 @@ public class PlayerControls : MonoBehaviour
 
             foreach (Weapon w in myWeapons) { w.myAim = myAim; }
         }
+
+        CameraFollow.target = transform;
         
     }
 
@@ -127,5 +129,10 @@ public class PlayerControls : MonoBehaviour
         interacting = false;
         if (myAnim) { myAnim.SetTrigger("dug"); }
         yield return new WaitForSeconds(digTime);
+    }
+
+    void OnDestroy()
+    {
+        //Checkpoint.Respawn(transform.position);
     }
 }

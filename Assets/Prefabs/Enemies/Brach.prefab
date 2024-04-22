@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1031915429222613423, guid: d81d36a8458cf244abbe513ff2e096d8, type: 3}
       propertyPath: momentumTime
-      value: 0.21
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1313445173318852837, guid: d81d36a8458cf244abbe513ff2e096d8, type: 3}
       propertyPath: angryIcon
@@ -466,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 123
       objectReference: {fileID: 0}
+    - target: {fileID: 3014230376865057890, guid: d81d36a8458cf244abbe513ff2e096d8, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9497706ac91b7bf4cb124f26cf7ed0fd, type: 2}
     - target: {fileID: 3283067331120074855, guid: d81d36a8458cf244abbe513ff2e096d8, type: 3}
       propertyPath: m_IsActive
       value: 0

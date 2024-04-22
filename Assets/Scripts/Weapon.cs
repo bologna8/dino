@@ -40,12 +40,13 @@ public class Weapon : MonoBehaviour
 
     public void changeAttack(GameObject newAttack)
     {
+        damagePrefab = newAttack;
         attackStats = newAttack.GetComponent<Damage>();
     }
 
     public void tryAttack()
     {
-        if (attackReady && attackStats)
+        if (attackReady && attackStats && damagePrefab)
         {
             StartCoroutine(AttackRoutine());
         }
