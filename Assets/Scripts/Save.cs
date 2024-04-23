@@ -51,6 +51,7 @@ public class Save : MonoBehaviour
 
     public void Spawn()
     {
+        
         var currentPoint = allPoints[PlayerPrefs.GetInt("CurrentCheckpoint", 0)];
         currentPoint.active = true;
         var spawnSpot = currentPoint.transform.position;

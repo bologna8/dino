@@ -149,7 +149,7 @@ MonoBehaviour:
   invincibleTime: 0
   myMovement: {fileID: 0}
   hitEffect: {fileID: 749027114909299004, guid: b514d7a711668c7458facc5c14b20e77, type: 3}
-  deathEffect: {fileID: 8920488775500866778, guid: 3e4881c95cbcd5a42ac5dfa519f6e8f3, type: 3}
+  deathEffect: {fileID: 8920488775500866778, guid: ec427275e74dbeb4da867776b2178437, type: 3}
   deathOffset: {x: 0, y: 0, z: 0}
 --- !u!61 &194118977582525011
 BoxCollider2D:
@@ -667,6 +667,7 @@ MonoBehaviour:
   agroMemoryTime: {x: 3, y: 6}
   carnivore: 1
   frenzied: 0
+  touchingBud: {fileID: 0}
 --- !u!114 &1031915429222613423
 MonoBehaviour:
   m_ObjectHideFlags: 0
