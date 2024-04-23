@@ -15,8 +15,6 @@ public class Weapon : MonoBehaviour
 
     [HideInInspector] public bool ignoreTeams;
 
-    public GameObject attackArm;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +24,6 @@ public class Weapon : MonoBehaviour
         myAnim = GetComponentInChildren<Animator>();
 
         if (damagePrefab) { changeAttack(damagePrefab); }
-
-        //attackArm = transform.Find("Arm").gameObject;
-        if (attackArm) { attackArm.SetActive(false); }
 
     }
 
@@ -85,20 +80,6 @@ public class Weapon : MonoBehaviour
             }
 
         }
-
-        //point Arm at Aim
-        if (attackArm) 
-        {
-            attackArm.SetActive(true);
-            //Debug.Log(startAngle);
-            attackArm.transform.rotation = startAngle;
-            
-            //if (myMovement.faceRight) { attackArm.transform.localScale = new Vector3(1,1,1); }
-            //else { attackArm.transform.localScale = new Vector3(-1,1,1); }
-            
-            //if (myMovement.faceRight) { attackArm.transform.rotation = startAngle; }
-            //else { attackArm.transform.rotation = Quaternion.Inverse(startAngle); }
-        }
         
 
         //Attack move directionally
@@ -112,9 +93,9 @@ public class Weapon : MonoBehaviour
         }
 
         //Start Actual Attack
-        myHealth.TakeDamage(0, attackStats.windup + attackStats.attackDuration, preMove);
+        if (myHealth) { myHealth.TakeDamage(0, attackStats.windup + attackStats.attackDuration, preMove); }
         yield return new WaitForSeconds(attackStats.windup);
-        myHealth.TakeDamage(0, attackStats.attackDuration, midMove);
+        if (myHealth) { myHealth.TakeDamage(0, attackStats.attackDuration, midMove); }
 
         var newAttack = Instantiate(damagePrefab, startSpot, startAngle).GetComponent<Damage>();
         newAttack.origin = transform;
@@ -124,8 +105,6 @@ public class Weapon : MonoBehaviour
         if (!myMovement.faceRight) { newAttack.Flip(); }
 
         yield return new WaitForSeconds(attackStats.attackDuration);
-
-        if (attackArm) { attackArm.SetActive(false); }
 
         yield return new WaitForSeconds(attackStats.cooldown);
 

@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 7948584259489882306}
   - component: {fileID: 2738073659296922256}
   - component: {fileID: 3451405127675198687}
+  - component: {fileID: 7976860122221803438}
   m_Layer: 12
   m_Name: Budding Flower
   m_TagString: Untagged
@@ -363,3 +364,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flower: 0
   linked: {fileID: 0}
+--- !u!114 &7976860122221803438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289238128871123502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7584b5af1f9f1a64fadf41d2fd70e44f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
