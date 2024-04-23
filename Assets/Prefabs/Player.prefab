@@ -31,6 +31,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8790699196971764836}
+  - {fileID: 4815445514447040523}
   m_Father: {fileID: 5210949594912689126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3340,7 +3341,6 @@ MonoBehaviour:
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: e9a3eef1ac185f54cb33107479e4946a, type: 3}
   ignoreTeams: 0
-  attackArm: {fileID: 0}
 --- !u!114 &2383316620427195789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3356,7 +3356,6 @@ MonoBehaviour:
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: 733c4076e63f47244b5ed4febcfaab97, type: 3}
   ignoreTeams: 0
-  attackArm: {fileID: 0}
 --- !u!50 &340933065370478967
 Rigidbody2D:
   serializedVersion: 4
@@ -3952,7 +3951,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 666961487425272771}
-  - {fileID: 4815445514447040523}
   - {fileID: 6305211424598031700}
   - {fileID: 1088777249951918628}
   m_Father: {fileID: 1594576152468534757}
@@ -4784,11 +4782,11 @@ RectTransform:
   - {fileID: 1004576493149342754}
   - {fileID: 8381740236876399063}
   - {fileID: 7422062561641943102}
-  m_Father: {fileID: 5210949594912689126}
+  m_Father: {fileID: 666961487425272771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47, y: 0}
+  m_AnchoredPosition: {x: 63.330616, y: -0.007120768}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &746248573170655659
