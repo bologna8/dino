@@ -1308,6 +1308,10 @@ PrefabInstance:
       propertyPath: craftingTable
       value: 
       objectReference: {fileID: 804902167}
+    - target: {fileID: 4283694053617103796, guid: ee28a845d3197574b981cbfc853297e6, type: 3}
+      propertyPath: craftingTables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5649990236531220739, guid: ee28a845d3197574b981cbfc853297e6, type: 3}
       propertyPath: m_Name
       value: Player
