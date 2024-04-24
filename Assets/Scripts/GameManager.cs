@@ -38,19 +38,22 @@ public class GameManager : MonoBehaviour
         Debug.Log("Consuming " + itemType + " Add amount: " + amount);
     }
 
-    public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos)
+  public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos)
+{
+    if (currentItemInfo == null)
     {
-        if(currentItemInfo != null)
-        {
-            Destroy(currentItemInfo.gameObject);
-        }
-
-        buttonPos.x -= 180;
-        buttonPos.y += 100;
+        buttonPos.x -= 200;
+        buttonPos.y += 50;
 
         currentItemInfo = Instantiate(itemInfoPrefab, buttonPos, Quaternion.identity, canvas);
         currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
     }
+    else
+    {
+        currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
+        currentItemInfo.transform.position = buttonPos;
+    }
+}
 
     public void DestroyItemInfo()
     {
