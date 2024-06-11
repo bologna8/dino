@@ -144,11 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7134b7b208df325438e0fef7d404f1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffectPrefab: {fileID: 0}
-  recipeSprite: {fileID: 0}
-  BuriedRecipes: []
+  player: {fileID: 0}
+  pickupPrefabs: []
   timeToDig: 1
-  playerTouching: 0
 --- !u!114 &4775643977987847727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +159,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7584b5af1f9f1a64fadf41d2fd70e44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}

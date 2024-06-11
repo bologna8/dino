@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [HideInInspector] public Aim myAim;
-    public GameObject damagePrefab;
-    private Damage attackStats;
-    private bool attackReady = true;
+    [HideInInspector] public Aim myAim; //Aims the direction of attacks
+    [Tooltip("Prefab for actual attack goes here")] public GameObject damagePrefab;
+    private Damage attackStats; //current damage script
+    private bool attackReady = true; //ready to use attack again after attack fiinished and cooldown done
+
+    //other refrences
     private Health myHealth;
     private Movement myMovement;
-
-    private Animator myAnim;
+    private Animator myAnim; //needs to be reworked tbh
 
     [HideInInspector] public bool ignoreTeams;
 
@@ -24,13 +25,6 @@ public class Weapon : MonoBehaviour
         myAnim = GetComponentInChildren<Animator>();
 
         if (damagePrefab) { changeAttack(damagePrefab); }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void changeAttack(GameObject newAttack)
@@ -59,8 +53,6 @@ public class Weapon : MonoBehaviour
 
         if (myAim)
         {
-            //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); mousePos.z = 0f;
-            //var dir = (mousePos - transform.position).normalized;
             dir = myAim.direction;
             startAngle = Quaternion.FromToRotation(Vector3.right, dir);
             startSpot = myAim.transform.position;
@@ -72,34 +64,42 @@ public class Weapon : MonoBehaviour
             
             if (myAnim)
             {
-                var offset = 0.21f;
-                if ( myAim.transform.position.y > transform.position.y +offset) { myAnim.SetFloat("attackDir", 0f); }
+                var offset = 0.21f; //check rough angle of attack
+                if ( myAim.transform.position.y > transform.position.y + offset) { myAnim.SetFloat("attackDir", 0f); }
                 else if (myAim.transform.position.y < transform.position.y - offset) {myAnim.SetFloat("attackDir", 1f); }
                 else { myAnim.SetFloat("attackDir", 0.5f); }
                 
             }
 
         }
+
+        var startOffset = startSpot - transform.position;
         
 
         //Attack move directionally
         var preMove = dir * attackStats.movementPreAttack;
         var midMove = dir * attackStats.movementMidAttack;
-        if (attackStats.onlyMoveHorizontal) 
+        if (attackStats.onlyHorizontalMovePre) 
         {
             preMove = new Vector3(attackStats.movementPreAttack, 0, 0);
+            if (!myMovement.faceRight) { preMove.x *= -1; }
+        }
+        if (attackStats.onlyHorizontalMoveMid)
+        {
             midMove = new Vector3(attackStats.movementMidAttack, 0, 0);
-            if (!myMovement.faceRight) { preMove.x *= -1; midMove *= -1; }
+            if (!myMovement.faceRight) { midMove *= -1; }
         }
 
         //Start Actual Attack
-        if (myHealth) { myHealth.TakeDamage(0, attackStats.windup + attackStats.attackDuration, preMove); }
+        if (!attackStats.moveWhileAttacking) { myMovement.DoDash(preMove, attackStats.windup); }
+        
         yield return new WaitForSeconds(attackStats.windup);
-        if (myHealth) { myHealth.TakeDamage(0, attackStats.attackDuration, midMove); }
+        
+        if (!attackStats.moveWhileAttacking) { myMovement.DoDash(midMove, attackStats.attackDuration); }
 
         var newAttack = Instantiate(damagePrefab, startSpot, startAngle).GetComponent<Damage>();
         newAttack.origin = transform;
-        newAttack.offset = startSpot - transform.position;
+        newAttack.offset = startOffset;
         newAttack.team = myHealth.team;
         newAttack.ignoreTeams = ignoreTeams;
         if (!myMovement.faceRight) { newAttack.Flip(); }

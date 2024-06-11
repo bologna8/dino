@@ -8,7 +8,8 @@ public class CursorManager : MonoBehaviour
     {
         Cursor.visible = false;
         
-        Cursor.lockState = CursorLockMode.Locked;
+        //Why lock the mouse? It is needed to aim 
+        //Cursor.lockState = CursorLockMode.Locked;
 
         if(inventoryUi.InventoryOpen)
         {

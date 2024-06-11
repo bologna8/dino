@@ -1,14 +1,29 @@
 using System.Collections;
 using UnityEngine;
 
-public class Buried : MonoBehaviour
+public class Buried : Interactable
 {
-    public GameObject pickupEffectPrefab; 
-    public Sprite recipeSprite;
-    public CraftingRecipe[] BuriedRecipes;
-    public float timeToDig = 1f;
-    [HideInInspector] public bool playerTouching = false;
+    //public GameObject pickupEffectPrefab; 
+    //public Sprite recipeSprite;
+    //public CraftingRecipe[] BuriedRecipes;
 
+    public GameObject[] pickupPrefabs;
+    public float timeToDig = 1f;
+    //[HideInInspector] public bool playerTouching = false;
+
+    void Update()
+    {
+        if (player) 
+        {
+            if (player.interacting) 
+            {
+                player.Dig(timeToDig);
+                StartCoroutine(delayedDig(timeToDig, player));
+            }
+        }
+    }
+
+/*
     void OnTriggerStay2D(Collider2D other)
     {
         var player = other.gameObject.GetComponent<PlayerControls>();
@@ -23,17 +38,24 @@ public class Buried : MonoBehaviour
         }
     }
 
+
     void OnTriggerExit2D(Collider2D other)
     {
         var player = other.gameObject.GetComponent<PlayerControls>();
         if (player && playerTouching) { playerTouching = false; }
     }
+*/
 
     IEnumerator delayedDig(float digTime, PlayerControls player)
     {
         yield return new WaitForSeconds(digTime);
-        if (playerTouching)
+        if (player)
         {
+            var r = Random.Range(0, pickupPrefabs.Length);
+            var item = pickupPrefabs[r];
+            if (item) { Instantiate(item, transform.position, Quaternion.identity); }
+
+            /*
             var r = Random.Range(0, BuriedRecipes.Length);
             var recipe = BuriedRecipes[r];
             if (recipe)
@@ -55,6 +77,8 @@ public class Buried : MonoBehaviour
 
                 Destroy(gameObject);
             }
+            */
+            
         }
     }
 }

@@ -35,8 +35,9 @@ public class Aim : MonoBehaviour
             }
             if (myType == FollowType.Mouse) 
             {
-                lastMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); lastMousePos.z = 0f;
-                direction = (lastMousePos - lockT.position).normalized;
+                lastMousePos = Input.mousePosition;
+                var mouseScreenPos = Camera.main.ScreenToWorldPoint(lastMousePos); mouseScreenPos.z = 0f;
+                direction = (mouseScreenPos - lockT.position).normalized;
 
                 if (Input.GetAxis("aimX") != 0 || Input.GetAxis("aimY") != 0) 
                 { myType = FollowType.Controller; }
@@ -49,9 +50,12 @@ public class Aim : MonoBehaviour
 
                 if (Input.GetAxis("aimX") != 0 || Input.GetAxis("aimY") != 0)
                 { lastControllerAim = new Vector3(Input.GetAxis("aimX"), Input.GetAxis("aimY"), 0f).normalized; }
+                else 
+                { 
+
+                }
                 direction = lastControllerAim;
-                //Debug.Log(lastControllerAim);
-                
+                //Debug.Log(lastControllerAim);                
             }
 
             //Debug.Log(Input.GetAxis("aimX") + " , " + Input.GetAxis("aimY"));

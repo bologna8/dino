@@ -15,12 +15,12 @@ public class Floatate : MonoBehaviour
       private bool up = true;
       private Vector3 startPos;
 
-      public CheckCheck groundCheck;
+      public LayerCheck groundCheck;
 
       // Start is called before the first frame update
       void Start()
       {
-            groundCheck = GetComponentInParent<CheckCheck>();
+            groundCheck = GetComponentInParent<LayerCheck>();
             startPos = transform.localPosition;
       }
 

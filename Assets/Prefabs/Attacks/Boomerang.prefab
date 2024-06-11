@@ -172,28 +172,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910707473a047bc4e83a69e7e6f43730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
-  ignoreTeams: 0
   damage: 1
   stunTime: 0.2
-  knockback: 666
-  onlyMoveHorizontal: 1
-  movementPreAttack: 0
-  movementMidAttack: 0
-  windup: 0.1
-  attackDuration: 0.5
   cooldown: 2
-  offset: {x: 0.3, y: 1, z: 0}
-  projectileSpeed: 666
   attackLifetime: 1
-  origin: {fileID: 0}
+  moveWhileAttacking: 1
+  windup: 0.1
+  movementPreAttack: 0
+  onlyHorizontalMovePre: 1
+  attackDuration: 0.5
+  movementMidAttack: 0
+  onlyHorizontalMoveMid: 1
+  aimedAttack: 1
   faceRight: 1
+  directionalKnockback: 100
+  useLockedKB: 0
+  lockedKnockback: {x: 0, y: 0}
+  projectileSpeed: 666
+  breakable: 0
   hitMask:
     serializedVersion: 2
     m_Bits: 1025
-  breakable: 0
-  returnTime: 1
   destroyEffect: {fileID: 0}
+  returnTime: 1
+  rotateSpeed: {x: 0, y: 0, z: 420}
+  origin: {fileID: 0}
+  offset: {x: 0.3, y: 1, z: 0}
+  team: 0
+  ignoreTeams: 0
 --- !u!96 &3716235979466548301
 TrailRenderer:
   serializedVersion: 3

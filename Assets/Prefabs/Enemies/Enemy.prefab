@@ -680,26 +680,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727401023298ebe41bdc8fbba620e261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerate: 10
   baseSpeed: 10
-  momentumTime: 1
-  momentumCurrent: 0
-  jumpForce: 100
-  jumpEffect: {fileID: 0}
-  colliders: []
+  moveSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  accelerationTime: 1
+  deccelerationTime: 1
   moveInput: 0
   verticalInput: 0
   faceRight: 1
   onGround: 0
-  myBod: {fileID: 0}
-  onEdge: 0
-  turning: 0
-  turnTime: 0.1
+  slowPercent: 1
+  jumpInput: 0
+  jumpSpeedCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  jumpForce: 100
+  minJumpTime: 0.1
+  maxJumpTime: 1
+  coyoteTime: 0
+  jumpEffect: {fileID: 0}
   grabLedges: 0
+  climbForce: {x: 0, y: 0}
+  climbTime: {x: 0, y: 0}
+  onEdge: 0
   dashForce: 100
   dashTime: 0.1
   dashCooldown: 0.3
-  slowPercent: 1
+  colliders: []
+  myBod: {fileID: 0}
+  turning: 0
+  turnTime: 0.1
   myAnim: {fileID: 0}
 --- !u!114 &1043106949246640294
 MonoBehaviour:
@@ -716,7 +751,6 @@ MonoBehaviour:
   myAim: {fileID: 0}
   damagePrefab: {fileID: 6738095107012820417, guid: 803b2e8d570dadb4dad276aac002f4c6, type: 3}
   ignoreTeams: 0
-  attackArm: {fileID: 0}
 --- !u!50 &3014230376865057890
 Rigidbody2D:
   serializedVersion: 4

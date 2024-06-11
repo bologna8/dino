@@ -2,27 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckCheck : MonoBehaviour
+public class LayerCheck : MonoBehaviour
 {
-     public bool touching = false;
+     [Tooltip("Choose which layer(s) to check")] public LayerMask checkMask;
+     [Tooltip("VIEW ONLY : currently touching something")] public bool touching = false;
+     [Tooltip("VIEW ONLY : what layer was last touched")] public int touchingLayer = -1; //not used currently
      [HideInInspector] public Collider2D lastCollided;
-
-     public LayerMask checkMask;
-
-     public void Start()
-     {
-
-     }
-
-     public void Update()
-     {
-          
-     }
 
      private void OnTriggerStay2D(Collider2D collision)
      {
           if ((checkMask.value & (1 << collision.transform.gameObject.layer)) > 0) 
-          { touching = true; lastCollided = collision; }        
+          { touching = true; lastCollided = collision; touchingLayer = collision.transform.gameObject.layer; }    
      }
 
      private void OnTriggerExit2D(Collider2D collision)

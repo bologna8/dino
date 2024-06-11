@@ -13,6 +13,9 @@ public class PickUp : MonoBehaviour
     private float lifeTime;
     private Rigidbody2D myBod;
 
+    public Item item;
+    public CraftingRecipe recipe;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +39,12 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && lifeTime > delayPickupTime)
         { 
-            if (pickupEffect) { Instantiate(pickupEffect, transform.position, transform.rotation); }
+            if (pickupEffect) { Instantiate(pickupEffect, transform.position, transform.rotation); } 
+
+            //if (item) { inventory.AddItem(item); }
+
+            //if (recipe) { intentory.UnlockRecipe(recipe); }
+
             Destroy(gameObject); 
         }
         

@@ -10,6 +10,8 @@ public class PlayerControls : MonoBehaviour
     private Weapon[] myWeapons;
     private Health myHealth;
 
+    //public bool holdJump = true;
+
     private Animator myAnim;
     private SpriteRenderer mySprite;
     [HideInInspector] public bool interacting = false;
@@ -67,22 +69,20 @@ public class PlayerControls : MonoBehaviour
         {
             myMove.moveInput = 0;
             myMove.verticalInput = 0;
+            myMove.jumpInput = false;
             interacting = false;
             hidden = false;
         }
         else //not stunned, can input
         {
             myMove.moveInput = (int)Input.GetAxis("Horizontal");
-            myMove.verticalInput = (int)Input.GetAxis("Vertical");
-
-            if (Input.GetButtonDown("Jump")) { myMove.Jump(); }
-
-            if (!myMove.onEdge)
+            myMove.verticalInput = Input.GetAxis("Vertical");
+            myMove.jumpInput = Input.GetButton("Jump");
+            if(Input.GetButtonDown("Jump")) { myMove.JumpStart(); }
+            
+            if (!myMove.onEdge && myMove.climbing == null && myMove.dashing == null)
             {
-                if (Input.GetButtonDown("Dash")) 
-                { 
-                    myMove.Dash();
-                }
+                if (Input.GetButtonDown("Dash")) { myMove.Dash(); }
 
                 if (Input.GetButton("Primary")) { myWeapons[0].tryAttack(); }
                 else if (Input.GetButton("Secondary")) { myWeapons[1].tryAttack(); }

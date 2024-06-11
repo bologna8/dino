@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
     {
         if (HealthBarPrefab)
         {
-            Instantiate(HealthBarPrefab, GameObject.Find("Canvas").transform).GetComponent<HealthUI>().tracking = this;
+            //Instantiate(HealthBarPrefab, GameObject.Find("Canvas").transform).GetComponent<HealthUI>().tracking = this;
         }
 
         myMovement = GetComponentInParent<Movement>();
@@ -62,12 +62,7 @@ public class Health : MonoBehaviour
             {
                 if (stunTime <= stun) { stunTime = stun; }
 
-                if (myMovement)
-                {
-                    myMovement.myBod.velocity = Vector2.zero;
-                    myMovement.myBod.AddForce(KB);
-                    myMovement.momentumCurrent = 0f;
-                }
+                if (myMovement) { myMovement.DoDash(KB, stun); }
             }
         }
     }

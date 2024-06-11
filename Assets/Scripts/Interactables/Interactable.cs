@@ -5,6 +5,8 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private SpriteRenderer mySprite;
+    //[HideInInspector] public bool playerTouching = false;
+    [HideInInspector] public PlayerControls player;
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +23,23 @@ public class Interactable : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        var player = other.gameObject.GetComponent<PlayerControls>();
-        if (player)
+        var checkPlayer = other.gameObject.GetComponent<PlayerControls>();
+        if (checkPlayer)
         {
             mySprite.color = Color.white;
+            //playerTouching = true;
+            player = checkPlayer;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        var player = other.gameObject.GetComponent<PlayerControls>();
-        if (player) 
+        var checkPlayer = other.gameObject.GetComponent<PlayerControls>();
+        if (checkPlayer) 
         {
             mySprite.color =  new Color(0.9f,0.9f,0.9f,1f);
+            //playerTouching = false;
+            player = null;
         }
     }
 }
