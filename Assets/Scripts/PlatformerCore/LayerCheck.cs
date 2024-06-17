@@ -8,11 +8,16 @@ public class LayerCheck : MonoBehaviour
      [Tooltip("VIEW ONLY : currently touching something")] public bool touching = false;
      [Tooltip("VIEW ONLY : what layer was last touched")] public int touchingLayer = -1; //not used currently
      [HideInInspector] public Collider2D lastCollided;
+     [HideInInspector] public float slope;
 
      private void OnTriggerStay2D(Collider2D collision)
      {
           if ((checkMask.value & (1 << collision.transform.gameObject.layer)) > 0) 
-          { touching = true; lastCollided = collision; touchingLayer = collision.transform.gameObject.layer; }    
+          { 
+               touching = true; lastCollided = collision; 
+               touchingLayer = collision.transform.gameObject.layer;
+               slope = collision.transform.rotation.z;
+          }    
      }
 
      private void OnTriggerExit2D(Collider2D collision)
@@ -20,10 +25,15 @@ public class LayerCheck : MonoBehaviour
           if (collision == lastCollided) { touching = false; }
      }
 
-     public Vector3 findTopCorner(bool topR)
+     public Vector3 findTopCorner(bool topR) //Top right or left corner
      {
           var b = lastCollided.bounds;
-          if (topR) { return new Vector3(b.center.x - b.extents.x, b.center.y + b.extents.y, 0); }
-          else { return new Vector3(b.center.x + b.extents.x, b.center.y + b.extents.y, 0); }
+          var cornerPoint = lastCollided.transform.position;
+          cornerPoint.y += b.extents.y;
+          
+          if (topR) { cornerPoint.x -= b.extents.x; }
+          else { cornerPoint.x += b.extents.x;}
+
+          return cornerPoint;
      }
 }

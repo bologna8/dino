@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     private bool justJumped; //detect if new jump input
     [Tooltip("Vertical velocity percent 0 to 1 over time as jump input is held")] public AnimationCurve jumpSpeedCurve;
     private float jumpDelayTime = 0.1f; //time Before you can Start a New Jump
-    private float jumpDelayCurrent; //current delay until can jump again
+    private float jumpDelayCurrent; //current delay until can jump again, prevents quick double inputs
     [Tooltip("Downard velocity while in air")] public float myGravity = 1f;
     [Tooltip("Constant downward force, even when grounded, helps with slopes")] public float minGravConstant = 0f;
     [Tooltip("Max gravity fall speed")] public float terminalVelocity = 10f;
@@ -41,7 +41,8 @@ public class Movement : MonoBehaviour
     [Tooltip("Extra time to try and jump just after leaving the ground")] public float coyoteTime;
     [Tooltip("Bouncin off the walls")] public bool wallJump = false;
     [Tooltip("Horizontal and vertical direction from wall jumps")] public Vector2 wallJumpForce;
-    [Tooltip("How long wall jumps last")] public float wallJumpTime;
+    [Tooltip("Duration of wall jump, x is locked in time, y is time for force to fade")] public Vector2 wallJumpTime;
+    private float coyoteWallTime; //extra time to try and walljump after recently leaving a wall, set to same as coyote time
     [Tooltip("Extra mid air jumps")] public int bonusJumps = 0;
     private int remainingJumps; //Keep track of remaining bonus jumps
     [Tooltip("Spawn effect on every jump")] public GameObject jumpEffect;
@@ -50,15 +51,13 @@ public class Movement : MonoBehaviour
 
     [Header("LEDGE VARIABLES")]
     [Tooltip("Can ya hang?")] public bool grabLedges = false;
-    [Tooltip("Horizontal and Vertical speed of ledge climb")] public Vector2 climbForce;
     [Tooltip("X is delay before actual cimb time of Y")] public Vector2 climbTime;
-    private float hangTime; //How long been on ledge, used for slight delay before climbing up
+    private float hangTime = 0; //How long been on ledge, used for slight delay before climbing up
     private float hangClimbDelay = 0.3f; //How long before you can climb input on ledge
     [HideInInspector] public bool onEdge; //Currently grabbing an edge
     [HideInInspector] public Coroutine climbing; //currently started a climb coroutine
 
     [Tooltip("Climb small hip high obstacles easily")] public bool autoVaultOver = false;
-    [Tooltip("Horizontal and Vertical speed of vault")] public Vector2 vaultForce;
     [Tooltip("Time spent vaulting")] public float vaultSpeed;
     [Tooltip("Change fall speed while pressing into a wall")] public bool wallSlide = false;
     [Tooltip("Max fall speed while wall sliding")] public float slideSpeed = 1f;
@@ -68,6 +67,9 @@ public class Movement : MonoBehaviour
     [Header("DASH VARIABLES")]
     [Tooltip("Time after doing a dash before ready to dash again")] public float dashCooldown = 0.4f;
     private float dashCurrentCD; //Keep track of current dash cooldown
+    private Vector2 dashVelocity; //Current speed and direction of dash
+    private Vector2 dashDecay; //Time it takes for dash velocity to fade, x is current, y is total time
+    private Vector2 lastDash; //Initial velocity of the last dash done, used for fall off velocity
     [Tooltip("Dash stops instantly before going over edges")] public bool edgeStopDash = true;
     [Tooltip("Collision layer is changed while dashing")] public bool changeCollisionLayer = true;
     private int startLayer; //remember to return to starting layer later
@@ -79,7 +81,6 @@ public class Movement : MonoBehaviour
     [Tooltip("Duration time of dash")] public float dashTime = 0.4f;
 
     [Range(0, 30)] [Tooltip("Layer while dashing on ground")] public int airDashLayer;
-
     [Tooltip("Speed while dashing in air")] public float airDashForce = 20f;
     [Tooltip("Duration time of air dash")] public float airDashTime = 0.1f;
     [Tooltip("Affected by gravity while dashing in air")] public bool gravityWhileAirDashing = false;
@@ -107,12 +108,12 @@ public class Movement : MonoBehaviour
     [HideInInspector] public LayerCheck groundCheck; //0
     [HideInInspector] public LayerCheck frontCheck; //1
     [HideInInspector] public LayerCheck ledgeCheck; //2
-    [HideInInspector] public LayerCheck airCheck; //3
-    [HideInInspector] public LayerCheck forwardCheck; //4
+    [HideInInspector] public LayerCheck airCheck; //3 - check above ledges
+    [HideInInspector] public LayerCheck forwardCheck; //4 - check ahead for edges
     [HideInInspector] public LayerCheck hipCheck; //5
     [HideInInspector] public LayerCheck headCheck; //6
-    [HideInInspector] public LayerCheck passCheck; //7
-    [HideInInspector] public LayerCheck dashCheck; //8
+    [HideInInspector] public LayerCheck passCheck; //7 - while dropping through passable objects
+    [HideInInspector] public LayerCheck dashCheck; //8 - while dashing through dashable objects
 
 
 
@@ -158,27 +159,72 @@ public class Movement : MonoBehaviour
 
         UpdateGravity();
 
-        myBod.velocity = myVelocity;
-        //myBod.velocity = new Vector3(myVelocity.x, 0,0);
-        
+        var velocity = myVelocity + dashVelocity;
+        velocity.y = Mathf.Clamp(velocity.y, -terminalVelocity, Mathf.Infinity); //clamp fall speed with terminal velocity
+        myBod.velocity = velocity;
     }
 
     public void UpdateTimers()
     {
-        if (jumpDelayCurrent > 0) { jumpDelayCurrent -= Time.deltaTime; }
-        if (dashCurrentCD > 0 && dashing == null) { dashCurrentCD -= Time.deltaTime; }
+        if (jumpDelayCurrent > 0) { jumpDelayCurrent -= Time.deltaTime; } //prevent multi quick jump inputs
 
-        if (onGround || onEdge) //Reset stuff
-        { 
+        if (dashing == null) 
+        {
+            if (dashCurrentCD > 0) { dashCurrentCD -= Time.deltaTime; } 
+            if (dashDecay.x > 0) //fade dash velocity over time
+            { 
+                dashDecay.x -= Time.deltaTime;
+                dashVelocity = Vector2.Lerp(lastDash, Vector2.zero, (dashDecay.y - dashDecay.x) / dashDecay.y);
+            }
+            else { dashVelocity = Vector2.zero; lastDash = Vector2.zero; }
+        }
+        
+
+        if (onGround || onEdge) //Reset ground stuff
+        {
+            if (airTime > 0) //Reset stuff when first landing
+            { 
+                momentum *= 0.5f; //reduce speed when first landing on the ground
+                if (dashVelocity.y != 0) { dashVelocity.y = 0; lastDash.y = 0; } //Reset verticle dash speed when you hit the ground
+            }
+
             if (myCollider.enabled) //collider disabled while passing through platform
             {
-                airTime = 0f;
+                airTime = 0; 
                 remainingJumps = bonusJumps; remainingDashes = airDashes; 
             }
+
             if (onEdge) { airTime = coyoteTime; } //Can't coyote jump just after being on an edge
-            else if (myVelocity.y < 0 && myCollider.enabled) { myVelocity.y = 0; } //reset velocity on ground and not dropping through a platform
+            else if (myVelocity.y < 0 && myCollider.enabled)
+            { 
+                if (groundCheck.slope != 0) //fall faster going down slopes
+                { 
+                    var goingDown = false;
+                    if (groundCheck.slope < 0) 
+                    { 
+                        if (moveInput > 0) { goingDown = true; }
+                        if (dashVelocity.x > 0 && dashVelocity.y <= 0) { goingDown = true; }
+                    }
+                    if (groundCheck.slope > 0)
+                    {
+                        if (moveInput < 0) { goingDown = true; }
+                        if (dashVelocity.x < 0 && dashVelocity.y <= 0) { goingDown = true; }
+                    }
+
+                    if (goingDown) { myVelocity.y = -terminalVelocity; }
+                    else { myVelocity.y = 0; }
+                } 
+                else { myVelocity.y = 0; } //reset velocity on ground and not dropping through a platform 
+            } 
         } 
         else { airTime += Time.deltaTime; } //Keep track of air time for gravity and coyote jumps
+
+        if (frontCheck && wallJump) //Update time since last touched a wall to jump off of
+        {
+            var wallTime = coyoteTime; if (coyoteTime <= 0) { wallTime = 0.1f; } //Wall jump works even with no coyote time
+            if (frontCheck.touching) { coyoteWallTime = wallTime; }
+            else if (coyoteWallTime > 0) { coyoteWallTime -= Time.deltaTime; }
+        }
     }
 
     public void UpdateInputs()
@@ -189,7 +235,7 @@ public class Movement : MonoBehaviour
 
         if (canInput)
         {
-            Run(); //Run Run
+            Run(); //Forest Run
 
             //JumpStart is called seperatly on button down
             if (justJumped) //Handle if jump button just pressed is being held or released
@@ -211,11 +257,7 @@ public class Movement : MonoBehaviour
         bool applyGravity = true;
         if (onEdge || ignoreGravity) { applyGravity = false; }
 
-        if (applyGravity)
-        {
-            myVelocity.y -= myGravity * Mathf.Pow(minGravConstant + airTime, 2); //G = C * (m/s)^2
-            myVelocity.y = Mathf.Clamp(myVelocity.y, -terminalVelocity, Mathf.Infinity);
-        }
+        if (applyGravity) { myVelocity.y -= myGravity * Mathf.Pow(minGravConstant + airTime, 2); } //G = C * (m/s)^2
     }
 
 
@@ -259,7 +301,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    public void Turn()
+    public void Turn() //Every now and then
     {
         if (!turning)
         {
@@ -314,14 +356,15 @@ public class Movement : MonoBehaviour
             else if (onGround) { jumpReady = true; } //Normal jump
             else if (onEdge) //Climb up edges
             { 
-                if(climbing == null && hangTime > hangClimbDelay) { climbing = StartCoroutine(ledgeClimb()); } 
+                if (climbing == null && hangTime > hangClimbDelay) 
+                { climbing = StartCoroutine(ledgeClimb(ledgeCheck.findTopCorner(faceRight), climbTime.y, climbTime.x)); } 
             }
-            else if (frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
-            { 
-                Turn(); 
+            else if (coyoteWallTime > 0 || frontCheck.touching) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
+            {
+                if (frontCheck.touching && !turning) { Turn(); } 
                 var dir = wallJumpForce; 
                 if (!faceRight) { dir.x *= -1; }
-                DoDash(dir, wallJumpTime);
+                DoDash(dir, wallJumpTime.x, wallJumpTime.y);
                 if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
             } 
             else if (airTime < coyoteTime) { jumpReady = true; } //jump if just recently left the ground
@@ -335,6 +378,7 @@ public class Movement : MonoBehaviour
             if (jumpReady)
             {
                 myVelocity.y = jumpForce;
+                airTime = coyoteTime;
                 
                 jumpDelayCurrent = jumpDelayTime;
                 justJumped = true;
@@ -352,7 +396,7 @@ public class Movement : MonoBehaviour
     {
         currentJumpTime += Time.deltaTime;
         myVelocity.y = jumpForce * jumpSpeedCurve.Evaluate(currentJumpTime / maxJumpTime);
-        airTime = coyoteTime;
+        //airTime = coyoteTime;
         
         if (currentJumpTime > maxJumpTime) { JumpEnd(true); }
         if (headCheck) { if(headCheck.touching) { JumpEnd(true); } }  //end early if hit head
@@ -399,7 +443,7 @@ public class Movement : MonoBehaviour
         if (jumpDelayCurrent > 0) { tryGrab = false; }
         if (myHP) { if (myHP.stunTime > 0) { tryGrab = false; } }
         
-        if(climbing != null) { tryGrab = true; } //stay on ledge while ledge climb started
+        //if(climbing != null) { tryGrab = true; } //stay on ledge while ledge climb started
         
         if (!onGround && ledgeCheck.touching && !airCheck.touching && tryGrab)
         {
@@ -415,10 +459,7 @@ public class Movement : MonoBehaviour
 
                 var cornerHit = ledgeCheck.findTopCorner(faceRight);
                 var offset = ledgeCheck.transform.localPosition;
-                var checkParent = ledgeCheck.transform.parent;
-                if (checkParent) { offset += checkParent.transform.localPosition; }
-
-                if (!faceRight) { offset = new Vector2(offset.x *-1, offset.y); }
+                if (!faceRight) { offset.x *= -1; }
                 transform.position = cornerHit - offset;
 
                 hangTime += Time.deltaTime;
@@ -426,48 +467,57 @@ public class Movement : MonoBehaviour
                 //Climb up edge with move inputs if up or in direction of edge
                 if (climbing == null && hangTime > hangClimbDelay) 
                 { 
-                    if (verticalInput > 0) { climbing = StartCoroutine(ledgeClimb()); }
-                    if (InputForward()) { climbing = StartCoroutine(ledgeClimb()); }
+                    if (verticalInput > 0) { climbing = StartCoroutine(ledgeClimb(cornerHit, climbTime.y, climbTime.x)); }
+                    if (InputForward()) { climbing = StartCoroutine(ledgeClimb(cornerHit, climbTime.y, climbTime.x)); }
                 }
             }
 
         }
-        else {  onEdge = false; hangTime = 0f; }
+        else { onEdge = false; hangTime = 0f; }
 
         if (myAnim) { myAnim.SetBool("onEdge", onEdge); }
 
     }
 
-    public IEnumerator ledgeClimb()
+    public IEnumerator ledgeClimb(Vector3 corner, float duration, float delay = 0)
     {
         if (myAnim) { myAnim.SetTrigger("climbed"); }
 
-        var climbDir = climbForce;
-        bool straightUp = true;
-        if (moveInput != 0) { straightUp = false; }
-        
-        yield return new WaitForSeconds(climbTime.x);
+        yield return new WaitForSeconds(delay);
 
-        //Check again for any move input
-        if (moveInput != 0) { straightUp = false; }
-        
-        if (!straightUp) //check if changed move input mid climb
+        var startFrom = transform.position;
+        var moveTo = corner - groundCheck.transform.localPosition;
+
+        if (faceRight) { moveTo.x += myCollider.bounds.extents.x; }
+        else { moveTo.x -= myCollider.bounds.extents.x; }
+
+        //ledgeCheck.touching = false; //Snaps back to ledge for some reason without this
+
+        for (var t = 0f; t <= 1; t += Time.deltaTime / (duration /2)) //move up first
         {
-            if (faceRight && moveInput < 0) { straightUp = true; }
-            if (!faceRight && moveInput > 0) { straightUp = true; }
+            transform.position = Vector2.Lerp(startFrom, new Vector2(startFrom.x, moveTo.y), t);
+            yield return null;
         }
 
-        if (onEdge) //check still on edge
+        for (var t = 0f; t <= 1; t += Time.deltaTime / (duration /2)) //move over next
         {
-            jumpDelayCurrent = jumpDelayTime;
-            if (jumpEffect) { Instantiate(jumpEffect, ledgeCheck.transform.position, Quaternion.identity); }
-
-            if (straightUp) { climbDir.x = 0; } 
-            else if (!faceRight) { climbDir.x *= -1; } //climb left
-            
-            DoDash(climbDir, climbTime.y);
+            transform.position = Vector2.Lerp(new Vector2(startFrom.x, moveTo.y), moveTo, t);
+            yield return null;
         }
 
+        ledgeCheck.touching = false; //Snaps back to ledge for some reason without this
+
+        /* 
+        //Go directly diagonal
+        for (var t = 0f; t <= 1; t += Time.deltaTime / duration)
+        {
+            transform.position = Vector2.Lerp(startFrom, moveTo, t);
+            ledgeCheck.touching = false; //Snaps back to ledge for some reason without this
+            yield return null;
+        }
+        */
+
+        transform.position = moveTo;
         climbing = null;
     }
     
@@ -478,8 +528,7 @@ public class Movement : MonoBehaviour
         {
             if (hipCheck.touching && !ledgeCheck.touching && !airCheck.touching && dashing == null && !turning)
             {
-                var vaultDir = new Vector2(vaultForce.x * moveInput, vaultForce.y);
-                DoDash(vaultDir, vaultSpeed);
+                climbing = StartCoroutine(ledgeClimb(hipCheck.findTopCorner(faceRight), vaultSpeed));
             }
         }
     }
@@ -522,23 +571,27 @@ public class Movement : MonoBehaviour
             
             if (!faceRight) { d *= -1; } //change direction to left
 
-            DoDash(d, t, noGrav, edgeStop, true, changeLayer, changeHP);
-            dashingEffect = Instantiate(dashEffect, transform); //spawn dash trail as child obect
+            DoDash(d, t, 0, noGrav, edgeStop, true, changeLayer, changeHP);
+            if (dashEffect) { dashingEffect = Instantiate(dashEffect, transform); } //spawn dash trail as child obect
 
             if (myAnim) { myAnim.SetTrigger("dashed"); }
         }
     }
 
-    public void DoDash(Vector2 dir, float duration, bool noGrav = false, bool edgeStop = false, bool wallCheck = false, int newLayer = -1, int layerHP = -1)
+    public void DoDash(Vector2 dir, float duration, float speedDecay = 0, bool noGrav = false, bool edgeStop = false, bool wallCheck = false, int newLayer = -1, int layerHP = -1)
     {
         if (dashing != null) { StopCoroutine(dashing); }
-        dashing = DirectionalDash(dir, duration, noGrav, edgeStop, wallCheck, newLayer, layerHP);
+        if (climbing != null) { StopCoroutine(climbing); climbing = null; }
+
+        dashing = DirectionalDash(dir, duration, speedDecay, noGrav, edgeStop, wallCheck, newLayer, layerHP);
         StartCoroutine(dashing);
     }
 
-    public IEnumerator DirectionalDash(Vector2 dir, float duration, bool noGrav = false, bool edgeStop = false, bool wallCheck = false, int newLayer = -1, int layerHP = -1)
+    public IEnumerator DirectionalDash(Vector2 dir, float duration, float speedDecay, bool noGrav, bool edgeStop, bool wallCheck, int newLayer, int layerHP)
     {
-        myVelocity = dir;
+        myVelocity = Vector2.zero;
+        lastDash = dir; dashVelocity = dir;
+
         airTime = coyoteTime;
         ignoreGravity = noGrav;
 
@@ -547,6 +600,8 @@ public class Movement : MonoBehaviour
 
         for (var t = 0f; t <= 1; t += Time.deltaTime / duration)
         {
+            dashDecay = new Vector2(speedDecay, speedDecay); //Keep resetting decay time while dash is going
+
             bool endEarly = false; //end early if dashing into wall or dashing off an edge
 
             if (forwardCheck && edgeStop) //stop if about to dash off an edge
