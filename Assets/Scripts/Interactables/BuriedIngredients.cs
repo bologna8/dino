@@ -4,7 +4,6 @@ using UnityEngine;
 public class BuriedIngredients : MonoBehaviour
 {
     public GameObject pickupEffectPrefab; // Prefab for the pick-up effect
-    public Sprite ingredientSprite; // Sprite of the ingredient item
     public Item[] buriedIngredientItems; // Array of buried ingredient items
     public float timeToDig = 1f;
     [HideInInspector] public bool playerTouching = false;
@@ -51,26 +50,18 @@ public class BuriedIngredients : MonoBehaviour
                     // Add the buried ingredient item to the player's inventory
                     inventory.AddItem(item);
 
-                    // Display the ingredient sprite
-                    if (ingredientSprite)
+
+
+                    // Show the pick-up effect
+                    if (pickupEffectPrefab)
                     {
-                        // Instantiate a GameObject to display the sprite
-                        GameObject spriteObject = new GameObject("IngredientSprite");
-                        spriteObject.transform.position = transform.position;
-                        SpriteRenderer spriteRenderer = spriteObject.AddComponent<SpriteRenderer>();
-                        spriteRenderer.sprite = ingredientSprite;
+                        Instantiate(pickupEffectPrefab, transform.position, Quaternion.identity);
                     }
+
+                    // Destroy the buried ingredients handler object after digging them up
+                    Destroy(gameObject);
                 }
             }
-
-            // Show the pick-up effect
-            if (pickupEffectPrefab)
-            {
-                Instantiate(pickupEffectPrefab, transform.position, Quaternion.identity);
-            }
-
-            // Destroy the buried ingredients handler object after digging them up
-            Destroy(gameObject);
         }
     }
 }
