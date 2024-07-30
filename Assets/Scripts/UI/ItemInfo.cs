@@ -28,11 +28,8 @@ public class ItemInfo : MonoBehaviour
         // You can choose to deactivate or delete the panel based on your requirement
         if (descriptionPanel != null)
         {
-            // Deactivate the panel
-            descriptionPanel.SetActive(false);
-
-            // Or you can choose to destroy the panel
-            // Destroy(descriptionPanel);
+           
+             Destroy(descriptionPanel);
         }
     }
 }

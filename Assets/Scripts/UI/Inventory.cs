@@ -28,7 +28,6 @@ public class Inventory : MonoBehaviour
 
     public void SwitchHotbarInventory(Item item)
     {
-        //inventory to hotbar, CHECK if we have enaugh space
         foreach(Item i in inventoryItemList)
         {
             if(i == item)
@@ -47,7 +46,6 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        //hotbar to inventory
         foreach(Item i in hotbarItemList)
         {
             if( i == item)
@@ -112,17 +110,14 @@ public void RemoveItems(Item item, int amount)
         return;
     }
 
-    // Remove the specified number of instances of the item from the inventory
     for (int i = 0; i < amount; i++)
     {
-        // If the item is not found in the inventory, break the loop
         if (!inventoryItemList.Contains(item))
         {
             Debug.LogWarning("Insufficient instances of item to remove: " + item.name);
             break;
         }
 
-        // Remove a single instance of the item
         RemoveItem(item);
     }
 }

@@ -15,7 +15,6 @@ public class ItemSlot : MonoBehaviour
     {
         if (item != null)
         {
-            // Subscribe to the ItemUsed event of the item
             item.ItemUsed += OnItemUsedEventHandler;
         }
     }
@@ -25,13 +24,11 @@ public class ItemSlot : MonoBehaviour
         item = newItem;
         icon.sprite = newItem.icon;
 
-        // Subscribe to the ItemUsed event of the item
         item.ItemUsed += OnItemUsedEventHandler;
     }
 
     public void ClearSlot()
     {
-        // Unsubscribe from the ItemUsed event before clearing the slot
         if (item != null)
         {
             item.ItemUsed -= OnItemUsedEventHandler;
@@ -53,13 +50,12 @@ public class ItemSlot : MonoBehaviour
         else
         {
             item.Use();
-            ItemUsed?.Invoke(); // Trigger the ItemUsed event of the item slot
+            ItemUsed?.Invoke(); 
         }
     }   
 
     public void DestroySlot()
     {
-        // Unsubscribe from the ItemUsed event before destroying the slot
         if (item != null)
         {
             item.ItemUsed -= OnItemUsedEventHandler;
@@ -80,7 +76,6 @@ public class ItemSlot : MonoBehaviour
     {
         if (item == null) return;
 
-        //display item info
         GameManager.instance.DisplayItemInfo(item.name, item.GetItemDescription(), transform.position);
     }
 
@@ -93,6 +88,5 @@ public class ItemSlot : MonoBehaviour
 
     private void OnItemUsedEventHandler()
     {
-        // Empty method, used only to handle event subscription
     }
 }
