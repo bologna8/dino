@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUi : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
     private bool inventoryOpen = false;
     public bool InventoryOpen => inventoryOpen;
@@ -10,7 +10,7 @@ public class InventoryUi : MonoBehaviour
     public GameObject inventoryParent;
     public GameObject inventoryTab;
     public GameObject craftingTab;
-    public GameObject itemDescriptionPanel; // Reference to the item description panel GameObject
+    public GameObject itemDescriptionPanel;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
 
@@ -27,14 +27,12 @@ public class InventoryUi : MonoBehaviour
         UpdateInventoryUI();
         SetUpCraftingRecipes();
         
-        // Subscribe to the ItemUsed event of all item slots
         foreach (ItemSlot slot in itemSlotList)
         {
             slot.ItemUsed += DeactivateItemDescriptionPanel;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -64,7 +62,7 @@ public class InventoryUi : MonoBehaviour
         inventoryOpen = false;
         Time.timeScale = 1f; 
         inventoryParent.SetActive(false);
-        DeactivateItemDescriptionPanel(); // Deactivate item description panel when the inventory closes
+        DeactivateItemDescriptionPanel(); 
     }
 
     private void DeactivateItemDescriptionPanel()

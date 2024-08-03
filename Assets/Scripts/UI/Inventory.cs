@@ -23,42 +23,6 @@ public class Inventory : MonoBehaviour
 
     public List<Item> inventoryItemList = new List<Item>();
 
-    public List<Item> hotbarItemList = new List<Item>();
-    public HotbarController hotbarController;
-
-    public void SwitchHotbarInventory(Item item)
-    {
-        foreach(Item i in inventoryItemList)
-        {
-            if(i == item)
-            {
-                if(hotbarItemList.Count >= hotbarController.HotbarSlotSize)
-                {
-                    Debug.Log("No more slots available in hotbar");
-                }
-                else
-                {
-                    hotbarItemList.Add(item);
-                    inventoryItemList.Remove(item);
-                    onItemChange.Invoke();
-                }
-                return;
-            }
-        }
-
-        foreach(Item i in hotbarItemList)
-        {
-            if( i == item)
-            {
-                hotbarItemList.Remove(item);
-                inventoryItemList.Add(item);
-                onItemChange.Invoke();
-                return;
-            }
-        }
-
-    }
-
     public void AddItem(Item item)
     {
         inventoryItemList.Add(item);
@@ -70,10 +34,6 @@ public class Inventory : MonoBehaviour
         if (inventoryItemList.Contains(item))
         {
             inventoryItemList.Remove(item);
-        }
-        else if (hotbarItemList.Contains(item))
-        {
-            hotbarItemList.Remove(item);
         }
 
         onItemChange.Invoke();
@@ -103,10 +63,8 @@ public class Inventory : MonoBehaviour
 
 public void RemoveItems(Item item, int amount)
 {
-    // Check if the item exists in the inventory
     if (!inventoryItemList.Contains(item))
     {
-        Debug.LogWarning("Item not found in inventory: " + item.name);
         return;
     }
 
@@ -114,7 +72,6 @@ public void RemoveItems(Item item, int amount)
     {
         if (!inventoryItemList.Contains(item))
         {
-            Debug.LogWarning("Insufficient instances of item to remove: " + item.name);
             break;
         }
 

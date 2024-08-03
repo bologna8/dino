@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    public Image icon;
-    private Item item;
+    public Image icon; 
+    private Item item; 
 
     public delegate void OnItemUsed();
-    public event OnItemUsed ItemUsed;
+    public event OnItemUsed ItemUsed; 
 
     private void Start()
     {
@@ -41,17 +41,8 @@ public class ItemSlot : MonoBehaviour
     public void UseItem()
     {
         if (item == null) return;
-
-        if (Input.GetKey(KeyCode.LeftAlt))
-        {
-            Debug.Log("Trying to switch");
-            Inventory.instance.SwitchHotbarInventory(item);
-        }
-        else
-        {
             item.Use();
             ItemUsed?.Invoke(); 
-        }
     }   
 
     public void DestroySlot()
@@ -66,7 +57,7 @@ public class ItemSlot : MonoBehaviour
 
     public void OnRemoveButtonClicked()
     {
-        if(item != null)
+        if (item != null)
         {
             Inventory.instance.RemoveItem(item);
         }

@@ -23,6 +23,5 @@ public class StatItem : Item
 public enum StatItemType
 {
     HealthItem,
-    ThirstItem,
     FoodItem
 }

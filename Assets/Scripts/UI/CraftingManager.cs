@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class CraftingManager : MonoBehaviour
 {
-    public GameObject craftingUI; // Reference to the crafting UI GameObject
-    public CraftingTable[] craftingTables; // Array of crafting table objects
+    public GameObject craftingUI; 
+    public CraftingTable[] craftingTables; 
 
+//if the player is by the crafting table, enable the crafting interface 
     private void Update()
     {
-        // Check if any of the crafting tables are within range of the player
+
         bool playerNearTable = false;
         foreach (CraftingTable table in craftingTables)
         {
@@ -18,7 +19,6 @@ public class CraftingManager : MonoBehaviour
             }
         }
 
-        // Enable or disable the crafting UI based on player's proximity to any crafting table
         craftingUI.SetActive(playerNearTable);
     }
 }

@@ -23,15 +23,6 @@ public class GameManager : MonoBehaviour
     public float moveX = 0f;
     public float moveY = 0f;
 
-    ///private void Update()
-   // {
-      //  if (Input.GetKeyDown(KeyCode.X))
-      //  {
-       //     Item newItem = itemList[Random.Range(0, itemList.Count)];
-
-        //    Inventory.instance.AddItem(Instantiate(newItem));
-       // }
-  //  }
 
     public void OnStatItemUse(StatItemType itemType, int amount)
     {

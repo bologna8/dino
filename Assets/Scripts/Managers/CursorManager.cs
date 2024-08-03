@@ -3,7 +3,7 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     [SerializeField]
-    private InventoryUi inventoryUi; 
+    private InventoryUI inventoryUi; 
     void Start()
     {
         Cursor.visible = false;

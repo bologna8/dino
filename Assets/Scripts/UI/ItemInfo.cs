@@ -9,7 +9,7 @@ public class ItemInfo : MonoBehaviour
 
     public Text itemName;
     public Text itemDescription;
-    public GameObject descriptionPanel; // Reference to the description panel GameObject
+    public GameObject descriptionPanel; 
 
     private void Awake()
     {
@@ -22,10 +22,8 @@ public class ItemInfo : MonoBehaviour
         itemDescription.text = description;
     }
 
-    // Method to deactivate or delete the item description panel
     public void DeactivatePanel()
     {
-        // You can choose to deactivate or delete the panel based on your requirement
         if (descriptionPanel != null)
         {
            
