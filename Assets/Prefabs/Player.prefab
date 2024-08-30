@@ -757,6 +757,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &1465002264861480660
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +854,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &1871979810656937717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1684,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &2855658706329177984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1898,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &3458533525808235641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2869,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &4956033541124677228
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,6 +3223,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &5580897168838722688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,6 +3480,7 @@ Transform:
   - {fileID: 8140379950626604085}
   - {fileID: 2620859758429715580}
   - {fileID: 5603356733124619535}
+  - {fileID: 2786310629096168211}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4586916901848197137
@@ -3584,15 +3591,13 @@ MonoBehaviour:
   coyoteTime: 0.1
   wallJump: 1
   wallJumpForce: {x: 5, y: 5}
-  wallJumpTime: 0.5
+  wallJumpTime: {x: 0, y: 0}
   bonusJumps: 0
   jumpEffect: {fileID: 749027114909299004, guid: b51164542c75bf84c887ffaf1c7cc2d9, type: 3}
   grabLedges: 1
-  climbForce: {x: 7.7, y: 7.7}
   climbTime: {x: 0.33, y: 0.42}
   onEdge: 0
   autoVaultOver: 1
-  vaultForce: {x: 12.34, y: 7.7}
   vaultSpeed: 0.1
   wallSlide: 1
   slideSpeed: 1
@@ -3734,8 +3739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryItemList: []
-  hotbarItemList: []
-  hotbarController: {fileID: 3772107475442562240}
 --- !u!1 &5725155247234334684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,6 +3997,52 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
+--- !u!1 &5970834034620693550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2786310629096168211}
+  - component: {fileID: 434737195021001295}
+  m_Layer: 6
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2786310629096168211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970834034620693550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2661674118543948784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434737195021001295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970834034620693550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298805002b0768142893b75e1d2c2185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSound: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
 --- !u!1 &5978276510002102356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4320,6 +4369,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &6769973235457254252
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,7 +4732,6 @@ GameObject:
   - component: {fileID: 4574670601824524625}
   - component: {fileID: 974872600365255049}
   - component: {fileID: 6547634600785732129}
-  - component: {fileID: 3772107475442562240}
   m_Layer: 5
   m_Name: Hotbar
   m_TagString: Untagged
@@ -4777,18 +4826,6 @@ MonoBehaviour:
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &3772107475442562240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8035621654396591479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f16d727e1dbaa47b0d996428205534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8288918864936323468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5247,6 +5284,7 @@ MonoBehaviour:
   touching: 0
   touchingLayer: -1
   lastCollided: {fileID: 0}
+  slope: 0
 --- !u!1 &9168917575836456752
 GameObject:
   m_ObjectHideFlags: 0

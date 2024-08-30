@@ -115,6 +115,9 @@ public class Movement : MonoBehaviour
     [HideInInspector] public LayerCheck passCheck; //7 - while dropping through passable objects
     [HideInInspector] public LayerCheck dashCheck; //8 - while dashing through dashable objects
 
+    //AudioManager
+    [HideInInspector] public AudioManager audioManager;
+
 
 
 
@@ -142,6 +145,9 @@ public class Movement : MonoBehaviour
         if (colliders.Length > 7) { passCheck = colliders[7]; }
         if (colliders.Length > 8) { dashCheck = colliders[8]; }
 
+        //Ethan did this
+        audioManager = GetComponentInChildren<AudioManager>();
+        //------
     }
 
     void FixedUpdate()
@@ -386,6 +392,8 @@ public class Movement : MonoBehaviour
                 if (myAnim) { myAnim.SetTrigger("jumped"); }
 
                 if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
+
+                audioManager.PlayJumpSound(mySelf);
             }
             
         }
