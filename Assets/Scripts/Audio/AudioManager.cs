@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
     public void PlayDigSound(GameObject player){
         if(diggingSounds != null){
             Debug.Log("Dig sound played!");
-            int x = Random.Range(0, diggingSounds.Count);
+            int x = Random.Range(0, diggingSounds.Count - 1);
             Instantiate(diggingSounds[x], player.transform.position, Quaternion.identity);
         }
     }
