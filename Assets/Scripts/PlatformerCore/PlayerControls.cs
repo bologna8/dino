@@ -19,6 +19,11 @@ public class PlayerControls : MonoBehaviour
     [HideInInspector] public bool hidden = false;
     public GameObject hideEffect;
 
+    //Audio
+
+    private GameObject mySelf;
+    private AudioManager myAudioManager;
+
     // Event to notify when a recipe is unlocked
     public static event Action<CraftingRecipe> onRecipeUnlocked;
 
@@ -49,6 +54,9 @@ public class PlayerControls : MonoBehaviour
 
         myAnim = GetComponentInChildren<Animator>();
         mySprite = GetComponentInChildren<SpriteRenderer>();
+
+        mySelf = transform.Find("Self").gameObject;
+        myAudioManager = GetComponentInChildren<AudioManager>();
 
         if (aimingPrefab)
         {
@@ -121,6 +129,7 @@ public class PlayerControls : MonoBehaviour
     public void Dig(float digTime)
     {
         StartCoroutine(StartDigging(digTime));
+        myAudioManager.PlayDigSound(mySelf);
     }
 
     IEnumerator StartDigging(float digTime)

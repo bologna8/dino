@@ -258,25 +258,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   stunTime: 0.2
-  knockback: 333
-  onlyMoveHorizontal: 1
   cooldown: 0.1
   attackLifetime: 0.5
   moveWhileAttacking: 1
   windup: 0.3
   movementPreAttack: 0
+  onlyHorizontalMovePre: 1
   attackDuration: 0.2
   movementMidAttack: 0
+  onlyHorizontalMoveMid: 1
+  aimedAttack: 1
+  faceRight: 1
+  directionalKnockback: 100
+  useLockedKB: 0
+  lockedKnockback: {x: 0, y: 0}
   projectileSpeed: 0
   breakable: 0
-  returnTime: 0
-  rotateSpeed: {x: 0, y: 0, z: 420}
   hitMask:
     serializedVersion: 2
     m_Bits: 0
   destroyEffect: {fileID: 0}
-  offset: {x: 1, y: 0, z: 0}
+  returnTime: 0
+  rotateSpeed: {x: 0, y: 0, z: 420}
   origin: {fileID: 0}
-  faceRight: 1
+  offset: {x: 1, y: 0, z: 0}
   team: 0
   ignoreTeams: 0
