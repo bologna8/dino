@@ -59,23 +59,22 @@ public class Book : MonoBehaviour
         }
     }
 
-   IEnumerator Rotate(float angle, bool forward)
+  IEnumerator Rotate(float angle, bool forward)
 {
     float value = 0f;
     rotate = true;
     Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
     while (true)
     {
-        value += Time.deltaTime * pageSpeed;
+        value += Time.unscaledDeltaTime * pageSpeed; 
         pages[index].rotation = Quaternion.Slerp(pages[index].rotation, targetRotation, value);
-        float angle1 = Quaternion.Angle(pages[index].rotation, targetRotation);
-        if (angle1 < 0.1f)  
+        if (Quaternion.Angle(pages[index].rotation, targetRotation) < 0.1f)
         {
             if (!forward)
             {
                 index--;
             }
-            rotate = false; 
+            rotate = false;
             yield break;
         }
         yield return null;

@@ -11,6 +11,8 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryTab;
     public GameObject craftingTab;
     public GameObject itemDescriptionPanel;
+    
+    public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
 
@@ -30,6 +32,11 @@ public class InventoryUI : MonoBehaviour
         foreach (ItemSlot slot in itemSlotList)
         {
             slot.ItemUsed += DeactivateItemDescriptionPanel;
+        }
+
+        if (book != null)
+        {
+            book.SetActive(false);
         }
     }
 
@@ -54,6 +61,11 @@ public class InventoryUI : MonoBehaviour
         inventoryOpen = true;
         Time.timeScale = 0f;
         inventoryParent.SetActive(true);
+
+        if (book != null)
+        {
+            book.SetActive(true);
+        }
     }
 
     private void CloseInventory()
@@ -62,6 +74,12 @@ public class InventoryUI : MonoBehaviour
         inventoryOpen = false;
         Time.timeScale = 1f; 
         inventoryParent.SetActive(false);
+
+        if (book != null)
+        {
+            book.SetActive(false);
+        }
+
         DeactivateItemDescriptionPanel(); 
     }
 

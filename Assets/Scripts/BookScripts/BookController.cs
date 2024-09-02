@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // Import for EventSystem
+using UnityEngine.EventSystems; 
 
 public class BookController : MonoBehaviour
 {
-    public GameObject journalPanel; // Assign your journal UI panel here
-    public bool isJournalOpen = false; // Track the state of the journal
+    public GameObject journalPanel; 
+    public bool isJournalOpen = false;
 
     private void Update()
     {
@@ -34,13 +34,11 @@ public class BookController : MonoBehaviour
         {
             journalPanel.SetActive(true);
         }
-        Time.timeScale = 0f; // Freeze time
+        Time.timeScale = 0f;
 
-        // Ensure cursor is enabled and visible
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Check if EventSystem is present
         if (EventSystem.current == null)
         {
             Debug.LogError("EventSystem is missing from the scene. Please add it for UI interactions.");
@@ -53,9 +51,8 @@ public class BookController : MonoBehaviour
         {
             journalPanel.SetActive(false);
         }
-        Time.timeScale = 1f; // Unfreeze time
+        Time.timeScale = 1f; 
 
-        // Hide and lock the cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
