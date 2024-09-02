@@ -58,6 +58,29 @@ public class Book : MonoBehaviour
             backButton.SetActive(false);
         }
     }
+    
+   public void GoToPage(int pageIndex)
+{
+    if (pageIndex < 0 || pageIndex >= pages.Count) return; 
+
+    if (rotate) return; 
+
+    
+    if (index != pageIndex)
+    {
+        // Update index
+        index = pageIndex;
+
+        
+        pages[index].SetAsLastSibling();
+        float angle = 180; 
+        StartCoroutine(Rotate(angle, true));
+
+       
+        NextButtonActions();
+        BackButtonActions();
+    }
+}
 
   IEnumerator Rotate(float angle, bool forward)
 {
