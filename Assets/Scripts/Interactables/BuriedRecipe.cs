@@ -51,7 +51,7 @@ public class BuriedRecipe : Interactable
         if (player)
         {
             if(BuriedRecipes.Length > 0){
-                var recipeIndex = Random.Range(0, BuriedRecipes.Length - 1);
+                var recipeIndex = Random.Range(0, BuriedRecipes.Length);
                 var recipe = BuriedRecipes[recipeIndex];
 
                 if (recipe)
