@@ -67,14 +67,14 @@ public class ItemSlot : MonoBehaviour
     {
         if (item == null) return;
 
-        GameManager.instance.DisplayItemInfo(item.name, item.GetItemDescription(), transform.position);
+      //  GameManager.instance.DisplayItemInfo(item.name, item.GetItemDescription(), transform.position);
     }
 
     public void OnCursorExit()
     {
         if (item == null) return;
 
-        GameManager.instance.DestroyItemInfo();
+    //    GameManager.instance.DestroyItemInfo();
     }
 
     private void OnItemUsedEventHandler()

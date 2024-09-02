@@ -31,19 +31,19 @@ public class GameManager : MonoBehaviour
 
   public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos)
 {
-    if (currentItemInfo == null)
-    {
-        buttonPos.x -= 200;
-        buttonPos.y += 50;
-
-        currentItemInfo = Instantiate(itemInfoPrefab, buttonPos, Quaternion.identity, canvas);
-        currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
-    }
-    else
-    {
-        currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
-        currentItemInfo.transform.position = buttonPos;
-    }
+   // if (currentItemInfo == null)
+  //  {
+    //    buttonPos.x -= 200;
+   //     buttonPos.y += 50;
+//
+  //     currentItemInfo = Instantiate(itemInfoPrefab, buttonPos, Quaternion.identity, canvas);
+//currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
+ //   }
+//    else
+ ////   {
+     //   currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
+     //   currentItemInfo.transform.position = buttonPos;
+   // }
 }
 
     public void DestroyItemInfo()
