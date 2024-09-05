@@ -9,6 +9,7 @@ public class BuriedIngredients : MonoBehaviour
     [HideInInspector] public bool playerTouching = false;
     private Inventory inventory; 
 
+    /*
     void Start()
     {
         inventory = FindObjectOfType<Inventory>(); 
@@ -61,4 +62,6 @@ public class BuriedIngredients : MonoBehaviour
             }
         }
     }
+*/
+
 }

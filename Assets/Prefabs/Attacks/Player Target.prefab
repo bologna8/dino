@@ -45,12 +45,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb9ba597740b794aa2e2709f79309ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myType: 1
+  myInputType: 1
+  myAimType: 2
+  turnSpeed: -1
+  turnSpeedMultiplier: 1
   offset: {x: 0, y: 0, z: 0}
   lockLength: 1
-  lockT: {fileID: 0}
-  direction: {x: 0, y: 0, z: 0}
-  myAI: {fileID: 0}
+  currentDirection: {x: 0, y: 0, z: 0}
+  desiredDirection: {x: 0, y: 0, z: 0}
+  currentAng: 0
+  forwardAngle: 0
+  maxRotation: 0
+  sightRange: 10
+  sightLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  lastSeen: {fileID: 0}
+  lookLockTime: 0
+  AutoAimAt: {fileID: 0}
+  waitToRotate: {x: 0, y: 0}
+  currentWaitTime: 0
+  turnToMax: 0
+  verticalInput: 0
+  touching: 0
+  safetyColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &6824932764428227320
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
