@@ -19,6 +19,7 @@ public class Bush : MonoBehaviour
         
     }
 
+/*
     void OnTriggerStay2D(Collider2D other)
     {
         var findPlayer = other.gameObject.GetComponent<PlayerControls>();
@@ -45,6 +46,7 @@ public class Bush : MonoBehaviour
     {
         if (player) { player.bushesTouched.Remove(this); }
     }
+*/
 
 
 }

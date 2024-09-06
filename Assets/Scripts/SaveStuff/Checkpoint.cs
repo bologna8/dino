@@ -33,7 +33,7 @@ public class Checkpoint : MonoBehaviour
         var player = other.gameObject.GetComponent<PlayerControls>();
         if (player)
         { 
-            if (player.interacting && !active) { Save.SetCheckpoint(this); }
+            //if (player.interacting && !active) { Save.SetCheckpoint(this); }
         }
         
     }

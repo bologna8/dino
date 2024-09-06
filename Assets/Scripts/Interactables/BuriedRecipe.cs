@@ -9,6 +9,7 @@ public class BuriedRecipe : Interactable
     public float timeToDig = 1f;
     [HideInInspector] public bool playerTouching = false;
 
+/*
     void Update()
     {
         if (player)
@@ -68,4 +69,6 @@ public class BuriedRecipe : Interactable
             }
         }
     }
+*/
+
 }

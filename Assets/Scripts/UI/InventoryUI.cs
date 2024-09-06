@@ -24,7 +24,7 @@ public class InventoryUI : MonoBehaviour
     
     private void Start()
     {
-        PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
+        //PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
         Inventory.instance.onItemChange += UpdateInventoryUI;
         UpdateInventoryUI();
         SetUpCraftingRecipes();
