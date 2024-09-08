@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6125340897349386845}
   - component: {fileID: 1364807306965272882}
-  - component: {fileID: 2549358509560967639}
   m_Layer: 0
   m_Name: Jump Audio
   m_TagString: Untagged
@@ -43,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5480787676610553427, guid: 1378273ee56756c4bb98499363aba46c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ad306a8b19ceaa248ab7665d9dddb727, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b1f812bf81cac84daeaa9c0db07b7fc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -129,16 +128,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2549358509560967639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3933424769755576373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c51d7debf80bc84fad56f189face8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 1
