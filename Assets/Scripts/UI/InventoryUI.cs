@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryTab;
     public GameObject craftingTab;
     public GameObject itemDescriptionPanel;
-    
+
     public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
@@ -19,16 +21,16 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventorySlotPrefab;
     public GameObject craftingSlotPrefab;
 
-    public Transform invetoryItemTransform;
-    public Transform craftingItemTranform;
-    
+    public Transform inventoryItemTransform;
+    public Transform craftingItemTransform;
+
     private void Start()
     {
         //PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
         Inventory.instance.onItemChange += UpdateInventoryUI;
         UpdateInventoryUI();
         SetUpCraftingRecipes();
-        
+
         foreach (ItemSlot slot in itemSlotList)
         {
             slot.ItemUsed += DeactivateItemDescriptionPanel;
@@ -40,9 +42,9 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    void Update()
+    public void OpenInventory(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (context.performed) // Check if the action was performed
         {
             if (inventoryOpen)
             {
@@ -72,7 +74,7 @@ public class InventoryUI : MonoBehaviour
     {
         ChangeCursorState(true);
         inventoryOpen = false;
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
         inventoryParent.SetActive(false);
 
         if (book != null)
@@ -80,7 +82,7 @@ public class InventoryUI : MonoBehaviour
             book.SetActive(false);
         }
 
-        DeactivateItemDescriptionPanel(); 
+        DeactivateItemDescriptionPanel();
     }
 
     private void DeactivateItemDescriptionPanel()
@@ -93,7 +95,7 @@ public class InventoryUI : MonoBehaviour
 
     private void UpdateCraftingUI(CraftingRecipe recipe)
     {
-        GameObject go = Instantiate(craftingSlotPrefab, craftingItemTranform);
+        GameObject go = Instantiate(craftingSlotPrefab, craftingItemTransform);
         ItemSlot slot = go.GetComponent<ItemSlot>();
         slot.AddItem(recipe);
     }
@@ -102,9 +104,9 @@ public class InventoryUI : MonoBehaviour
     {
         List<Item> craftingRecipes = GameManager.instance.craftingRecipes;
 
-        foreach(Item recipe in craftingRecipes)
+        foreach (Item recipe in craftingRecipes)
         {
-            GameObject Go = Instantiate(craftingSlotPrefab, craftingItemTranform);
+            GameObject Go = Instantiate(craftingSlotPrefab, craftingItemTransform);
             ItemSlot slot = Go.GetComponent<ItemSlot>();
             slot.AddItem(recipe);
         }
@@ -114,14 +116,14 @@ public class InventoryUI : MonoBehaviour
     {
         int currentItemCount = Inventory.instance.inventoryItemList.Count;
 
-        if(currentItemCount > itemSlotList.Count)
+        if (currentItemCount > itemSlotList.Count)
         {
             AddItemSlots(currentItemCount);
         }
 
-        for(int i = 0; i < itemSlotList.Count; ++i)
+        for (int i = 0; i < itemSlotList.Count; ++i)
         {
-            if(i < currentItemCount)
+            if (i < currentItemCount)
             {
                 itemSlotList[i].AddItem(Inventory.instance.inventoryItemList[i]);
             }
@@ -137,9 +139,9 @@ public class InventoryUI : MonoBehaviour
     {
         int amount = currentItemCount - itemSlotList.Count;
 
-        for(int i = 0; i < amount; ++i)
+        for (int i = 0; i < amount; ++i)
         {
-            GameObject GO = Instantiate(inventorySlotPrefab, invetoryItemTransform);
+            GameObject GO = Instantiate(inventorySlotPrefab, inventoryItemTransform);
             ItemSlot newSlot = GO.GetComponent<ItemSlot>();
             itemSlotList.Add(newSlot);
         }
@@ -158,4 +160,22 @@ public class InventoryUI : MonoBehaviour
             Cursor.visible = true;
         }
     }
+
+    
+    /*
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (inventoryOpen)
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
+        }
+    }
+    */
 }

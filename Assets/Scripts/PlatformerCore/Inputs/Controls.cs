@@ -420,6 +420,107 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""b816cef8-b676-4985-8013-47e6c0e3475e"",
+            ""actions"": [
+                {
+                    ""name"": ""NextPage"",
+                    ""type"": ""Button"",
+                    ""id"": ""40f8159f-3e0a-43c4-990a-e94922f80cea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousPage"",
+                    ""type"": ""Button"",
+                    ""id"": ""83e99321-d211-4e25-be9b-5bd439a3b675"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""0340a07b-b1b1-4305-8e72-0cddf3f071ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c1aa813f-c46b-450f-9d30-83415e133434"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c5fcc7c-a2e9-4533-88ed-772655608f7d"",
+                    ""path"": ""<Joystick>/stick/right"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62578fe5-83fb-43db-bebb-be77d80cbcf3"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e6eb266-17bd-4a67-b97c-119484ad738a"",
+                    ""path"": ""<Joystick>/stick/left"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d36424f8-edc1-4c10-8fc4-fc3237364669"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1f1af07-2094-43d1-81f3-b7dbff884a02"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -441,6 +542,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Aiming_MouseMove = m_Aiming.FindAction("MouseMove", throwIfNotFound: true);
         m_Aiming_ControllerStick = m_Aiming.FindAction("ControllerStick", throwIfNotFound: true);
         m_Aiming_AimButton = m_Aiming.FindAction("AimButton", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_NextPage = m_UI.FindAction("NextPage", throwIfNotFound: true);
+        m_UI_PreviousPage = m_UI.FindAction("PreviousPage", throwIfNotFound: true);
+        m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -700,6 +806,68 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public AimingActions @Aiming => new AimingActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_NextPage;
+    private readonly InputAction m_UI_PreviousPage;
+    private readonly InputAction m_UI_OpenInventory;
+    public struct UIActions
+    {
+        private @Controls m_Wrapper;
+        public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @NextPage => m_Wrapper.m_UI_NextPage;
+        public InputAction @PreviousPage => m_Wrapper.m_UI_PreviousPage;
+        public InputAction @OpenInventory => m_Wrapper.m_UI_OpenInventory;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @NextPage.started += instance.OnNextPage;
+            @NextPage.performed += instance.OnNextPage;
+            @NextPage.canceled += instance.OnNextPage;
+            @PreviousPage.started += instance.OnPreviousPage;
+            @PreviousPage.performed += instance.OnPreviousPage;
+            @PreviousPage.canceled += instance.OnPreviousPage;
+            @OpenInventory.started += instance.OnOpenInventory;
+            @OpenInventory.performed += instance.OnOpenInventory;
+            @OpenInventory.canceled += instance.OnOpenInventory;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @NextPage.started -= instance.OnNextPage;
+            @NextPage.performed -= instance.OnNextPage;
+            @NextPage.canceled -= instance.OnNextPage;
+            @PreviousPage.started -= instance.OnPreviousPage;
+            @PreviousPage.performed -= instance.OnPreviousPage;
+            @PreviousPage.canceled -= instance.OnPreviousPage;
+            @OpenInventory.started -= instance.OnOpenInventory;
+            @OpenInventory.performed -= instance.OnOpenInventory;
+            @OpenInventory.canceled -= instance.OnOpenInventory;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IBaseActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -719,5 +887,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMouseMove(InputAction.CallbackContext context);
         void OnControllerStick(InputAction.CallbackContext context);
         void OnAimButton(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnNextPage(InputAction.CallbackContext context);
+        void OnPreviousPage(InputAction.CallbackContext context);
+        void OnOpenInventory(InputAction.CallbackContext context);
     }
 }
