@@ -31,7 +31,7 @@ public class PickUp : MonoBehaviour
     void Update()
     {
         lifeTime += Time.deltaTime;
-        if (lifeTime > despawnTime) { Destroy(gameObject); }
+        if (lifeTime > despawnTime) { gameObject.SetActive(false); }
 
     }
 
@@ -39,13 +39,15 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && lifeTime > delayPickupTime)
         { 
-            if (pickupEffect) { Instantiate(pickupEffect, transform.position, transform.rotation); } 
+            if (pickupEffect) 
+            { PoolManager.Instance.Spawn(pickupEffect, transform.position); } 
 
-            //if (item) { inventory.AddItem(item); }
+            if (item) { Inventory.instance.AddItem(item); }
 
-            //if (recipe) { intentory.UnlockRecipe(recipe); }
+            //Do the same for recipies somehow pls Angelina my angel 0w0
+            //if (recipe) { intentory.UnlockRecipe(recipe); } 
 
-            Destroy(gameObject); 
+            gameObject.SetActive(false);
         }
         
     }

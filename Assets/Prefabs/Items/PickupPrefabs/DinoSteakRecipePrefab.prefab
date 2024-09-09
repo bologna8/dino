@@ -148,11 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47acaebbc16492d45a0307099eb920c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touching: 0
-  lastCollided: {fileID: 0}
   checkMask:
     serializedVersion: 2
     m_Bits: 3073
+  touching: 0
+  touchingLayer: -1
+  lastCollided: {fileID: 0}
+  slope: 0
 --- !u!61 &5740164894219756990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,6 +212,7 @@ GameObject:
   - component: {fileID: 4297895770958887988}
   - component: {fileID: 4621826593676991584}
   - component: {fileID: 4300487382535365856}
+  - component: {fileID: -5319333640567609272}
   m_Layer: 7
   m_Name: DinoSteakRecipePrefab
   m_TagString: Untagged
@@ -322,3 +325,25 @@ MonoBehaviour:
   randStartX: {x: 42, y: 123}
   despawnTime: 123
   delayPickupTime: 0.21
+  item: {fileID: 0}
+  recipe: {fileID: 0}
+--- !u!114 &-5319333640567609272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561253398169580007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b30c1e8adae4a42b7785604aeb23cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  team: 0
+  maxCount: 99
+  delayBetweenChildren: 0
+  tracking: 0
+  myAim: {fileID: 0}
+  myCore: {fileID: 0}

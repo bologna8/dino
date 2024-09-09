@@ -2,51 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bush : MonoBehaviour
+public class Bush : Interactable
 {
-    [HideInInspector] public bool playerTouching = false;
-    private PlayerControls player;
+    public static int bushesTouched;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Interacted(Core interCore)
     {
-        
+        if (!interCore.hidden) { interCore.hidden = true; }
+        else { interCore.hidden = false; }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnTriggerStay2D(Collider2D other)
     {
-        
-    }
-
-/*
-    void OnTriggerStay2D(Collider2D other)
-    {
-        var findPlayer = other.gameObject.GetComponent<PlayerControls>();
-        if (findPlayer && player == null)
-        { 
-            player = findPlayer;
-            player.bushesTouched.Add(this);
-            playerTouching = true;
+        if (!player)
+        {
+            if (EnterCheck(other))
+            {
+                player.myCore.hidingSpots ++;
+            }
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    public override void OnTriggerExit2D(Collider2D other)
     {
-        var findPlayer = other.gameObject.GetComponent<PlayerControls>();
-        if (findPlayer && player) 
+        if (player) 
         { 
-            player.bushesTouched.Remove(this);
-            player = null;
-            playerTouching = false;
+            if (ExitCheck(other)) 
+            {
+                player.myCore.hidingSpots --;
+
+                if (player.myCore.hidingSpots <= 0) 
+                { player.myCore.hidden = false; }
+
+                player = null;
+            } 
         }
+        
     }
 
-    void OnDestroy()
+    public  override void OnDisable()
     {
-        if (player) { player.bushesTouched.Remove(this); }
+        if (player) { player.interactablesTouched.Remove(this); player.myCore.hidingSpots --; }
+        valid = false;
     }
-*/
-
 
 }

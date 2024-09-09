@@ -44,19 +44,19 @@ public class Aim : MonoBehaviour
     private Controls myControls;
     [HideInInspector] public float verticalInput; 
 
-    private LayerCheck safetyLayers;
+    //private LayerCheck safetyLayers;
     [HideInInspector] public bool touching = false;
 
     private SpriteRenderer mySprite;
     private Color startColor;
-    public Color safetyColor;
+    //public Color safetyColor;
 
 
 
     //Start is called before the first frame update
     void Start()
     {
-        safetyLayers = GetComponent<LayerCheck>();
+        //safetyLayers = GetComponent<LayerCheck>();
 
         mySprite = GetComponent<SpriteRenderer>();
         if (mySprite) { startColor = mySprite.color; }
@@ -221,6 +221,7 @@ public class Aim : MonoBehaviour
 
 
         //Safety layers disable attacking while aim is touching
+        /*
         if (safetyLayers) 
         { 
             if (touching != safetyLayers.touching)
@@ -235,6 +236,7 @@ public class Aim : MonoBehaviour
             }
             
         }
+        
 
         if (touching) 
         {
@@ -264,6 +266,27 @@ public class Aim : MonoBehaviour
             }
 
         }
+        */
+
+        var endPoint = transform.position + (currentDirection * sightRange);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, currentDirection, sightRange, sightLayers);
+
+        if (hit.collider != null) 
+        {
+            endPoint = hit.point;
+
+            if (hit.transform == lastSeen) { lookLockTime += Time.deltaTime;}
+            else { lastSeen = hit.transform; lookLockTime = 0; }
+        }
+        else { lastSeen = null; lookLockTime = 0; }
+
+        if (myLine) 
+        {
+            myLine.enabled = true;
+            myLine.SetPosition(0, transform.position); 
+            myLine.SetPosition(1, endPoint); 
+        }
+
 
 
         

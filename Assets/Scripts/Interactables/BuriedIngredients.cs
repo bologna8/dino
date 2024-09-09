@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BuriedIngredients : MonoBehaviour
+public class BuriedIngredients : Interactable
 {
     public GameObject pickupEffectPrefab; 
     public Item[] buriedIngredientItems; 

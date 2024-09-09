@@ -7,7 +7,7 @@ public class BuriedRecipe : Interactable
     public CraftingRecipe[] BuriedRecipes;
 
     public float timeToDig = 1f;
-    [HideInInspector] public bool playerTouching = false;
+    //[HideInInspector] public bool playerTouching = false;
 
 /*
     void Update()
