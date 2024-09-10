@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     //[Tooltip("If this health is on a child object, should it destroy entire object when destroyed")] public bool destroyParent = false;
     private Spawned mySpawn;
     [HideInInspector] public Transform source; //The transform that created the attack
-    [HideInInspector] public int team = -1;
+    public int team = -1;
     //private float respawnTime = 1f;
     [Tooltip("Health Bar That is shown When Damaged")] public GameObject HealthBarPrefab;
 
@@ -43,11 +43,13 @@ public class Health : MonoBehaviour
     {
         //if(team < 0) { team = gameObject.layer;}
         
+        /*
         if (mySpawn) //Reset on every awake
         { 
             team = mySpawn.team; 
             source = mySpawn.source;
         }
+        */
 
         if (HealthBarPrefab)
         {
@@ -71,6 +73,13 @@ public class Health : MonoBehaviour
         if (stunTime > 0) { stunTime -= Time.deltaTime; }
         
         if (passiveRegen > 0) { Regenerate(); }
+
+        //This is wonky on update, should be delayed but not in update but it is for now oooof
+        if (mySpawn) //Reset on every awake
+        { 
+            team = mySpawn.team; 
+            source = mySpawn.source;
+        }
     }
 
     public void TakeDamage(float dmg, Vector2 stun, Vector2 KB)

@@ -102,8 +102,6 @@ public class Damage : MonoBehaviour
 
         if (hitHealth && team != 0)
         {
-            Debug.Log(hitHealth.team + " :" + team);
-
             bool hitIt = true;
             //if (damage <= 0) { hitIt = false; }
             if (hitList.Contains(hitHealth)) { hitIt = false; } 
