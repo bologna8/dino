@@ -36,7 +36,7 @@ public class DEMO_PopUpText : MonoBehaviour
         currentTime = Time.time;
         if (alpha <= 0)
         {
-            Debug.Log("a");
+            Destroy(this.gameObject);
         }
     }
 
