@@ -447,7 +447,7 @@ public class Movement : MonoBehaviour
                 if (!movingRight) { dir.x *= -1; }
                 DoDash(dir, wallJumpTime);
                 //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
-                if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
+                if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }  
             } 
             else if (coyoteCurrent < coyoteTime) //jump if just recently left the ground, not via upward
             { if(myBod.velocity.y <= 0 && coyoteWallTime <= 0) { jumpReady = true; } } 
@@ -473,7 +473,7 @@ public class Movement : MonoBehaviour
                 if (myAnim) { myAnim.SetBool("jumping", true); }
 
                 //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
-                if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
+                if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }    
             }
             
         }
