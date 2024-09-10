@@ -49,8 +49,9 @@ public class Damage : MonoBehaviour
         }
 
         faceRight = true;
-        var ang = transform.rotation.eulerAngles.z % 360;
+        var ang = transform.rotation.eulerAngles.y % 360;
         if (ang > 90 && ang < 270)
+        //var ang = transform.rotation.eulerAngles.y % 360;
         { faceRight = false; }
         //if (transform.rotation.eulerAngles.z % 360 > 180) { faceRight = false; Debug.Log("face left"); }
 
@@ -101,6 +102,8 @@ public class Damage : MonoBehaviour
 
         if (hitHealth && team != 0)
         {
+            Debug.Log(hitHealth.team + " :" + team);
+
             bool hitIt = true;
             //if (damage <= 0) { hitIt = false; }
             if (hitList.Contains(hitHealth)) { hitIt = false; } 

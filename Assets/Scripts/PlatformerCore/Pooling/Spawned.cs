@@ -7,7 +7,7 @@ public class Spawned : MonoBehaviour
     //[HideInInspector] public Quaternion startRotation; //Rotation to start at
     [HideInInspector] public Transform source; //Keep track of original object that spawned this object
     [HideInInspector] public Vector3 origin; //Keep track of the starting position of this object
-    [HideInInspector] public int team; //Keep track of what team is assigned to this object
+    public int team; //Keep track of what team is assigned to this object
     [HideInInspector] public ObjectPool myPool; //Return to pool
     //[HideInInspector] public int index; //What number object in the item pool list this object is
 
@@ -27,7 +27,8 @@ public class Spawned : MonoBehaviour
     void OnEnable()
     {
         if (!source) { source = transform; }
-        if (team == 0) { team = gameObject.layer; }
+        //if (team == 0) { team = gameObject.layer; }
+        //Debug.Log(team + ": " + gameObject.name);
 
         if(source) { myCore = source.GetComponent<Core>(); }
 

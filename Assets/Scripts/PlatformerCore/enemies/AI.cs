@@ -229,15 +229,12 @@ public class AI : MonoBehaviour
     {
         if (chasing)
         {
-            bool tryAttack = false;
+            bool inRange = false;
+            if (Vector3.Distance(chasing.position, transform.position) < attackRange) { inRange = true; }
 
             if (myMovement)
             {
-                if (Vector3.Distance(chasing.position, transform.position) < attackRange)
-                {
-                    //myMovement.moveInput = 0;
-                    tryAttack = true;
-                }
+                if (inRange) { myMovement.moveInput = 0; }
                 else
                 {
                     if (chasing.position.x > transform.position.x) 
@@ -245,15 +242,14 @@ public class AI : MonoBehaviour
                     else { myMovement.moveInput = -1; }
                 }
             }
+            
 
             if(myAim) 
             { 
                 myAim.AutoAimAt = chasing;
-                if (myAim.lookLockTime > currentAimTime) { tryAttack = true; }
-                else { tryAttack = false; }
+                if (myAim.lookLockTime > currentAimTime && inRange) { Attack(); }
             }
-
-            if (tryAttack) { Attack(); }
+            else if (inRange) { Attack(); }
 
         }
         else { Chill(); }

@@ -62,7 +62,11 @@ public class Core : MonoBehaviour
     {
         //mySelf = transform.Find("Self").gameObject;
         if (!mySpawn) { mySpawn = GetComponent<Spawned>(); }
-        if (mySpawn) { team = mySpawn.team; }
+        if (mySpawn) 
+        { 
+            if (mySpawn.team != 0) { team = mySpawn.team; }
+            else { team = gameObject.layer; mySpawn.team = team; }
+        }
 
         if(!myMove) { myMove = GetComponent<Movement>(); }
         if (myMove) { myMove.myCore = this; }

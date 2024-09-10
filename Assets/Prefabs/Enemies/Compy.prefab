@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: attackAimTime.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: attackAimTime.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3882941796004582005, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Sprite
       value: 
