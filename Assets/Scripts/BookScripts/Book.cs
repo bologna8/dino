@@ -9,14 +9,9 @@ public class Book : MonoBehaviour
     [SerializeField] List<Transform> pages;
     int index = -1; // Start with no pages flipped
     bool rotate = false;
+
     //[SerializeField] GameObject backButton;
     //[SerializeField] GameObject nextButton;
-
-    // private void Start()
-    //{
-    //    backButton.SetActive(false);
-    //}
-
 
     // Callback for Next Page Action 
     public void OnNextPage(InputAction.CallbackContext context)
@@ -39,7 +34,7 @@ public class Book : MonoBehaviour
         float angle = 180;
         // NextButtonActions();
         pages[index].SetAsLastSibling();
-        StartCoroutine(Rotate(angle, true));
+        // StartCoroutine(Rotate(angle, true)); // Commented out rotation call
     }
 
     public void RotateBack()
@@ -50,7 +45,7 @@ public class Book : MonoBehaviour
         float angle = 0;
         pages[index].SetAsLastSibling();
         // BackButtonActions();
-        StartCoroutine(Rotate(angle, false));
+        // StartCoroutine(Rotate(angle, false)); // Commented out rotation call
     }
 
     // public void NextButtonActions()
@@ -76,40 +71,41 @@ public class Book : MonoBehaviour
     //        backButton.SetActive(false);
     //    }
     //}
+
     public void GoToPage(int pageIndex)
     {
-        if (pageIndex <= 0 || pageIndex >= pages.Count || rotate) return;
+        if (pageIndex < 0 || pageIndex >= pages.Count || rotate) return;
 
         // Update index
         index = pageIndex;
 
-        // Rotate to the new page
+        // Transition to the new page without rotation
         pages[index].SetAsLastSibling();
         float angle = 180;
-        StartCoroutine(Rotate(angle, true));
+        // StartCoroutine(Rotate(angle, true)); // Commented out rotation call
         // NextButtonActions();
         // BackButtonActions();
     }
 
-    IEnumerator Rotate(float angle, bool forward)
-    {
-        float value = 0f;
-        rotate = true;
-        Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
-        while (true)
-        {
-            value += Time.unscaledDeltaTime * pageSpeed;
-            pages[index].rotation = Quaternion.Slerp(pages[index].rotation, targetRotation, value);
-            if (Quaternion.Angle(pages[index].rotation, targetRotation) < 0.1f)
-            {
-                if (!forward)
-                {
-                    index--; // Decrement index if moving backwards
-                }
-                rotate = false;
-                yield break;
-            }
-            yield return null;
-        }
-    }
+    // IEnumerator Rotate(float angle, bool forward)
+    //{
+    //    float value = 0f;
+    //    rotate = true;
+    //    Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
+    //    while (true)
+    //    {
+    //        value += Time.unscaledDeltaTime * pageSpeed;
+    //        pages[index].rotation = Quaternion.Slerp(pages[index].rotation, targetRotation, value);
+    //        if (Quaternion.Angle(pages[index].rotation, targetRotation) < 0.1f)
+    //        {
+    //            if (!forward)
+    //            {
+    //                index--; // Decrement index if moving backwards
+    //            }
+    //            rotate = false;
+    //            yield break;
+    //        }
+    //        yield return null;
+    //    }
+    //}
 }
