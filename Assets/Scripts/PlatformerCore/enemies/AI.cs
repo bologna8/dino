@@ -42,6 +42,7 @@ public class AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myCore = GetComponent<Core>();
         myMovement = GetComponent<Movement>();
         myWeapons = GetComponents<Weapon>();
         myHealth = GetComponentInChildren<Health>();
@@ -160,12 +161,21 @@ public class AI : MonoBehaviour
         if (patrolCurrent <= 0 && idleTime != Vector2.zero) { Chill(); }
         else
         {
-            if (myMovement) 
+            if (myMovement && myCore) 
             {
-                //if (myMovement.frontCheck.touching) { myMovement.Turn(); }
-                //if (myMovement.onGround && !myMovement.forwardCheck.touching) { myMovement.Turn(); }
+
+                if (myCore.lookingRight) 
+                { 
+                    if (myMovement.rightWallCheck.touching) { myCore.Turn(); }
+                    if (myMovement.onGround && !myMovement.rightForwardCheck.touching) { myCore.Turn(); }
+                }
+                else 
+                { 
+                    if (myMovement.leftWallCheck.touching) { myCore.Turn(); } 
+                    if (myMovement.onGround && !myMovement.leftForwardCheck.touching) { myCore.Turn(); }
+                }
                 
-                if (myMovement.movingRight) { myMovement.moveInput = 1; }
+                if (myCore.lookingRight) { myMovement.moveInput = 1; }
                 else { myMovement.moveInput = -1; }  
             }
         }

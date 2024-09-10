@@ -89,6 +89,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""19c8a8e8-7a8f-4424-af9f-aa95f8756ed6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -333,6 +342,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Secondary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0a07dcf-d602-4bfa-a437-231afbffda90"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -534,6 +554,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Base_Primary = m_Base.FindAction("Primary", throwIfNotFound: true);
         m_Base_Secondary = m_Base.FindAction("Secondary", throwIfNotFound: true);
         m_Base_PauseGame = m_Base.FindAction("PauseGame", throwIfNotFound: true);
+        m_Base_Interact = m_Base.FindAction("Interact", throwIfNotFound: true);
         // DialogueControls
         m_DialogueControls = asset.FindActionMap("DialogueControls", throwIfNotFound: true);
         m_DialogueControls_LeaveDialogue = m_DialogueControls.FindAction("LeaveDialogue", throwIfNotFound: true);
@@ -615,6 +636,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Base_Primary;
     private readonly InputAction m_Base_Secondary;
     private readonly InputAction m_Base_PauseGame;
+    private readonly InputAction m_Base_Interact;
     public struct BaseActions
     {
         private @Controls m_Wrapper;
@@ -626,6 +648,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Primary => m_Wrapper.m_Base_Primary;
         public InputAction @Secondary => m_Wrapper.m_Base_Secondary;
         public InputAction @PauseGame => m_Wrapper.m_Base_PauseGame;
+        public InputAction @Interact => m_Wrapper.m_Base_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Base; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -656,6 +679,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PauseGame.started += instance.OnPauseGame;
             @PauseGame.performed += instance.OnPauseGame;
             @PauseGame.canceled += instance.OnPauseGame;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IBaseActions instance)
@@ -681,6 +707,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @PauseGame.started -= instance.OnPauseGame;
             @PauseGame.performed -= instance.OnPauseGame;
             @PauseGame.canceled -= instance.OnPauseGame;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IBaseActions instance)
@@ -877,6 +906,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnPrimary(InputAction.CallbackContext context);
         void OnSecondary(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IDialogueControlsActions
     {

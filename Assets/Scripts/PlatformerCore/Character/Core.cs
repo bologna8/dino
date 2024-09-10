@@ -23,6 +23,10 @@ public class Core : MonoBehaviour
     public float turnTime = 0.1f;
     [HideInInspector] public bool turning;
 
+    [HideInInspector] public bool hidden;
+    [HideInInspector] public int hidingSpots;
+    private SpriteRenderer mySprite;
+
     //Necessary components to connect too
     public GameObject aimingPrefab;
     [HideInInspector] public Aim myAim;
@@ -50,6 +54,7 @@ public class Core : MonoBehaviour
     [HideInInspector] public bool jumpHeld; //jump button still being pressed
     [HideInInspector] public bool canMove; //Character can move and jump
     [HideInInspector] public bool canAttack; //Character can use weapon attacks
+    [HideInInspector] public bool canInteract; //Character can interact with interactable environment stuff
 
 
     // Start is called before the first frame update
@@ -82,6 +87,10 @@ public class Core : MonoBehaviour
 
         if (!myHealth) { myHealth = GetComponentInChildren<Health>(); }
         if (myHealth) { myHealth.myCore = this; }
+
+        hidden = false;
+        hidingSpots = 0;
+        if (!mySprite && CharacterArt) { mySprite = CharacterArt.GetComponent<SpriteRenderer>(); }
     }
 
     // Update is called once per frame
@@ -147,6 +156,25 @@ public class Core : MonoBehaviour
             }
         }
 
+        if (hidden) { mySprite.sortingOrder = -1; }
+        else { mySprite.sortingOrder = 1;}
+
+        if (myHealth)
+        {
+            if (myHealth.stunTime > 0)
+            {
+                canMove = false;
+                canAttack = false;
+                canInteract = false;
+            }
+            else
+            {
+                canMove = true;
+                canAttack = true;
+                canInteract = true;
+            }
+        }
+
 
     }
 
@@ -158,7 +186,7 @@ public class Core : MonoBehaviour
         if (!turning)
         {
             lookingRight = !lookingRight;
-            StartCoroutine(TurnAround());
+            if (CharacterArt) { StartCoroutine(TurnAround()); }
         } 
     }
 
@@ -181,6 +209,14 @@ public class Core : MonoBehaviour
 
         CharacterArt.rotation = toAngle;
         turning = false;
+    }
+
+    public void Stun(float stunTime)
+    {
+        if (myHealth) 
+        { 
+            if (myHealth.stunTime <= stunTime) { myHealth.stunTime = stunTime;}
+        }
     }
 
 
@@ -222,6 +258,8 @@ public class Core : MonoBehaviour
         myWeapons[attackNumber].TryAttack();
         if (myHealth.attackingResetsBuffer) { myHealth.currentRegenBuffer = myHealth.regenBufferTime; }
     }
+
+
 
 
 }

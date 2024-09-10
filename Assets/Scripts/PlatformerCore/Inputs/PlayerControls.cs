@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
-    private Core myCore; //Pass inputs to your core
+    [HideInInspector] public Core myCore; //Pass inputs to your core
     private Controls myControls;
+
+    [HideInInspector] public List<Interactable> interactablesTouched = new List<Interactable>();
+
 
     void Awake()
     {
@@ -66,5 +69,24 @@ public class PlayerControls : MonoBehaviour
     {
         myCore.HandleAttack(1);
     }
+
+    void OnInteract()
+    {
+        if (myCore.canInteract && interactablesTouched.Count > 0)
+        {
+            Interactable interactWith = null;
+            foreach(var inter in interactablesTouched)
+            {
+                if (inter.valid) { interactWith = inter; }
+            }
+
+            if (interactWith != null)
+            {
+                interactWith.Interacted(myCore);
+            }
+        }
+
+    }
+
 
 }
