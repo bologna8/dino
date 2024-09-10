@@ -42,50 +42,6 @@ public class Attack : MonoBehaviour
     //private Projectile[] myProj; //Any projectile scripts attatched
 
 
-/*
 
-    public void InitializeAttack(Vector3 setOffset, int setTeam, bool startRight, bool ignoreTeams = false)
-    {
-        if (myDam == null) { myDam = gameObject.GetComponentsInChildren<Damage>(); }
-        if (myProj == null) { myProj = gameObject.GetComponentsInChildren<Projectile>(); }
-
-        foreach (Damage d in myDam) 
-        { 
-            d.offset = setOffset;
-            if (!startRight) { d.Flip(); }
-            d.ignoreTeams = ignoreTeams;
-        }
-
-        foreach (Projectile p in myProj) 
-        { 
-            if (!startRight) { p.Flip(); }
-        }
-    }
-*/
-
-
-/*
-    public void InitializeAttack(Transform setOrigin, Vector3 setOffset, int setTeam, bool startRight, bool ignoreTeams = false)
-    {
-        myDam = gameObject.GetComponentsInChildren<Damage>();
-        myProj = gameObject.GetComponentsInChildren<Projectile>();
-
-        foreach (Damage d in myDam) 
-        { 
-            d.origin = setOrigin;
-            d.offset = setOffset;
-            if (!startRight) { d.Flip(); }
-            d.team = setTeam;
-            d.ignoreTeams = ignoreTeams;
-        }
-
-        foreach (Projectile p in myProj) 
-        { 
-            p.origin = setOrigin; 
-            if (!startRight) { p.Flip(); }
-            p.team = setTeam;
-        }
-    }
-*/
 
 }

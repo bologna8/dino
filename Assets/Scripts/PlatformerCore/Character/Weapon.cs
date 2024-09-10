@@ -135,18 +135,24 @@ public class Weapon : MonoBehaviour
             preMove = new Vector3(attackStats.movementPreAttack, 0, 0);
             if(myCore) { if (!myCore.lookingRight) { preMove.x *= -1; } }
         }
+
         if (attackStats.onlyHorizontalMoveMid)
         {
             midMove = new Vector3(attackStats.movementMidAttack, 0, 0);
             if(myCore) { if (!myCore.lookingRight) { midMove *= -1; } }
         }
 
+        //Debug.Log(midMove);
+
         //Start Actual Attack
-        if (!attackStats.moveWhileAttacking && myMovement) { myMovement.DoDash(preMove, new Vector2(attackStats.windup, 0f)); }
+        if (!attackStats.moveWhileAttacking && myMovement && attackStats.windup > 0) 
+        { myMovement.DoDash(preMove, new Vector2(attackStats.windup, 0f)); }
         
         yield return new WaitForSeconds(attackStats.windup);
         
-        if (!attackStats.moveWhileAttacking && myMovement) { myMovement.DoDash(midMove, new Vector2(attackStats.attackDuration, 0f)); }
+        if (!attackStats.moveWhileAttacking && myMovement && attackStats.attackDuration > 0) 
+        { myMovement.DoDash(midMove, new Vector2(attackStats.attackDuration, 0f)); }
+
 
         if (!safety) //Don't spawn anything in walls
         { 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -482519891863643642}
   - component: {fileID: 6265489795813375895}
   - component: {fileID: -735507683796494889}
+  - component: {fileID: 432210845140577919}
   m_Layer: 0
   m_Name: Bush Destroyed 2
   m_TagString: Untagged
@@ -239,3 +240,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1
+--- !u!114 &432210845140577919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5706709660267450183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b30c1e8adae4a42b7785604aeb23cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  team: 0
+  maxCount: 3
+  delayBetweenChildren: 0
+  tracking: 0
+  myAim: {fileID: 0}
+  myCore: {fileID: 0}

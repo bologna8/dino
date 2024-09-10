@@ -75,6 +75,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float dmg, Vector2 stun, Vector2 KB)
     {
+        Debug.Log("ding");
+        
         if (hitEffect) { Instantiate(hitEffect, transform.position, Quaternion.identity); }
 
         currentHP -= dmg;

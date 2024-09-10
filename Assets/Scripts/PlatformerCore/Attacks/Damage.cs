@@ -98,6 +98,7 @@ public class Damage : MonoBehaviour
     void CheckHit(Collider2D other)
     {
         var hitHealth = other.gameObject.GetComponent<Health>();
+
         if (hitHealth && team != 0)
         {
             bool hitIt = true;
