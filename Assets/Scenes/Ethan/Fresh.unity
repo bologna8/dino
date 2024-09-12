@@ -6115,6 +6115,9 @@ MonoBehaviour:
       - {fileID: 744045295040258649, guid: 219edee68bc21a9468959c9d955562b0, type: 3}
       - {fileID: 744045295040258649, guid: 683b89f89c7c19449bb6df33341e8c1d, type: 3}
       - {fileID: 744045295040258649, guid: 98ba4c59d7d431546a3c01d8082f62a1, type: 3}
+  playerMovement: {fileID: 1370205249}
+  detectGround: {fileID: 1370205243}
+  SpawnRate: 0.2
 --- !u!114 &1370205243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6128,6 +6131,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standingOn: 0
+--- !u!114 &1370205249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6006615077103462235, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+  m_PrefabInstance: {fileID: 869059655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370205218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727401023298ebe41bdc8fbba620e261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1380914671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1064479217120444513, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
