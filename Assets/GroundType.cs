@@ -16,8 +16,8 @@ public class GroundType : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col){
         if(col.transform.gameObject.tag == "Player"){
             
-            if(col.transform.gameObject.GetComponent<AudioManager>() != null){
-                col.transform.gameObject.GetComponent<AudioManager>().standingOn = type;
+            if(col.transform.gameObject.GetComponent<DetectGround>() != null){
+                col.transform.gameObject.GetComponent<DetectGround>().standingOn = type;
             }
         }
     }

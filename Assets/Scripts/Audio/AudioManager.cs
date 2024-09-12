@@ -16,10 +16,6 @@ public class AudioManager : MonoBehaviour
 
     // Ethan made this
 
-    
-    [Header("Feet Sounds")]
-    public GroundType.Type standingOn;
-
     [Header("Jump Sound")]
     [Tooltip("Jump sound effect")] public GameObject jumpSound;
 
