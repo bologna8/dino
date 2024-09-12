@@ -1468,6 +1468,7 @@ GameObject:
   - component: {fileID: 331656913}
   - component: {fileID: 331656915}
   - component: {fileID: 331656914}
+  - component: {fileID: 331656916}
   m_Layer: 10
   m_Name: Ground (2)
   m_TagString: Untagged
@@ -1587,6 +1588,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &331656916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331656912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61cefab48f2f804c8517425080d04fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &344894766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1612,7 @@ GameObject:
   - component: {fileID: 344894767}
   - component: {fileID: 344894768}
   - component: {fileID: 344894769}
+  - component: {fileID: 344894770}
   m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
@@ -1717,6 +1732,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &344894770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344894766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61cefab48f2f804c8517425080d04fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &374242177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,6 +6077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298805002b0768142893b75e1d2c2185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standingOn: 0
   jumpSound: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
   diggingSounds:
   - {fileID: 8734611745545370168, guid: 1737eeb5061937440bc195768431074a, type: 3}
