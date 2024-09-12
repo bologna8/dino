@@ -8,7 +8,7 @@ public class Core : MonoBehaviour
     //public enum State { standing, jumping, falling, edge, climbing, dashing, stunned }
     //public State currentState;
     [HideInInspector] public Spawned mySpawn;
-    [HideInInspector] public int team;
+    public int team;
 
     //Turning Variables
     //[HideInInspector] public bool faceRight = true;
@@ -62,7 +62,11 @@ public class Core : MonoBehaviour
     {
         //mySelf = transform.Find("Self").gameObject;
         if (!mySpawn) { mySpawn = GetComponent<Spawned>(); }
-        if (mySpawn) { team = mySpawn.team; }
+        if (mySpawn) 
+        { 
+            if (mySpawn.team != 0) { team = mySpawn.team; }
+            else { team = gameObject.layer; mySpawn.team = team; }
+        }
 
         if(!myMove) { myMove = GetComponent<Movement>(); }
         if (myMove) { myMove.myCore = this; }

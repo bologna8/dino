@@ -27,25 +27,25 @@ public class Book : MonoBehaviour
 
     public void RotationNext()
     {
-        if (rotate || index >= pages.Count - 1) // Make sure index doesn't exceed the page count
+        if (rotate || index >= pages.Count - 1) // check index doesn't exceed the page count
             return;
 
         index++;
         float angle = 180;
         // NextButtonActions();
         pages[index].SetAsLastSibling();
-        // StartCoroutine(Rotate(angle, true)); // Commented out rotation call
+        // StartCoroutine(Rotate(angle, true)); 
     }
 
     public void RotateBack()
     {
-        if (rotate || index <= -1) // Make sure index doesn't go below 0
+        if (rotate || index < 0) // check if you're at the first page
             return;
 
-        float angle = 0;
         pages[index].SetAsLastSibling();
-        // BackButtonActions();
-        // StartCoroutine(Rotate(angle, false)); // Commented out rotation call
+        index--;  // Decrement the index to move to the previous page
+        float angle = 0;
+        // StartCoroutine(Rotate(angle, false)); 
     }
 
     // public void NextButtonActions()
@@ -74,7 +74,7 @@ public class Book : MonoBehaviour
 
     public void GoToPage(int pageIndex)
     {
-        if (pageIndex < 0 || pageIndex >= pages.Count || rotate) return;
+        if (pageIndex <= 0 || pageIndex >= pages.Count || rotate) return;
 
         // Update index
         index = pageIndex;

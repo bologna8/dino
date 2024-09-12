@@ -8,31 +8,32 @@ public class UIManager : MonoBehaviour
     
     public void ShowInventoryOnly()
     {
-        DeactivateAllPanels();
+       // DeactivateAllPanels();
         inventoryPanel.SetActive(true);
         Debug.Log("Showing Inventory Only");
     }
 
     public void ShowJournalOnly()
     {
-        DeactivateAllPanels();
+        //DeactivateAllPanels();
         journalPanel.SetActive(true);
         Debug.Log("Showing Journal Only");
     }
 
     public void ShowSideBySide()
     {
-        DeactivateAllPanels();
+        //DeactivateAllPanels();
         inventoryPanel.SetActive(true);
         journalPanel.SetActive(true);
         sideBySideLayout.SetActive(true);
         Debug.Log("Showing Side by Side");
     }
 
-    private void DeactivateAllPanels()
-    {
-        inventoryPanel.SetActive(false);
-        journalPanel.SetActive(false);
-        sideBySideLayout.SetActive(false);
-    }
+   // private void DeactivateAllPanels()
+ //   {
+   //     inventoryPanel.SetActive(false);
+   //     journalPanel.SetActive(false);
+    //    sideBySideLayout.SetActive(false);
+   // }
+//}
 }

@@ -742,6 +742,7 @@ public class Movement : MonoBehaviour
         savedMomentum = momentum;
         lastDash = dir; dashVelocity = dir;
 
+
         myBod.velocity = Vector2.zero; //reset current velocity on new dash
         myVelocity = Vector2.zero;
 

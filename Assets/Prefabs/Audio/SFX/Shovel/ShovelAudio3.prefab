@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 265616537061957771}
   - component: {fileID: 509978906372593929}
-  - component: {fileID: -4721078313719160760}
+  - component: {fileID: 7618084207169473110}
+  - component: {fileID: 280749097176672048}
   m_Layer: 0
   m_Name: ShovelAudio3
   m_TagString: Untagged
@@ -129,7 +130,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-4721078313719160760
+--- !u!114 &7618084207169473110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +139,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 8734611745545370168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c51d7debf80bc84fad56f189face8be, type: 3}
+  m_Script: {fileID: 11500000, guid: 40b30c1e8adae4a42b7785604aeb23cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  team: 0
+  maxCount: 2
+  delayBetweenChildren: 0
+  tracking: 0
+  myAim: {fileID: 0}
+  myCore: {fileID: 0}
+--- !u!114 &280749097176672048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734611745545370168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65120a15af0a34c4f9106666fa0bf664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1

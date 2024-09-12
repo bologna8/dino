@@ -6,13 +6,13 @@ public class BookController : MonoBehaviour
     public GameObject journalPanel; 
     public bool isJournalOpen = false;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            ToggleJournal();
-        }
-    }
+   // private void Update()
+ //   {
+  //      if (Input.GetKeyDown(KeyCode.J))
+   //     {
+   //         ToggleJournal();
+   //     }
+   // }
 
     private void ToggleJournal()
     {

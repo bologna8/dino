@@ -49,8 +49,9 @@ public class Damage : MonoBehaviour
         }
 
         faceRight = true;
-        var ang = transform.rotation.eulerAngles.z % 360;
+        var ang = transform.rotation.eulerAngles.y % 360;
         if (ang > 90 && ang < 270)
+        //var ang = transform.rotation.eulerAngles.y % 360;
         { faceRight = false; }
         //if (transform.rotation.eulerAngles.z % 360 > 180) { faceRight = false; Debug.Log("face left"); }
 
@@ -98,6 +99,7 @@ public class Damage : MonoBehaviour
     void CheckHit(Collider2D other)
     {
         var hitHealth = other.gameObject.GetComponent<Health>();
+
         if (hitHealth && team != 0)
         {
             bool hitIt = true;

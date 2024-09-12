@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6373063978031463531}
   - component: {fileID: 6662887053368702288}
   - component: {fileID: 8833730701897765230}
+  - component: {fileID: 3002623764648034898}
+  - component: {fileID: 651667716642263642}
   m_Layer: 3
   m_Name: Bush
   m_TagString: Untagged
@@ -168,3 +170,52 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3002623764648034898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212049413273649575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a28a97c80f4c0647b33b088f9881434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1
+  currentHP: 0
+  myCore: {fileID: 0}
+  source: {fileID: 0}
+  team: -1
+  HealthBarPrefab: {fileID: 0}
+  passiveRegen: 0
+  regenBufferTime: 0
+  currentRegenBuffer: 0
+  attackingResetsBuffer: 0
+  stunTime: 0
+  invincibleTime: 0
+  myMovement: {fileID: 0}
+  hitEffect: {fileID: 0}
+  deathEffect: {fileID: 4404173520793160998, guid: 9fb41ff96abaa574bae259295230ec82, type: 3}
+  deathOffset: {x: 0, y: -0.69, z: 0}
+  friendlyFireOnly: 0
+--- !u!114 &651667716642263642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212049413273649575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b30c1e8adae4a42b7785604aeb23cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  team: 0
+  maxCount: 99
+  delayBetweenChildren: 0
+  tracking: 0
+  myAim: {fileID: 0}
+  myCore: {fileID: 0}

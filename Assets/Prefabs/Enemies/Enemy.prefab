@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 413084359870219883}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 750962641894375529}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Movement Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3136494493798624078}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,16 +900,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2661674118543948784}
-  - component: {fileID: 593479598186084569}
   - component: {fileID: 340933065370478967}
   - component: {fileID: 3261265262026701807}
+  - component: {fileID: 9197097822988576397}
   - component: {fileID: 7513557193232624445}
   - component: {fileID: 6006615077103462235}
   - component: {fileID: 215086994315009943}
   - component: {fileID: 3802098700119770389}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Enemy
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -932,19 +932,6 @@ Transform:
   - {fileID: 4012163508825719795}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &593479598186084569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649990236531220739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b4311441792b34abffda404705da44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryItemList: []
 --- !u!50 &340933065370478967
 Rigidbody2D:
   serializedVersion: 4
@@ -1007,6 +994,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &9197097822988576397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649990236531220739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b30c1e8adae4a42b7785604aeb23cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  team: 0
+  maxCount: 99
+  delayBetweenChildren: 0
+  tracking: 0
+  myAim: {fileID: 0}
+  myCore: {fileID: 0}
 --- !u!114 &7513557193232624445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1529,7 +1536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1609706276155586859}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1955,7 +1962,7 @@ GameObject:
   - component: {fileID: 8856473957710389766}
   - component: {fileID: 3882941796004582005}
   - component: {fileID: 7801857881819479542}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
