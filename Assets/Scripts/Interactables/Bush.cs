@@ -2,49 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bush : Interactable
+public class Bush : LayerCheck, IInteractable
 {
-    public static int bushesTouched;
 
-    public override void Interacted(Core interCore)
+    private Core touchingCore;
+
+    public void Interact(GameObject interacter)
     {
-        if (!interCore.hidden) { interCore.hidden = true; }
-        else { interCore.hidden = false; }
-
-    }
-
-    public override void OnTriggerStay2D(Collider2D other)
-    {
-        if (!player)
+        if (touchingCore)
         {
-            if (EnterCheck(other))
-            {
-                player.myCore.hidingSpots ++;
-            }
+            touchingCore.hidden = !touchingCore.hidden;
         }
     }
 
-    public override void OnTriggerExit2D(Collider2D other)
+    public override void ExtraEnterOperations(Collider2D collision)
     {
-        if (player) 
-        { 
-            if (ExitCheck(other)) 
-            {
-                player.myCore.hidingSpots --;
+        var coreCheck = collision.gameObject.GetComponent<Core>();
+        if (coreCheck && !touchingCore)
+        {
+            touchingCore = coreCheck;
+            touchingCore.hidingSpots ++;
+        }
+    }
 
-                if (player.myCore.hidingSpots <= 0) 
-                { player.myCore.hidden = false; }
-
-                player = null;
-            } 
+    public override void ExtraExitOperations(Collider2D collision)
+    {
+        if (touchingCore)
+        {
+            touchingCore.hidingSpots --;
+            if (touchingCore.hidingSpots <= 0) { touchingCore.hidden = false; }
+            touchingCore = null;
         }
         
-    }
-
-    public  override void OnDisable()
-    {
-        if (player) { player.interactablesTouched.Remove(this); player.myCore.hidingSpots --; }
-        valid = false;
     }
 
 }

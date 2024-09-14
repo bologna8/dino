@@ -9,11 +9,7 @@ public class Health : MonoBehaviour
 
 
     [HideInInspector] public Core myCore;
-    //[Tooltip("If this health is on a child object, should it destroy entire object when destroyed")] public bool destroyParent = false;
-    private Spawned mySpawn;
-    [HideInInspector] public Transform source; //The transform that created the attack
-    public int team = -1;
-    //private float respawnTime = 1f;
+    [HideInInspector] public Spawned mySpawn;
     [Tooltip("Health Bar That is shown When Damaged")] public GameObject HealthBarPrefab;
 
     [Tooltip("How much health gained per second while recovering")] public float passiveRegen;
@@ -41,22 +37,15 @@ public class Health : MonoBehaviour
 
     void OnEnable()
     {
-        //if(team < 0) { team = gameObject.layer;}
-        
-        /*
-        if (mySpawn) //Reset on every awake
-        { 
-            team = mySpawn.team; 
-            source = mySpawn.source;
-        }
-        */
 
         if (HealthBarPrefab)
         {
-            //var findCanvas = GameObject.Find("Canvas");
-            //if (findCanvas) { Instantiate(HealthBarPrefab, findCanvas.transform).GetComponent<HealthUI>().tracking = this; }
-            var hpBar = PoolManager.Instance.Spawn(HealthBarPrefab, transform.position, Quaternion.identity, source, team, true);
-            hpBar.GetComponent<HealthUI>().tracking = this;
+            var tempTeam = 0;
+            Transform tempSource = null;
+            if (mySpawn) { tempTeam = mySpawn.team; }
+            var hpBar = PoolManager.Instance.Spawn(HealthBarPrefab, transform.position, Quaternion.identity, tempSource, tempTeam, true);
+            var bar = hpBar.GetComponent<HealthUI>();
+            if(bar) { bar.tracking = this; }
         }
         
 
@@ -74,12 +63,6 @@ public class Health : MonoBehaviour
         
         if (passiveRegen > 0) { Regenerate(); }
 
-        //This is wonky on update, should be delayed but not in update but it is for now oooof
-        if (mySpawn) //Reset on every awake
-        { 
-            team = mySpawn.team; 
-            source = mySpawn.source;
-        }
     }
 
     public void TakeDamage(float dmg, Vector2 stun, Vector2 KB)
@@ -104,17 +87,10 @@ public class Health : MonoBehaviour
     {
         if (deathEffect) 
         { 
-            PoolManager.Instance.Spawn(deathEffect, transform.position + deathOffset, transform.rotation, transform, team);
-            /*
-            var effect = Instantiate(deathEffect, transform.position + deathOffset, transform.rotation);
+            var tempTeam = 0;
+            if (mySpawn) { tempTeam = mySpawn.team; }
+            PoolManager.Instance.Spawn(deathEffect, transform.position + deathOffset, transform.rotation, transform, tempTeam);
 
-            var spawnDamage = effect.GetComponentsInChildren<Damage>();
-            foreach (var d in spawnDamage) { d.team = team; }
-            var spawnHealth = effect.GetComponentsInChildren<Health>();
-            foreach (var h in spawnHealth) { h.team = team; }
-            var spawnProjectile = effect.GetComponentsInChildren<Projectile>();
-            foreach (var p in spawnProjectile) { p.team = team; }
-            */
         }
 
         //var checkParent = transform.parent;

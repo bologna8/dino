@@ -21,10 +21,8 @@ public class Projectile : MonoBehaviour
 
     //Other hidden stats
     private Spawned mySpawn;
-    [HideInInspector] public int team; //Teams are like damage layers, without changing layers
     private Rigidbody2D myBod; //nice bod
-    //[HideInInspector] public bool faceRight = true; //Projectile going right or left
-    [HideInInspector] public Transform source; //The transform that created the attack
+
     private TrailRenderer myTrail;
 
 
@@ -36,8 +34,8 @@ public class Projectile : MonoBehaviour
         if (!mySpawn) { mySpawn = GetComponentInParent<Spawned>(); }
         if (mySpawn) //Reset on every awake
         { 
-            team = mySpawn.team; 
-            source = mySpawn.source;
+            //team = mySpawn.team; 
+            //source = mySpawn.source;
 
             if(mySpawn.tracking && mySpawn.myAim) 
             {
@@ -95,7 +93,13 @@ public class Projectile : MonoBehaviour
             if (returnTime > 0f && !bounced) { BounceBack(); }
             else //Break if not a boomerang
             { 
-                if (breakEffect) { PoolManager.Instance.Spawn(breakEffect, other.ClosestPoint(transform.position), transform.rotation, source, team); }
+                if (breakEffect) 
+                { 
+                    var tempTeam = 0;
+                    Transform tempSource = null;
+                    if (mySpawn) { tempTeam = mySpawn.team; }
+                    PoolManager.Instance.Spawn(breakEffect, other.ClosestPoint(transform.position), transform.rotation, tempSource, tempTeam); 
+                }
                 gameObject.SetActive(false);
             }            
         }
@@ -103,13 +107,10 @@ public class Projectile : MonoBehaviour
         if (mySpawn && bounced)
         { if(other.transform == mySpawn.source ) { gameObject.SetActive(false); } }
 
-        //if (other.transform == origin && bounced)
-        //{ Destroy(gameObject); }
     }
 
     public void Flip()
     {
-        //faceRight = !faceRight;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 

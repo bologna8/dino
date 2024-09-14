@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8833730701897765230}
   - component: {fileID: 3002623764648034898}
   - component: {fileID: 651667716642263642}
-  m_Layer: 3
+  m_Layer: 15
   m_Name: Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417dfb05a9082cc459fc689cc2d3c9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTouching: 0
-  player: {fileID: 0}
-  valid: 1
+  checkMask:
+    serializedVersion: 2
+    m_Bits: 64
+  touching: 0
+  lastCollided: {fileID: 0}
+  slope: 0
 --- !u!212 &6662887053368702288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -185,8 +188,7 @@ MonoBehaviour:
   maxHP: 1
   currentHP: 0
   myCore: {fileID: 0}
-  source: {fileID: 0}
-  team: -1
+  mySpawn: {fileID: 0}
   HealthBarPrefab: {fileID: 0}
   passiveRegen: 0
   regenBufferTime: 0

@@ -6,11 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerControls : MonoBehaviour
 {
-    [HideInInspector] public Core myCore; //Pass inputs to your core
+    private Core myCore; //Pass inputs to your core
     private Controls myControls;
-
-    [HideInInspector] public List<Interactable> interactablesTouched = new List<Interactable>();
-
+    public LayerMask interactableLayers;
 
     void Awake()
     {
@@ -34,10 +32,11 @@ public class PlayerControls : MonoBehaviour
     {
         myCore.jumpHeld = myControls.Base.Jump.IsPressed();
 
-        if (myCore.attackInput.Length > 0) 
-        { myCore.attackInput[0] = myControls.Base.Primary.IsPressed(); }
-        if (myCore.attackInput.Length > 1)
-        { myCore.attackInput[1] = myControls.Base.Secondary.IsPressed(); }
+        myCore.attackInput[0] = myControls.Base.Primary.IsPressed();
+        myCore.attackInput[1] = myControls.Base.Secondary.IsPressed();
+
+        // Delete later for EZ:
+        Debug.DrawRay(transform.position, transform.forward * 200f, Color.red);
     }
 
     void OnJump()
@@ -70,23 +69,14 @@ public class PlayerControls : MonoBehaviour
         myCore.HandleAttack(1);
     }
 
-    void OnInteract()
+    public void OnInteract()
     {
-        if (myCore.canInteract && interactablesTouched.Count > 0)
+        RaycastHit2D hitObjects = Physics2D.Raycast(transform.position, transform.forward, 5f, interactableLayers);
+        if (hitObjects.collider != null)
         {
-            Interactable interactWith = null;
-            foreach(var inter in interactablesTouched)
-            {
-                if (inter.valid) { interactWith = inter; }
-            }
-
-            if (interactWith != null)
-            {
-                interactWith.Interacted(myCore);
-            }
+            Debug.Log("Hit " + hitObjects.collider.name);
+            hitObjects.collider.GetComponent<IInteractable>().Interact(gameObject);
         }
-
     }
-
 
 }

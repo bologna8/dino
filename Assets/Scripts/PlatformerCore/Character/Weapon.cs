@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     //other refrences
     //private Health myHealth;
     private Movement myMovement;
-    private Animator myAnim; //needs to be reworked tbh
+    //private Animator myAnim; //needs to be reworked tbh
 
     [HideInInspector] public bool ignoreTeams;
 
@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
     {
         //if (myHealth == null) { myHealth = GetComponentInChildren<Health>(); }
         if (myMovement == null) { myMovement = GetComponent<Movement>(); }
-        if (myAnim == null) { myAnim = GetComponentInChildren<Animator>(); }
+        //if (myAnim == null) { myAnim = GetComponentInChildren<Animator>(); }
 
         if (attackPrefab) { changeAttack(attackPrefab); }
     }
@@ -98,6 +98,8 @@ public class Weapon : MonoBehaviour
         var startSpot = transform.position;
         var dir = Vector3.right;
         var startAngle = Quaternion.FromToRotation(Vector3.right, dir);
+
+        if (myCore && attackStats.attackAnim) { myCore.ChangeAttackAnimation(attackStats.attackAnim); }
 
         var safety = false; //don't spawn any porjectiles if aim cursor is touching something like a wall
 

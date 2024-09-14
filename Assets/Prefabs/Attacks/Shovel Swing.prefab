@@ -152,7 +152,7 @@ MonoBehaviour:
   team: 0
   maxCount: 99
   delayBetweenChildren: 0
-  tracking: 0
+  tracking: 1
   myAim: {fileID: 0}
   myCore: {fileID: 0}
 --- !u!114 &6842745424514405945
@@ -177,11 +177,11 @@ MonoBehaviour:
   momentumLaunch: 0
   attackingAimSpeed: 1
   moveWhileAttacking: 0
-  windup: 0
+  windup: 0.1
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
-  attackDuration: 0.1
-  movementMidAttack: 6
+  attackDuration: 0.2
+  movementMidAttack: 12
   onlyHorizontalMoveMid: 1
   spreadTime: 0
   spreadCurve:
@@ -194,6 +194,7 @@ MonoBehaviour:
   spreadRange: 1
   alternateNegative: 1
   repeatPattern: 0
+  attackAnim: {fileID: 7400000, guid: 820daaede6c85ec41886c3824e2a7829, type: 2}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,9 +289,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  source: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
-  team: 0
   ignoreTeams: 0
 --- !u!114 &8352660219446764013
 MonoBehaviour:

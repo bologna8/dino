@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Buried : Interactable
+public class Buried : LayerCheck, IInteractable
 {
     public float timeToDig = 1f;
     public List<GameObject> possiblePickupPrefabs;
 
-    public override void Interacted(Core interCore)
+    public void Interact(GameObject interacter)
     {
         if (possiblePickupPrefabs.Count > 0)
         {
-            interCore.Stun(timeToDig);
-            StartCoroutine(DelayedDig());
+            var coreCheck = interacter.GetComponent<Core>();
+            if (coreCheck)
+            {
+                coreCheck.Stun(timeToDig);
+                StartCoroutine(DelayedDig());
+            }
         }
         
     }
@@ -21,7 +25,7 @@ public class Buried : Interactable
     {
         yield return new WaitForSeconds(timeToDig);
 
-        if (player)
+        if (touching) //This is why layercheck inhereted
         {
             var r = Random.Range(0, possiblePickupPrefabs.Count);
             var chosen = possiblePickupPrefabs[r];

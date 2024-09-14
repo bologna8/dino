@@ -20,6 +20,8 @@ public class Core : MonoBehaviour
 
 
     public Transform CharacterArt;
+    [HideInInspector] public Animator myAnim;
+    private AnimatorOverrideController myAnimOverride;
     public float turnTime = 0.1f;
     [HideInInspector] public bool turning;
 
@@ -45,6 +47,7 @@ public class Core : MonoBehaviour
 
     private Weapon[] myWeapons;
     [HideInInspector] public bool[] attackInput; //Used to see if attack buttons still pressing
+    private bool attacking;
 
 
     [HideInInspector] public Movement myMove;
@@ -94,7 +97,16 @@ public class Core : MonoBehaviour
 
         hidden = false;
         hidingSpots = 0;
-        if (!mySprite && CharacterArt) { mySprite = CharacterArt.GetComponent<SpriteRenderer>(); }
+        if (CharacterArt) 
+        { 
+            if (!mySprite) { mySprite = CharacterArt.GetComponent<SpriteRenderer>(); }
+            if (!myAnim) { myAnim = CharacterArt.GetComponent<Animator>(); }
+            if (!myAnimOverride && myAnim) 
+            { 
+                myAnimOverride = new AnimatorOverrideController(myAnim.runtimeAnimatorController);
+                myAnim.runtimeAnimatorController = myAnimOverride; 
+            }
+        }
     }
 
     // Update is called once per frame
@@ -183,6 +195,12 @@ public class Core : MonoBehaviour
     }
 
 
+    void LateUpdate()
+    {
+        if (myAnim) { AnimationStation(); }
+    }
+
+
 
 
     public void Turn() //Every now and then
@@ -219,7 +237,7 @@ public class Core : MonoBehaviour
     {
         if (myHealth) 
         { 
-            if (myHealth.stunTime <= stunTime) { myHealth.stunTime = stunTime;}
+            if (myHealth.stunTime <= stunTime) { myHealth.stunTime = stunTime; }
         }
     }
 
@@ -251,19 +269,52 @@ public class Core : MonoBehaviour
     {
         if (myWeapons.Length < attackNumber) { return; }
 
-        var alreadyAttacking = false;
+        attacking = false;
         foreach(var weapon in myWeapons)
         {
-            if (!weapon.attackReady) { alreadyAttacking = true; }
+            if (!weapon.attackReady) { attacking = true; }
         }
         
-        if (alreadyAttacking) { return; }
+        if (attacking) { return; }
 
         myWeapons[attackNumber].TryAttack();
         if (myHealth.attackingResetsBuffer) { myHealth.currentRegenBuffer = myHealth.regenBufferTime; }
     }
 
+    void AnimationStation()
+    {
+        if (myMove)
+        {
+            myAnim.SetBool("onGround", myMove.onGround);
+            myAnim.SetFloat("momentum", myMove.momentum);
+            myAnim.SetBool("jumping", myMove.justJumped);
 
+            myAnim.SetBool("onWall", myMove.wallSliding);
+            myAnim.SetBool("onEdge", myMove.onEdge);
+
+            var climbing = false;
+            if (myMove.climbing != null) { climbing = true; }
+            myAnim.SetBool("climbing", climbing);
+
+            var dashing = false;
+            if (myMove.climbing != null) { dashing = true; }
+            myAnim.SetBool("dashing", dashing);
+        }
+
+        myAnim.SetBool("attacking", attacking);
+        if (attacking) { Debug.Log("ding"); }
+
+        
+    }
+
+    public void ChangeAttackAnimation(AnimationClip newAnim)
+    {
+        if (myAnimOverride)
+        {
+            myAnimOverride["playerJabSide"] = newAnim;            
+
+        }
+    }
 
 
 }

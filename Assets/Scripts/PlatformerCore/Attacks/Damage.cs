@@ -27,12 +27,12 @@ public class Damage : MonoBehaviour
 
 
     //Other hidden stats
-    [HideInInspector] public Transform source; //Character that started the attack
+    //[HideInInspector] public Transform source; //Character that started the attack
     [HideInInspector] public Vector3 offset; //Offsset from origin for melee attacks locked at right distance
     
 
     private Spawned mySpawn; //For item pooling and teams
-    [HideInInspector] public int team; //Teams are like damage layers, without changing layers
+    //[HideInInspector] public int team; //Teams are like damage layers, without changing layers
     [Tooltip("Friendly fire can damage others on the same team")] public bool ignoreTeams = false; //Can damage others own team 
     
     private List<Health> hitList = new List<Health>(); //hitboxes that have already been hit
@@ -42,11 +42,13 @@ public class Damage : MonoBehaviour
     void OnEnable()
     {
         if (!mySpawn) { mySpawn = GetComponentInParent<Spawned>(); }
+        /*
         if (mySpawn) //Reset on every awake
         { 
             team = mySpawn.team; 
             source = mySpawn.source;
         }
+        */
 
         faceRight = true;
         var ang = transform.rotation.eulerAngles.y % 360;
@@ -100,24 +102,23 @@ public class Damage : MonoBehaviour
     {
         var hitHealth = other.gameObject.GetComponent<Health>();
 
-        if (hitHealth && team != 0)
+        if (hitHealth)
         {
             bool hitIt = true;
-            //if (damage <= 0) { hitIt = false; }
+
+            if (hitHealth.mySpawn && mySpawn)
+            {
+                if (hitHealth.mySpawn.team == mySpawn.team)
+                {
+                    if (!ignoreTeams) { hitIt = false; }
+                    if (hitHealth.friendlyFireOnly) { hitIt = true; }
+                }
+                else if (hitHealth.friendlyFireOnly) { hitIt = false; }
+            }
+
             if (hitList.Contains(hitHealth)) { hitIt = false; } 
             if (hitHealth.invincibleTime > 0) { hitIt = false; }
-
-            if (hitHealth.team == team)
-            {
-                if (!ignoreTeams) { hitIt = false; }
-                if (hitHealth.friendlyFireOnly) { hitIt = true; }
-            }
-            else if (hitHealth.friendlyFireOnly) { hitIt = false; }
-
-            //var checkOrigin = other.transform.GetComponentInParent<Weapon>(); 
-            //if (checkOrigin) { if(checkOrigin.transform == origin) { hitIt = false; } } //never damage self
             
-            //if (other.transform == source) { hitIt = false; Debug.Log("dong"); }
 
             if (hitIt)
             {
@@ -149,7 +150,7 @@ public class Damage : MonoBehaviour
                 hitHealth.TakeDamage(dmg, stunTime, KB);
 
                 var ai = other.gameObject.GetComponentInParent<AI>();
-                if (ai && source) { ai.Agro(source); }
+                if (ai && mySpawn) { ai.Agro(mySpawn.source); }
 
                 if (destroyOnHit) { gameObject.SetActive(false); }
             }
@@ -163,7 +164,10 @@ public class Damage : MonoBehaviour
 
         if (endEffect)
         {
-            PoolManager.Instance.Spawn(endEffect, transform.position, transform.rotation, source, team);
+            var tempTeam = 0;
+            Transform tempSource = null;
+            if (mySpawn) { tempTeam = mySpawn.team; tempSource = mySpawn.source; }
+            PoolManager.Instance.Spawn(endEffect, transform.position, transform.rotation, tempSource, tempTeam);
         }
     }
 

@@ -1592,7 +1592,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &1465002264861480660
@@ -1689,7 +1688,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &1469030504988030348
@@ -3261,8 +3259,7 @@ MonoBehaviour:
   maxHP: 10
   currentHP: 0
   myCore: {fileID: 0}
-  source: {fileID: 0}
-  team: -1
+  mySpawn: {fileID: 0}
   HealthBarPrefab: {fileID: 0}
   passiveRegen: 0
   regenBufferTime: 0
@@ -4148,7 +4145,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3201
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &2846458631934521832
@@ -4651,7 +4647,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &3192525131471375406
@@ -7150,7 +7145,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &4918800356163912119
@@ -7247,7 +7241,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &4952982498395763170
@@ -8480,7 +8473,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &5580897168838722688
@@ -8862,6 +8854,7 @@ MonoBehaviour:
   lookingRight: 1
   movingRight: 0
   CharacterArt: {fileID: 5752957250253356205}
+  myAnim: {fileID: 0}
   turnTime: 0.1
   turning: 0
   hidden: 0
@@ -8892,6 +8885,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727401023298ebe41bdc8fbba620e261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ColliderContainer: {fileID: 750962641894375529}
+  colliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  headCheck: {fileID: 0}
+  passCheck: {fileID: 0}
+  dashCheck: {fileID: 0}
+  groundCheck: {fileID: 0}
+  rightAirCheck: {fileID: 0}
+  rightLedgeCheck: {fileID: 0}
+  rightWallCheck: {fileID: 0}
+  rightHipCheck: {fileID: 0}
+  rightForwardCheck: {fileID: 0}
+  leftAirCheck: {fileID: 0}
+  leftLedgeCheck: {fileID: 0}
+  leftWallCheck: {fileID: 0}
+  leftHipCheck: {fileID: 0}
+  leftForwardCheck: {fileID: 0}
   myCore: {fileID: 0}
   baseSpeed: 10
   airSpeedMultiplier: 1
@@ -8927,11 +8944,16 @@ MonoBehaviour:
   movingRight: 1
   slowPercent: 1
   landingMomentum: 0.5
+  myGravityScale: 2
+  gravityAcceleration: 3
+  minGrav: 1
+  fallSpeedCaps: {x: 0, y: 20}
   jumpForce: 15
   maxJumpTime: 0.5
   minJumpTime: 0.25
   jumpInput: 0
   onGround: 1
+  justJumped: 0
   jumpSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -8965,24 +8987,21 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  myGravityScale: 2
-  gravityAcceleration: 3
-  minGrav: 1
-  fallSpeedCaps: {x: 0, y: 20}
   coyoteTime: 0.1
+  bonusJumps: 0
+  jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
   wallJump: 1
   wallJumpForce: {x: 10, y: 10}
   wallJumpTime: {x: 0.2, y: 0.2}
-  bonusJumps: 0
-  jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
+  canWallSlide: 0
+  wallSlideSpeed: 1
+  wallSliding: 0
   grabLedges: 1
   climbTime: {x: 0.33, y: 0.42}
   onEdge: 0
   autoVaultOver: 0
   minVaultMomentum: 0
   vaultSpeed: 0.1
-  wallSlide: 1
-  slideSpeed: 1
   dashCooldown: 0.9
   dashCancelMultiplier: 0.5
   momentumMaintained: 1
@@ -8999,32 +9018,7 @@ MonoBehaviour:
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
   airDashes: 1
-  myAnim: {fileID: 0}
   myBod: {fileID: 0}
-  ColliderContainer: {fileID: 750962641894375529}
-  colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  headCheck: {fileID: 0}
-  passCheck: {fileID: 0}
-  dashCheck: {fileID: 0}
-  groundCheck: {fileID: 0}
-  rightAirCheck: {fileID: 0}
-  rightLedgeCheck: {fileID: 0}
-  rightWallCheck: {fileID: 0}
-  rightHipCheck: {fileID: 0}
-  rightForwardCheck: {fileID: 0}
-  leftAirCheck: {fileID: 0}
-  leftLedgeCheck: {fileID: 0}
-  leftWallCheck: {fileID: 0}
-  leftHipCheck: {fileID: 0}
-  leftForwardCheck: {fileID: 0}
 --- !u!114 &9030483205541976314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9067,8 +9061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9425776491f9cb45a0488fa4e986fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCore: {fileID: 0}
-  interactablesTouched: []
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!114 &215086994315009943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9791,7 +9786,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &5970834034620693550
@@ -10985,7 +10979,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &6554958321753372978
@@ -11247,7 +11240,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &6721255865048565245
@@ -12687,7 +12679,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &7621216756152250648
@@ -14259,7 +14250,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &8616902220257653880
@@ -14720,7 +14710,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &8922089222698667369
@@ -14817,7 +14806,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &8982273539344657992

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 527713728485568139}
   - component: {fileID: 1071685186461134177}
   - component: {fileID: 954470155514628742}
-  m_Layer: 3
+  m_Layer: 15
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,8 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22516d152c63204499f7909e424e190b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTouching: 0
-  player: {fileID: 0}
-  valid: 1
+  checkMask:
+    serializedVersion: 2
+    m_Bits: 64
+  touching: 0
+  lastCollided: {fileID: 0}
+  slope: 0
   timeToDig: 1
   possiblePickupPrefabs: []

@@ -4,6 +4,32 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Manually assign this please, and keep colliders in order")]
+    //public Transform CharacterArt;
+    public Transform ColliderContainer;
+    [HideInInspector] public LayerCheck[] colliders; //Check colliders must be in this order in inspector:
+
+    //middle section
+    [HideInInspector] public LayerCheck headCheck; //0
+    [HideInInspector] public LayerCheck passCheck; //1 - while dropping through passable objects
+    [HideInInspector] public LayerCheck dashCheck; //2 - while dashing through dashable objects
+    [HideInInspector] public LayerCheck groundCheck; //3
+
+    //Right side
+    [HideInInspector] public LayerCheck rightAirCheck; //4 - check above ledges
+    [HideInInspector] public LayerCheck rightLedgeCheck; //5
+    [HideInInspector] public LayerCheck rightWallCheck; //6
+    [HideInInspector] public LayerCheck rightHipCheck; //7
+    [HideInInspector] public LayerCheck rightForwardCheck; //8 - check ahead for edges
+    
+    
+    //Left side
+    [HideInInspector] public LayerCheck leftAirCheck; //9 - check above ledges
+    [HideInInspector] public LayerCheck leftLedgeCheck; //10
+    [HideInInspector] public LayerCheck leftWallCheck; //11
+    [HideInInspector] public LayerCheck leftHipCheck; //12
+    [HideInInspector] public LayerCheck leftForwardCheck; //13 - check ahead for edges
+
     [HideInInspector] public Core myCore;
     private Vector2 myVelocity; //Control rigidbody velocity directly for tight, snappy, crispy, crunchy code
 
@@ -25,7 +51,17 @@ public class Movement : MonoBehaviour
     [Range(0f,1f)] [Tooltip("Percentage of momentum preserved after landing")] public float landingMomentum = 0.5f;
     
     
+
+    [Header("GRAVITY VARIABLES")]
+    [Tooltip("Scale current gravity is multiplied by")] public float myGravityScale = 1f;
+    [Tooltip("Scale that the speed of gravity increases")] public float gravityAcceleration = 1f;
+    //[Tooltip("Max downward fall speed")] public float terminalVelocity = 10f;
+    public float minGrav = 1f;
+    [Tooltip("Min and Max fall speeds")] public Vector2 fallSpeedCaps;
+    //[Tooltip("Initial downward speed given after a jump ends")] public float jumpEndDownForce;
+    private float airTime; //how long been in air, used for gravity calculation and coyote time
     
+
 
     [Header("JUMP VARIABLES")]
     [Tooltip("Initial jump velocity")] public float jumpForce = 10f;
@@ -34,27 +70,27 @@ public class Movement : MonoBehaviour
     private float currentJumpTime; //Amount of time jump button has been held
     [HideInInspector] public bool jumpInput; //Recive jump button input
     [HideInInspector] public bool onGround = false; //Feat on the ground and head in the air
-    private bool justJumped; //detect if new jump input
+    [HideInInspector] public bool justJumped; //detect if new jump input
     [Tooltip("Vertical velocity percent 0 to 1 over time as jump input is held")] public AnimationCurve jumpSpeedCurve;
     private float jumpDelayTime; //time Before you can Start a New Jump
     private float jumpDelayCurrent; //current delay until can jump again, prevents quick double inputs
-    [Tooltip("Scale current gravity is multiplied by")] public float myGravityScale = 1f;
-    [Tooltip("Scale that the speed of gravity increases")] public float gravityAcceleration = 1f;
-    //[Tooltip("Max downward fall speed")] public float terminalVelocity = 10f;
-    public float minGrav = 1f;
-    [Tooltip("Min and Max fall speeds")] public Vector2 fallSpeedCaps;
-    //[Tooltip("Initial downward speed given after a jump ends")] public float jumpEndDownForce;
-    private float airTime; //how long been in air, used for gravity calculation and coyote time
     [Tooltip("Extra time to try and jump just after leaving the ground")] public float coyoteTime;
     private float coyoteCurrent; //Keep track of how long since left ground specifically
-    [Tooltip("Bouncin off the walls")] public bool wallJump = false;
-    [Tooltip("Horizontal and vertical direction from wall jumps")] public Vector2 wallJumpForce;
-    [Tooltip("Duration of wall jump, x is locked in time, y is time for force to fade")] public Vector2 wallJumpTime;
-    private float coyoteWallTime; //extra time to try and walljump after recently leaving a wall, set to same as coyote time
     [Tooltip("Extra mid air jumps")] public int bonusJumps = 0;
     private int remainingJumps; //Keep track of remaining bonus jumps
     [Tooltip("Spawn effect on every jump")] public GameObject jumpEffect;
 
+
+
+
+    [Header("WALL JUMP VARIABLES")]
+    [Tooltip("Bouncin off the walls")] public bool wallJump = false;
+    [Tooltip("Horizontal and vertical direction from wall jumps")] public Vector2 wallJumpForce;
+    [Tooltip("Duration of wall jump, x is locked in time, y is time for force to fade")] public Vector2 wallJumpTime;
+    private float coyoteWallTime; //extra time to try and walljump after recently leaving a wall, set to same as coyote time
+    [Tooltip("Change fall speed while pressing into a wall")] public bool canWallSlide = false;
+    [Tooltip("Max fall speed while wall sliding")] public float wallSlideSpeed = 1f;
+    [HideInInspector] public bool wallSliding; //Currently pressing into a wall while falling
 
     
 
@@ -65,13 +101,9 @@ public class Movement : MonoBehaviour
     private float hangClimbDelay = 0.3f; //How long before you can climb input on ledge
     [HideInInspector] public bool onEdge; //Currently grabbing an edge
     [HideInInspector] public Coroutine climbing; //currently started a climb coroutine
-
     [Tooltip("Climb small hip high obstacles easily")] public bool autoVaultOver = false;
     [Tooltip("Minimum momentum percent needed to vault of obstacles")] [Range(0f, 1f)] public float minVaultMomentum = 0f;
     [Tooltip("Time spent vaulting")] public float vaultSpeed;
-    [Tooltip("Change fall speed while pressing into a wall")] public bool wallSlide = false;
-    [Tooltip("Max fall speed while wall sliding")] public float slideSpeed = 1f;
-    private bool sliding; //Currently pressing into a wall while falling
 
 
 
@@ -111,44 +143,16 @@ public class Movement : MonoBehaviour
 
 
 
-
     
     //OTHER VARIABLES
     private Health myHP; //Check stun times and change layer during dashes
-    [HideInInspector] public Animator myAnim; //animation handling needs to be cleaned up...
+    //[HideInInspector] public Animator myAnim; //animation handling needs to be cleaned up...
     [HideInInspector] public Rigidbody2D myBod; //nice bod
     private Collider2D myCollider; //Collider used by this bod
 
 
     //Colliders and such, should be under the "Self" game object in inspector
     //private GameObject mySelf; //must contain all colliders and any sprites to rotate when flipped, Health hitbox should be seperate
-    [Header("Manually assign these please")]
-    //public Transform CharacterArt;
-    public Transform ColliderContainer;
-    [HideInInspector] public LayerCheck[] colliders; //Check colliders must be in this order in inspector:
-
-    //middle section
-    [HideInInspector] public LayerCheck headCheck; //0
-    [HideInInspector] public LayerCheck passCheck; //1 - while dropping through passable objects
-    [HideInInspector] public LayerCheck dashCheck; //2 - while dashing through dashable objects
-    [HideInInspector] public LayerCheck groundCheck; //3
-
-    //Right side
-    [HideInInspector] public LayerCheck rightAirCheck; //4 - check above ledges
-    [HideInInspector] public LayerCheck rightLedgeCheck; //5
-    [HideInInspector] public LayerCheck rightWallCheck; //6
-    [HideInInspector] public LayerCheck rightHipCheck; //7
-    [HideInInspector] public LayerCheck rightForwardCheck; //8 - check ahead for edges
-    
-    
-    //Left side
-    [HideInInspector] public LayerCheck leftAirCheck; //9 - check above ledges
-    [HideInInspector] public LayerCheck leftLedgeCheck; //10
-    [HideInInspector] public LayerCheck leftWallCheck; //11
-    [HideInInspector] public LayerCheck leftHipCheck; //12
-    [HideInInspector] public LayerCheck leftForwardCheck; //13 - check ahead for edges
-
-
 
     private float downSlopeSpeed = 20f; //Add downard force when going down slopes
 
@@ -160,7 +164,7 @@ public class Movement : MonoBehaviour
         //myBod.gravityScale = 0; //turn off rigidbody gravity
 
         myHP = GetComponentInChildren<Health>();
-        myAnim = GetComponentInChildren<Animator>();
+        //myAnim = GetComponentInChildren<Animator>();
 
         startLayer = gameObject.layer; //remember for later
         if (myHP) { startLayerHP = myHP.gameObject.layer; }
@@ -198,14 +202,14 @@ public class Movement : MonoBehaviour
         if (groundCheck) { onGround = groundCheck.touching; }
 
 
-        if (myAnim) { myAnim.SetBool("onGround", onGround); }
+        //if (myAnim) { myAnim.SetBool("onGround", onGround); }
 
         UpdateTimers();
         UpdateInputs();
 
         if (grabLedges) { ledgeGrab(); } //ledge grab if allowed
 
-        if (myAnim) { myAnim.SetFloat("momentum", momentum); }
+        //if (myAnim) { myAnim.SetFloat("momentum", momentum); }
 
         UpdateGravity();
 
@@ -318,7 +322,8 @@ public class Movement : MonoBehaviour
         
         if (applyGravity) { velocity.y -= myGravityScale * Mathf.Pow(minGrav + gravTime, 2); } //G = C * (m/s)^2
         
-        if(sliding) { airTime = 0; velocity.y = Mathf.Clamp(velocity.y, -slideSpeed, Mathf.Infinity); } //clamp fall speed with slide velocity
+        if(wallSliding) 
+        { airTime = 0; velocity.y = Mathf.Clamp(velocity.y, -wallSlideSpeed, Mathf.Infinity); } //clamp fall speed with slide velocity
         else if (velocity.y <= 0) { velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCaps.y, -fallSpeedCaps.x); }
         //{ velocity.y = Mathf.Clamp(velocity.y, -terminalVelocity, Mathf.Infinity); } //clamp fall speed with terminal velocity
 
@@ -336,22 +341,15 @@ public class Movement : MonoBehaviour
             bool goingIntoWall = false;
             if (rightWallCheck.touching && movingRight) { goingIntoWall = true; }
             if (leftWallCheck.touching && !movingRight) { goingIntoWall = true; }
-            sliding = false;
+            wallSliding = false;
 
             if (goingIntoWall) //When run into a wall
             {
                 momentum = 0;
 
-                if (wallSlide && !onGround && myBod.velocity.y <= 0) //slide gives a min slide speed while pressing into wall
-                {
-                    if (moveInput != 0) { sliding = true; }
+                if (canWallSlide && !onGround && myBod.velocity.y <= 0 && moveInput != 0) //slide gives a min slide speed while pressing into wall
+                { wallSliding = true; }
 
-                    if (myAnim) { myAnim.SetBool("onWall", true); }
-                }
-                else 
-                { 
-                    if (myAnim) { myAnim.SetBool("onWall", false); } 
-                }
 
                 //For resetting lingering dash velocity when hitting a wall
                 if (dashVelocity.x > 0 && movingRight) { dashVelocity.x = 0; }
@@ -372,7 +370,7 @@ public class Movement : MonoBehaviour
                 }
 
                 
-                if (myAnim) { myAnim.SetBool("onWall", false); }
+                //if (myAnim) { myAnim.SetBool("onWall", false); }
             } 
         }
         else { momentum = moveInput; } //Just wack edge case if no collider, still moves snappy
@@ -434,7 +432,7 @@ public class Movement : MonoBehaviour
             }
             else if (coyoteWallTime > 0) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
             {
-                if (myAnim) { myAnim.SetBool("onWall", true); }
+                //if (myAnim) { myAnim.SetBool("onWall", true); }
 
                 JumpEnd();
                 coyoteWallTime = 0;
@@ -470,7 +468,7 @@ public class Movement : MonoBehaviour
                 jumpDelayCurrent = jumpDelayTime;
                 justJumped = true;
 
-                if (myAnim) { myAnim.SetBool("jumping", true); }
+                //if (myAnim) { myAnim.SetBool("jumping", true); }
 
                 //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
                 if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }    
@@ -499,7 +497,7 @@ public class Movement : MonoBehaviour
             justJumped = false;
             currentJumpTime = 0;
 
-            if (myAnim) { myAnim.SetBool("jumping", false); }
+            //if (myAnim) { myAnim.SetBool("jumping", false); }
         }
     }
 
@@ -554,7 +552,7 @@ public class Movement : MonoBehaviour
         
         if (tryGrab)
         {
-            if (verticalInput < 0) { jumpDelayCurrent = jumpDelayTime; myVelocity.y = -slideSpeed; } //Drop if pressing down
+            if (verticalInput < 0) { jumpDelayCurrent = jumpDelayTime; myVelocity.y = -wallSlideSpeed; } //Drop if pressing down
             else //Actually grab that ledge
             {
                 bool turnToCatch = false;
@@ -612,13 +610,13 @@ public class Movement : MonoBehaviour
         }
         else { onEdge = false; hangTime = 0f; }
 
-        if (myAnim) { myAnim.SetBool("onEdge", onEdge); }
+        //if (myAnim) { myAnim.SetBool("onEdge", onEdge); }
 
     }
 
     public IEnumerator ledgeClimb(Vector3 corner, float duration, float delay = 0)
     {
-        if (myAnim) { myAnim.SetBool("climbing", true); }
+        //if (myAnim) { myAnim.SetBool("climbing", true); }
 
         yield return new WaitForSeconds(delay);
 
@@ -660,7 +658,7 @@ public class Movement : MonoBehaviour
         transform.position = moveTo;
         climbing = null;
 
-        if (myAnim) { myAnim.SetBool("climbing", false); }
+        //if (myAnim) { myAnim.SetBool("climbing", false); }
     }
     
 
@@ -737,7 +735,7 @@ public class Movement : MonoBehaviour
 
     public IEnumerator DirectionalDash(Vector2 dir, Vector2 duration, bool noGrav, bool keepMomentum, bool edgeStop, int newLayer, int layerHP)
     {
-        if (myAnim) { myAnim.SetBool("dashing", true); }
+        //if (myAnim) { myAnim.SetBool("dashing", true); }
 
         savedMomentum = momentum;
         lastDash = dir; dashVelocity = dir;
@@ -809,7 +807,7 @@ public class Movement : MonoBehaviour
             if (keepMomentum) { momentum = savedMomentum * momentumMaintained; }
             else { momentum = 0; }
 
-            if (myAnim) { myAnim.SetBool("dashing", false); }
+            //if (myAnim) { myAnim.SetBool("dashing", false); }
 
             if (dashingEffect) { Destroy(dashingEffect); }
 

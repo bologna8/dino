@@ -37,11 +37,7 @@ public class Attack : MonoBehaviour
     [Tooltip("Every other shot switches sides if spread should be +/-")] public bool alternateNegative = true;
     [Tooltip("If more than 0, repeat spread pattern a number of times per clip instead of fire time")] public int repeatPattern = 0;
 
-    //[HideInInspector] public bool faceRight = true; //Attack going right or left
-    //private Damage[] myDam; //Any damage scripts attatched
-    //private Projectile[] myProj; //Any projectile scripts attatched
-
-
+    public AnimationClip attackAnim;
 
 
 }

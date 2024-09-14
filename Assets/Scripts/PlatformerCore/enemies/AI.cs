@@ -46,7 +46,7 @@ public class AI : MonoBehaviour
         myMovement = GetComponent<Movement>();
         myWeapons = GetComponents<Weapon>();
         myHealth = GetComponentInChildren<Health>();
-        myHealth.team = gameObject.layer;
+        //myHealth.team = gameObject.layer;
 
         //if (myCore) { if(myCore.myAim) { myAim = myCore.myAim; Debug.Log("yup"); } }
         if (myAim) { myAim.waitToRotate = scanPauseTime; }
@@ -57,58 +57,6 @@ public class AI : MonoBehaviour
     {
         if (myHealth)
         {
-            //Look Ahead
-            //var facing = Vector2.right;
-            //if (!myMovement.faceRight) { facing *= -1;}
-
-            //RaycastHit2D hit = Physics2D.Raycast(transform.position, facing, sightRange, sightLayers);
-
-            //if (hit.collider != null) 
-            //{
-                //var debugColor = Color.yellow;
-
-                /*
-                if (carnivore) //Meat eater
-                { 
-                    var player = hit.transform.gameObject.GetComponent<PlayerControls>();
-                    bool seePlayer = false; 
-                    //if (player) { if (!player.hidden) { seePlayer = true; } }
-                    
-                    var decoy = hit.transform.gameObject.GetComponent<Decoy>();
-                    bool takeTheBait = false;
-                    if (decoy) { if  (decoy.bait) { takeTheBait = true; } }
-
-                    if (seePlayer || takeTheBait) { debugColor = Color.red; Agro(hit.transform); }
-                }
-                */
-
-                /*
-                else //Herbivor stuff
-                {
-                    if (touchingBud) 
-                    { 
-                        if (touchingBud.flower) { debugColor = Color.red; Agro (touchingBud.transform); }
-                        else if (touchingBud.linked) { debugColor = Color.red; Agro (touchingBud.linked.transform); }
-                        else { currentState = State.patrol; }
-                    }
-                    
-                    else
-                    {
-                        var bud = hit.transform.gameObject.GetComponent<Budding>();
-                        if (bud)
-                        {
-                            if (bud.flower) { debugColor = Color.red; Agro(hit.transform); }
-                            else { currentState = State.patrol; }
-                        }
-                        else { currentState = State.patrol; }
-                    }
-                    
-                }
-                */
-
-                //Debug.DrawRay(transform.position, facing * hit.distance, debugColor);
-            //}
-            //else { Debug.DrawRay(transform.position, facing * sightRange, Color.green); } 
             
             
             if (myAim)
