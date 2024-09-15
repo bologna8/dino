@@ -22,7 +22,7 @@ public class Aim : MonoBehaviour
 
 
 
-
+    [HideInInspector] public float attackAngleOffset;
     [HideInInspector] public float forwardAngle;
     [Range(0, 180)] public float maxRotation;
 
@@ -104,20 +104,16 @@ public class Aim : MonoBehaviour
 
         if (lockAim) //Override current desired angle if aiming button required and not pressed
         {
-            if (myAimType == AimType.Simple && verticalInput != 0)
-            {
-                if (verticalInput > 0) { desiredDirection = Vector2.up; }
-                else { desiredDirection = Vector2.down; }
 
-                //Make small adjustment so still facing same direction
-                if (forwardAngle == 0) { desiredDirection.x += 0.01f; }
-                else if (forwardAngle %180 == 0) { desiredDirection.x -= 0.01f; }
-            }    
-            else
-            {
-                if (forwardAngle == 0) { desiredDirection = Vector2.right; }
-                else if (forwardAngle %180 == 0) { desiredDirection = Vector2.left; }
-            } 
+            if (forwardAngle > 90 && forwardAngle < 270) { forwardAngle -= attackAngleOffset; }
+            else { forwardAngle += attackAngleOffset; }
+
+            var rad = forwardAngle * Mathf.Deg2Rad;
+
+
+            desiredDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+
+
 
             currentDirection = desiredDirection;
         }

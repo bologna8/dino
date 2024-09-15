@@ -4143,7 +4143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 3201
+    m_Bits: 3073
   touching: 0
   lastCollided: {fileID: 0}
   slope: 0
@@ -9081,6 +9081,9 @@ MonoBehaviour:
   attackPrefab: {fileID: 7650349434382594507, guid: a23845e8bc0e35545b6daf28d9357bee, type: 3}
   attackReady: 1
   attackHeld: 0
+  verticalInput: 0
+  upAttackPrefab: {fileID: 7650349434382594507, guid: e8dacd274066eb1408132aaede8c47ec, type: 3}
+  downAttackPrefab: {fileID: 0}
   ignoreTeams: 0
 --- !u!114 &2336375472945322156
 MonoBehaviour:
@@ -9099,6 +9102,9 @@ MonoBehaviour:
   attackPrefab: {fileID: 8142958838078798255, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
   attackReady: 1
   attackHeld: 0
+  verticalInput: 0
+  upAttackPrefab: {fileID: 8142958838078798255, guid: e12be2ede53c18445aa5c114bbe39e31, type: 3}
+  downAttackPrefab: {fileID: 0}
   ignoreTeams: 0
 --- !u!114 &8385260164650923444
 MonoBehaviour:

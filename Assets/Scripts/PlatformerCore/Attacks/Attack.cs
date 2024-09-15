@@ -30,6 +30,7 @@ public class Attack : MonoBehaviour
     [Tooltip("")] public bool onlyHorizontalMoveMid = true; //otherwise move in direction aiming
 
     [Header("Spread Stats")]
+    [Range(0, 89f)] [Tooltip("Degrees to change every attack relative to aim, pre spread")] public float startAimAngleOffset;
     [Tooltip("Amount of time it takes to reach max spread while attacking repeatedly, ignore other spread stats if 0")] public float spreadTime = 0;
     [Tooltip("Amount of degrees the porjectile can potentially be off from original aim angle as you fire for longer")] public AnimationCurve spreadCurve;
     [Tooltip("Multiplier for spread angle amount on curve")] public float spreadIntensity = 1f;

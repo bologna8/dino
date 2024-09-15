@@ -5,7 +5,7 @@ using UnityEngine;
 public class AI : MonoBehaviour
 {
     private Core myCore; //Pass inputs to your core
-    public enum State { idle, chase, patrol };
+    public enum State { idle, patrol, chase, flee };
     public State currentState;
 
     private Movement myMovement; 
