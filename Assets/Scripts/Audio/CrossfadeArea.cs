@@ -13,10 +13,11 @@ public class CrossfadeArea : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.transform.gameObject.tag == "Player"){
-            if(!mp.doingCrossfade){
-                mp.trackToBringOut = track;
-                mp.doingCrossfade = true;
+            if(mp.doingCrossfade){
+               mp.CrossfadeTime = 0; 
             }
+            mp.trackToBringOut = track;
+            mp.doingCrossfade = true;
         }
     }
 }

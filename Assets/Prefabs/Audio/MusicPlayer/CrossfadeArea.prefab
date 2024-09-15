@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2896902164864759592}
   - component: {fileID: 6477726335016439087}
   - component: {fileID: -1906579051154507146}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CrossfadeArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,3 +90,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160c015a12b53cc46bb562e596d16ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mp: {fileID: 0}
+  track: 0

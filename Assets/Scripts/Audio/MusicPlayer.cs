@@ -26,7 +26,7 @@ public class MusicPlayer : MonoBehaviour
     public enum Track {track1, track2, track3, track4}
     public Track trackToBringOut = 0;
 
-    private double CrossfadeTime = 0;
+    [HideInInspector] public double CrossfadeTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -63,11 +63,13 @@ public class MusicPlayer : MonoBehaviour
             }
 
             foreach(string str in allVolumes){
+                float x; 
+                Mixer.GetFloat(str, out x);
                 if(str == volA){
-                    Mixer.SetFloat(str, Mathf.Log10(logValue) * 26);
+                    if(x < Mathf.Log10(logValue) * 26){
+                        Mixer.SetFloat(str, Mathf.Log10(logValue) * 26);
+                    }
                 }else{
-                    float x; 
-                    Mixer.GetFloat(str, out x);
                     if(x > Mathf.Log10(invlogValue) * 26){
                         Mixer.SetFloat(str, Mathf.Log10(invlogValue) * 26);
                     }
