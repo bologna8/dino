@@ -16,40 +16,51 @@ public class PickUp : MonoBehaviour
     public Item item;
     public CraftingRecipe recipe;
 
-    // Start is called before the first frame update
     void Start()
     {
         var randX = Random.Range(randStartX.x, randStartX.y);
         var randY = Random.Range(randStartY.x, randStartY.y);
-        if (Random.Range(0f,1f) > 0.5f) { randX *= -1; }
+        if (Random.Range(0f, 1f) > 0.5f) { randX *= -1; }
 
         myBod = GetComponent<Rigidbody2D>();
         if (myBod) { myBod.AddForce(new Vector2(randX, randY)); }
     }
 
-    // Update is called once per frame
     void Update()
     {
         lifeTime += Time.deltaTime;
         if (lifeTime > despawnTime) { gameObject.SetActive(false); }
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && lifeTime > delayPickupTime)
-        { 
-            if (pickupEffect) 
-            { PoolManager.Instance.Spawn(pickupEffect, transform.position); } 
+        {
+            if (pickupEffect)
+            {
+                PoolManager.Instance.Spawn(pickupEffect, transform.position);
+            }
 
-            if (item) { Inventory.instance.AddItem(item); }
+            if (item)
+            {
+                Inventory.instance.AddItem(item);
+                InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+                if (inventoryUI != null)
+                {
+                    inventoryUI.UpdateInventoryUI();
+                }
+            }
 
-            //Do the same for recipies somehow pls Angelina my angel 0w0
-            //if (recipe) { intentory.UnlockRecipe(recipe); } 
+            if (recipe)
+            {
+                InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
+                if (inventoryUI != null)
+                {
+                    inventoryUI.UpdateCraftingUI(recipe);
+                }
+            }
 
             gameObject.SetActive(false);
         }
-        
     }
-
 }

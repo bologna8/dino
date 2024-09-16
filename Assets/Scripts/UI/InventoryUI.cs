@@ -1,11 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI Instance { get; private set; }
+
     private bool inventoryOpen = false;
     public bool InventoryOpen => inventoryOpen;
 
@@ -13,7 +13,6 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryTab;
     public GameObject craftingTab;
     public GameObject itemDescriptionPanel;
-
     public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
@@ -24,10 +23,27 @@ public class InventoryUI : MonoBehaviour
     public Transform inventoryItemTransform;
     public Transform craftingItemTransform;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
-        //PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
-        Inventory.instance.onItemChange += UpdateInventoryUI;
+        // PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
+
+        if (Inventory.instance != null)
+        {
+            Inventory.instance.onItemChange += UpdateInventoryUI;
+        }
+
         UpdateInventoryUI();
         SetUpCraftingRecipes();
 
@@ -44,7 +60,7 @@ public class InventoryUI : MonoBehaviour
 
     public void OpenInventory(InputAction.CallbackContext context)
     {
-        if (context.performed) // Check if the action was performed
+        if (context.performed) 
         {
             if (inventoryOpen)
             {
@@ -93,11 +109,17 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private void UpdateCraftingUI(CraftingRecipe recipe)
+    public void UpdateCraftingUI(CraftingRecipe recipe)
     {
-        GameObject go = Instantiate(craftingSlotPrefab, craftingItemTransform);
-        ItemSlot slot = go.GetComponent<ItemSlot>();
-        slot.AddItem(recipe);
+        if (craftingSlotPrefab != null && craftingItemTransform != null)
+        {
+            GameObject go = Instantiate(craftingSlotPrefab, craftingItemTransform);
+            ItemSlot slot = go.GetComponent<ItemSlot>();
+            if (slot != null)
+            {
+                slot.AddItem(recipe);
+            }
+        }
     }
 
     private void SetUpCraftingRecipes()
@@ -106,13 +128,19 @@ public class InventoryUI : MonoBehaviour
 
         foreach (Item recipe in craftingRecipes)
         {
-            GameObject Go = Instantiate(craftingSlotPrefab, craftingItemTransform);
-            ItemSlot slot = Go.GetComponent<ItemSlot>();
-            slot.AddItem(recipe);
+            if (craftingSlotPrefab != null && craftingItemTransform != null)
+            {
+                GameObject go = Instantiate(craftingSlotPrefab, craftingItemTransform);
+                ItemSlot slot = go.GetComponent<ItemSlot>();
+                if (slot != null)
+                {
+                    slot.AddItem(recipe);
+                }
+            }
         }
     }
 
-    private void UpdateInventoryUI()
+    public void UpdateInventoryUI()
     {
         int currentItemCount = Inventory.instance.inventoryItemList.Count;
 
@@ -141,9 +169,15 @@ public class InventoryUI : MonoBehaviour
 
         for (int i = 0; i < amount; ++i)
         {
-            GameObject GO = Instantiate(inventorySlotPrefab, inventoryItemTransform);
-            ItemSlot newSlot = GO.GetComponent<ItemSlot>();
-            itemSlotList.Add(newSlot);
+            if (inventorySlotPrefab != null && inventoryItemTransform != null)
+            {
+                GameObject go = Instantiate(inventorySlotPrefab, inventoryItemTransform);
+                ItemSlot newSlot = go.GetComponent<ItemSlot>();
+                if (newSlot != null)
+                {
+                    itemSlotList.Add(newSlot);
+                }
+            }
         }
     }
 
@@ -160,22 +194,4 @@ public class InventoryUI : MonoBehaviour
             Cursor.visible = true;
         }
     }
-
-    
-    /*
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (inventoryOpen)
-            {
-                CloseInventory();
-            }
-            else
-            {
-                OpenInventory();
-            }
-        }
-    }
-    */
 }
