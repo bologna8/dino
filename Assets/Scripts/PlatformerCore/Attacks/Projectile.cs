@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     [Header("Boomerang")]
     [Tooltip("Does not bounce back if 0")] public float returnTime;
     private float returnCurrent; //keep track of current time until boomerang returns
-    [Tooltip("Speed sprite rotates")] public Vector3 rotateSpeed = new Vector3(0,0, 420);
+    //[Tooltip("Speed sprite rotates")] public Vector3 rotateSpeed = new Vector3(0,0, 420);
     private bool bounced; //boomerang bounced back yet
     private Vector3 endPosition; //Point boomerang bounced back from
 
@@ -76,7 +76,7 @@ public class Projectile : MonoBehaviour
         
 
         //Boomerang stuff
-        if (returnTime > 0f) { transform.Rotate(rotateSpeed * Time.deltaTime); } //Rotato Potato
+        //if (returnTime > 0f) { transform.Rotate(rotateSpeed * Time.deltaTime); } //Rotato Potato
 
         if (bounced && mySpawn) //Return to sender
         {

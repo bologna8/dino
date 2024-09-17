@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
     private Movement myMovement;
     //private Animator myAnim; //needs to be reworked tbh
 
-    [HideInInspector] public bool ignoreTeams;
+    public bool ignoreTeams;
 
 
     void Awake()
@@ -263,14 +263,20 @@ public class Weapon : MonoBehaviour
             var r = fireAngle.eulerAngles;
             if (r.z > 90 && r.z < 270) { fireAngle = Quaternion.Euler(r.x, r.y, r.z - attackStats.startAimAngleOffset); }
             else { fireAngle = Quaternion.Euler(r.x, r.y, r.z + attackStats.startAimAngleOffset); }
+
         }
 
 
+        GameObject newAttack = null;
+        if (currentAttackPrefab && myAim && myCore)
+        {
+            newAttack = PoolManager.Instance.Spawn(currentAttackPrefab, startSpot, fireAngle, myAim.transform, myCore.team);
+        }
+        else { Debug.Log("ding, this shoudln't be happening, attack error"); }
+        
 
-        var newAttack = PoolManager.Instance.Spawn(currentAttackPrefab, startSpot, fireAngle, myAim.transform, myCore.team);
 
-
-        if (attackStats.momentumLaunch) 
+        if (attackStats.momentumLaunch && newAttack) 
         {
             var launchV = Vector2.zero;
             var myV = GetComponent<Rigidbody2D>().velocity;

@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.25, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -183,6 +183,7 @@ MonoBehaviour:
   attackDuration: 0.1
   movementMidAttack: 6
   onlyHorizontalMoveMid: 1
+  startAimAngleOffset: 0
   spreadTime: 0
   spreadCurve:
     serializedVersion: 2
@@ -194,6 +195,7 @@ MonoBehaviour:
   spreadRange: 1
   alternateNegative: 1
   repeatPattern: 0
+  attackAnim: {fileID: 0}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,10 +290,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  source: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
-  team: 0
   ignoreTeams: 0
+  damageSelf: 0
 --- !u!114 &8352660219446764013
 MonoBehaviour:
   m_ObjectHideFlags: 0

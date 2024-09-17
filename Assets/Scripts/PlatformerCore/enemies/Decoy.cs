@@ -4,23 +4,12 @@ using UnityEngine;
 
 public class Decoy : MonoBehaviour
 {
-    public bool drawAttention = false;
-    public bool overrideAgro = false;
-    public bool bait = false;
+    [Tooltip("Alerts enemies that have not seen you yet")] public bool drawAttention = false;
+    [Tooltip("Takes the agro if enemy is currently agro on something else")] public bool overrideAgro = false;
+    [Tooltip("Causes foolish enemies to go attack in a way that can damage teammates")] public bool causeFrenzy = false;
 
     private List<AI> alerted = new List<AI>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,36 +26,21 @@ public class Decoy : MonoBehaviour
                 {
                     if (drawAttention) { ai.Agro(transform); }
                 }
+
+                if (causeFrenzy && ai.foolish) { ai.frenzied = true; }
+
+                alerted.Add(ai);
             }
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnDisable()
     {
-        var ai = other.GetComponent<AI>();
-        if(ai && bait)
+        if (alerted.Count > 0 && causeFrenzy)
         {
-            if (alerted.Contains(ai)) 
-            { ai.frenzied = false; alerted.Remove(ai); }
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        var ai = other.GetComponent<AI>();
-        if(ai && bait)
-        {   
-            //if (ai.carnivore && bait) { ai.Agro(transform); ai.frenzied = true; }
-            if (!alerted.Contains(ai)) { alerted.Add(ai); }
-        }
-    }
-
-    void OnDestroy()
-    {
-        if (alerted.Count > 0 && bait)
-        {
-            foreach (var ai in alerted)
+            foreach (var ai in alerted) 
             { ai.frenzied = false; }
+            alerted.Clear();
         }
     }
 }
