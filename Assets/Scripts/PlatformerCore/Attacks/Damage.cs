@@ -34,6 +34,7 @@ public class Damage : MonoBehaviour
     private Spawned mySpawn; //For item pooling and teams
     //[HideInInspector] public int team; //Teams are like damage layers, without changing layers
     [Tooltip("Friendly fire can damage others on the same team")] public bool ignoreTeams = false; //Can damage others own team 
+    [Tooltip("Can deal damage to the character that created the attack")] public bool damageSelf; 
     
     private List<Health> hitList = new List<Health>(); //hitboxes that have already been hit
     
@@ -59,10 +60,10 @@ public class Damage : MonoBehaviour
 
         hitList.Clear();
 
+        startScale = transform.localScale;
         if (activeDuration > 0) 
         {
             currentDuration = activeDuration;
-            startScale = transform.localScale;
 
             transform.localScale = startScale * sizeOverTime.Evaluate(0);
         }        
@@ -110,8 +111,13 @@ public class Damage : MonoBehaviour
             {
                 if (hitHealth.mySpawn.team == mySpawn.team)
                 {
-                    if (!ignoreTeams) { hitIt = false; }
                     if (hitHealth.friendlyFireOnly) { hitIt = true; }
+                    else if (!ignoreTeams) { hitIt = false; }
+                    else if (!damageSelf && hitHealth.mySpawn && mySpawn) 
+                    { 
+                        if (hitHealth.mySpawn.source == mySpawn.source) { hitIt = false; }
+                    }
+                    
                 }
                 else if (hitHealth.friendlyFireOnly) { hitIt = false; }
             }

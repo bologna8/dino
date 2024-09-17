@@ -53,8 +53,19 @@ public class Aim : MonoBehaviour
 
 
 
+    public Transform WeaponPivot;
+    private Vector3 weaponPivotStart;
+
+    //[Tooltip("Distance from pivot in diraction of aim, X is right hand, Y is left.")] public Vector2 HandPositions;
+    public Transform RightHand;
+    public Transform RightHandle;
+    public Transform LeftHand;
+    public Transform LeftHandle;
+
+
+
     //Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //safetyLayers = GetComponent<LayerCheck>();
 
@@ -64,6 +75,8 @@ public class Aim : MonoBehaviour
         myLine = GetComponent<LineRenderer>();
 
         currentDirection = Vector3.right;
+
+        if (WeaponPivot) { weaponPivotStart = WeaponPivot.localPosition; }
     }
 
     void OnEnable()
@@ -278,13 +291,46 @@ public class Aim : MonoBehaviour
 
         if (myLine) 
         {
-            myLine.enabled = true;
+            //myLine.enabled = true;
             myLine.SetPosition(0, transform.position); 
             myLine.SetPosition(1, endPoint); 
         }
 
 
+        UpdateWeaponAngle();
+        
+    }
 
+    public void UpdateWeaponAngle()
+    {
+        if (WeaponPivot) 
+        { 
+            if (Mathf.Abs(currentAng) < 90) 
+            { 
+                WeaponPivot.eulerAngles = new Vector3(0, 0, currentAng);
+                WeaponPivot.localPosition = weaponPivotStart;
+            }
+            else //Flip Weapon if on left side
+            { 
+                WeaponPivot.eulerAngles = new Vector3(180, 0, 360 - currentAng);
+                WeaponPivot.localPosition = new Vector3(-weaponPivotStart.x, weaponPivotStart.y, weaponPivotStart.z);
+            }
+            offset = WeaponPivot.localPosition;
+
+
+
+            if (RightHand && RightHandle) 
+            { 
+                RightHand.position = RightHandle.position;
+                RightHand.rotation = RightHandle.rotation;
+            }
+            if (LeftHand && LeftHandle) 
+            { 
+                LeftHand.position = LeftHandle.position;
+                LeftHand.rotation = LeftHandle.rotation;
+            }
+                
+        }
         
     }
 

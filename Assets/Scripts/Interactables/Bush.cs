@@ -7,11 +7,17 @@ public class Bush : LayerCheck, IInteractable
 
     private Core touchingCore;
 
+    public GameObject bushEnterEffect;
+
     public void Interact(GameObject interacter)
     {
         if (touchingCore)
         {
             touchingCore.hidden = !touchingCore.hidden;
+            if (touchingCore.hidden && bushEnterEffect)
+            { 
+                PoolManager.Instance.Spawn(bushEnterEffect, transform.position);
+            }
         }
     }
 

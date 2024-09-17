@@ -31,7 +31,7 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+         Mixer.SetFloat(track1, 0); //Temporary
     }
 
     // Update is called once per frame

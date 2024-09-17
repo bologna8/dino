@@ -31,6 +31,9 @@ public class AI : MonoBehaviour
     private float memoryCurrent;
 
     //public bool carnivore = true;
+    [Tooltip("Agro instantly, or only once attacked")] public bool attackOnSight;
+    [Tooltip("If see a friend start to chase, go agro on that target as well")] public bool packAttack;
+    [Tooltip("Will go into a frenzy over certain distractions and damage teammates with attacks")] public bool foolish;
     [HideInInspector] public bool frenzied;
 
 
@@ -57,14 +60,30 @@ public class AI : MonoBehaviour
     {
         if (myHealth)
         {
-            
-            
             if (myAim)
             {
                 if (myAim.lastSeen)
                 {
-                    var isPlayer = myAim.lastSeen.GetComponent<PlayerControls>();
-                    if (isPlayer) { Agro(myAim.lastSeen); }
+                    var checkCore = myAim.lastSeen.GetComponent<Core>();
+                    if (checkCore && myCore) 
+                    { 
+                        if (!checkCore.hidden) 
+                        {
+                            if (checkCore.team == myCore.team) 
+                            { 
+                                if (frenzied) { Agro(myAim.lastSeen); }
+                                else if (packAttack && checkCore.myAI)
+                                {
+                                    if (checkCore.myAI.currentState == AI.State.chase)
+                                    {
+                                        Agro(checkCore.myAI.chasing);
+                                    }
+                                }
+                            }
+                            else if (attackOnSight)  { Agro(myAim.lastSeen); }
+                        }
+                        
+                    }
                 }
             }
 
@@ -149,10 +168,20 @@ public class AI : MonoBehaviour
     {
         if (target != chasing)
         {
-            var player = target.GetComponent<PlayerControls>();
-            if(player) { if(angryIcon) { Emote(angryIcon); } }
-            else { if (curiousIcon) { Emote(curiousIcon); } }
+            var detectDecoy = target.GetComponent<Decoy>();
+            if (detectDecoy)
+            {
+                if (detectDecoy.causeFrenzy) { if(angryIcon) { Emote(angryIcon); } }
+                else { if (curiousIcon) { Emote(curiousIcon); } }
+            }
+            else
+            {
+                var checkCore = target.GetComponent<Core>();
+                if(checkCore) { if(angryIcon) { Emote(angryIcon); } }
+                else { if (curiousIcon) { Emote(curiousIcon); } }
+            }
 
+            
             if (myAim) 
             {
                 currentAimTime = Random.Range(attackAimTime.x, attackAimTime.y);
@@ -170,7 +199,8 @@ public class AI : MonoBehaviour
     void Emote(GameObject emoteEffect)
     {
         myHealth.TakeDamage(0, new Vector2(0.1f, 0), Vector2.zero);
-        Instantiate(emoteEffect, transform);
+        if (PoolManager.Instance) { PoolManager.Instance.Spawn(emoteEffect, transform.position, Quaternion.identity, transform); }
+        else { Instantiate(emoteEffect, transform); }
     }
 
     void Chase()

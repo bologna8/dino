@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8352660219446764013}
   - component: {fileID: 7019152047202207604}
   m_Layer: 8
-  m_Name: Shovel UP Swing
+  m_Name: Blade Swing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.43529412}
+  m_Color: {r: 0.46755964, g: 0.73473334, b: 0.745283, a: 0.43529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   attackDuration: 0.2
   movementMidAttack: 12
   onlyHorizontalMoveMid: 1
-  startAimAngleOffset: 69
+  startAimAngleOffset: 5
   spreadTime: 0
   spreadCurve:
     serializedVersion: 2
@@ -195,7 +195,7 @@ MonoBehaviour:
   spreadRange: 1
   alternateNegative: 1
   repeatPattern: 0
-  attackAnim: {fileID: 7400000, guid: 66b04a4a4160bad47ab285c42e27253e, type: 2}
+  attackAnim: {fileID: 7400000, guid: 08ff3eb512b852949aac3b15a7e2e9ac, type: 2}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910707473a047bc4e83a69e7e6f43730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   activeDuration: 0.2
   sizeOverTime:
     serializedVersion: 2
@@ -292,6 +292,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   offset: {x: 0, y: 0, z: 0}
   ignoreTeams: 0
+  damageSelf: 0
 --- !u!114 &8352660219446764013
 MonoBehaviour:
   m_ObjectHideFlags: 0

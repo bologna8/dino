@@ -323,10 +323,16 @@ public class Movement : MonoBehaviour
         
         if (applyGravity) { velocity.y -= myGravityScale * Mathf.Pow(minGrav + gravTime, 2); } //G = C * (m/s)^2
         
-        if(wallSliding) 
-        { airTime = 0; velocity.y = Mathf.Clamp(velocity.y, -wallSlideSpeed, Mathf.Infinity); } //clamp fall speed with slide velocity
-        else if (velocity.y <= 0) { velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCaps.y, -fallSpeedCaps.x); }
-        //{ velocity.y = Mathf.Clamp(velocity.y, -terminalVelocity, Mathf.Infinity); } //clamp fall speed with terminal velocity
+        if (myBod.velocity.y < 0)
+        {
+            if(wallSliding) 
+            { 
+                if (moveInput != 0 && canWallSlide) 
+                { airTime = 0; velocity.y = Mathf.Clamp(velocity.y, -wallSlideSpeed, Mathf.Infinity); }
+                
+            } //clamp fall speed with slide velocity
+            else { velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCaps.y, -fallSpeedCaps.x); }
+        }
 
         myBod.velocity = velocity;
     }
@@ -337,42 +343,37 @@ public class Movement : MonoBehaviour
         
         if (autoVaultOver && momentum >= minVaultMomentum) { VaultOver(); } //Jump over objects //&& InputForward()
 
+        if (moveInput == 0) //Slow down when not inputing
+        { 
+            if (deccelerationTime <= 0) { momentum = 0; }
+            else { momentum -= Time.deltaTime / deccelerationTime; } 
+        }
+        else //If moving, accelerate speed
+        {
+            if (accelerationTime <= 0) { momentum = 1; }
+            else { momentum += Time.deltaTime / accelerationTime; } 
+        }
+
         if (leftWallCheck && rightWallCheck)
         {
-            bool goingIntoWall = false;
-            if (rightWallCheck.touching && movingRight) { goingIntoWall = true; }
-            if (leftWallCheck.touching && !movingRight) { goingIntoWall = true; }
+            //bool goingIntoWall = false;
+            //if (rightWallCheck.touching && movingRight) { goingIntoWall = true; }
+            //if (leftWallCheck.touching && !movingRight) { goingIntoWall = true; }
             wallSliding = false;
 
-            if (goingIntoWall) //When run into a wall
+            if (rightWallCheck.touching || leftWallCheck.touching) //When run into a wall
             {
-                momentum = 0;
+                if (rightWallCheck.touching && moveInput > 0) { momentum = 0; }
+                if (leftWallCheck.touching && moveInput < 0) { momentum = 0; }
 
-                if (canWallSlide && !onGround && myBod.velocity.y <= 0 && moveInput != 0) //slide gives a min slide speed while pressing into wall
-                { wallSliding = true; }
-
+                if (!onGround) { wallSliding = true; }
 
                 //For resetting lingering dash velocity when hitting a wall
                 if (dashVelocity.x > 0 && movingRight) { dashVelocity.x = 0; }
                 if (dashVelocity.x < 0 && !movingRight) { dashVelocity.x = 0; }
                 
             }
-            else //Increas or decrease momentum gradually
-            { 
-                if (moveInput == 0) //Slow down when not inputing
-                { 
-                    if (deccelerationTime <= 0) { momentum = 0; }
-                    else { momentum -= Time.deltaTime / deccelerationTime; } 
-                }
-                else //If moving, accelerate speed
-                {
-                    if (accelerationTime <= 0) { momentum = 1; }
-                    else { momentum += Time.deltaTime / accelerationTime; } 
-                }
-
-                
-                //if (myAnim) { myAnim.SetBool("onWall", false); }
-            } 
+            
         }
         else { momentum = moveInput; } //Just wack edge case if no collider, still moves snappy
 

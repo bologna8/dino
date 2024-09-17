@@ -6,7 +6,7 @@ public class LayerCheck : MonoBehaviour
 {
      [Tooltip("Choose which layer(s) to check")] public LayerMask checkMask;
      //[Tooltip("VIEW ONLY : currently touching something")] 
-     [HideInInspector] public bool touching = false;
+     public bool touching = false;
 
      [HideInInspector] public Collider2D lastCollided;
      [HideInInspector] public float slope;

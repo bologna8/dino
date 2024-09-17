@@ -8,7 +8,7 @@ public class Core : MonoBehaviour
     //public enum State { standing, jumping, falling, edge, climbing, dashing, stunned }
     //public State currentState;
     [HideInInspector] public Spawned mySpawn;
-    public int team;
+    [HideInInspector] public int team;
 
     //Turning Variables
     //[HideInInspector] public bool faceRight = true;
@@ -30,8 +30,9 @@ public class Core : MonoBehaviour
     private SpriteRenderer mySprite;
 
     //Necessary components to connect too
-    public GameObject aimingPrefab;
+    //public GameObject aimingPrefab;
     [HideInInspector] public Aim myAim;
+    /*
     public Transform WeaponPivot;
     private Vector3 weaponPivotStart;
 
@@ -40,9 +41,10 @@ public class Core : MonoBehaviour
     public Transform RightHandle;
     public Transform LeftHand;
     public Transform LeftHandle;
+    */
 
     
-    private AI myAI;
+    [HideInInspector] public AI myAI;
 
 
     private Weapon[] myWeapons;
@@ -62,18 +64,21 @@ public class Core : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //if (aimingPrefab) { myAim = Instantiate(aimingPrefab, transform).GetComponent<Aim>(); }
+        if (!myAim) { myAim = GetComponentInChildren<Aim>(); }
+
         //mySelf = transform.Find("Self").gameObject;
         if (!mySpawn) { mySpawn = GetComponent<Spawned>(); }
         if (mySpawn) 
         { 
             if (mySpawn.team != 0) { team = mySpawn.team; }
             else { team = gameObject.layer; mySpawn.team = team; }
+
+            if (myAim) { mySpawn.source = myAim.transform; }
         }
 
         if(!myMove) { myMove = GetComponent<Movement>(); }
         if (myMove) { myMove.myCore = this; }
-
-        if (aimingPrefab) { myAim = Instantiate(aimingPrefab, transform).GetComponent<Aim>(); }
 
         if (!myAI) { myAI = GetComponent<AI>(); }
 
@@ -89,7 +94,7 @@ public class Core : MonoBehaviour
         }
         attackInput = new bool[myWeapons.Length];
 
-        if (WeaponPivot) { weaponPivotStart = WeaponPivot.localPosition; }
+        //if (WeaponPivot) { weaponPivotStart = WeaponPivot.localPosition; }
 
         if (!myHealth) { myHealth = GetComponentInChildren<Health>(); }
         if (myHealth) { myHealth.myCore = this; }
@@ -142,7 +147,7 @@ public class Core : MonoBehaviour
             { if(!lookingRight) { Turn(); } }
             else if (lookingRight) { Turn(); }
 
-
+            /*
             if (WeaponPivot) 
             { 
                 if (Mathf.Abs(myAim.currentAng) < 90) 
@@ -171,7 +176,10 @@ public class Core : MonoBehaviour
                 }
                  
             }
+            */
+
         }
+        
 
         if (hidden) { mySprite.sortingOrder = -1; }
         else { mySprite.sortingOrder = 1;}
@@ -220,18 +228,27 @@ public class Core : MonoBehaviour
         var fromAngle = CharacterArt.rotation;
         var toAngle = Quaternion.Euler(CharacterArt.eulerAngles + new Vector3(0, 180, 0));
 
+        var startX = CharacterArt.localPosition.x;
+        var flippedX = -startX;
+
+
         if (turnTime <= 0f) { yield return null; }
         else //turn over a set period of time, or instantly if 0
         {
             for (var t = 0f; t <= 1; t += Time.deltaTime / turnTime)
             {
                 CharacterArt.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
+                CharacterArt.localPosition = new Vector3(Mathf.Lerp(startX, flippedX, t), CharacterArt.localPosition.y, CharacterArt.localPosition.z);
                 yield return null;
+                
             }
         }
+        
 
         CharacterArt.rotation = toAngle;
+        CharacterArt.localPosition = new Vector3(flippedX, CharacterArt.localPosition.y, CharacterArt.localPosition.z);
         turning = false;
+
     }
 
 
@@ -241,6 +258,17 @@ public class Core : MonoBehaviour
         { 
             if (myHealth.stunTime <= stunTime) { myHealth.stunTime = stunTime; }
         }
+
+        //Temp solution to display interacting animations
+        if (myAnim) { StartCoroutine(DigAnimation(stunTime)); }
+
+    }
+
+    public IEnumerator DigAnimation(float time)
+    {
+        myAnim.SetBool("interacting", true);
+        yield return new WaitForSeconds(time);
+        myAnim.SetBool("interacting", false);
     }
 
     public bool Attacking()
@@ -301,7 +329,9 @@ public class Core : MonoBehaviour
             myAnim.SetFloat("momentum", myMove.momentum);
             myAnim.SetBool("jumping", myMove.justJumped);
 
-            myAnim.SetBool("onWall", myMove.wallSliding);
+            if (myMove.canWallSlide) { myAnim.SetBool("onWall", myMove.wallSliding); }
+            else { myAnim.SetBool("onWall", false); }
+            
             myAnim.SetBool("onEdge", myMove.onEdge);
 
             var climbing = false;
@@ -309,7 +339,7 @@ public class Core : MonoBehaviour
             myAnim.SetBool("climbing", climbing);
 
             var dashing = false;
-            if (myMove.climbing != null) { dashing = true; }
+            if (myMove.dashing != null) { dashing = true; }
             myAnim.SetBool("dashing", dashing);
         }
 
