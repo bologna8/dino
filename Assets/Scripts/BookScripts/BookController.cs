@@ -1,31 +1,35 @@
 using UnityEngine;
-using UnityEngine.EventSystems; 
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class BookController : MonoBehaviour
 {
     public GameObject journalPanel; 
     public bool isJournalOpen = false;
 
-   // private void Update()
- //   {
-  //      if (Input.GetKeyDown(KeyCode.J))
-   //     {
-   //         ToggleJournal();
-   //     }
-   // }
+    // private void Update()
+    //   {
+    //      if (Input.GetKeyDown(KeyCode.J))
+    //     {
+    //         ToggleJournal();
+    //     }
+    // }
 
-    private void ToggleJournal()
+    public void OpenJournal(InputAction.CallbackContext context)
     {
         isJournalOpen = !isJournalOpen;
+        if (context.performed)
+           {
+               if (isJournalOpen)
+               {
+                   OpenJournal();
+               }
+               else
+               {
+                   CloseJournal();
+               }
+           }
 
-        if (isJournalOpen)
-        {
-            OpenJournal();
-        }
-        else
-        {
-            CloseJournal();
-        }
     }
 
     private void OpenJournal()

@@ -471,6 +471,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenJournal"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0999558-b625-48a1-ba33-7dd101ef5d59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -539,6 +548,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""OpenInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5152dd89-b4cb-43c2-a16d-b0352d4e570b"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -568,6 +588,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_UI_NextPage = m_UI.FindAction("NextPage", throwIfNotFound: true);
         m_UI_PreviousPage = m_UI.FindAction("PreviousPage", throwIfNotFound: true);
         m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
+        m_UI_OpenJournal = m_UI.FindAction("OpenJournal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -842,6 +863,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_NextPage;
     private readonly InputAction m_UI_PreviousPage;
     private readonly InputAction m_UI_OpenInventory;
+    private readonly InputAction m_UI_OpenJournal;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -849,6 +871,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @NextPage => m_Wrapper.m_UI_NextPage;
         public InputAction @PreviousPage => m_Wrapper.m_UI_PreviousPage;
         public InputAction @OpenInventory => m_Wrapper.m_UI_OpenInventory;
+        public InputAction @OpenJournal => m_Wrapper.m_UI_OpenJournal;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -867,6 +890,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenInventory.started += instance.OnOpenInventory;
             @OpenInventory.performed += instance.OnOpenInventory;
             @OpenInventory.canceled += instance.OnOpenInventory;
+            @OpenJournal.started += instance.OnOpenJournal;
+            @OpenJournal.performed += instance.OnOpenJournal;
+            @OpenJournal.canceled += instance.OnOpenJournal;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -880,6 +906,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @OpenInventory.started -= instance.OnOpenInventory;
             @OpenInventory.performed -= instance.OnOpenInventory;
             @OpenInventory.canceled -= instance.OnOpenInventory;
+            @OpenJournal.started -= instance.OnOpenJournal;
+            @OpenJournal.performed -= instance.OnOpenJournal;
+            @OpenJournal.canceled -= instance.OnOpenJournal;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -923,5 +952,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnNextPage(InputAction.CallbackContext context);
         void OnPreviousPage(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
+        void OnOpenJournal(InputAction.CallbackContext context);
     }
 }
