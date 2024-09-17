@@ -1,25 +1,26 @@
 using UnityEngine;
-using UnityEngine.InputSystem;  
+using UnityEngine.InputSystem; 
 
 public class LanternController : MonoBehaviour
 {
-    public GameObject lantern;
+    public GameObject lantern; 
 
-    private bool isLanternActive = false;
-    private bool isLanternInInventory = false;
-    private Inventory inventory;
-    public Item lanternItem;
-
+    private bool isLanternActive = false;  
+    private bool isLanternInInventory = false; 
+    private Inventory inventory;  
+    public Item lanternItem;  
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
+
+        lantern.SetActive(false); 
         if (inventory == null)
         {
             Debug.LogError("Inventory script not found in the scene!");
         }
         else
         {
-            inventory.onItemChange += UpdateLanternStatus;
+            inventory.onItemChange += UpdateLanternStatus;  
         }
     }
 
@@ -27,7 +28,7 @@ public class LanternController : MonoBehaviour
     {
         if (inventory != null)
         {
-            inventory.onItemChange -= UpdateLanternStatus;
+            inventory.onItemChange -= UpdateLanternStatus;  
         }
     }
 
@@ -40,22 +41,18 @@ public class LanternController : MonoBehaviour
                 ToggleLantern();
             }
         }
-        else
-        {
-            return;
-        }
     }
 
     void ToggleLantern()
     {
         if (isLanternActive)
         {
-            lantern.SetActive(false);
+            lantern.SetActive(false);  
             isLanternActive = false;
         }
         else
         {
-            lantern.SetActive(true);
+            lantern.SetActive(true); 
             isLanternActive = true;
         }
     }
@@ -63,5 +60,11 @@ public class LanternController : MonoBehaviour
     void UpdateLanternStatus()
     {
         isLanternInInventory = inventory.ContainsItem(lanternItem, 1);
+
+        if (!isLanternInInventory)
+        {
+            lantern.SetActive(false); 
+            isLanternActive = false;
+        }
     }
 }
