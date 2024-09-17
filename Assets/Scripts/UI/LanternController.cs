@@ -1,15 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;  
 
 public class LanternController : MonoBehaviour
 {
     public GameObject lantern;
 
     private bool isLanternActive = false;
-
     private bool isLanternInInventory = false;
-
     private Inventory inventory;
-
     public Item lanternItem;
 
     void Start()
@@ -35,16 +33,16 @@ public class LanternController : MonoBehaviour
 
     void Update()
     {
-        if (isLanternInInventory)
+        if (isLanternInInventory && InventoryUI.Instance.InventoryOpen)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 ToggleLantern();
             }
         }
         else
         {
-           return;
+            return;
         }
     }
 
