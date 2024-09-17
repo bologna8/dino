@@ -74,8 +74,8 @@ public class PlayerControls : MonoBehaviour
         RaycastHit2D hitObjects = Physics2D.Raycast(transform.position, transform.forward, 5f, interactableLayers);
         if (hitObjects.collider != null)
         {
-            Debug.Log("Hit " + hitObjects.collider.name);
-            hitObjects.collider.GetComponent<IInteractable>().Interact(gameObject);
+            var checkInter = hitObjects.collider.GetComponent<IInteractable>();
+            if (checkInter != null) { checkInter.Interact(gameObject); }
         }
     }
 

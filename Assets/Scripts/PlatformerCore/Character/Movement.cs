@@ -304,7 +304,8 @@ public class Movement : MonoBehaviour
         }
         else 
         { 
-            momentum = 0;
+            momentum = 0f;
+            myVelocity.x = 0f;
             if (justJumped) { JumpEnd(false); }
         }
         

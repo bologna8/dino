@@ -30,9 +30,9 @@ public class Spawned : MonoBehaviour
         //if (team == 0) { team = gameObject.layer; }
         //Debug.Log(team + ": " + gameObject.name);
 
-        if(source) { myCore = source.GetComponent<Core>(); }
+        if(source) { myCore = source.GetComponentInParent<Core>(); }
 
-        if(tracking && myCore && !myAim) { myAim = myCore.myAim; }
+        if(myCore && !myAim) { myAim = myCore.myAim; }
 
 
         origin = transform.position;
@@ -52,6 +52,7 @@ public class Spawned : MonoBehaviour
             transform.rotation = myAim.transform.rotation;
         }
         */
+        if (tracking && source) { transform.position = source.position; }
     }
 
 

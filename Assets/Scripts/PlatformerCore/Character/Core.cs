@@ -47,7 +47,6 @@ public class Core : MonoBehaviour
 
     private Weapon[] myWeapons;
     [HideInInspector] public bool[] attackInput; //Used to see if attack buttons still pressing
-    private bool attacking;
 
 
     [HideInInspector] public Movement myMove;
@@ -131,10 +130,12 @@ public class Core : MonoBehaviour
         if (myAim)
         {
             var relativeForward = transform.rotation.eulerAngles.z;
+
+            if (myMove && !myMove.movingRight) { relativeForward += 180; }
+
+            //if (Attacking()) { relativeForward += }
+
             relativeForward = relativeForward % 360;
-
-            if (myMove && !myMove.movingRight) { relativeForward = 180; }
-
             myAim.forwardAngle = relativeForward;
 
             if (myAim.transform.position.x >= transform.position.x) 
@@ -233,12 +234,24 @@ public class Core : MonoBehaviour
         turning = false;
     }
 
+
     public void Stun(float stunTime)
     {
         if (myHealth) 
         { 
             if (myHealth.stunTime <= stunTime) { myHealth.stunTime = stunTime; }
         }
+    }
+
+    public bool Attacking()
+    {
+        foreach(var weapon in myWeapons)
+        {
+            if (!weapon.attackReady) { return true; }
+        }
+
+        return false;
+
     }
 
 
@@ -258,6 +271,11 @@ public class Core : MonoBehaviour
     {
         myMove.verticalInput = input;
         myAim.verticalInput = input;
+
+        foreach(var weapon in myWeapons)
+        {
+            weapon.verticalInput = input;
+        }
     }
 
     public void HandleDash()
@@ -267,18 +285,12 @@ public class Core : MonoBehaviour
 
     public void HandleAttack(int attackNumber)
     {
-        if (myWeapons.Length < attackNumber) { return; }
-
-        attacking = false;
-        foreach(var weapon in myWeapons)
-        {
-            if (!weapon.attackReady) { attacking = true; }
-        }
-        
-        if (attacking) { return; }
+        if (myWeapons.Length < attackNumber || Attacking()) { return; }
 
         myWeapons[attackNumber].TryAttack();
-        if (myHealth.attackingResetsBuffer) { myHealth.currentRegenBuffer = myHealth.regenBufferTime; }
+
+        if (myHealth.attackingResetsBuffer) //For health regen
+        { myHealth.currentRegenBuffer = myHealth.regenBufferTime; }
     }
 
     void AnimationStation()
@@ -301,8 +313,7 @@ public class Core : MonoBehaviour
             myAnim.SetBool("dashing", dashing);
         }
 
-        myAnim.SetBool("attacking", attacking);
-        if (attacking) { Debug.Log("ding"); }
+        myAnim.SetBool("attacking", Attacking());
 
         
     }

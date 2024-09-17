@@ -7,12 +7,19 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public Core myCore;
     [HideInInspector] public Aim myAim; //Aims the direction of attacks
     [Tooltip("Prefab for actual attack goes here")] public GameObject attackPrefab;
+    
     private Attack attackStats; //current Attack script
     [HideInInspector] public bool attackReady = true; //ready to use attack again after attack fiinished and cooldown done
     [HideInInspector] public bool attackHeld; //Is input for attack still being done
     private int currentClip; //Number of attacks remaining in the current clip
     private float currentSpreadTime; //How long has attack been used in a row
     private bool spreadNegative; //Used to make random spread bounce back and forth positive and negative
+
+
+    [HideInInspector] public float verticalInput;
+    [Tooltip("Prefab for up variation")] public GameObject upAttackPrefab;
+    [Tooltip("Prefab for down variation")] public GameObject downAttackPrefab;
+    private GameObject currentAttackPrefab;
 
     //other refrences
     //private Health myHealth;
@@ -48,6 +55,8 @@ public class Weapon : MonoBehaviour
                     if (currentClip < attackStats.clipSize) { TryAttack(); }
                     else if (myAim) { myAim.turnSpeedMultiplier = 1; }
                 }
+
+                //if (myAim) { myAim.attackAngleOffset = 0f; }
             } 
             else
             {
@@ -59,11 +68,20 @@ public class Weapon : MonoBehaviour
         
     }
 
+    public void setNewAttacks(GameObject newBaseAttack, GameObject newUpAttack = null, GameObject newDownAttack = null)
+    {
+        attackPrefab = newBaseAttack;
+        upAttackPrefab = newUpAttack;
+        downAttackPrefab = newDownAttack;
+        changeAttack(newBaseAttack);
+    }
+
     public void changeAttack(GameObject newAttack)
     {
-        attackPrefab = newAttack;
+        currentAttackPrefab = newAttack;
         attackStats = newAttack.GetComponent<Attack>();
         currentClip = attackStats.clipSize;
+
     }
 
     public IEnumerator Reload()
@@ -82,7 +100,18 @@ public class Weapon : MonoBehaviour
     {
         if (attackReady && attackStats)
         {
-            if (currentClip > 0)
+            var useAttack = attackPrefab;
+
+            if (verticalInput > 0 && upAttackPrefab) { useAttack = upAttackPrefab; }
+            if (verticalInput < 0 && downAttackPrefab) { useAttack = downAttackPrefab; }
+
+
+            if (currentAttackPrefab != useAttack) { changeAttack(useAttack); }
+
+
+            if (attackStats.typeOfAmo == Attack.AmoType.none) 
+            { StartCoroutine(AttackRoutine()); }
+            else if (currentClip > 0)
             {
                 currentClip --;
                 StartCoroutine(AttackRoutine());
@@ -108,8 +137,10 @@ public class Weapon : MonoBehaviour
         if (myAim)
         {
             myAim.turnSpeedMultiplier = attackStats.attackingAimSpeed;
+            myAim.attackAngleOffset = attackStats.startAimAngleOffset;
 
             dir = myAim.currentDirection;
+
             startAngle = Quaternion.FromToRotation(Vector3.right, dir);
             startSpot = myAim.transform.position;
 
@@ -163,6 +194,8 @@ public class Weapon : MonoBehaviour
         }
 
         yield return new WaitForSeconds(attackStats.attackDuration);
+
+        if (myAim) { myAim.attackAngleOffset = 0f; }
 
         if (currentClip <= 0) { StartCoroutine(Reload()); }
         else 
@@ -221,10 +254,20 @@ public class Weapon : MonoBehaviour
             else if (!attackRight) { spread *= -1;} //Make sure top and bottom stay same on left and right
 
             var r = fireAngle.eulerAngles;
+
             fireAngle = Quaternion.Euler(r.x, r.y, r.z + spread);
         }
 
-        var newAttack = PoolManager.Instance.Spawn(attackPrefab, startSpot, fireAngle, myCore.transform, myCore.team);
+        if (attackStats.startAimAngleOffset != 0)
+        {
+            var r = fireAngle.eulerAngles;
+            if (r.z > 90 && r.z < 270) { fireAngle = Quaternion.Euler(r.x, r.y, r.z - attackStats.startAimAngleOffset); }
+            else { fireAngle = Quaternion.Euler(r.x, r.y, r.z + attackStats.startAimAngleOffset); }
+        }
+
+
+
+        var newAttack = PoolManager.Instance.Spawn(currentAttackPrefab, startSpot, fireAngle, myAim.transform, myCore.team);
 
 
         if (attackStats.momentumLaunch) 

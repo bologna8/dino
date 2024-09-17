@@ -76,8 +76,11 @@ public class Grappler : MonoBehaviour
         if (myLine && mySpawn)
         {
             
-            if (mySpawn.myCore) { startPoint = mySpawn.myCore.myAim.transform.position; }
+            //if (mySpawn.myCore) { startPoint = mySpawn.myCore.myAim.transform.position; }
+            if (mySpawn.source) { startPoint = mySpawn.source.position; }
             else { startPoint = mySpawn.transform.position; }
+
+
 
             
             if(hitTarget) { endPoint = hitTarget.ClosestPoint(transform.position); }

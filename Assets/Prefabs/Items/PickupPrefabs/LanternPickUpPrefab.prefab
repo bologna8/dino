@@ -152,7 +152,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
-  touchingLayer: -1
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!61 &5740164894219756990
@@ -326,7 +325,7 @@ MonoBehaviour:
   despawnTime: 123
   delayPickupTime: 0.21
   item: {fileID: 0}
-  recipe: {fileID: 0}
+  recipe: {fileID: 11400000, guid: d48fe323ae413694bb42aa11cf90615e, type: 2}
 --- !u!114 &1091006530788707599
 MonoBehaviour:
   m_ObjectHideFlags: 0
