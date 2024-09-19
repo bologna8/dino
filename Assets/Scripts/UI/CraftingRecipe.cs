@@ -7,7 +7,7 @@ public class CraftingRecipe : Item
     public Item result;
     public Ingredient[] ingredients;
 
-//If inventory contains the recipe items, then you can craft 
+
     private bool CanCraft()
     {
         foreach (Ingredient ingredient in ingredients)
@@ -32,14 +32,12 @@ public class CraftingRecipe : Item
         }
     }
 
-//If the item is used to craft, remove it from the inventory
     public override void Use()
     {
         if (CanCraft())
         {
             RemoveIngredientsFromInventory();
 
-            // Add crafted item to the inventory
             Inventory.instance.AddItem(result);
             Debug.Log("You just crafted a: " + result.name);
         }
