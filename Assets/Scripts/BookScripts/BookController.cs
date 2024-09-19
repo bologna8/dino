@@ -4,32 +4,38 @@ using UnityEngine.InputSystem;
 
 public class BookController : MonoBehaviour
 {
-    public GameObject journalPanel; 
+    public GameObject journalPanel;
     public bool isJournalOpen = false;
+    
+    public GameObject[] pages; 
+    private int currentPage = 0;
 
-    // private void Update()
-    //   {
-    //      if (Input.GetKeyDown(KeyCode.J))
-    //     {
-    //         ToggleJournal();
-    //     }
-    // }
+    private void Update()
+    {
+        if (isJournalOpen && Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            TurnPage(-1); 
+        }
+        if (isJournalOpen && Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            TurnPage(1); 
+        }
+    }
 
     public void OpenJournal(InputAction.CallbackContext context)
     {
-        isJournalOpen = !isJournalOpen;
         if (context.performed)
-           {
-               if (isJournalOpen)
-               {
-                   OpenJournal();
-               }
-               else
-               {
-                   CloseJournal();
-               }
-           }
-
+        {
+            isJournalOpen = !isJournalOpen;
+            if (isJournalOpen)
+            {
+                OpenJournal();
+            }
+            else
+            {
+                CloseJournal();
+            }
+        }
     }
 
     private void OpenJournal()
@@ -55,9 +61,35 @@ public class BookController : MonoBehaviour
         {
             journalPanel.SetActive(false);
         }
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    public void TurnPage(int direction)
+    {
+        int newPage = Mathf.Clamp(currentPage + direction, 0, pages.Length - 1);
+
+        if (newPage != currentPage)
+        {
+            pages[currentPage].SetActive(false);
+            currentPage = newPage;
+            pages[currentPage].SetActive(true);
+        }
+    }
+
+    public void GoToTab(int tabIndex)
+    {
+        if (tabIndex >= 0 && tabIndex < pages.Length)
+        {
+            pages[currentPage].SetActive(false);
+            currentPage = tabIndex;
+            pages[currentPage].SetActive(true);
+        }
+    }
+    public void OnBookmarkClick(int tabIndex)
+{
+    GoToTab(tabIndex);
+}
 }
