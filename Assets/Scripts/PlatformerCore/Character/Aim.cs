@@ -117,16 +117,13 @@ public class Aim : MonoBehaviour
 
         if (lockAim) //Override current desired angle if aiming button required and not pressed
         {
-
+            
             if (forwardAngle > 90 && forwardAngle < 270) { forwardAngle -= attackAngleOffset; }
             else { forwardAngle += attackAngleOffset; }
 
             var rad = forwardAngle * Mathf.Deg2Rad;
 
-
             desiredDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
-
-
 
             currentDirection = desiredDirection;
         }
@@ -225,8 +222,8 @@ public class Aim : MonoBehaviour
 
 
         currentAng = Vector3.SignedAngle(currentDirection, Vector3.right, Vector3.back);
-        transform.position = transform.parent.position + (currentDirection * lockLength) + offset;
-
+        transform.localPosition = (currentDirection * lockLength) + offset;
+        //transform.parent.position
 
 
         //Safety layers disable attacking while aim is touching

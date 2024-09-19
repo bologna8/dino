@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInputType: 0
-  myAimType: 0
+  myAimType: 2
   turnSpeed: 5
   turnSpeedMultiplier: 1
   offset: {x: 0, y: 0, z: 0}
@@ -1386,9 +1386,12 @@ MonoBehaviour:
   coyoteTime: 0.1
   bonusJumps: 0
   jumpEffect: {fileID: 749027114909299004, guid: b51164542c75bf84c887ffaf1c7cc2d9, type: 3}
-  wallJump: 1
+  canWallJump: 0
   wallJumpForce: {x: 10, y: 10}
+  wallJumpDelay: 0
   wallJumpTime: {x: 0.2, y: 0.2}
+  wallJumpEffect: {fileID: 0}
+  wallLockDelay: 0
   canWallSlide: 0
   wallSlideSpeed: 1
   wallSliding: 0
@@ -1451,6 +1454,8 @@ MonoBehaviour:
   currentState: 0
   idleTime: {x: 1, y: 2}
   patrolTime: {x: 2, y: 4}
+  turnCooldownTime: {x: 3, y: 6}
+  turnCooldownCurrent: 0
   curiousIcon: {fileID: 1968476609057965988, guid: d60ac4b6f804c9943be0b4b6dd67cb19, type: 3}
   attackRange: 1
   attackAimTime: {x: 1, y: 2}

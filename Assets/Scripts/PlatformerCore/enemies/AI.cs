@@ -16,6 +16,8 @@ public class AI : MonoBehaviour
     private float idleCurrent; //how long to remain idle until switch to patrol
     [Tooltip("Random range for how long enemy patrols for")] public Vector2 patrolTime = new Vector2(2,4);
     private float patrolCurrent; //how long to patrol before return to idle
+    [Tooltip("Time to wait between your turns")] public Vector2 turnCooldownTime = new Vector2(3,6);
+    [HideInInspector] public float turnCooldownCurrent;
     public GameObject curiousIcon;
 
     public float attackRange = 1f;
@@ -38,8 +40,6 @@ public class AI : MonoBehaviour
 
 
     [HideInInspector] public Aim myAim;
-
-    //[HideInInspector] public Budding touchingBud;
 
 
     // Start is called before the first frame update
@@ -104,6 +104,8 @@ public class AI : MonoBehaviour
                 if (currentState == State.chase) { Chase(); }
             }
         }
+
+        if (turnCooldownCurrent > 0) { turnCooldownCurrent -= Time.deltaTime; }
         
 
     }
@@ -131,19 +133,28 @@ public class AI : MonoBehaviour
             if (myMovement && myCore) 
             {
 
-                if (myCore.lookingRight) 
-                { 
-                    if (myMovement.rightWallCheck.touching) { myCore.Turn(); }
-                    if (myMovement.onGround && !myMovement.rightForwardCheck.touching) { myCore.Turn(); }
+                bool canGoForward = true;
+
+                if (myMovement.moveInput > 0) 
+                {
+                    if (myMovement.rightWallCheck.touching) { canGoForward = false; }
+                    else if (myMovement.onGround && !myMovement.rightForwardCheck.touching) { canGoForward = false; }
                 }
-                else 
+
+                if (myMovement.moveInput < 0)
                 { 
-                    if (myMovement.leftWallCheck.touching) { myCore.Turn(); } 
-                    if (myMovement.onGround && !myMovement.leftForwardCheck.touching) { myCore.Turn(); }
+                    if (myMovement.leftWallCheck.touching) { canGoForward = false; } 
+                    else if (myMovement.onGround && !myMovement.leftForwardCheck.touching) { canGoForward = false; }
                 }
+
+
+                if (canGoForward)
+                {
+                    if (myCore.lookingRight) { myMovement.moveInput = 1; }
+                    else { myMovement.moveInput = -1; }  
+                }
+                else { TryToTurn(); }
                 
-                if (myCore.lookingRight) { myMovement.moveInput = 1; }
-                else { myMovement.moveInput = -1; }  
             }
         }
 
@@ -189,6 +200,13 @@ public class AI : MonoBehaviour
             }
 
             chasing = target;
+
+            if (myCore) 
+            {
+                if (chasing.position.x > transform.position.x && !myCore.lookingRight) { TryToTurn(); }
+
+                if (chasing.position.x < transform.position.x && myCore.lookingRight) { TryToTurn(); }
+            }
         }
 
         currentState = State.chase; 
@@ -215,9 +233,23 @@ public class AI : MonoBehaviour
                 if (inRange) { myMovement.moveInput = 0; }
                 else
                 {
-                    if (chasing.position.x > transform.position.x) 
-                    { myMovement.moveInput = 1; }
-                    else { myMovement.moveInput = -1; }
+                    if (myCore)
+                    {
+                        if (myCore.lookingRight) { myMovement.moveInput = 1; }
+                        else { myMovement.moveInput = -1; }
+
+                        if (chasing.position.x > transform.position.x && !myCore.lookingRight) { TryToTurn(); } 
+
+                        if (chasing.position.x < transform.position.x && myCore.lookingRight) { TryToTurn(); } 
+   
+                    }
+                    else //pre core no turn cooldown crap code
+                    {
+                        if (chasing.position.x > transform.position.x) 
+                        { myMovement.moveInput = 1; }
+                        else { myMovement.moveInput = -1; }
+                    }
+
                 }
             }
             
@@ -226,11 +258,24 @@ public class AI : MonoBehaviour
             { 
                 myAim.AutoAimAt = chasing;
                 if (myAim.lookLockTime > currentAimTime && inRange) { Attack(); }
+
             }
             else if (inRange) { Attack(); }
 
         }
         else { Chill(); }
+    }
+
+    public void TryToTurn()
+    {
+        if (turnCooldownCurrent <= 0 && myCore) 
+        {
+            myCore.Turn();
+            if (myMovement) { myMovement.momentum = 0; myMovement.moveInput = 0; }
+            turnCooldownCurrent = Random.Range(turnCooldownTime.x, turnCooldownTime.y);
+            //else if (myMovement) { myMovement.moveInput = 0; }
+        }
+        else if (myMovement) { myMovement.momentum = 0; myMovement.moveInput = 0; }
     }
 
     void Attack()

@@ -154,6 +154,7 @@ public class Damage : MonoBehaviour
                 }
 
                 hitHealth.TakeDamage(dmg, stunTime, KB);
+                Debug.Log(dmg);
 
                 var ai = other.gameObject.GetComponentInParent<AI>();
                 if (ai && mySpawn) { ai.Agro(mySpawn.source); }

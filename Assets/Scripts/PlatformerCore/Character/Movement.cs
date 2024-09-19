@@ -84,13 +84,16 @@ public class Movement : MonoBehaviour
 
 
     [Header("WALL JUMP VARIABLES")]
-    [Tooltip("Bouncin off the walls")] public bool wallJump = false;
+    [Tooltip("Bouncin off the walls")] public bool canWallJump = false;
     [Tooltip("Horizontal and vertical direction from wall jumps")] public Vector2 wallJumpForce;
+    [Tooltip("Delay before wall jump for animation windup")] public float wallJumpDelay;
     [Tooltip("Duration of wall jump, x is locked in time, y is time for force to fade")] public Vector2 wallJumpTime;
-    private float coyoteWallTime; //extra time to try and walljump after recently leaving a wall, set to same as coyote time
+    [Tooltip("Spawn effect on wall jumps")] public GameObject wallJumpEffect;
+    [Tooltip("Dely until you actually lock onto a wall, needed so wall taps don't spam animation")] public float wallLockDelay;
+    private float currentWallTime; //How long been on a wall
     [Tooltip("Change fall speed while pressing into a wall")] public bool canWallSlide = false;
     [Tooltip("Max fall speed while wall sliding")] public float wallSlideSpeed = 1f;
-    [HideInInspector] public bool wallSliding; //Currently pressing into a wall while falling
+    [HideInInspector] public bool wallSliding; //Currently on a wall while falling
 
     
 
@@ -234,6 +237,8 @@ public class Movement : MonoBehaviour
 
         if (onGround || onEdge) //Reset ground stuff
         {
+            currentWallTime = 0;
+
             if (airTime > coyoteTime) //Reset stuff when first landing
             { 
                 momentum *= landingMomentum; //reduce speed when first landing on the ground
@@ -273,14 +278,24 @@ public class Movement : MonoBehaviour
         } 
         else { airTime += Time.deltaTime; coyoteCurrent += Time.deltaTime; } //Keep track of air time for gravity and coyote jumps
 
-        if (wallJump && rightWallCheck && leftWallCheck) //Update time since last touched a wall to jump off of
+        if (rightWallCheck && leftWallCheck) //Update time since last touched a wall to jump off of
         {
-            var wallTime = coyoteTime; 
-            if (coyoteTime <= 0) { wallTime = 0.1f; } //Wall jump works even with no coyote time
+            //var wallTime = coyoteTime; 
+            //if (coyoteTime <= 0) { wallTime = 0.1f; } //Wall jump works even with no coyote time
 
-            if (rightWallCheck.touching || leftWallCheck.touching) { coyoteWallTime = wallTime; } //airTime = coyoteTime;
-            else if (coyoteWallTime > 0) { coyoteWallTime -= Time.deltaTime; } 
-            else { coyoteWallTime = 0; }
+            //if (rightWallCheck.touching || leftWallCheck.touching) { coyoteWallTime = wallTime; } 
+
+            if (rightWallCheck.touching || leftWallCheck.touching) { currentWallTime += Time.deltaTime; } 
+            else { currentWallTime = 0; }
+            /*
+            if (currentWallTime > 0) 
+            { 
+                currentWallTime -= Time.deltaTime; 
+                currentWallTime = Mathf.Clamp(currentWallTime, 0, coyoteWallTime.y); 
+            } 
+            */
+
+            //else { currentWallTime = 0; }
             
         }
     }
@@ -323,15 +338,20 @@ public class Movement : MonoBehaviour
         
         if (applyGravity) { velocity.y -= myGravityScale * Mathf.Pow(minGrav + gravTime, 2); } //G = C * (m/s)^2
         
+        wallSliding = false;
         if (myBod.velocity.y < 0)
         {
-            if(wallSliding) 
-            { 
-                if (moveInput != 0 && canWallSlide) 
+            var noHead = true;
+            if (headCheck) { if (headCheck.touching) { noHead = false; } } 
+
+            if(canWallSlide && currentWallTime > wallLockDelay && noHead) 
+            {
+                wallSliding = true;
+                if (moveInput != 0) 
                 { airTime = 0; velocity.y = Mathf.Clamp(velocity.y, -wallSlideSpeed, Mathf.Infinity); }
-                
-            } //clamp fall speed with slide velocity
-            else { velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCaps.y, -fallSpeedCaps.x); }
+            } 
+            else //clamp fall speed with slide velocity
+            { velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCaps.y, -fallSpeedCaps.x); }
         }
 
         myBod.velocity = velocity;
@@ -354,6 +374,7 @@ public class Movement : MonoBehaviour
             else { momentum += Time.deltaTime / accelerationTime; } 
         }
 
+        /*
         if (leftWallCheck && rightWallCheck)
         {
             //bool goingIntoWall = false;
@@ -375,7 +396,42 @@ public class Movement : MonoBehaviour
             }
             
         }
-        else { momentum = moveInput; } //Just wack edge case if no collider, still moves snappy
+        */
+
+        if (leftHipCheck && rightHipCheck)
+        {
+            if (rightHipCheck.touching)
+            {
+                if (moveInput > 0) { momentum = 0; }
+                if (dashVelocity.x > 0 && movingRight) { dashVelocity.x = 0; }
+            } 
+
+            if (leftHipCheck.touching)
+            {
+                if (moveInput < 0) { momentum = 0; }
+                if (dashVelocity.x < 0 && !movingRight) { dashVelocity.x = 0; }
+            }
+
+        }
+        //else { momentum = moveInput; } //Just wack edge case if no collider, still moves snappy
+
+        if (wallSliding) 
+        { 
+            if (rightWallCheck.touching) 
+            { 
+                if (myCore) { if(!myCore.lookingRight) { myCore.Turn(); } }
+                if (moveInput > 0) { momentum = 0; }
+                else if (moveInput < 0 && canWallJump) { dashing = WallJump(); StartCoroutine(dashing); }
+                
+            }
+            if (leftWallCheck.touching) 
+            { 
+                if (myCore) { if(myCore.lookingRight) { myCore.Turn(); } }
+                if (moveInput < 0) { momentum = 0; }
+                else if (moveInput > 0 && canWallJump) { dashing = WallJump(); StartCoroutine(dashing); }
+            }
+
+        }
 
         //Slow percent sets maximum to less than 1 if slowed
         momentum = Mathf.Clamp(momentum, 0, slowPercent);
@@ -432,25 +488,18 @@ public class Movement : MonoBehaviour
                     if (leftLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(leftLedgeCheck.findTopCorner(movingRight), climbTime.y, climbTime.x)); }
                 } 
             }
-            else if (coyoteWallTime > 0) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
+            else if (currentWallTime > wallLockDelay && canWallJump && !ignoreGravity) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
             {
                 //if (myAnim) { myAnim.SetBool("onWall", true); }
-
                 JumpEnd();
-                coyoteWallTime = 0;
-
-                //if (frontCheck.touching && !turning && myCore) { myCore.Turn(); } 
-                if (rightWallCheck.touching) { myCore.Turn(); movingRight = false; }
-                if (leftWallCheck.touching) { myCore.Turn(); movingRight = true; }
-
-                var dir = wallJumpForce; 
-                if (!movingRight) { dir.x *= -1; }
-                DoDash(dir, wallJumpTime);
-                //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
-                if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }  
+                if (myCore) { myCore.Turn(); }
+                dashing = WallJump(); StartCoroutine(dashing); 
+                
             } 
             else if (coyoteCurrent < coyoteTime) //jump if just recently left the ground, not via upward
-            { if(myBod.velocity.y <= 0 && coyoteWallTime <= 0) { jumpReady = true; } } 
+            { 
+                if (myBod.velocity.y <= 0 && currentWallTime <= 0) { jumpReady = true; } 
+            } 
             else if (remainingJumps > 0)
             {
                 remainingJumps --;
@@ -523,6 +572,28 @@ public class Movement : MonoBehaviour
         myCollider.enabled = true;
     }
 
+    public IEnumerator WallJump()
+    {
+
+        //if (rightWallCheck.touching) { movingRight = false; }
+        //if (leftWallCheck.touching) { movingRight = true; }
+        ignoreGravity = true;
+
+        yield return new WaitForSeconds(wallJumpDelay);
+
+        currentWallTime = 0;
+
+        //if (frontCheck.touching && !turning && myCore) { myCore.Turn(); } 
+        if (rightWallCheck.touching) { movingRight = false; }
+        if (leftWallCheck.touching) { movingRight = true; }
+
+        var dir = wallJumpForce; 
+        if (!movingRight) { dir.x *= -1; }
+        DoDash(dir, wallJumpTime);
+        //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
+        if (wallJumpEffect) { PoolManager.Instance.Spawn(wallJumpEffect, groundCheck.transform.position, Quaternion.identity); }  
+    }
+
 
 
     //CLIMB TIME!
@@ -532,14 +603,16 @@ public class Movement : MonoBehaviour
 
         if (leftLedgeCheck && leftAirCheck)
         {
-            if (leftLedgeCheck.touching && !leftAirCheck.touching && moveInput <= 0)
+            if (!leftAirCheck.touching && leftLedgeCheck.touching && moveInput <= 0)
             { tryGrab = true; }
+            
         }
 
         if (rightLedgeCheck && rightAirCheck)
         {
-            if (rightLedgeCheck.touching && !rightAirCheck.touching && moveInput >= 0)
+            if(!rightAirCheck.touching && rightLedgeCheck.touching && moveInput >= 0)
             { tryGrab = true; }
+            
         }
 
 
@@ -574,7 +647,7 @@ public class Movement : MonoBehaviour
                 momentum = 0;
                 myVelocity.y = 0;
                 
-                if(dashing != null) { CancelDash(); } //cancel dash if ledge grabbed
+                if (dashing != null) { CancelDash(); } //cancel dash if ledge grabbed
 
 
                 var cornerHit = Vector3.zero;
@@ -598,7 +671,7 @@ public class Movement : MonoBehaviour
                 hangTime += Time.deltaTime;
             
                 //Climb up edge with move inputs if up or in direction of edge
-                if (climbing == null && hangTime > hangClimbDelay) 
+                if (climbing == null && hangTime >= hangClimbDelay) 
                 { 
                     bool climbInput = false;
                     if (verticalInput > 0) { climbInput = true; }
@@ -776,8 +849,8 @@ public class Movement : MonoBehaviour
 
 
             //Stop if dashing into a wall
-            if (leftWallCheck) { if (leftWallCheck.touching && dir.x < 0) { endEarly = true; } }
-            if (rightWallCheck) { if (rightWallCheck.touching && dir.x > 0) { endEarly = true; } }
+            if (leftHipCheck) { if (leftHipCheck.touching && dir.x < 0) { endEarly = true; } }
+            if (rightHipCheck) { if (rightHipCheck.touching && dir.x > 0) { endEarly = true; } }
 
 
 

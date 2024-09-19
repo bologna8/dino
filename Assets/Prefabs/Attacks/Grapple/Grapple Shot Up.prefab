@@ -48,9 +48,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6156131079386060931, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
+      propertyPath: attackAnim
+      value: 
+      objectReference: {fileID: 7400000, guid: be91c704c60096f49a92ae1d7ff3eafb, type: 2}
+    - target: {fileID: 6156131079386060931, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
+      propertyPath: startAimAngleOffset
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 8142958838078798255, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
       propertyPath: m_Name
-      value: Grapple Shot
+      value: Grapple Shot UP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,0 +1,1482 @@
+fileFormatVersion: 2
+guid: a0f4288bcc5a7e240a0abc19c6d55fd4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pickaxeSwing_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1882
+        width: 69
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0914fd29fd90349967047a9c597631
+      internalID: 1142650176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_1
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 1882
+        width: 77
+        height: 115
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b7fa9c85ed19f044885adaf9087e1b1
+      internalID: -1908363777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_2
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1882
+        width: 89
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0e9ffa0af6c2f47949ff62fac023dc
+      internalID: 417823690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_3
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1882
+        width: 91
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a67e2eac9b411d43852574480931015
+      internalID: 551937213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_4
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1882
+        width: 70
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486986d076326f241b42f459137871c6
+      internalID: 1978974463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_5
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 1882
+        width: 85
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339cfcb81a5d7754e807f92ce3b158ed
+      internalID: 1385181390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_6
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1882
+        width: 103
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae6c0a505a883a449cf81dfdba381bb
+      internalID: -1455315717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_7
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 1882
+        width: 102
+        height: 106
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391b1769ca293ae4ea8391404dca2b9f
+      internalID: 401349033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1626
+        width: 92
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c56b63ed6f740ca46b5f8bbeb507bde3
+      internalID: 2206351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_9
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1626
+        width: 80
+        height: 132
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1717f214e23225d40b1b7adc73932594
+      internalID: 335685804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_10
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1627
+        width: 65
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1feb1acc70c15e044a7008f56fc081c3
+      internalID: -304145624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_11
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 1627
+        width: 56
+        height: 146
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5b9f023fe6e6748a8a71051c696e00
+      internalID: 1468937228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_12
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 1627
+        width: 51
+        height: 149
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6346eb99597f0444af189dce682996e
+      internalID: 1189932529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_13
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 1627
+        width: 48
+        height: 149
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fd5384d821ca749a6674b809d367dc
+      internalID: 958057355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_14
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1628
+        width: 50
+        height: 144
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a055b159d08e54faa2a5f448549d5e
+      internalID: 1735666025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_15
+      rect:
+        serializedVersion: 2
+        x: 1909
+        y: 1628
+        width: 60
+        height: 139
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059a7893da0a44e4eaf63842b1d62c27
+      internalID: -1971066416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_16
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 1372
+        width: 72
+        height: 132
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b226b27f22af5f54aa603c56427690d6
+      internalID: 895384963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_17
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 1372
+        width: 81
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21ab2770f23d8f4ab34107f071e6b8f
+      internalID: -230866016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_18
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 1372
+        width: 89
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e594f1e7bce2948aa298345366972f
+      internalID: 474132937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_19
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 1372
+        width: 94
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2403366f643b142981bb29530d93a7
+      internalID: -1751718993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_20
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1372
+        width: 98
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d00212a7ee7ef4b8c867465fb994db
+      internalID: -863258801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_21
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 1372
+        width: 99
+        height: 118
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92847e112c32c24480da4e5816718ed
+      internalID: -431119916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_22
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 1372
+        width: 96
+        height: 113
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f184e5e2d8261545a30480f6c1c77e7
+      internalID: -331583875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_23
+      rect:
+        serializedVersion: 2
+        x: 1912
+        y: 1373
+        width: 93
+        height: 105
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653cfe90763ecd5418d67611dfdebb8a
+      internalID: 826421865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_24
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1117
+        width: 87
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d70e158d62f64488e85107855a3e2a
+      internalID: -162040838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_25
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1117
+        width: 58
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a645837433677143aae19f8b5ef5773
+      internalID: -1831415617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_26
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1148
+        width: 31
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5493b13baabeb8479dea694895a5474
+      internalID: 1309886366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_27
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 1117
+        width: 58
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e95b3a9117d0114c9492966b9113548
+      internalID: 641021986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_28
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 1142
+        width: 21
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc2098dde517e344ab5c430e22ac3e7
+      internalID: -822966913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_29
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 1118
+        width: 61
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b1f85885080714784d13d4e759f3c2
+      internalID: 1498980137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_30
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1141
+        width: 17
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767b01ba000fea447bb0131888709be6
+      internalID: 991952928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_31
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1117
+        width: 65
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c19f6dda7cde9458c2e5b55398fad5
+      internalID: 1483735534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_32
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 1140
+        width: 15
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0ad3ab6e0d45941b4b17ac7457b247
+      internalID: -517570810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_33
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 1117
+        width: 67
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d23d46c1697a7746ae216842b7c9f43
+      internalID: -297057355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_34
+      rect:
+        serializedVersion: 2
+        x: 1458
+        y: 1140
+        width: 14
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835601c86399cca44b26f9888b33f8e7
+      internalID: 1994108802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_35
+      rect:
+        serializedVersion: 2
+        x: 1647
+        y: 1118
+        width: 70
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e310724c73d19bb41a9e5a8d785e85c0
+      internalID: 508995659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_36
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 1139
+        width: 12
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a075df584c481d24ea686fbfbb070078
+      internalID: 591725851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_37
+      rect:
+        serializedVersion: 2
+        x: 1901
+        y: 1118
+        width: 73
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d605e80fec70d6246b05f9ba0379b20c
+      internalID: 475844857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_38
+      rect:
+        serializedVersion: 2
+        x: 1973
+        y: 1139
+        width: 11
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26aef35750b1dca4aae3e30e5ba0582f
+      internalID: 1237075248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_39
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 864
+        width: 76
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023a61b588299184daf30d4e694f3670
+      internalID: 2134206071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_40
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 883
+        width: 10
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5419668861b2824fb4563d2cf314780
+      internalID: -1694158532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_41
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 866
+        width: 87
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69daeaa05da965645a4fe26c7d68fdd1
+      internalID: -19672267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_42
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 868
+        width: 89
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e42e83f3a0aaaea438c4dec9525c7d40
+      internalID: 727400870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_43
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 869
+        width: 91
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582fbcef99dfee54aa93f9cc81acbc0b
+      internalID: -1409804494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_44
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 868
+        width: 88
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f581ef2b978ab4b8e2eba526cc6a10
+      internalID: 267386092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_45
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 867
+        width: 88
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b213666d748ee4e93135592c7672ed
+      internalID: -73743269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_46
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 866
+        width: 88
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77354d30abff3fa4cabe5fdf290fe0f3
+      internalID: 662232335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_47
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 865
+        width: 89
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5046de48331f654c978ee614f2b9ceb
+      internalID: 713070031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_48
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 608
+        width: 88
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf5122b80d273344bf5328fabaa3330
+      internalID: -1562302481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_49
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 607
+        width: 87
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad6ea4f0610837469c308a735e072b4
+      internalID: 1180526579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_50
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 606
+        width: 84
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf3fad57571b9243873c575e2d3d07e
+      internalID: 989394524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_51
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 606
+        width: 81
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d07247007a551843aa4e9c7d67d6e91
+      internalID: -700219103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_52
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 606
+        width: 77
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da358457a13d5cd43ba9bb9ae621304d
+      internalID: -502506918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_53
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 605
+        width: 72
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1164e21cf1ecac4b9ec6f4381f250c6
+      internalID: 951768023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_54
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 606
+        width: 67
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1bb6145218994b4cad2a78feb14fc57
+      internalID: 998884825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_55
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 606
+        width: 62
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6d7d8164427aa4c9ecc0e9cbe28414
+      internalID: -1108426167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_56
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 350
+        width: 58
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2d1753e58eccc49b79659ca84df054
+      internalID: -400367970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_57
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 350
+        width: 56
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38986bf83e704d54d85875fb77facc6f
+      internalID: -1229581870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_58
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 351
+        width: 52
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdb21a008fb56948a016fa97972004b
+      internalID: 1282373150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_59
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 351
+        width: 55
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79943dd3ab6839846a2cbe138a7fde07
+      internalID: 966266391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxeSwing_60
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 351
+        width: 58
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd19c5ca0728474d8306fe8b3c993db
+      internalID: -1237025079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pickaxeSwing_0: 1142650176
+      pickaxeSwing_1: -1908363777
+      pickaxeSwing_10: -304145624
+      pickaxeSwing_11: 1468937228
+      pickaxeSwing_12: 1189932529
+      pickaxeSwing_13: 958057355
+      pickaxeSwing_14: 1735666025
+      pickaxeSwing_15: -1971066416
+      pickaxeSwing_16: 895384963
+      pickaxeSwing_17: -230866016
+      pickaxeSwing_18: 474132937
+      pickaxeSwing_19: -1751718993
+      pickaxeSwing_2: 417823690
+      pickaxeSwing_20: -863258801
+      pickaxeSwing_21: -431119916
+      pickaxeSwing_22: -331583875
+      pickaxeSwing_23: 826421865
+      pickaxeSwing_24: -162040838
+      pickaxeSwing_25: -1831415617
+      pickaxeSwing_26: 1309886366
+      pickaxeSwing_27: 641021986
+      pickaxeSwing_28: -822966913
+      pickaxeSwing_29: 1498980137
+      pickaxeSwing_3: 551937213
+      pickaxeSwing_30: 991952928
+      pickaxeSwing_31: 1483735534
+      pickaxeSwing_32: -517570810
+      pickaxeSwing_33: -297057355
+      pickaxeSwing_34: 1994108802
+      pickaxeSwing_35: 508995659
+      pickaxeSwing_36: 591725851
+      pickaxeSwing_37: 475844857
+      pickaxeSwing_38: 1237075248
+      pickaxeSwing_39: 2134206071
+      pickaxeSwing_4: 1978974463
+      pickaxeSwing_40: -1694158532
+      pickaxeSwing_41: -19672267
+      pickaxeSwing_42: 727400870
+      pickaxeSwing_43: -1409804494
+      pickaxeSwing_44: 267386092
+      pickaxeSwing_45: -73743269
+      pickaxeSwing_46: 662232335
+      pickaxeSwing_47: 713070031
+      pickaxeSwing_48: -1562302481
+      pickaxeSwing_49: 1180526579
+      pickaxeSwing_5: 1385181390
+      pickaxeSwing_50: 989394524
+      pickaxeSwing_51: -700219103
+      pickaxeSwing_52: -502506918
+      pickaxeSwing_53: 951768023
+      pickaxeSwing_54: 998884825
+      pickaxeSwing_55: -1108426167
+      pickaxeSwing_56: -400367970
+      pickaxeSwing_57: -1229581870
+      pickaxeSwing_58: 1282373150
+      pickaxeSwing_59: 966266391
+      pickaxeSwing_6: -1455315717
+      pickaxeSwing_60: -1237025079
+      pickaxeSwing_7: 401349033
+      pickaxeSwing_8: 2206351
+      pickaxeSwing_9: 335685804
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

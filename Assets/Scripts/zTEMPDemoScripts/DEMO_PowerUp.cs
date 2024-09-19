@@ -28,10 +28,10 @@ public class DEMO_PowerUp : MonoBehaviour
                     break;
                 //turns on wall jumping, gives warnings if the player's movement isn't set up
                 case PowerUpType.puWalljump:
-                    if (mov.wallJump == false)
+                    if (mov.canWallJump == false)
                     {
-                        mov.wallJump = true;
-                    } else if (mov.wallJump == true)
+                        mov.canWallJump = true;
+                    } else if (mov.canWallJump == true)
                     {
                         Debug.LogWarning("Player can already wall jump.");
                     }

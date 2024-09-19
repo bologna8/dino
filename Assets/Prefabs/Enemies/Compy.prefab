@@ -96,6 +96,14 @@ PrefabInstance:
       propertyPath: attackAimTime.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: agroMemoryTime.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: agroMemoryTime.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3882941796004582005, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Sprite
       value: 

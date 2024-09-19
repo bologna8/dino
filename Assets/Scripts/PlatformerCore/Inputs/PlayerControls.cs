@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour
     private Core myCore; //Pass inputs to your core
     private Controls myControls;
     public LayerMask interactableLayers;
+    public float interactRange = 5f;
 
     void Awake()
     {
@@ -71,7 +72,7 @@ public class PlayerControls : MonoBehaviour
 
     public void OnInteract()
     {
-        RaycastHit2D hitObjects = Physics2D.Raycast(transform.position, transform.forward, 5f, interactableLayers);
+        RaycastHit2D hitObjects = Physics2D.Raycast(transform.position, transform.forward, interactRange, interactableLayers);
         if (hitObjects.collider != null)
         {
             var checkInter = hitObjects.collider.GetComponent<IInteractable>();

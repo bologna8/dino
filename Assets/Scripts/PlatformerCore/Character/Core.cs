@@ -143,9 +143,18 @@ public class Core : MonoBehaviour
             relativeForward = relativeForward % 360;
             myAim.forwardAngle = relativeForward;
 
-            if (myAim.transform.position.x >= transform.position.x) 
-            { if(!lookingRight) { Turn(); } }
-            else if (lookingRight) { Turn(); }
+
+            if (myAim.myAimType != Aim.AimType.Simple)
+            {
+                if (myAim.transform.position.x >= transform.position.x) 
+                { if(!lookingRight) { Turn(); } }
+                else if (lookingRight) { Turn(); }
+            }
+            else if (movingRight != lookingRight) { Turn(); }
+            
+            
+            
+            
 
             /*
             if (WeaponPivot) 
@@ -216,6 +225,7 @@ public class Core : MonoBehaviour
     {
         if (!turning)
         {
+            turning = true;
             lookingRight = !lookingRight;
             if (CharacterArt) { StartCoroutine(TurnAround()); }
         } 
@@ -223,7 +233,7 @@ public class Core : MonoBehaviour
 
     private IEnumerator TurnAround() //bright eyes
     {
-        turning = true;
+        //turning = true;
 
         var fromAngle = CharacterArt.rotation;
         var toAngle = Quaternion.Euler(CharacterArt.eulerAngles + new Vector3(0, 180, 0));
