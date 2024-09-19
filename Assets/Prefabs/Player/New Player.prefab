@@ -2790,7 +2790,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.4}
+  m_Size: {x: 0.1, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &8374718662539560012
 MonoBehaviour:
@@ -4123,7 +4123,7 @@ Transform:
   m_GameObject: {fileID: 5433749806199645849}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4172,7 +4172,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1.4}
+  m_Size: {x: 0.3, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &2103235372353586212
 MonoBehaviour:
@@ -4487,9 +4487,12 @@ MonoBehaviour:
   coyoteTime: 0.1
   bonusJumps: 0
   jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
-  wallJump: 1
+  canWallJump: 1
   wallJumpForce: {x: 10, y: 10}
+  wallJumpDelay: 0.4
   wallJumpTime: {x: 0.2, y: 0.2}
+  wallJumpEffect: {fileID: 0}
+  wallLockDelay: 0.25
   canWallSlide: 1
   wallSlideSpeed: 1
   wallSliding: 0
@@ -4561,6 +4564,7 @@ MonoBehaviour:
   interactableLayers:
     serializedVersion: 2
     m_Bits: 32768
+  interactRange: 5
 --- !u!114 &215086994315009943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7046,7 +7050,7 @@ Transform:
   m_GameObject: {fileID: 7504430278044586913}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -0.5, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7095,7 +7099,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1.4}
+  m_Size: {x: 0.3, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &9106458856626637265
 MonoBehaviour:
@@ -8023,7 +8027,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.4}
+  m_Size: {x: 0.1, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &4716684067978515514
 MonoBehaviour:

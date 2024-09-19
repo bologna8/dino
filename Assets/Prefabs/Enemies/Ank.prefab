@@ -384,11 +384,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8505960365540364046, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: lockLength
-      value: 3.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8505960365540364046, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: sightRange
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505960365540364046, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: maxRotation
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8839979344461503842, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.x
