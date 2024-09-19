@@ -60,7 +60,7 @@ public class InventoryUI : MonoBehaviour
 
     public void OpenInventory(InputAction.CallbackContext context)
     {
-        if (context.performed) 
+        if (context.performed)
         {
             if (inventoryOpen)
             {
@@ -77,26 +77,38 @@ public class InventoryUI : MonoBehaviour
     {
         ChangeCursorState(false);
         inventoryOpen = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         inventoryParent.SetActive(true);
 
         if (book != null)
         {
             book.SetActive(true);
         }
+
+       // Movement movement = FindObjectOfType<Movement>();
+      //  if (movement != null)
+      //  {
+      //      movement.SetMovementEnabled(false);
+      //  }
     }
 
     private void CloseInventory()
     {
         ChangeCursorState(true);
         inventoryOpen = false;
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
         inventoryParent.SetActive(false);
 
         if (book != null)
         {
             book.SetActive(false);
         }
+
+       //Movement movement = FindObjectOfType<Movement>();
+       // if (movement != null)
+        //{
+       //     movement.SetMovementEnabled(true);
+       // }
 
         DeactivateItemDescriptionPanel();
     }
