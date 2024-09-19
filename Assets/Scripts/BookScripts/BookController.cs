@@ -6,19 +6,14 @@ public class BookController : MonoBehaviour
 {
     public GameObject journalPanel;
     public bool isJournalOpen = false;
-    
+
     public GameObject[] pages; 
     private int currentPage = 0;
 
     private void Update()
     {
-        if (isJournalOpen && Input.GetKeyDown(KeyCode.LeftArrow))
+        if (isJournalOpen)
         {
-            TurnPage(-1); 
-        }
-        if (isJournalOpen && Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            TurnPage(1); 
         }
     }
 
@@ -67,29 +62,15 @@ public class BookController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void TurnPage(int direction)
-    {
-        int newPage = Mathf.Clamp(currentPage + direction, 0, pages.Length - 1);
-
-        if (newPage != currentPage)
-        {
-            pages[currentPage].SetActive(false);
-            currentPage = newPage;
-            pages[currentPage].SetActive(true);
-        }
-    }
-
     public void GoToTab(int tabIndex)
     {
         if (tabIndex >= 0 && tabIndex < pages.Length)
         {
             pages[currentPage].SetActive(false);
+            
             currentPage = tabIndex;
+            
             pages[currentPage].SetActive(true);
         }
     }
-    public void OnBookmarkClick(int tabIndex)
-{
-    GoToTab(tabIndex);
-}
 }
