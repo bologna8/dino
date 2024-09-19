@@ -10,6 +10,21 @@ public class BookController : MonoBehaviour
     public GameObject[] pages; 
     private int currentPage = 0;
 
+    public InputActionReference nextPageAction;
+    public InputActionReference previousPageAction;
+
+    private void OnEnable()
+    {
+        nextPageAction.action.performed += FlipToNextPage;
+        previousPageAction.action.performed += FlipToPreviousPage;
+    }
+
+    private void OnDisable()
+    {
+        nextPageAction.action.performed -= FlipToNextPage;
+        previousPageAction.action.performed -= FlipToPreviousPage;
+    }
+
     private void Update()
     {
         if (isJournalOpen)
@@ -71,6 +86,32 @@ public class BookController : MonoBehaviour
             currentPage = tabIndex;
             
             pages[currentPage].SetActive(true);
+        }
+    }
+
+    public void FlipToNextPage(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (currentPage < pages.Length - 1)
+            {
+                pages[currentPage].SetActive(false);
+                currentPage++;
+                pages[currentPage].SetActive(true);
+            }
+        }
+    }
+
+    public void FlipToPreviousPage(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (currentPage > 0)
+            {
+                pages[currentPage].SetActive(false);
+                currentPage--;
+                pages[currentPage].SetActive(true);
+            }
         }
     }
 }
