@@ -1257,12 +1257,16 @@ PrefabInstance:
       objectReference: {fileID: 634096523}
     - target: {fileID: -1501073879568472421, guid: 212bffe5b36a3fd4b9d09462f8f0fbfb, type: 3}
       propertyPath: Secondary.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1501073879568472421, guid: 212bffe5b36a3fd4b9d09462f8f0fbfb, type: 3}
       propertyPath: Secondary.Array.data[0]
       value: 
       objectReference: {fileID: 1230098185}
+    - target: {fileID: -1501073879568472421, guid: 212bffe5b36a3fd4b9d09462f8f0fbfb, type: 3}
+      propertyPath: Secondary.Array.data[1]
+      value: 
+      objectReference: {fileID: 698778480}
     - target: {fileID: -1501073879568472421, guid: 212bffe5b36a3fd4b9d09462f8f0fbfb, type: 3}
       propertyPath: MixersToChange.Array.size
       value: 0
@@ -1529,11 +1533,11 @@ PrefabInstance:
       objectReference: {fileID: 1334117817}
     - target: {fileID: 2896902164864759592, guid: 906657207cf0c924ab1cb9e807beae8f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.74
+      value: -11.82
       objectReference: {fileID: 0}
     - target: {fileID: 2896902164864759592, guid: 906657207cf0c924ab1cb9e807beae8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02
+      value: 2.07
       objectReference: {fileID: 0}
     - target: {fileID: 2896902164864759592, guid: 906657207cf0c924ab1cb9e807beae8f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2693,6 +2697,11 @@ PrefabInstance:
 --- !u!4 &698778479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300908004204861510, guid: bbb239d1413faea409d1fbba8a93ebab, type: 3}
+  m_PrefabInstance: {fileID: 698778478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &698778480 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5873980532038274490, guid: bbb239d1413faea409d1fbba8a93ebab, type: 3}
   m_PrefabInstance: {fileID: 698778478}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &702148588

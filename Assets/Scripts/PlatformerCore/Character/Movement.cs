@@ -94,6 +94,7 @@ public class Movement : MonoBehaviour
     [Tooltip("Change fall speed while pressing into a wall")] public bool canWallSlide = false;
     [Tooltip("Max fall speed while wall sliding")] public float wallSlideSpeed = 1f;
     [HideInInspector] public bool wallSliding; //Currently on a wall while falling
+    //private float timeSinceWallJumped;
 
     
 
@@ -581,7 +582,7 @@ public class Movement : MonoBehaviour
 
         yield return new WaitForSeconds(wallJumpDelay);
 
-        currentWallTime = 0;
+        currentWallTime = wallLockDelay;
 
         //if (frontCheck.touching && !turning && myCore) { myCore.Turn(); } 
         if (rightWallCheck.touching) { movingRight = false; }
