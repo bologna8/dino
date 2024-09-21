@@ -42,7 +42,7 @@ public class HealthUI : MonoBehaviour
     {
         if (tracking)
         {
-            gameObject.SetActive(tracking.gameObject.active);
+            gameObject.SetActive(tracking.gameObject.activeSelf);
 
             var percent = tracking.currentHP / tracking.maxHP;
             mySlider.value = percent;

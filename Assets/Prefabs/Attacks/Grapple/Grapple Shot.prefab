@@ -174,14 +174,16 @@ MonoBehaviour:
   spreadEvenly: 0
   momentumLaunch: 0
   attackingAimSpeed: 1
-  moveWhileAttacking: 1
-  windup: 0
+  moveWhileAttacking: 0
+  windup: 0.2
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
+  noGravityDuringWindup: 1
   attackDuration: 1
   movementMidAttack: 0
   onlyHorizontalMoveMid: 1
-  startAimAngleOffset: 5
+  noGravityDuringAttack: 1
+  startAimAngleOffset: 0
   spreadTime: 0
   spreadCurve:
     serializedVersion: 2
@@ -270,6 +272,7 @@ MonoBehaviour:
   grabLayer:
     serializedVersion: 2
     m_Bits: 0
+  pulledAnimation: {fileID: 7400000, guid: ecc22aa1da7b5904d8b15700563b34df, type: 2}
   possibleRopeStarts:
   - serializedVersion: 2
     m_Curve:

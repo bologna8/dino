@@ -128,6 +128,7 @@ public class Weapon : MonoBehaviour
         var dir = Vector3.right;
         var startAngle = Quaternion.FromToRotation(Vector3.right, dir);
 
+
         if (myCore && attackStats.attackAnim) { myCore.ChangeAttackAnimation(attackStats.attackAnim); }
 
         var safety = false; //don't spawn any porjectiles if aim cursor is touching something like a wall
@@ -175,16 +176,15 @@ public class Weapon : MonoBehaviour
             if(myCore) { if (!myCore.lookingRight) { midMove *= -1; } }
         }
 
-        //Debug.Log(midMove);
 
         //Start Actual Attack
         if (!attackStats.moveWhileAttacking && myMovement && attackStats.windup > 0) 
-        { myMovement.DoDash(preMove, new Vector2(attackStats.windup, 0f)); }
+        { myMovement.DoDash(preMove, new Vector2(attackStats.windup, 0f), attackStats.noGravityDuringWindup); }
         
         yield return new WaitForSeconds(attackStats.windup);
         
         if (!attackStats.moveWhileAttacking && myMovement && attackStats.attackDuration > 0) 
-        { myMovement.DoDash(midMove, new Vector2(attackStats.attackDuration, 0f)); }
+        { myMovement.DoDash(midMove, new Vector2(attackStats.attackDuration, 0f), attackStats.noGravityDuringAttack); }
 
 
         if (!safety) //Don't spawn anything in walls
@@ -208,11 +208,6 @@ public class Weapon : MonoBehaviour
 
     public void SpawnAttack(int i, Vector3 startSpot, Vector3 startOffset, Quaternion startAngle, Vector3 dir)
     {
-        //var attackRight = true;
-        //if (myMovement) { if (!myMovement.faceRight) {attackRight = false; } }
-
-        //var newAttack = Instantiate(attackPrefab, startSpot, startAngle).GetComponent<Attack>();
-        //newAttack.InitializeAttack(transform, startOffset, myHealth.team, attackRight, ignoreTeams);
 
         bool attackRight = true;
         if (dir.x < 0) { attackRight = false; }
@@ -261,9 +256,9 @@ public class Weapon : MonoBehaviour
         if (attackStats.startAimAngleOffset != 0)
         {
             var r = fireAngle.eulerAngles;
+            
             if (r.z > 90 && r.z < 270) { fireAngle = Quaternion.Euler(r.x, r.y, r.z - attackStats.startAimAngleOffset); }
             else { fireAngle = Quaternion.Euler(r.x, r.y, r.z + attackStats.startAimAngleOffset); }
-
         }
 
 

@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3095e76c232cf6449bcf8e16984308d3, type: 2}
+    - target: {fileID: 8505960365540364046, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: lockLength
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8856473957710389766, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_LocalScale.y
       value: 1

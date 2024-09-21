@@ -94,7 +94,7 @@ public class Movement : MonoBehaviour
     [Tooltip("Change fall speed while pressing into a wall")] public bool canWallSlide = false;
     [Tooltip("Max fall speed while wall sliding")] public float wallSlideSpeed = 1f;
     [HideInInspector] public bool wallSliding; //Currently on a wall while falling
-    //private float timeSinceWallJumped;
+    private float recentWallJump;
 
     
 
@@ -239,6 +239,7 @@ public class Movement : MonoBehaviour
         if (onGround || onEdge) //Reset ground stuff
         {
             currentWallTime = 0;
+            recentWallJump = 0;
 
             if (airTime > coyoteTime) //Reset stuff when first landing
             { 
@@ -286,17 +287,9 @@ public class Movement : MonoBehaviour
 
             //if (rightWallCheck.touching || leftWallCheck.touching) { coyoteWallTime = wallTime; } 
 
-            if (rightWallCheck.touching || leftWallCheck.touching) { currentWallTime += Time.deltaTime; } 
+            if (rightWallCheck.touching || leftWallCheck.touching) { currentWallTime += Time.deltaTime; }
+            else if (recentWallJump > 0) { recentWallJump -= Time.deltaTime; currentWallTime = wallLockDelay; }
             else { currentWallTime = 0; }
-            /*
-            if (currentWallTime > 0) 
-            { 
-                currentWallTime -= Time.deltaTime; 
-                currentWallTime = Mathf.Clamp(currentWallTime, 0, coyoteWallTime.y); 
-            } 
-            */
-
-            //else { currentWallTime = 0; }
             
         }
     }
@@ -343,9 +336,12 @@ public class Movement : MonoBehaviour
         if (myBod.velocity.y < 0)
         {
             var noHead = true;
-            if (headCheck) { if (headCheck.touching) { noHead = false; } } 
+            if (rightWallCheck && leftWallCheck) //Both wall checks touching same as head check toughing
+            { if (rightWallCheck.touching && leftWallCheck.touching) { noHead = false;} } 
+            
+            if (headCheck && noHead) { if (headCheck.touching) { noHead = false; } }
 
-            if(canWallSlide && currentWallTime > wallLockDelay && noHead) 
+            if(canWallSlide && currentWallTime >= wallLockDelay && noHead) 
             {
                 wallSliding = true;
                 if (moveInput != 0) 
@@ -489,12 +485,15 @@ public class Movement : MonoBehaviour
                     if (leftLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(leftLedgeCheck.findTopCorner(movingRight), climbTime.y, climbTime.x)); }
                 } 
             }
-            else if (currentWallTime > wallLockDelay && canWallJump && !ignoreGravity) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
+            else if (currentWallTime >= wallLockDelay && canWallJump && !ignoreGravity) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
             {
-                //if (myAnim) { myAnim.SetBool("onWall", true); }
-                JumpEnd();
-                if (myCore) { myCore.Turn(); }
-                dashing = WallJump(); StartCoroutine(dashing); 
+                if (rightWallCheck.touching || leftWallCheck.touching)
+                {
+                    //if (myAnim) { myAnim.SetBool("onWall", true); }
+                    JumpEnd();
+                    if (myCore) { myCore.Turn(); }
+                    dashing = WallJump(); StartCoroutine(dashing); 
+                }
                 
             } 
             else if (coyoteCurrent < coyoteTime) //jump if just recently left the ground, not via upward
@@ -579,10 +578,11 @@ public class Movement : MonoBehaviour
         //if (rightWallCheck.touching) { movingRight = false; }
         //if (leftWallCheck.touching) { movingRight = true; }
         ignoreGravity = true;
+        dashVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(wallJumpDelay);
 
-        currentWallTime = wallLockDelay;
+        recentWallJump = wallLockDelay;
 
         //if (frontCheck.touching && !turning && myCore) { myCore.Turn(); } 
         if (rightWallCheck.touching) { movingRight = false; }

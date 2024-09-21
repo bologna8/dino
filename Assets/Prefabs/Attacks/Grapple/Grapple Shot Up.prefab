@@ -49,6 +49,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6156131079386060931, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
+      propertyPath: windup
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156131079386060931, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
       propertyPath: attackAnim
       value: 
       objectReference: {fileID: 7400000, guid: be91c704c60096f49a92ae1d7ff3eafb, type: 2}
@@ -56,6 +60,10 @@ PrefabInstance:
       propertyPath: startAimAngleOffset
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 7376071943488160295, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
+      propertyPath: pulledAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 8bfbfb1ef9c00404ca7c6a2aafd28dc0, type: 2}
     - target: {fileID: 8142958838078798255, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
       propertyPath: m_Name
       value: Grapple Shot UP

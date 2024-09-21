@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
             }
         }
 
-
+        //Debug.Log(transform.rotation.eulerAngles);
 
         currentTime = lifetime;
         //faceRight = true;

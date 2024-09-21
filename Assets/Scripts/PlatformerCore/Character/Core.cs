@@ -152,9 +152,6 @@ public class Core : MonoBehaviour
             }
             else if (movingRight != lookingRight) { Turn(); }
             
-            
-            
-            
 
             /*
             if (WeaponPivot) 
@@ -262,22 +259,26 @@ public class Core : MonoBehaviour
     }
 
 
-    public void Stun(float stunTime)
+    public void Stun(float stunTime, AnimationClip setAnim = null)
     {
         if (myHealth) 
         { 
             if (myHealth.stunTime <= stunTime) { myHealth.stunTime = stunTime; }
         }
 
-        //Temp solution to display interacting animations
-        if (myAnim) { StartCoroutine(DigAnimation(stunTime)); }
+        if (myAnim) { StartCoroutine(SpecialAnimation(stunTime, setAnim)); }
 
     }
 
-    public IEnumerator DigAnimation(float time)
+    public IEnumerator SpecialAnimation(float time, AnimationClip newAnim = null)
     {
         myAnim.SetBool("interacting", true);
+
+        if (myAnimOverride && newAnim) { myAnimOverride["playerDig"] = newAnim; }
+
         yield return new WaitForSeconds(time);
+
+        if (myAnimOverride && newAnim) { myAnimOverride["playerDig"] = null; }
         myAnim.SetBool("interacting", false);
     }
 
@@ -362,8 +363,7 @@ public class Core : MonoBehaviour
     {
         if (myAnimOverride)
         {
-            myAnimOverride["playerJabSide"] = newAnim;            
-
+            myAnimOverride["playerJabSide"] = newAnim;          
         }
     }
 

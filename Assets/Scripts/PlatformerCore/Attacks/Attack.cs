@@ -23,11 +23,13 @@ public class Attack : MonoBehaviour
     [Tooltip("Time it takes before attacking")] public float windup = 0.1f;
     [Tooltip("Make move before the attack, x is flipped if facing left")] public float movementPreAttack;
     [Tooltip("")] public bool onlyHorizontalMovePre = true; //otherwise move in direction aiming
+    public bool noGravityDuringWindup;
 
     [Header("Mid-Attack")]
     [Tooltip("Duration of attack movement")] public float attackDuration = 0.1f;
     [Tooltip("Make move during the attack, x is flipped if facing left")] public float movementMidAttack;
     [Tooltip("")] public bool onlyHorizontalMoveMid = true; //otherwise move in direction aiming
+    public bool noGravityDuringAttack;
 
     [Header("Spread Stats")]
     [Range(-89f, 89f)] [Tooltip("Degrees to change every attack relative to aim, pre spread")] public float startAimAngleOffset;

@@ -14,7 +14,7 @@ public class Aim : MonoBehaviour
 
     public float turnSpeed = -1f;
     [HideInInspector] public float turnSpeedMultiplier = 1;
-    [HideInInspector] public Vector3 offset;
+    public Vector3 offset;
     public float lockLength = 1f;
     [HideInInspector] public Vector3 currentDirection;
     [HideInInspector] public Vector3 desiredDirection;
@@ -115,11 +115,14 @@ public class Aim : MonoBehaviour
         if (myAimType == AimType.Simple) 
         { lockAim = true; }
 
-        if (lockAim) //Override current desired angle if aiming button required and not pressed
+        if (attackAngleOffset != 0)
         {
-            
             if (forwardAngle > 90 && forwardAngle < 270) { forwardAngle -= attackAngleOffset; }
             else { forwardAngle += attackAngleOffset; }
+        }
+
+        if (lockAim) //Override current desired angle if aiming button required and not pressed
+        {
 
             var rad = forwardAngle * Mathf.Deg2Rad;
 

@@ -19,6 +19,7 @@ public class Grappler : MonoBehaviour
     private float endlessWobbleTime; //Make rope shake while unconected without straightening
     private bool wobbled; //inverse every other wibble
     
+    public AnimationClip pulledAnimation;
 
 
 
@@ -175,6 +176,7 @@ public class Grappler : MonoBehaviour
             if (dist > maxEffectiveRange) { dist = maxEffectiveRange; }
             dir *= Mathf.Lerp(grappleDashSpeed.x, grappleDashSpeed.y, dist / maxEffectiveRange);
 
+            mySpawn.myCore.Stun(grappleDashDuration.x, pulledAnimation);
             mySpawn.myCore.myMove.DoDash(dir, grappleDashDuration, true, true);
             
         }
@@ -194,6 +196,7 @@ public class Grappler : MonoBehaviour
                     G.startToTighten = true;
                     G.inheritWobbleStart = endlessWobbleTime;
                     G.hitTarget = other;
+                    G.pulledAnimation = pulledAnimation;
                     //G.grappledLayer = mySpawn.source.gameObject.layer; //the new rope will now check for the source layer to collide with
                 }
 
