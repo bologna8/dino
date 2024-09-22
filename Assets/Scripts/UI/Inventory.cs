@@ -25,6 +25,7 @@ public class Inventory : MonoBehaviour
     {
         inventoryItemList.Add(item);
         onItemChange.Invoke();
+        UpdateCraftingUI();
 
         PopupManager popupManager = FindObjectOfType<PopupManager>();
         if (popupManager != null)
@@ -56,6 +57,10 @@ public class Inventory : MonoBehaviour
         }
 
         return itemCounter >= amount;
+    }
+    private void UpdateCraftingUI()
+    {
+        
     }
 
     public void RemoveItems(Item item, int amount)

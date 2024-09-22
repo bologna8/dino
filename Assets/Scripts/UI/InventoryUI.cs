@@ -37,8 +37,6 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
-        // PlayerControls.onRecipeUnlocked += UpdateCraftingUI;
-
         if (Inventory.instance != null)
         {
             Inventory.instance.onItemChange += UpdateInventoryUI;
@@ -77,38 +75,24 @@ public class InventoryUI : MonoBehaviour
     {
         ChangeCursorState(false);
         inventoryOpen = true;
-        //Time.timeScale = 0f;
         inventoryParent.SetActive(true);
 
         if (book != null)
         {
             book.SetActive(true);
         }
-
-       // Movement movement = FindObjectOfType<Movement>();
-      //  if (movement != null)
-      //  {
-      //      movement.SetMovementEnabled(false);
-      //  }
     }
 
     private void CloseInventory()
     {
         ChangeCursorState(true);
         inventoryOpen = false;
-        // Time.timeScale = 1f;
         inventoryParent.SetActive(false);
 
         if (book != null)
         {
             book.SetActive(false);
         }
-
-       //Movement movement = FindObjectOfType<Movement>();
-       // if (movement != null)
-        //{
-       //     movement.SetMovementEnabled(true);
-       // }
 
         DeactivateItemDescriptionPanel();
     }
@@ -123,14 +107,47 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateCraftingUI(CraftingRecipe recipe)
     {
+        if (recipe == null) return;
+
+        ClearCraftingSlots();
+
         if (craftingSlotPrefab != null && craftingItemTransform != null)
         {
-            GameObject go = Instantiate(craftingSlotPrefab, craftingItemTransform);
-            ItemSlot slot = go.GetComponent<ItemSlot>();
-            if (slot != null)
+            GameObject recipeSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+            ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
+            if (recipeItemSlot != null)
             {
-                slot.AddItem(recipe);
+                recipeItemSlot.AddItem(recipe);
+                recipeItemSlot.icon.color = Color.white; 
             }
+
+           
+            foreach (var ingredient in recipe.ingredients)
+            {
+                GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+                ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
+                if (ingredientItemSlot != null)
+                {
+                    ingredientItemSlot.AddItem(ingredient.item);
+                    
+                    if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
+                    {
+                        ingredientItemSlot.icon.color = Color.white; 
+                    }
+                    else
+                    {
+                        ingredientItemSlot.icon.color = Color.gray; 
+                    }
+                }
+            }
+        }
+    }
+
+    private void ClearCraftingSlots()
+    {
+        foreach (Transform child in craftingItemTransform)
+        {
+            Destroy(child.gameObject);
         }
     }
 
@@ -140,15 +157,7 @@ public class InventoryUI : MonoBehaviour
 
         foreach (Item recipe in craftingRecipes)
         {
-            if (craftingSlotPrefab != null && craftingItemTransform != null)
-            {
-                GameObject go = Instantiate(craftingSlotPrefab, craftingItemTransform);
-                ItemSlot slot = go.GetComponent<ItemSlot>();
-                if (slot != null)
-                {
-                    slot.AddItem(recipe);
-                }
-            }
+            UpdateCraftingUI((CraftingRecipe)recipe);
         }
     }
 
