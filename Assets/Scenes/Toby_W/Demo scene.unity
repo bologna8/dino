@@ -148,6 +148,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 434737195021001295, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 434737195021001295, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: diggingSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 692978767836090865, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_text
       value: 
