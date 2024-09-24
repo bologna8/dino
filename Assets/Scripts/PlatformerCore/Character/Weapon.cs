@@ -94,7 +94,7 @@ public class Weapon : MonoBehaviour
         currentSpreadTime = 0;
     }
 
-    public void TryAttack()
+    public bool TryAttack()
     {
         if (attackReady && attackStats)
         {
@@ -112,9 +112,12 @@ public class Weapon : MonoBehaviour
                 if (currentClip > 0) { currentClip --; }
                 attacking = AttackRoutine();
                 StartCoroutine(attacking);
+                return true;
             }
             
         }
+
+        return false;
     }
 
     public IEnumerator AttackRoutine()

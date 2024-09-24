@@ -78,7 +78,6 @@ public class PlayerControls : MonoBehaviour
             var checkInter = hitObjects.collider.GetComponent<IInteractable>();
             if (checkInter != null) { 
                 checkInter.Interact(gameObject);
-                Debug.Log("Digging");
             }
         }
     }

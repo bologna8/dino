@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
+    private Spawned mySpawn;
     private Core myCore; //Pass inputs to your core
     public enum State { idle, patrol, chase, flee };
     public State currentState;
@@ -37,18 +38,21 @@ public class AI : MonoBehaviour
     [Tooltip("If see a friend start to chase, go agro on that target as well")] public bool packAttack;
     [Tooltip("Will go into a frenzy over certain distractions and damage teammates with attacks")] public bool foolish;
     [HideInInspector] public bool frenzied;
-
+    [Tooltip("Will retreat after attacking")] public bool skirmish;
+    [Tooltip("Will retreat when too far from their start, and attack if too close")] public bool territorial;
 
     [HideInInspector] public Aim myAim;
 
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        myCore = GetComponent<Core>();
-        myMovement = GetComponent<Movement>();
-        myWeapons = GetComponents<Weapon>();
-        myHealth = GetComponentInChildren<Health>();
+        if(!mySpawn) { mySpawn = GetComponent<Spawned>(); }
+        if (!myCore) { myCore = GetComponent<Core>(); }
+        if(!myMovement) { myMovement = GetComponent<Movement>(); }
+        if (myWeapons == null) { myWeapons = GetComponents<Weapon>(); }
+        if (!myHealth) { myHealth = GetComponentInChildren<Health>(); }
+
 
         if (myAim) { myAim.waitToRotate = scanPauseTime; }
     }
@@ -101,6 +105,7 @@ public class AI : MonoBehaviour
                 if (currentState == State.patrol) { Patrol(); }
 
                 if (currentState == State.chase) { Chase(); }
+                if (currentState == State.flee) { Flee(); }
             }
         }
 
@@ -255,17 +260,42 @@ public class AI : MonoBehaviour
             }
             
 
+            bool attacked = false;
             if(myAim) 
             { 
                 myAim.AutoAimAt = chasing;
-                if (myAim.lookLockTime > currentAimTime && inRange) { Attack(); }
-
+                if (myAim.lookLockTime >= currentAimTime && inRange) { attacked = Attack(); }
             }
-            else if (inRange) { Attack(); }
+            else if (inRange) { attacked = Attack(); }
+
+            if (skirmish && attacked) 
+            { Retreat(chasing); }
 
         }
         else { Chill(); }
     }
+
+    public void Retreat(Transform target = null)
+    {
+        //var 
+        if (target)
+        {
+
+        }
+        else 
+        {
+            //if (mySpawn) { = mySpawn.origin; }
+        }
+
+        currentState = State.flee;
+    }
+
+    void Flee()
+    {
+
+    }
+
+
 
     public void TryToTurn()
     {
@@ -279,14 +309,17 @@ public class AI : MonoBehaviour
         else if (myMovement) { myMovement.momentum = 0; myMovement.moveInput = 0; }
     }
 
-    void Attack()
+    bool Attack()
     {
         if (myWeapons.Length > 0)
         {
             var randomAttack = myWeapons[Random.Range(0, myWeapons.Length)];
             randomAttack.ignoreTeams = frenzied;
-            randomAttack.TryAttack();
+            if (randomAttack.TryAttack()) 
+            { return true; }
         }
+
+        return false;
     }
 
 
