@@ -5019,8 +5019,9 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0

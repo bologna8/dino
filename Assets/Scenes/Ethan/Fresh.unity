@@ -377,7 +377,7 @@ MonoBehaviour:
   myGravityScale: 1
   gravityAcceleration: 1
   minGrav: 1
-  fallSpeedCaps: {x: 0, y: 0}
+  terminalVelocity: 20
   jumpForce: 100
   maxJumpTime: 1
   minJumpTime: 0.1
@@ -393,9 +393,12 @@ MonoBehaviour:
   coyoteTime: 0
   bonusJumps: 0
   jumpEffect: {fileID: 0}
-  wallJump: 0
+  canWallJump: 0
   wallJumpForce: {x: 0, y: 0}
+  wallJumpDelay: 0
   wallJumpTime: {x: 0, y: 0}
+  wallJumpEffect: {fileID: 0}
+  wallLockDelay: 0
   canWallSlide: 0
   wallSlideSpeed: 1
   wallSliding: 0
@@ -415,12 +418,14 @@ MonoBehaviour:
   dashLayer: 0
   dashForce: 100
   dashTime: {x: 0, y: 0}
+  dashEffect: {fileID: 0}
   airDashLayer: 0
   airDashForce: 20
   airDashTime: {x: 0, y: 0}
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
   airDashes: 0
+  airDashEffect: {fileID: 0}
   myBod: {fileID: 0}
 --- !u!114 &67241989
 MonoBehaviour:
@@ -437,6 +442,8 @@ MonoBehaviour:
   currentState: 1
   idleTime: {x: 1, y: 2}
   patrolTime: {x: 2, y: 4}
+  turnCooldownTime: {x: 3, y: 6}
+  turnCooldownCurrent: 0
   curiousIcon: {fileID: 2344926815703226935, guid: 7c715ce3e286b914798030381979fb06, type: 3}
   attackRange: 1
   attackAimTime: {x: 1, y: 2}
@@ -444,6 +451,9 @@ MonoBehaviour:
   angryIcon: {fileID: 5518582692977729794, guid: a74661340bae1dc46a9c9642ae7a1ef7, type: 3}
   chasing: {fileID: 0}
   agroMemoryTime: {x: 3, y: 6}
+  attackOnSight: 0
+  packAttack: 0
+  foolish: 0
   frenzied: 0
   myAim: {fileID: 0}
 --- !u!4 &67241990
@@ -2204,23 +2214,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: MaxDistance
-      value: 500
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffMode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
-      value: 0.06132965
+      value: 0.49772948
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
-      value: 0.09716568
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
@@ -2240,11 +2250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
-      value: 0.99583435
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
-      value: 0.49583435
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value
@@ -2268,11 +2278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
-      value: -20.007967
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
-      value: -5.0019917
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].inSlope
@@ -2296,7 +2306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
-      value: -20.007967
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
@@ -2304,7 +2314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
-      value: -5.0019917
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6428134918659434385, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].outSlope
@@ -2335,8 +2345,48 @@ PrefabInstance:
       value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
+      value: 0.47036844
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 1.0222969
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -1.0714285
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -1.0714285
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027190236692978890, guid: b1cd144ce0261fe43946dc5de9bffe8f, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5670,52 +5720,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1303291111
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1303291113}
-  - component: {fileID: 1303291112}
-  m_Layer: 0
-  m_Name: SFXTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1303291112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303291111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7f8e61fae0c7e48b48af601c66c15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectToSpawn: {fileID: 5706709660267450183, guid: 4458e746b57267846870755aca70520e, type: 3}
-  spawnRate: 3
---- !u!4 &1303291113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303291111}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.124236524, z: 5.563258}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1315603514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1064479217120444513, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
@@ -5930,11 +5934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298805002b0768142893b75e1d2c2185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSound: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
-  diggingSounds:
-  - {fileID: 8734611745545370168, guid: 1737eeb5061937440bc195768431074a, type: 3}
-  - {fileID: 8734611745545370168, guid: 543c3c07daa69be4a9f906115fa24155, type: 3}
-  - {fileID: 8734611745545370168, guid: 5d3dc3767a3c8d44189a846c0ab0007b, type: 3}
+  jumpSound: {fileID: 0}
+  diggingSounds: []
 --- !u!114 &1370205242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8256,7 +8257,7 @@ MonoBehaviour:
   myGravityScale: 1
   gravityAcceleration: 1
   minGrav: 1
-  fallSpeedCaps: {x: 0, y: 0}
+  terminalVelocity: 20
   jumpForce: 100
   maxJumpTime: 1
   minJumpTime: 0.1
@@ -8272,9 +8273,12 @@ MonoBehaviour:
   coyoteTime: 0
   bonusJumps: 0
   jumpEffect: {fileID: 0}
-  wallJump: 0
+  canWallJump: 0
   wallJumpForce: {x: 0, y: 0}
+  wallJumpDelay: 0
   wallJumpTime: {x: 0, y: 0}
+  wallJumpEffect: {fileID: 0}
+  wallLockDelay: 0
   canWallSlide: 0
   wallSlideSpeed: 1
   wallSliding: 0
@@ -8294,12 +8298,14 @@ MonoBehaviour:
   dashLayer: 0
   dashForce: 100
   dashTime: {x: 0, y: 0}
+  dashEffect: {fileID: 0}
   airDashLayer: 0
   airDashForce: 20
   airDashTime: {x: 0, y: 0}
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
   airDashes: 0
+  airDashEffect: {fileID: 0}
   myBod: {fileID: 0}
 --- !u!114 &1981482481
 MonoBehaviour:
@@ -8316,6 +8322,8 @@ MonoBehaviour:
   currentState: 1
   idleTime: {x: 1, y: 2}
   patrolTime: {x: 2, y: 4}
+  turnCooldownTime: {x: 3, y: 6}
+  turnCooldownCurrent: 0
   curiousIcon: {fileID: 2344926815703226935, guid: 7c715ce3e286b914798030381979fb06, type: 3}
   attackRange: 1
   attackAimTime: {x: 1, y: 2}
@@ -8323,6 +8331,9 @@ MonoBehaviour:
   angryIcon: {fileID: 5518582692977729794, guid: a74661340bae1dc46a9c9642ae7a1ef7, type: 3}
   chasing: {fileID: 0}
   agroMemoryTime: {x: 3, y: 6}
+  attackOnSight: 0
+  packAttack: 0
+  foolish: 0
   frenzied: 0
   myAim: {fileID: 0}
 --- !u!4 &1981482482
@@ -9473,7 +9484,6 @@ SceneRoots:
   - {fileID: 2128043574}
   - {fileID: 7402886427029301973}
   - {fileID: 869059655}
-  - {fileID: 1303291113}
   - {fileID: 471450383}
   - {fileID: 153360471}
   - {fileID: 1692059425}

@@ -4907,6 +4907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Compy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2395469367151938579, guid: 0ea4722e2f721dc4a8a1fb2745d0fb26, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 2166410990080991992, guid: 0378aac6f1c72114095f7d0d31a06d58, type: 3}
     - target: {fileID: 6227269485587581751, guid: 0ea4722e2f721dc4a8a1fb2745d0fb26, type: 3}
       propertyPath: m_Enabled
       value: 1

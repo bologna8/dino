@@ -150,11 +150,12 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 1
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0
 --- !u!114 &6842745424514405945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,9 +181,11 @@ MonoBehaviour:
   windup: 0.1
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
+  noGravityDuringWindup: 0
   attackDuration: 0.2
   movementMidAttack: 12
   onlyHorizontalMoveMid: 1
+  noGravityDuringAttack: 0
   startAimAngleOffset: 5
   spreadTime: 0
   spreadCurve:
@@ -196,6 +199,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 7400000, guid: 66b04a4a4160bad47ab285c42e27253e, type: 2}
+  myWeapon: {fileID: 0}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +295,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   offset: {x: 0, y: 0, z: 0}
-  ignoreTeams: 0
+  damageSelf: 0
 --- !u!114 &8352660219446764013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,9 +309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleEffects:
-  - {fileID: 8734611745545370168, guid: 1737eeb5061937440bc195768431074a, type: 3}
-  - {fileID: 8734611745545370168, guid: 543c3c07daa69be4a9f906115fa24155, type: 3}
-  - {fileID: 8734611745545370168, guid: 5d3dc3767a3c8d44189a846c0ab0007b, type: 3}
+  - {fileID: 8734611745545370168, guid: 551c41735bba1ac40b02f921c6f2cb9a, type: 3}
+  - {fileID: 8734611745545370168, guid: 8aa758183ac01344292ef239049e88fb, type: 3}
+  - {fileID: 8734611745545370168, guid: 376b79450ca72014198ac9174b27bcc5, type: 3}
   allowRepeats: 0
 --- !u!50 &7019152047202207604
 Rigidbody2D:

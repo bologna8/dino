@@ -148,6 +148,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3095e76c232cf6449bcf8e16984308d3, type: 2}
+    - target: {fileID: 8478583008990582963, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 7288326261628243597, guid: 1060a96d84f5e974d91b2536e570ca28, type: 3}
+    - target: {fileID: 8478583008990582963, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 2166410990080991992, guid: 0378aac6f1c72114095f7d0d31a06d58, type: 3}
     - target: {fileID: 8505960365540364046, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: lockLength
       value: 0.8
