@@ -42,5 +42,11 @@ public class Attack : MonoBehaviour
 
     public AnimationClip attackAnim;
 
+    [HideInInspector] public Weapon myWeapon;
+    public void OnDisable()
+    {
+        if (myWeapon) { myWeapon.EndAttack(); }
+    }
+
 
 }

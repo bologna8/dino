@@ -176,9 +176,11 @@ MonoBehaviour:
   windup: 0.2
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
+  noGravityDuringWindup: 0
   attackDuration: 1
   movementMidAttack: 0
   onlyHorizontalMoveMid: 1
+  noGravityDuringAttack: 0
   startAimAngleOffset: 33
   spreadTime: 0
   spreadCurve:
@@ -210,6 +212,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 0}
+  myWeapon: {fileID: 0}
 --- !u!114 &6815603982042734992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,8 +247,9 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0

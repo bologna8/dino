@@ -32,23 +32,10 @@ public class Projectile : MonoBehaviour
         if (!myBod) { myBod = GetComponent<Rigidbody2D>(); }
 
         if (!mySpawn) { mySpawn = GetComponentInParent<Spawned>(); }
-        if (mySpawn) //Reset on every awake
-        { 
-            //team = mySpawn.team; 
-            //source = mySpawn.source;
 
-            if(mySpawn.tracking && mySpawn.myAim) 
-            {
-                transform.position = mySpawn.myAim.transform.position;
-                transform.rotation = Quaternion.FromToRotation(Vector3.right, mySpawn.myAim.currentDirection);
-            }
-        }
-
-        //Debug.Log(transform.rotation.eulerAngles);
 
         currentTime = lifetime;
-        //faceRight = true;
-        //if (transform.rotation.eulerAngles.z % 360 > 180) { faceRight = false; Debug.Log(transform.rotation.eulerAngles.z % 360); }
+
 
         if (!myTrail) { myTrail = GetComponent<TrailRenderer>(); }
         if (myTrail) { myTrail.Clear(); }
@@ -75,9 +62,6 @@ public class Projectile : MonoBehaviour
         }
         
 
-        //Boomerang stuff
-        //if (returnTime > 0f) { transform.Rotate(rotateSpeed * Time.deltaTime); } //Rotato Potato
-
         if (bounced && mySpawn) //Return to sender
         {
             returnCurrent += Time.deltaTime;
@@ -99,6 +83,7 @@ public class Projectile : MonoBehaviour
                     Transform tempSource = null;
                     if (mySpawn) { tempTeam = mySpawn.team; }
                     PoolManager.Instance.Spawn(breakEffect, other.ClosestPoint(transform.position), transform.rotation, tempSource, tempTeam); 
+
                 }
                 gameObject.SetActive(false);
             }            

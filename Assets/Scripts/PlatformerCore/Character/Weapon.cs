@@ -15,6 +15,8 @@ public class Weapon : MonoBehaviour
     private float currentSpreadTime; //How long has attack been used in a row
     private bool spreadNegative; //Used to make random spread bounce back and forth positive and negative
 
+    private IEnumerator attacking;
+
 
     [HideInInspector] public float verticalInput;
     [Tooltip("Prefab for up variation")] public GameObject upAttackPrefab;
@@ -86,14 +88,10 @@ public class Weapon : MonoBehaviour
 
     public IEnumerator Reload()
     {
-        attackReady = false;
-
         yield return new WaitForSeconds(attackStats.cooldown);
 
         currentClip = attackStats.clipSize;
         currentSpreadTime = 0;
-
-        attackReady = true;
     }
 
     public void TryAttack()
@@ -109,12 +107,11 @@ public class Weapon : MonoBehaviour
             if (currentAttackPrefab != useAttack) { changeAttack(useAttack); }
 
 
-            if (attackStats.typeOfAmo == Attack.AmoType.none) 
-            { StartCoroutine(AttackRoutine()); }
-            else if (currentClip > 0)
-            {
-                currentClip --;
-                StartCoroutine(AttackRoutine());
+            if (attackStats.typeOfAmo == Attack.AmoType.none || currentClip > 0) 
+            { 
+                if (currentClip > 0) { currentClip --; }
+                attacking = AttackRoutine();
+                StartCoroutine(attacking);
             }
             
         }
@@ -195,14 +192,7 @@ public class Weapon : MonoBehaviour
 
         yield return new WaitForSeconds(attackStats.attackDuration);
 
-        if (myAim) { myAim.attackAngleOffset = 0f; }
-
-        if (currentClip <= 0) { StartCoroutine(Reload()); }
-        else 
-        {
-            yield return new WaitForSeconds(attackStats.fireRate);
-            attackReady = true;
-        }
+        StartCoroutine(EndAttack());
 
     }
 
@@ -265,7 +255,9 @@ public class Weapon : MonoBehaviour
         GameObject newAttack = null;
         if (currentAttackPrefab && myAim && myCore)
         {
-            newAttack = PoolManager.Instance.Spawn(currentAttackPrefab, startSpot, fireAngle, myAim.transform, myCore.team);
+            newAttack = PoolManager.Instance.Spawn(currentAttackPrefab, startSpot, fireAngle, myAim.transform, myCore.team, ignoreTeams);
+            var att = newAttack.GetComponent<Attack>();
+            if (att) { att.myWeapon = this; }
         }
         else { Debug.Log("ding, this shoudln't be happening, attack error"); }
         
@@ -286,6 +278,22 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public IEnumerator EndAttack(float wait = 0)
+    {
+        if (attacking != null && attackStats) 
+        { 
+            StopCoroutine(attacking); attacking = null; 
+
+            yield return new WaitForSeconds(attackStats.fireRate);
+
+            if (myAim) { myAim.attackAngleOffset = 0f; }
+            attackReady = true;
+
+            if (currentClip <= 0 && attackStats.typeOfAmo != Attack.AmoType.none) 
+            { StartCoroutine(Reload()); }
+        }
+
+    }
 
 
 }

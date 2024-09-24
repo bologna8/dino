@@ -153,8 +153,8 @@ MonoBehaviour:
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0
 --- !u!114 &6842745424514405945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,9 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfInput: 0
   typeOfAmo: 0
-  cooldown: 3
+  cooldown: 0
   clipSize: 1
-  fireRate: 0
+  fireRate: 3
   multiplier: 1
   spreadEvenly: 0
   momentumLaunch: 0
@@ -180,9 +180,11 @@ MonoBehaviour:
   windup: 0.4
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
+  noGravityDuringWindup: 0
   attackDuration: 0.8
   movementMidAttack: 6
   onlyHorizontalMoveMid: 1
+  noGravityDuringAttack: 0
   startAimAngleOffset: 0
   spreadTime: 0
   spreadCurve:
@@ -196,6 +198,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 0}
+  myWeapon: {fileID: 0}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
   m_ObjectHideFlags: 0

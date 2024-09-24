@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
             var tempTeam = 0;
             Transform tempSource = null;
             if (mySpawn) { tempTeam = mySpawn.team; }
-            var hpBar = PoolManager.Instance.Spawn(HealthBarPrefab, transform.position, Quaternion.identity, tempSource, tempTeam, true);
+            var hpBar = PoolManager.Instance.Spawn(HealthBarPrefab, transform.position, Quaternion.identity, tempSource, tempTeam, false, true);
             var bar = hpBar.GetComponent<HealthUI>();
             if(bar) { bar.tracking = this; }
         }

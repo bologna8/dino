@@ -4451,7 +4451,6 @@ MonoBehaviour:
   maxCount: 1
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
 --- !u!114 &7513557193232624445
 MonoBehaviour:
@@ -4626,12 +4625,14 @@ MonoBehaviour:
   dashLayer: 12
   dashForce: 16
   dashTime: {x: 0.3, y: 0.2}
+  dashEffect: {fileID: 0}
   airDashLayer: 13
   airDashForce: 15
-  airDashTime: {x: 0.2, y: 0}
+  airDashTime: {x: 0.3, y: 0.3}
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
   airDashes: 1
+  airDashEffect: {fileID: 8080380149315166911, guid: 8098db70917281f499adbdf26341f4ac, type: 3}
   myBod: {fileID: 0}
 --- !u!114 &9030483205541976314
 MonoBehaviour:
