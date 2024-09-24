@@ -169,7 +169,6 @@ MonoBehaviour:
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
 --- !u!114 &7376071943488160295
 MonoBehaviour:
@@ -200,6 +199,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   linePoints: 20
   curveAmp: 2
+  straightLinePrefab: {fileID: 8080380149315166911, guid: d34cf36a9be2a674fb72f3a568598c81, type: 3}
   straightenTime: 0.5
   wobbles: 8
   wobbleDampen: 0.69

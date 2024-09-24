@@ -76,6 +76,7 @@ public class InventoryUI : MonoBehaviour
         ChangeCursorState(false);
         inventoryOpen = true;
         inventoryParent.SetActive(true);
+        Time.timeScale = 0;
 
         if (book != null)
         {
@@ -88,7 +89,7 @@ public class InventoryUI : MonoBehaviour
         ChangeCursorState(true);
         inventoryOpen = false;
         inventoryParent.SetActive(false);
-
+        Time.timeScale = 1;
         if (book != null)
         {
             book.SetActive(false);
@@ -109,35 +110,29 @@ public class InventoryUI : MonoBehaviour
     {
         if (recipe == null) return;
 
-        ClearCraftingSlots();
-
-        if (craftingSlotPrefab != null && craftingItemTransform != null)
+        GameObject recipeSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+        ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
+        if (recipeItemSlot != null)
         {
-            GameObject recipeSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
-            ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
-            if (recipeItemSlot != null)
-            {
-                recipeItemSlot.AddItem(recipe);
-                recipeItemSlot.icon.color = Color.white; 
-            }
+            recipeItemSlot.AddItem(recipe);
+            // recipeItemSlot.icon.color = Color.white;  
+        }
 
-           
-            foreach (var ingredient in recipe.ingredients)
+        foreach (var ingredient in recipe.ingredients)
+        {
+            GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+            ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
+            if (ingredientItemSlot != null)
             {
-                GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
-                ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
-                if (ingredientItemSlot != null)
+                ingredientItemSlot.AddItem(ingredient.item);
+                
+                if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
                 {
-                    ingredientItemSlot.AddItem(ingredient.item);
-                    
-                    if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
-                    {
-                        ingredientItemSlot.icon.color = Color.white; 
-                    }
-                    else
-                    {
-                        ingredientItemSlot.icon.color = Color.gray; 
-                    }
+                    // ingredientItemSlot.icon.color = Color.white;  
+                }
+                else
+                {
+                    // ingredientItemSlot.icon.color = Color.gray;  
                 }
             }
         }

@@ -30,11 +30,16 @@ public class Grappler : MonoBehaviour
 
 
     [Header("Variables for the hooked and pulling half of grapple")]
+    public GameObject straightLinePrefab;
     public float straightenTime = 1f;
     private float currentTime;
     [Range(1,10)] public int wobbles = 1;
     [Range(0,1)] public float wobbleDampen = 0.5f;
     [HideInInspector] public float inheritWobbleStart;
+
+
+    [HideInInspector] public float keepAngle;
+    private Aim myAim;
 
 
     
@@ -50,7 +55,15 @@ public class Grappler : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(!mySpawn) { mySpawn = GetComponentInParent<Spawned>(); }
+        if (!mySpawn) { mySpawn = GetComponentInParent<Spawned>(); }
+        if (mySpawn) 
+        { 
+            if (mySpawn.myCore) 
+            {
+                if (mySpawn.myCore.myAim) { myAim = mySpawn.myCore.myAim; } 
+            }
+        }
+
         if(!myLine) { myLine = GetComponent<LineRenderer>(); }
 
     }
@@ -76,15 +89,13 @@ public class Grappler : MonoBehaviour
     {
         if (myLine && mySpawn)
         {
-            
-            //if (mySpawn.myCore) { startPoint = mySpawn.myCore.myAim.transform.position; }
+            if (myAim) { myAim.attackAngleOffset = mySpawn.angle; }
+
             if (mySpawn.source) { startPoint = mySpawn.source.position; }
             else { startPoint = mySpawn.transform.position; }
 
-
-
             
-            if(hitTarget) { endPoint = hitTarget.ClosestPoint(transform.position); }
+            if (hitTarget) { endPoint = hitTarget.ClosestPoint(transform.position); }
             else { endPoint = transform.position; }
 
             UpdateLinePoints();            
@@ -103,13 +114,13 @@ public class Grappler : MonoBehaviour
             currentTime = straightenTime;
             if (!grappled) { GrappleDash(); }
 
+            if (straightLinePrefab)
+            {
+                var line = PoolManager.Instance.Spawn(straightLinePrefab, transform.position, transform.rotation, mySpawn.source).GetComponent<LineHandler>();
+                if (line) { line.endPoint = endPoint; }
+            }
             gameObject.SetActive(false);
 
-            /*
-            myLine.positionCount = 2;
-            myLine.SetPosition(0, mySpawn.source.position);
-            myLine.SetPosition(1, transform.position);
-            */
         }
         else //do all this extra math while line is curvy
         {
@@ -186,9 +197,9 @@ public class Grappler : MonoBehaviour
     {
         if ((grappledLayer.value & (1 << other.transform.gameObject.layer)) > 0) 
         {
-            if (GrappledPrefab) //Probably important that this prefab doesn't have its own grapple preab that then spawns infinitely
+            if (GrappledPrefab && mySpawn) //Probably important that this prefab doesn't have its own grapple prefab that then spawns infinitely
             {
-                var newG = PoolManager.Instance.Spawn(GrappledPrefab, other.ClosestPoint(transform.position), Quaternion.identity, mySpawn.source);
+                var newG = PoolManager.Instance.Spawn(GrappledPrefab, other.ClosestPoint(transform.position), transform.rotation, mySpawn.source);
                 var G = newG.GetComponent<Grappler>();
                 if (G)
                 {

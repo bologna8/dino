@@ -49,52 +49,51 @@ public class AI : MonoBehaviour
         myMovement = GetComponent<Movement>();
         myWeapons = GetComponents<Weapon>();
         myHealth = GetComponentInChildren<Health>();
-        //myHealth.team = gameObject.layer;
 
-        //if (myCore) { if(myCore.myAim) { myAim = myCore.myAim; Debug.Log("yup"); } }
         if (myAim) { myAim.waitToRotate = scanPauseTime; }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (myHealth)
+
+        if (myAim)
         {
-            if (myAim)
+            if (myAim.lastSeen)
             {
-                if (myAim.lastSeen)
-                {
-                    var checkCore = myAim.lastSeen.GetComponent<Core>();
-                    if (checkCore && myCore) 
-                    { 
-                        if (!checkCore.hidden) 
-                        {
-                            if (checkCore.team == myCore.team) 
-                            { 
-                                if (frenzied) { Agro(myAim.lastSeen); }
-                                else if (packAttack && checkCore.myAI)
+                var checkCore = myAim.lastSeen.GetComponent<Core>();
+                if (checkCore && myCore) 
+                { 
+                    if (!checkCore.hidden) 
+                    {
+                        if (checkCore.team == myCore.team) 
+                        { 
+                            if (frenzied) { Agro(myAim.lastSeen); }
+                            else if (packAttack && checkCore.myAI)
+                            {
+                                if (checkCore.myAI.currentState == AI.State.chase)
                                 {
-                                    if (checkCore.myAI.currentState == AI.State.chase)
-                                    {
-                                        Agro(checkCore.myAI.chasing);
-                                    }
+                                    Agro(checkCore.myAI.chasing);
                                 }
                             }
-                            else if (attackOnSight)  { Agro(myAim.lastSeen); }
                         }
-                        
+                        else if (attackOnSight)  { Agro(myAim.lastSeen); }
                     }
+                    
                 }
             }
+        }
 
 
-            if (currentState == State.chase) 
-            {
-                memoryCurrent -= Time.deltaTime; //They forgor
-                if (memoryCurrent <= 0) { Chill(); }
-            }
-            
+        if (currentState == State.chase) 
+        {
+            memoryCurrent -= Time.deltaTime; //They forgor
+            if (memoryCurrent <= 0) { Chill(); }
+        }
 
+
+        if (myHealth)
+        {
             if (myHealth.stunTime > 0) { if(myMovement) { myMovement.moveInput = 0; } }
             else
             {
@@ -209,6 +208,8 @@ public class AI : MonoBehaviour
             }
         }
 
+        Debug.Log(gameObject.name + " agrod onto: " + target.gameObject.name);
+
         currentState = State.chase; 
         memoryCurrent = Random.Range(agroMemoryTime.x, agroMemoryTime.y);
         
@@ -238,9 +239,9 @@ public class AI : MonoBehaviour
                         if (myCore.lookingRight) { myMovement.moveInput = 1; }
                         else { myMovement.moveInput = -1; }
 
-                        if (chasing.position.x > transform.position.x && !myCore.lookingRight) { TryToTurn(); } 
+                        if (chasing.position.x > myCore.myAim.transform.position.x && !myCore.lookingRight) { TryToTurn(); } 
 
-                        if (chasing.position.x < transform.position.x && myCore.lookingRight) { TryToTurn(); } 
+                        if (chasing.position.x < myCore.myAim.transform.position.x && myCore.lookingRight) { TryToTurn(); } 
    
                     }
                     else //pre core no turn cooldown crap code
@@ -280,7 +281,7 @@ public class AI : MonoBehaviour
 
     void Attack()
     {
-        if (myWeapons.Length > 0 && myHealth.stunTime <= 0)
+        if (myWeapons.Length > 0)
         {
             var randomAttack = myWeapons[Random.Range(0, myWeapons.Length)];
             randomAttack.ignoreTeams = frenzied;

@@ -57,7 +57,7 @@ public class Movement : MonoBehaviour
     [Tooltip("Scale that the speed of gravity increases")] public float gravityAcceleration = 1f;
     //[Tooltip("Max downward fall speed")] public float terminalVelocity = 10f;
     public float minGrav = 1f;
-    [Tooltip("Min and Max fall speeds")] public Vector2 fallSpeedCaps;
+    [Tooltip("Min and Max fall speeds")] public float terminalVelocity = 20;
     //[Tooltip("Initial downward speed given after a jump ends")] public float jumpEndDownForce;
     private float airTime; //how long been in air, used for gravity calculation and coyote time
     
@@ -72,7 +72,7 @@ public class Movement : MonoBehaviour
     [HideInInspector] public bool onGround = false; //Feat on the ground and head in the air
     [HideInInspector] public bool justJumped; //detect if new jump input
     [Tooltip("Vertical velocity percent 0 to 1 over time as jump input is held")] public AnimationCurve jumpSpeedCurve;
-    private float jumpDelayTime; //time Before you can Start a New Jump
+    private float jumpDelayTime = 0.1f; //time Before you can Start a New Jump
     private float jumpDelayCurrent; //current delay until can jump again, prevents quick double inputs
     [Tooltip("Extra time to try and jump just after leaving the ground")] public float coyoteTime;
     private float coyoteCurrent; //Keep track of how long since left ground specifically
@@ -131,6 +131,8 @@ public class Movement : MonoBehaviour
     [Range(0, 30)] [Tooltip("Layer while dashing on ground")] public int dashLayer;
     [Tooltip("Speed while dashing")] public float dashForce = 20f;
     [Tooltip("Duration time of dash, x is time locked in animation, y is time of residual speed fall off")] public Vector2 dashTime;
+    public GameObject dashEffect;
+
 
     [Range(0, 30)] [Tooltip("Layer while dashing on ground")] public int airDashLayer;
     [Tooltip("Speed while dashing in air")] public float airDashForce = 20f;
@@ -140,6 +142,7 @@ public class Movement : MonoBehaviour
     private bool ignoreGravity = false; //Disable gravity during dashes
     [Tooltip("Number of times you can dash while mid air")] public int airDashes = 0;
     private int remainingDashes; //number of air dashes you have left
+    public GameObject airDashEffect;
     
     [HideInInspector] public IEnumerator dashing; //Current dash coroutine, all knockbacks are a new dash technically
     //[Tooltip("Spawn effect when doing a dash")] public GameObject dashEffect;
@@ -195,10 +198,6 @@ public class Movement : MonoBehaviour
         if (colliders.Length > 13) { leftForwardCheck = colliders[13]; }
         
 
-        
-        
-
-        jumpDelayTime = coyoteTime + 0.01f; //Delay before any double jumps
     }
 
     void FixedUpdate()
@@ -255,6 +254,8 @@ public class Movement : MonoBehaviour
             }
 
             if (onEdge) { coyoteCurrent = coyoteTime; } //{ airTime = coyoteTime; } //Can't coyote jump just after being on an edge
+            else if (myCollider.enabled) { myVelocity.y = 0; } 
+            /*
             else if (myBod.velocity.y <= 0 && myCollider.enabled)
             { 
                 if (groundCheck.slope != 0) //fall faster going down slopes
@@ -277,15 +278,12 @@ public class Movement : MonoBehaviour
                 } 
                 else { myVelocity.y = 0; } //reset velocity on ground and not dropping through a platform 
             } 
+            */
         } 
         else { airTime += Time.deltaTime; coyoteCurrent += Time.deltaTime; } //Keep track of air time for gravity and coyote jumps
 
         if (rightWallCheck && leftWallCheck) //Update time since last touched a wall to jump off of
         {
-            //var wallTime = coyoteTime; 
-            //if (coyoteTime <= 0) { wallTime = 0.1f; } //Wall jump works even with no coyote time
-
-            //if (rightWallCheck.touching || leftWallCheck.touching) { coyoteWallTime = wallTime; } 
 
             if (rightWallCheck.touching || leftWallCheck.touching) { currentWallTime += Time.deltaTime; }
             else if (recentWallJump > 0) { recentWallJump -= Time.deltaTime; currentWallTime = wallLockDelay; }
@@ -348,7 +346,7 @@ public class Movement : MonoBehaviour
                 { airTime = 0; velocity.y = Mathf.Clamp(velocity.y, -wallSlideSpeed, Mathf.Infinity); }
             } 
             else //clamp fall speed with slide velocity
-            { velocity.y = Mathf.Clamp(velocity.y, -fallSpeedCaps.y, -fallSpeedCaps.x); }
+            { velocity.y = Mathf.Clamp(velocity.y, -terminalVelocity, Mathf.Infinity); }
         }
 
         myBod.velocity = velocity;
@@ -371,29 +369,7 @@ public class Movement : MonoBehaviour
             else { momentum += Time.deltaTime / accelerationTime; } 
         }
 
-        /*
-        if (leftWallCheck && rightWallCheck)
-        {
-            //bool goingIntoWall = false;
-            //if (rightWallCheck.touching && movingRight) { goingIntoWall = true; }
-            //if (leftWallCheck.touching && !movingRight) { goingIntoWall = true; }
-            wallSliding = false;
 
-            if (rightWallCheck.touching || leftWallCheck.touching) //When run into a wall
-            {
-                if (rightWallCheck.touching && moveInput > 0) { momentum = 0; }
-                if (leftWallCheck.touching && moveInput < 0) { momentum = 0; }
-
-                if (!onGround) { wallSliding = true; }
-
-                //For resetting lingering dash velocity when hitting a wall
-                if (dashVelocity.x > 0 && movingRight) { dashVelocity.x = 0; }
-                if (dashVelocity.x < 0 && !movingRight) { dashVelocity.x = 0; }
-                
-            }
-            
-        }
-        */
 
         if (leftHipCheck && rightHipCheck)
         {
@@ -410,7 +386,7 @@ public class Movement : MonoBehaviour
             }
 
         }
-        //else { momentum = moveInput; } //Just wack edge case if no collider, still moves snappy
+        
 
         if (wallSliding) 
         { 
@@ -519,9 +495,6 @@ public class Movement : MonoBehaviour
                 jumpDelayCurrent = jumpDelayTime;
                 justJumped = true;
 
-                //if (myAnim) { myAnim.SetBool("jumping", true); }
-
-                //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
                 if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }    
             }
             
@@ -574,9 +547,6 @@ public class Movement : MonoBehaviour
 
     public IEnumerator WallJump()
     {
-
-        //if (rightWallCheck.touching) { movingRight = false; }
-        //if (leftWallCheck.touching) { movingRight = true; }
         ignoreGravity = true;
         dashVelocity = Vector2.zero;
 
@@ -628,7 +598,11 @@ public class Movement : MonoBehaviour
         
         if (tryGrab)
         {
-            if (verticalInput < 0) { jumpDelayCurrent = jumpDelayTime; myVelocity.y = -wallSlideSpeed; } //Drop if pressing down
+            if (verticalInput < 0) //Drop if pressing down
+            { 
+                jumpDelayCurrent = jumpDelayTime; myVelocity.y = -wallSlideSpeed; 
+                currentWallTime = wallLockDelay;
+            } 
             else //Actually grab that ledge
             {
                 bool turnToCatch = false;
@@ -787,7 +761,12 @@ public class Movement : MonoBehaviour
 
                 if (changeCollisionLayer) { changeLayer = airDashLayer; }
                 if (changeHitboxLayer && myHP) { changeHP = airDashLayer; } 
+
+                if (airDashEffect)
+                { PoolManager.Instance.Spawn(airDashEffect, transform.position, Quaternion.identity, transform); }
             }
+            else if (dashEffect)
+            { PoolManager.Instance.Spawn(dashEffect, transform.position, Quaternion.identity, transform); }
             
             //change direction to left
             if (!movingRight) { d *= -1;}

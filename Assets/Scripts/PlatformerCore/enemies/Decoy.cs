@@ -11,7 +11,7 @@ public class Decoy : MonoBehaviour
     private List<AI> alerted = new List<AI>();
 
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         var ai = other.GetComponent<AI>();
         if(ai)
@@ -31,6 +31,22 @@ public class Decoy : MonoBehaviour
 
                 alerted.Add(ai);
             }
+            else //Keep agroing those that linger
+            {
+                if (ai.chasing != transform && overrideAgro) 
+                {
+                    if (ai.currentState == AI.State.chase) 
+                    {
+                        if (overrideAgro) { ai.Agro(transform); }
+                    }
+                    else
+                    {
+                        if (drawAttention) { ai.Agro(transform); }
+                    }
+                }
+            }
+
+
         }
     }
 

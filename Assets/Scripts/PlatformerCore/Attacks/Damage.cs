@@ -33,7 +33,6 @@ public class Damage : MonoBehaviour
 
     private Spawned mySpawn; //For item pooling and teams
     //[HideInInspector] public int team; //Teams are like damage layers, without changing layers
-    [Tooltip("Friendly fire can damage others on the same team")] public bool ignoreTeams = false; //Can damage others own team 
     [Tooltip("Can deal damage to the character that created the attack")] public bool damageSelf; 
     
     private List<Health> hitList = new List<Health>(); //hitboxes that have already been hit
@@ -43,20 +42,10 @@ public class Damage : MonoBehaviour
     void OnEnable()
     {
         if (!mySpawn) { mySpawn = GetComponentInParent<Spawned>(); }
-        /*
-        if (mySpawn) //Reset on every awake
-        { 
-            team = mySpawn.team; 
-            source = mySpawn.source;
-        }
-        */
 
         faceRight = true;
         var ang = transform.rotation.eulerAngles.y % 360;
-        if (ang > 90 && ang < 270)
-        //var ang = transform.rotation.eulerAngles.y % 360;
-        { faceRight = false; }
-        //if (transform.rotation.eulerAngles.z % 360 > 180) { faceRight = false; Debug.Log("face left"); }
+        if (ang > 90 && ang < 270) { faceRight = false; }
 
         hitList.Clear();
 
@@ -66,7 +55,7 @@ public class Damage : MonoBehaviour
             currentDuration = activeDuration;
 
             transform.localScale = startScale * sizeOverTime.Evaluate(0);
-        }        
+        }
     }
 
     // Update is called once per frame
@@ -112,7 +101,7 @@ public class Damage : MonoBehaviour
                 if (hitHealth.mySpawn.team == mySpawn.team)
                 {
                     if (hitHealth.friendlyFireOnly) { hitIt = true; }
-                    else if (!ignoreTeams) { hitIt = false; }
+                    else if (!mySpawn.ignoreTeams) { hitIt = false; }
                     else if (!damageSelf && hitHealth.mySpawn && mySpawn) 
                     { 
                         if (hitHealth.mySpawn.source == mySpawn.source) { hitIt = false; }
@@ -154,8 +143,7 @@ public class Damage : MonoBehaviour
                 }
 
                 hitHealth.TakeDamage(dmg, stunTime, KB);
-                Debug.Log(dmg);
-
+                
                 var ai = other.gameObject.GetComponentInParent<AI>();
                 if (ai && mySpawn) { ai.Agro(mySpawn.source); }
 

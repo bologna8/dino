@@ -325,7 +325,7 @@ MonoBehaviour:
   randStartX: {x: 42, y: 123}
   despawnTime: 123
   delayPickupTime: 0.21
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 479123dbf7a47504daf511ebac43a53b, type: 2}
   recipe: {fileID: 0}
 --- !u!114 &2775023847605421243
 MonoBehaviour:
@@ -342,11 +342,12 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0
 --- !u!1001 &5658418943953573673
 PrefabInstance:
   m_ObjectHideFlags: 0
