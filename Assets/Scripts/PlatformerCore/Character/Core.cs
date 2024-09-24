@@ -104,7 +104,7 @@ public class Core : MonoBehaviour
         if (CharacterArt) 
         { 
             if (!mySprite) { mySprite = CharacterArt.GetComponent<SpriteRenderer>(); }
-            if (!myAnim) { myAnim = CharacterArt.GetComponent<Animator>(); }
+            if (!myAnim) { myAnim = CharacterArt.GetComponentInChildren<Animator>(); }
             if (!myAnimOverride && myAnim) 
             { 
                 myAnimOverride = new AnimatorOverrideController(myAnim.runtimeAnimatorController);
@@ -186,9 +186,12 @@ public class Core : MonoBehaviour
 
         }
         
-
-        if (hidden) { mySprite.sortingOrder = -1; }
-        else { mySprite.sortingOrder = 1;}
+        if (mySprite)
+        {
+            if (hidden) { mySprite.sortingOrder = -1; }
+            else { mySprite.sortingOrder = 1; }
+        }
+        
 
         if (myHealth)
         {

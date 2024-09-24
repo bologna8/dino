@@ -25,7 +25,7 @@ public class PoolManager : MonoBehaviour
     }
 
 
-    public GameObject Spawn(GameObject prefab, Vector3 position, Quaternion rotation = default, Transform spawnSource = null, int teamNumber = 0, bool UIelement = false)
+    public GameObject Spawn(GameObject prefab, Vector3 position, Quaternion rotation = default, Transform spawnSource = null, int teamNumber = 0, bool ignoreTeams = false, bool UIelement = false)
     {
         GameObject spawnedObject;
         
@@ -75,8 +75,9 @@ public class PoolManager : MonoBehaviour
             foundPool.maxSize = spawnSats.maxCount;
 
             spawnSats.source = spawnSource;
-            //spawnSats.startRotation = rotation;
+            
             spawnSats.team = teamNumber;
+            spawnSats.ignoreTeams = ignoreTeams;
             spawnSats.myPool = foundPool;
             
         } 
