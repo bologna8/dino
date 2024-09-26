@@ -12,6 +12,7 @@ public class BookController : MonoBehaviour
 
     public InputActionReference nextPageAction;
     public InputActionReference previousPageAction;
+    public InputActionReference openJournal; 
 
     private void OnEnable()
     {
