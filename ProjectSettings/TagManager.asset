@@ -22,7 +22,7 @@ TagManager:
   - Dashable
   - Interactable
   - Audio
-  - 
+  - Map Trigger
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI Background
+    uniqueID: 2959505611
+    locked: 0
+  - name: Map Layer
+    uniqueID: 156977729
+    locked: 0
+  - name: Mask Layer
+    uniqueID: 1448770411
     locked: 0
