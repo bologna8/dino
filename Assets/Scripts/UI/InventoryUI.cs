@@ -106,38 +106,36 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void UpdateCraftingUI(CraftingRecipe recipe)
+public void UpdateCraftingUI(CraftingRecipe recipe)
+{
+    if (recipe == null) return;
+
+    GameObject recipeSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+    ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
+    if (recipeItemSlot != null)
     {
-        if (recipe == null) return;
+        recipeItemSlot.AddItem(recipe); 
+    }
 
-        GameObject recipeSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
-        ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
-        if (recipeItemSlot != null)
+    foreach (var ingredient in recipe.ingredients)
+    {
+        GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+        ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
+        if (ingredientItemSlot != null)
         {
-            recipeItemSlot.AddItem(recipe);
-            // recipeItemSlot.icon.color = Color.white;  
-        }
+            ingredientItemSlot.AddItem(ingredient.item);
 
-        foreach (var ingredient in recipe.ingredients)
-        {
-            GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
-            ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
-            if (ingredientItemSlot != null)
+            if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
             {
-                ingredientItemSlot.AddItem(ingredient.item);
-                
-                if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
-                {
-                    // ingredientItemSlot.icon.color = Color.white;  
-                }
-                else
-                {
-                    // ingredientItemSlot.icon.color = Color.gray;  
-                }
+                ingredientItemSlot.SetIconColor(Color.white);
+            }
+            else
+            {
+                ingredientItemSlot.SetIconColor(Color.gray); 
             }
         }
     }
-
+}
     private void ClearCraftingSlots()
     {
         foreach (Transform child in craftingItemTransform)
