@@ -136,14 +136,6 @@ public void UpdateCraftingUI(CraftingRecipe recipe)
         }
     }
 }
-    private void ClearCraftingSlots()
-    {
-        foreach (Transform child in craftingItemTransform)
-        {
-            Destroy(child.gameObject);
-        }
-    }
-
     private void SetUpCraftingRecipes()
     {
         List<Item> craftingRecipes = GameManager.instance.craftingRecipes;

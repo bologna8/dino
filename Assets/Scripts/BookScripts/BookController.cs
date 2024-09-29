@@ -1,18 +1,37 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class BookController : MonoBehaviour
 {
     public GameObject journalPanel;
     public bool isJournalOpen = false;
 
-    public GameObject[] pages; 
+    public GameObject[] pages;  
     private int currentPage = 0;
+
+    private List<int> unlockedPages = new List<int>();  
+
+    public List<int> alwaysAvailablePages;  
 
     public InputActionReference nextPageAction;
     public InputActionReference previousPageAction;
-    public InputActionReference openJournal; 
+    public InputActionReference openJournal;
+
+    private void Start()
+    {
+        foreach (int pageIndex in alwaysAvailablePages)
+        {
+            unlockedPages.Add(pageIndex);
+            pages[pageIndex].SetActive(true); 
+        }
+
+        for (int i = 0; i < pages.Length; i++)
+        {
+            pages[i].SetActive(i == currentPage || alwaysAvailablePages.Contains(i));
+        }
+    }
 
     private void OnEnable()
     {
@@ -24,13 +43,6 @@ public class BookController : MonoBehaviour
     {
         nextPageAction.action.performed -= FlipToNextPage;
         previousPageAction.action.performed -= FlipToPreviousPage;
-    }
-
-    private void Update()
-    {
-        if (isJournalOpen)
-        {
-        }
     }
 
     public void OpenJournal(InputAction.CallbackContext context)
@@ -80,12 +92,10 @@ public class BookController : MonoBehaviour
 
     public void GoToTab(int tabIndex)
     {
-        if (tabIndex >= 0 && tabIndex < pages.Length)
+        if (unlockedPages.Contains(tabIndex))
         {
             pages[currentPage].SetActive(false);
-            
             currentPage = tabIndex;
-            
             pages[currentPage].SetActive(true);
         }
     }
@@ -94,10 +104,12 @@ public class BookController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (currentPage < pages.Length - 1)
+            int nextPageIndex = unlockedPages.IndexOf(currentPage) + 1;
+
+            if (nextPageIndex < unlockedPages.Count)
             {
                 pages[currentPage].SetActive(false);
-                currentPage++;
+                currentPage = unlockedPages[nextPageIndex];
                 pages[currentPage].SetActive(true);
             }
         }
@@ -107,12 +119,27 @@ public class BookController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (currentPage > 0)
+            int prevPageIndex = unlockedPages.IndexOf(currentPage) - 1;
+
+            if (prevPageIndex >= 0)
             {
                 pages[currentPage].SetActive(false);
-                currentPage--;
+                currentPage = unlockedPages[prevPageIndex];
                 pages[currentPage].SetActive(true);
             }
+        }
+    }
+
+    public void UnlockSpecificPage(int pageIndex)
+    {
+        if (!unlockedPages.Contains(pageIndex) && pageIndex >= 0 && pageIndex < pages.Length)
+        {
+            unlockedPages.Insert(pageIndex, pageIndex);
+            Debug.Log("Page " + pageIndex + " has been unlocked.");
+        }
+        else
+        {
+            Debug.LogWarning("Page " + pageIndex + " is either already unlocked or out of range.");
         }
     }
 }
