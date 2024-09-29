@@ -2,21 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HotbarItems : Item
+[System.Serializable]
+[CreateAssetMenu(fileName = "HotbarItem", menuName = "Item/HotbarItem")]
+public class HotbarItem : Item
 {
-    public GameObject genericAttack;
+    public GameObject attackPrefab;
     public GameObject attackUp;
     public GameObject attackDown;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void AddToHotbar()
     {
-        
+        if (Hotbar.instance != null)
+        {
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void ReplaceInHotbar(int index)
     {
-        
+        if (Hotbar.instance != null)
+        {
+            
+        }
     }
+
 }

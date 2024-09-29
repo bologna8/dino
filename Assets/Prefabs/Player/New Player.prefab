@@ -666,6 +666,61 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Enemies
+--- !u!1 &989051991603477302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6728559698343616791}
+  - component: {fileID: 276522499834993971}
+  m_Layer: 5
+  m_Name: Hotbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6728559698343616791
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989051991603477302}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3095241338762909382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0.000030517578}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &276522499834993971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989051991603477302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9e16c44206d9140a744b04fd8e6c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedItems:
+  - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
+  - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
+  - {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
+  - {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
+  - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
+  currentlyEquipped: 0
 --- !u!1 &1320888674091396715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1139,7 @@ RectTransform:
   - {fileID: 5029576514584147631}
   - {fileID: 7377109087867583778}
   - {fileID: 3546450976099902304}
+  - {fileID: 6728559698343616791}
   m_Father: {fileID: 2661674118543948784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1229,22 +1285,6 @@ MonoBehaviour:
     m_ActionId: 27980170-e8e9-44eb-8caa-0f475919c991
     m_ActionName: Base/PauseGame[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ffd3778a-5464-4ac3-a12a-96660a953c2e
-    m_ActionName: DialogueControls/LeaveDialogue[/Keyboard/tab]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: af13261c-9637-47ff-beda-c4213f7394d0
-    m_ActionName: Aiming/MouseMove[/Mouse/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 96f9b8cd-2eda-453d-9982-6eeb0d104989
-    m_ActionName: Aiming/ControllerStick
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 498dab97-725c-49e6-830c-f8b8129a7ae1
-    m_ActionName: Aiming/AimButton
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Book, Assembly-CSharp
@@ -1300,6 +1340,30 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b0999558-b625-48a1-ba33-7dd101ef5d59
     m_ActionName: UI/OpenJournal[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06ed201d-8b73-44d2-b6f9-f9e81d5e1506
+    m_ActionName: Aiming/AimButton
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b987a3c5-3128-4583-9a08-7d8069d25df6
+    m_ActionName: Aiming/MouseMove[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 35f820a2-eac2-4201-936c-9b00d4a5b61a
+    m_ActionName: Aiming/ControllerStick
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fe717ffa-e645-4d84-9ed9-25d6e60dbaa1
+    m_ActionName: Aiming/WeaponWheel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 360ef577-77d4-45fb-9ea3-b4f099a280c6
+    m_ActionName: Aiming/NextWeapon[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b1a2fb4a-1f69-4fef-9bd1-d0c226cc75bd
+    m_ActionName: Aiming/PreviousWeapon[/Keyboard/leftArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -5182,7 +5246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -5899,7 +5963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myInputType: 1
-  myAimType: 0
+  myAimType: 2
   turnSpeed: -1
   turnSpeedMultiplier: 1
   offset: {x: 0, y: 0.3, z: 0}

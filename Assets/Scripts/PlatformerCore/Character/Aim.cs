@@ -77,29 +77,28 @@ public class Aim : MonoBehaviour
         currentDirection = Vector3.right;
 
         if (WeaponPivot) { weaponPivotStart = WeaponPivot.localPosition; }
-    }
 
-    void OnEnable()
-    {
-        if (myControls == null) { myControls = new Controls(); }
-        myControls.Enable();
-    }
-
-    void OnDisable()
-    {
-        myControls.Disable();
+        if (myInputType != InputType.Auto)
+        {
+            var pc = GetComponentInParent<PlayerControls>(); 
+            if (pc) { myControls = pc.myControls; }
+        }
     }
 
 
     void OnMouseMove()
     {
-        myInputType = InputType.Mouse;
+        if (myInputType == InputType.Controller)
+        { myInputType = InputType.Mouse; }
     }
 
     void OnControllerStick(InputValue val)
     {
-        myInputType = InputType.Controller;
-        desiredDirection = val.Get<Vector2>();
+        if (myInputType == InputType.Mouse)
+        { myInputType = InputType.Controller; }
+        
+        if (myInputType == InputType.Controller)
+        { desiredDirection = val.Get<Vector2>(); } 
     }
 
 

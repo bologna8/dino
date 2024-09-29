@@ -370,5 +370,13 @@ public class Core : MonoBehaviour
         }
     }
 
+    public void ChangeWeapons(int index, GameObject newAttack, GameObject newAttackUp = null, GameObject newAttackDown = null)
+    {
+        if (index < myWeapons.Length)
+        {
+            myWeapons[index].setNewAttacks(newAttack, newAttackUp, newAttackDown);
+        }
+    }
+
 
 }

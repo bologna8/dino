@@ -347,12 +347,21 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         },
         {
             ""name"": ""Aiming"",
-            ""id"": ""bad2ff60-61f4-4dcd-873f-d7aa3ad393bb"",
+            ""id"": ""173135f8-1ddb-40db-a53a-55d74397d8eb"",
             ""actions"": [
+                {
+                    ""name"": ""AimButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""06ed201d-8b73-44d2-b6f9-f9e81d5e1506"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
                 {
                     ""name"": ""MouseMove"",
                     ""type"": ""Value"",
-                    ""id"": ""af13261c-9637-47ff-beda-c4213f7394d0"",
+                    ""id"": ""b987a3c5-3128-4583-9a08-7d8069d25df6"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -361,16 +370,79 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""ControllerStick"",
                     ""type"": ""Value"",
-                    ""id"": ""96f9b8cd-2eda-453d-9982-6eeb0d104989"",
+                    ""id"": ""35f820a2-eac2-4201-936c-9b00d4a5b61a"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""AimButton"",
+                    ""name"": ""WeaponWheel"",
                     ""type"": ""Button"",
-                    ""id"": ""498dab97-725c-49e6-830c-f8b8129a7ae1"",
+                    ""id"": ""fe717ffa-e645-4d84-9ed9-25d6e60dbaa1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""360ef577-77d4-45fb-9ea3-b4f099a280c6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""b1a2fb4a-1f69-4fef-9bd1-d0c226cc75bd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""One"",
+                    ""type"": ""Button"",
+                    ""id"": ""1827490a-59af-47fe-8857-51b0196c04eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Two"",
+                    ""type"": ""Button"",
+                    ""id"": ""613281fa-8e79-488b-8d13-20e9160893d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Three"",
+                    ""type"": ""Button"",
+                    ""id"": ""27af120c-0861-4ac6-b252-0323465415f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Four"",
+                    ""type"": ""Button"",
+                    ""id"": ""00ca4dce-36cb-46c0-8e0b-5f9bf4ac93e2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Five"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0b778d2-5e0e-4c26-82c7-88e9a74a640e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -380,7 +452,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""7cdf8252-2c95-4f2d-84d6-875b29eaed5d"",
+                    ""id"": ""fb8fa199-53e4-4d35-94e3-aaf3464d02cc"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -391,12 +463,144 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d10df748-f272-4c91-904b-4be23507178f"",
+                    ""id"": ""9924e0ea-2c0a-46f2-a9f0-94d08558d943"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ControllerStick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb51db89-2347-480e-a5f9-7de1128c82f5"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b066b896-89c2-42f5-b92b-4e7463d0cf2c"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""276cd242-3280-441b-8662-0d828df9d32f"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f75f72d6-7228-462f-a101-1e2174bc5320"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1275871d-3406-42c2-b96d-dfc23ed64e70"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d44781a-992f-42e1-9374-17ce260f1cdc"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9888a374-9055-4169-ade8-d2aa49d568a8"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f848394-0428-4687-88f2-114a2aab1da8"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""One"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55aa4b6b-bde6-4d50-8d62-6791f2612719"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Two"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bcce5a22-7b8a-498f-9138-71ac487457fe"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Three"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6c6d0da-0a09-4036-a8f9-a8195b482a79"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Four"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1940bbb9-bb73-466a-87d6-08f5b54972a3"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Five"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -582,9 +786,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Base_Interact = m_Base.FindAction("Interact", throwIfNotFound: true);
         // Aiming
         m_Aiming = asset.FindActionMap("Aiming", throwIfNotFound: true);
+        m_Aiming_AimButton = m_Aiming.FindAction("AimButton", throwIfNotFound: true);
         m_Aiming_MouseMove = m_Aiming.FindAction("MouseMove", throwIfNotFound: true);
         m_Aiming_ControllerStick = m_Aiming.FindAction("ControllerStick", throwIfNotFound: true);
-        m_Aiming_AimButton = m_Aiming.FindAction("AimButton", throwIfNotFound: true);
+        m_Aiming_WeaponWheel = m_Aiming.FindAction("WeaponWheel", throwIfNotFound: true);
+        m_Aiming_NextWeapon = m_Aiming.FindAction("NextWeapon", throwIfNotFound: true);
+        m_Aiming_PreviousWeapon = m_Aiming.FindAction("PreviousWeapon", throwIfNotFound: true);
+        m_Aiming_One = m_Aiming.FindAction("One", throwIfNotFound: true);
+        m_Aiming_Two = m_Aiming.FindAction("Two", throwIfNotFound: true);
+        m_Aiming_Three = m_Aiming.FindAction("Three", throwIfNotFound: true);
+        m_Aiming_Four = m_Aiming.FindAction("Four", throwIfNotFound: true);
+        m_Aiming_Five = m_Aiming.FindAction("Five", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_NextPage = m_UI.FindAction("NextPage", throwIfNotFound: true);
@@ -754,16 +966,32 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     // Aiming
     private readonly InputActionMap m_Aiming;
     private List<IAimingActions> m_AimingActionsCallbackInterfaces = new List<IAimingActions>();
+    private readonly InputAction m_Aiming_AimButton;
     private readonly InputAction m_Aiming_MouseMove;
     private readonly InputAction m_Aiming_ControllerStick;
-    private readonly InputAction m_Aiming_AimButton;
+    private readonly InputAction m_Aiming_WeaponWheel;
+    private readonly InputAction m_Aiming_NextWeapon;
+    private readonly InputAction m_Aiming_PreviousWeapon;
+    private readonly InputAction m_Aiming_One;
+    private readonly InputAction m_Aiming_Two;
+    private readonly InputAction m_Aiming_Three;
+    private readonly InputAction m_Aiming_Four;
+    private readonly InputAction m_Aiming_Five;
     public struct AimingActions
     {
         private @Controls m_Wrapper;
         public AimingActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AimButton => m_Wrapper.m_Aiming_AimButton;
         public InputAction @MouseMove => m_Wrapper.m_Aiming_MouseMove;
         public InputAction @ControllerStick => m_Wrapper.m_Aiming_ControllerStick;
-        public InputAction @AimButton => m_Wrapper.m_Aiming_AimButton;
+        public InputAction @WeaponWheel => m_Wrapper.m_Aiming_WeaponWheel;
+        public InputAction @NextWeapon => m_Wrapper.m_Aiming_NextWeapon;
+        public InputAction @PreviousWeapon => m_Wrapper.m_Aiming_PreviousWeapon;
+        public InputAction @One => m_Wrapper.m_Aiming_One;
+        public InputAction @Two => m_Wrapper.m_Aiming_Two;
+        public InputAction @Three => m_Wrapper.m_Aiming_Three;
+        public InputAction @Four => m_Wrapper.m_Aiming_Four;
+        public InputAction @Five => m_Wrapper.m_Aiming_Five;
         public InputActionMap Get() { return m_Wrapper.m_Aiming; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -773,28 +1001,76 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_AimingActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_AimingActionsCallbackInterfaces.Add(instance);
+            @AimButton.started += instance.OnAimButton;
+            @AimButton.performed += instance.OnAimButton;
+            @AimButton.canceled += instance.OnAimButton;
             @MouseMove.started += instance.OnMouseMove;
             @MouseMove.performed += instance.OnMouseMove;
             @MouseMove.canceled += instance.OnMouseMove;
             @ControllerStick.started += instance.OnControllerStick;
             @ControllerStick.performed += instance.OnControllerStick;
             @ControllerStick.canceled += instance.OnControllerStick;
-            @AimButton.started += instance.OnAimButton;
-            @AimButton.performed += instance.OnAimButton;
-            @AimButton.canceled += instance.OnAimButton;
+            @WeaponWheel.started += instance.OnWeaponWheel;
+            @WeaponWheel.performed += instance.OnWeaponWheel;
+            @WeaponWheel.canceled += instance.OnWeaponWheel;
+            @NextWeapon.started += instance.OnNextWeapon;
+            @NextWeapon.performed += instance.OnNextWeapon;
+            @NextWeapon.canceled += instance.OnNextWeapon;
+            @PreviousWeapon.started += instance.OnPreviousWeapon;
+            @PreviousWeapon.performed += instance.OnPreviousWeapon;
+            @PreviousWeapon.canceled += instance.OnPreviousWeapon;
+            @One.started += instance.OnOne;
+            @One.performed += instance.OnOne;
+            @One.canceled += instance.OnOne;
+            @Two.started += instance.OnTwo;
+            @Two.performed += instance.OnTwo;
+            @Two.canceled += instance.OnTwo;
+            @Three.started += instance.OnThree;
+            @Three.performed += instance.OnThree;
+            @Three.canceled += instance.OnThree;
+            @Four.started += instance.OnFour;
+            @Four.performed += instance.OnFour;
+            @Four.canceled += instance.OnFour;
+            @Five.started += instance.OnFive;
+            @Five.performed += instance.OnFive;
+            @Five.canceled += instance.OnFive;
         }
 
         private void UnregisterCallbacks(IAimingActions instance)
         {
+            @AimButton.started -= instance.OnAimButton;
+            @AimButton.performed -= instance.OnAimButton;
+            @AimButton.canceled -= instance.OnAimButton;
             @MouseMove.started -= instance.OnMouseMove;
             @MouseMove.performed -= instance.OnMouseMove;
             @MouseMove.canceled -= instance.OnMouseMove;
             @ControllerStick.started -= instance.OnControllerStick;
             @ControllerStick.performed -= instance.OnControllerStick;
             @ControllerStick.canceled -= instance.OnControllerStick;
-            @AimButton.started -= instance.OnAimButton;
-            @AimButton.performed -= instance.OnAimButton;
-            @AimButton.canceled -= instance.OnAimButton;
+            @WeaponWheel.started -= instance.OnWeaponWheel;
+            @WeaponWheel.performed -= instance.OnWeaponWheel;
+            @WeaponWheel.canceled -= instance.OnWeaponWheel;
+            @NextWeapon.started -= instance.OnNextWeapon;
+            @NextWeapon.performed -= instance.OnNextWeapon;
+            @NextWeapon.canceled -= instance.OnNextWeapon;
+            @PreviousWeapon.started -= instance.OnPreviousWeapon;
+            @PreviousWeapon.performed -= instance.OnPreviousWeapon;
+            @PreviousWeapon.canceled -= instance.OnPreviousWeapon;
+            @One.started -= instance.OnOne;
+            @One.performed -= instance.OnOne;
+            @One.canceled -= instance.OnOne;
+            @Two.started -= instance.OnTwo;
+            @Two.performed -= instance.OnTwo;
+            @Two.canceled -= instance.OnTwo;
+            @Three.started -= instance.OnThree;
+            @Three.performed -= instance.OnThree;
+            @Three.canceled -= instance.OnThree;
+            @Four.started -= instance.OnFour;
+            @Four.performed -= instance.OnFour;
+            @Four.canceled -= instance.OnFour;
+            @Five.started -= instance.OnFive;
+            @Five.performed -= instance.OnFive;
+            @Five.canceled -= instance.OnFive;
         }
 
         public void RemoveCallbacks(IAimingActions instance)
@@ -895,9 +1171,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     }
     public interface IAimingActions
     {
+        void OnAimButton(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
         void OnControllerStick(InputAction.CallbackContext context);
-        void OnAimButton(InputAction.CallbackContext context);
+        void OnWeaponWheel(InputAction.CallbackContext context);
+        void OnNextWeapon(InputAction.CallbackContext context);
+        void OnPreviousWeapon(InputAction.CallbackContext context);
+        void OnOne(InputAction.CallbackContext context);
+        void OnTwo(InputAction.CallbackContext context);
+        void OnThree(InputAction.CallbackContext context);
+        void OnFour(InputAction.CallbackContext context);
+        void OnFive(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

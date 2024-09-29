@@ -78,7 +78,7 @@ public class Weapon : MonoBehaviour
         changeAttack(newBaseAttack);
     }
 
-    public void changeAttack(GameObject newAttack)
+    void changeAttack(GameObject newAttack)
     {
         currentAttackPrefab = newAttack;
         attackStats = newAttack.GetComponent<Attack>();

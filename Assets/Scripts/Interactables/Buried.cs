@@ -7,6 +7,8 @@ public class Buried : LayerCheck, IInteractable
     public float timeToDig = 1f;
     public List<GameObject> possiblePickupPrefabs;
 
+    [HideInInspector] public bool digging;
+
     public void Interact(GameObject interacter)
     {
         if (possiblePickupPrefabs.Count > 0)
@@ -23,7 +25,9 @@ public class Buried : LayerCheck, IInteractable
 
     public IEnumerator DelayedDig()
     {
+        digging = true;
         yield return new WaitForSeconds(timeToDig);
+        digging = false;
 
         if (touching) //This is why layercheck inhereted
         {

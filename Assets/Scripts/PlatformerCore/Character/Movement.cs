@@ -161,7 +161,7 @@ public class Movement : MonoBehaviour
     //Colliders and such, should be under the "Self" game object in inspector
     //private GameObject mySelf; //must contain all colliders and any sprites to rotate when flipped, Health hitbox should be seperate
 
-    private float downSlopeSpeed = 20f; //Add downard force when going down slopes
+    //private float downSlopeSpeed = 20f; //Add downard force when going down slopes
 
 
 
