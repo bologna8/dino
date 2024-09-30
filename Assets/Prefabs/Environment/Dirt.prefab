@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 527713728485568139}
   - component: {fileID: 1071685186461134177}
   - component: {fileID: 954470155514628742}
+  - component: {fileID: 5009249707400754542}
   m_Layer: 15
   m_Name: Dirt
   m_TagString: Untagged
@@ -151,3 +152,18 @@ MonoBehaviour:
   slope: 0
   timeToDig: 1
   possiblePickupPrefabs: []
+  digging: 0
+--- !u!114 &5009249707400754542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232990821341847654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9456e92737653e14ca28a372e48e29a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buriedScript: {fileID: 954470155514628742}
+  SFXToSpawn: {fileID: 8734611745545370168, guid: f37993c200cd6c74ea31d0d2c264a301, type: 3}

@@ -714,6 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9e16c44206d9140a744b04fd8e6c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCore: {fileID: 0}
   equippedItems:
   - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
   - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
@@ -4923,6 +4924,7 @@ GameObject:
   - component: {fileID: 4096717450585100756}
   - component: {fileID: 215086994315009943}
   - component: {fileID: 2336375472945322156}
+  - component: {fileID: 8949560792627629508}
   m_Layer: 6
   m_Name: New Player
   m_TagString: Player
@@ -5321,6 +5323,20 @@ MonoBehaviour:
   upAttackPrefab: {fileID: 8142958838078798255, guid: e12be2ede53c18445aa5c114bbe39e31, type: 3}
   downAttackPrefab: {fileID: 0}
   ignoreTeams: 0
+--- !u!114 &8949560792627629508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649990236531220739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b107f88823910d459fb2aa1897b6ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementScript: {fileID: 6006615077103462235}
+  SFXToSpawn: {fileID: 8734611745545370168, guid: 77e009566a60ab94fa9ea0409b0df8bf, type: 3}
 --- !u!1 &5730024199699328231
 GameObject:
   m_ObjectHideFlags: 0
