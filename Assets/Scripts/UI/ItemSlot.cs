@@ -10,6 +10,7 @@ public class ItemSlot : MonoBehaviour
 
     public delegate void OnItemUsed();
     public event OnItemUsed ItemUsed;  
+    
 
     private void Start()
     {
@@ -96,5 +97,10 @@ public class ItemSlot : MonoBehaviour
         {
             icon.color = color; 
         }
+    }
+
+    public void SetHighlight(bool highlight)
+    { //adust highlight color when navigating items
+        icon.color = highlight ? Color.yellow : Color.white;
     }
 }

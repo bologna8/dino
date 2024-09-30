@@ -23,6 +23,9 @@ public class InventoryUI : MonoBehaviour
     public Transform inventoryItemTransform;
     public Transform craftingItemTransform;
 
+    //Highlight 
+    public int selectedIndex = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -106,36 +109,36 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-public void UpdateCraftingUI(CraftingRecipe recipe)
-{
-    if (recipe == null) return;
-
-    GameObject recipeSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
-    ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
-    if (recipeItemSlot != null)
+    public void UpdateCraftingUI(CraftingRecipe recipe)
     {
-        recipeItemSlot.AddItem(recipe); 
-    }
+        if (recipe == null) return;
 
-    foreach (var ingredient in recipe.ingredients)
-    {
-        GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
-        ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
-        if (ingredientItemSlot != null)
+        GameObject recipeSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+        ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
+        if (recipeItemSlot != null)
         {
-            ingredientItemSlot.AddItem(ingredient.item);
+            recipeItemSlot.AddItem(recipe);
+        }
 
-            if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
+        foreach (var ingredient in recipe.ingredients)
+        {
+            GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+            ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
+            if (ingredientItemSlot != null)
             {
-                ingredientItemSlot.SetIconColor(Color.white);
-            }
-            else
-            {
-                ingredientItemSlot.SetIconColor(Color.gray); 
+                ingredientItemSlot.AddItem(ingredient.item);
+
+                if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
+                {
+                    ingredientItemSlot.SetIconColor(Color.white);
+                }
+                else
+                {
+                    ingredientItemSlot.SetIconColor(Color.gray);
+                }
             }
         }
     }
-}
     private void SetUpCraftingRecipes()
     {
         List<Item> craftingRecipes = GameManager.instance.craftingRecipes;
@@ -200,4 +203,51 @@ public void UpdateCraftingUI(CraftingRecipe recipe)
             Cursor.visible = true;
         }
     }
-}
+
+    public void HighlightItem(int index)
+    {
+        //unhighlight all slots 
+        foreach (ItemSlot slot in itemSlotList)
+        {
+            slot.SetHighlight(false);
+        }
+
+        //highlight the selected slot
+        if (index >= 0 && index < itemSlotList.Count)
+        {
+            itemSlotList[index].SetHighlight(true);
+        }
+    }
+    public void NavigateInventory(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Vector2 navigationInput = context.ReadValue<Vector2>();
+
+            // Only move if the inventory is open
+            if (!inventoryOpen) return;
+
+            
+            if (navigationInput.y > 0)  // Up
+            {
+                selectedIndex = Mathf.Max(0, selectedIndex - 1);
+            }
+            else if (navigationInput.y < 0)  // Down
+            {
+                selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
+            }
+            if (navigationInput.x > 0)  // Right
+            {
+                selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
+            }
+            else if (navigationInput.x < 0)  // Left
+            {
+                selectedIndex = Mathf.Max(0, selectedIndex - 1);
+            }
+
+                HighlightItem(selectedIndex);
+            }
+
+        }
+
+    } 
