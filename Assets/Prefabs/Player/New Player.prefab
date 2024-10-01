@@ -6169,8 +6169,8 @@ MonoBehaviour:
   bonusJumps: 0
   jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
   canWallJump: 1
-  wallJumpForce: {x: 10, y: 17}
-  wallJumpDelay: 0.02
+  wallJumpForce: {x: 5, y: 12}
+  wallJumpDelay: 0.15
   wallJumpTime: {x: 0.4, y: 0.5}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
   wallLockDelay: 0.25

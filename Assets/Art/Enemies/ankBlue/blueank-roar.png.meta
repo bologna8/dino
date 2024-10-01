@@ -1,0 +1,1460 @@
+fileFormatVersion: 2
+guid: 25652f3d963933d458e16d4074129ee5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blueank-roar_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1920
+        width: 201
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e7a409310ca37459990ca090cb30fc
+      internalID: 110596866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_1
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 1920
+        width: 200
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77d4938b706e61146904e14907d5650f
+      internalID: -1040898190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_2
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 1920
+        width: 199
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e940655e4571b4f8a3dd231050c1e8
+      internalID: -1699223292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_3
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1920
+        width: 197
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a01756fdca3d114b919d3a2f5c4fc62
+      internalID: 1803973848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_4
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 1920
+        width: 196
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7a0cd08974b8948b1529f9362e7baf
+      internalID: 1100975588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_5
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 1920
+        width: 195
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2115849ca474fbc409de710ee3c84208
+      internalID: 1394692814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_6
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 1920
+        width: 194
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c4faa1cc0a01a4285d459b218095e0
+      internalID: 963031809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_7
+      rect:
+        serializedVersion: 2
+        x: 1823
+        y: 1920
+        width: 191
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1d8377b65fc4b49b56b905bb2d905a
+      internalID: 278256980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_8
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1664
+        width: 190
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca979eddfb3183d448ae56715296aea0
+      internalID: -1365507742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_9
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 1664
+        width: 188
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb40fb4b51c62446be35dd87ef8b685
+      internalID: -784757477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_10
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1664
+        width: 186
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe6e78e4252fa14b980b44b1d9f65b8
+      internalID: 178540261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1664
+        width: 184
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f7e415ffb79f846b5bfa5f941cc73e
+      internalID: 385181038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_12
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 1664
+        width: 181
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f22130301f13c49a963112a2722bfd
+      internalID: 1582642644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_13
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 1664
+        width: 179
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd4737b82b94ba44902133a4f9cde27
+      internalID: -966205284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_14
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 1664
+        width: 176
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64ea5f0256dbd444aaae24295f40d35b
+      internalID: -383097228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_15
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 1664
+        width: 174
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535fb20794360ff4aa8cab0f4cf9eca6
+      internalID: -1977818674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_16
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1408
+        width: 171
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f926512a518aa844c9d378d9900da7ae
+      internalID: 491938083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_17
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1408
+        width: 169
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568a95639f55f774fa7516de38768a22
+      internalID: 1343803624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_18
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1408
+        width: 167
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a57cadcce23f1d4b850db8922f4c09b
+      internalID: -424059831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_19
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 1408
+        width: 162
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1edcfaa7d8216498f401c48876c6c1
+      internalID: 1633493072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_20
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 1408
+        width: 159
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ffc529faf32d5a4f897238b9216415d
+      internalID: -90496550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_21
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 1408
+        width: 154
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3be1246307d17e4b8e5fd356b5f6fdd
+      internalID: 763337261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_22
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1408
+        width: 148
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fe2e4490cbc404abdc217e8c3533c4
+      internalID: 2113698378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_23
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 1408
+        width: 143
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ace80ebbf76cf44ab93984b9c552b8d
+      internalID: -666604963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_24
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1152
+        width: 136
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bb06d764dfb824ea3a94666d1bcd51
+      internalID: 1535068663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_25
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1152
+        width: 131
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6231191af7600641b400d65f5276676
+      internalID: -715849729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_26
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1152
+        width: 126
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7fdbb41764c2b4c958880628764548
+      internalID: 1935394181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_27
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 1152
+        width: 120
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47422ea6ed8dd9849932861d9a4ae48e
+      internalID: 1730858054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_28
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 1152
+        width: 115
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9815fc496d87b9488169808f60eab48
+      internalID: 995144256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_29
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 1152
+        width: 110
+        height: 99
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d7435989487094b859adecef2be294
+      internalID: 1863961978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_30
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 1152
+        width: 105
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851b4b222532d3a4eb963524dd57201c
+      internalID: 1937836593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_31
+      rect:
+        serializedVersion: 2
+        x: 1886
+        y: 1152
+        width: 101
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496ad3853248b3944997a6c540eaa226
+      internalID: -1351016921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_32
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 896
+        width: 93
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034c31e6573fcfd4daafa1d2d60fd331
+      internalID: 1638127889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_33
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 896
+        width: 95
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe04943c6fc24540be4c02cfd6072b7
+      internalID: 2139685080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_34
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 896
+        width: 97
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cefb258dab69c448f13ab8c031e775
+      internalID: 736733888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_35
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 896
+        width: 98
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e9a996738a08d42904d3f0635836cc
+      internalID: -1174387088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_36
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 896
+        width: 101
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32579d1dbeda3b49be06908c42c2c99
+      internalID: 1067357410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_37
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 896
+        width: 108
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb9c890e2c39e14d9634cb3a269543f
+      internalID: 1760491987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_38
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 896
+        width: 109
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728c6b0efec580c4c8f76caebf166e22
+      internalID: -1473542253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_39
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 896
+        width: 110
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0b64d0ae11b7f4ba70a02e4f879a10
+      internalID: -1500948832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_40
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 640
+        width: 111
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7993ee0e9fb2a547adbbf82eec6ad9f
+      internalID: -284343503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_41
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 640
+        width: 112
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad996fc01a23daf44be317b1b8e19304
+      internalID: 1283145932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_42
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 640
+        width: 113
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5eda0ad8a283074d8b2b829e8f65d2d
+      internalID: 2052968043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_43
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 640
+        width: 114
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6932bbfb10457db42aba3bce4f5db515
+      internalID: 572130313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_44
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 640
+        width: 114
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20cbb02d73fdcdc47956897d19845126
+      internalID: 1876445527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_45
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 640
+        width: 113
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae847ed302d40984eabf5fbbba81f50e
+      internalID: -1681817777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_46
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 640
+        width: 114
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075d29eac9e174045a8821418acb146d
+      internalID: 379885037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_47
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 640
+        width: 116
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a371e164c25bbf478af12683b0000a6
+      internalID: 1445499090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_48
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 384
+        width: 117
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e4a20524e585f4b9fda91989cd7afe
+      internalID: 12279966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_49
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 384
+        width: 119
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6ba09477eee7e4486d92dd5695504b
+      internalID: 1047031781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_50
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 384
+        width: 120
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d249ca4195819458797f5bea75c22c
+      internalID: 1448234973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_51
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 384
+        width: 122
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab1c4ad530ec3643a7dce7ae27cbe0f
+      internalID: -2013695326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_52
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 384
+        width: 136
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a48b0f22a5eae40a2d3c8d04170c7d
+      internalID: -140095986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_53
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 384
+        width: 149
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446d110a68659054980f22b8e63963e7
+      internalID: 164139273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_54
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 384
+        width: 158
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0db35beedc38e43a758784a9b1499c
+      internalID: 2010483102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_55
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 384
+        width: 166
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd289409b7c5d34182601ac4bd6acea
+      internalID: 1163665413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_56
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 128
+        width: 172
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40321546b835b2b4eb3c045054837b75
+      internalID: -1431053332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_57
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 128
+        width: 177
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb92fe0600d9484e90991a45d9b79b5
+      internalID: 78440452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_58
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 128
+        width: 181
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b94d670ca642948b0a48736ad65234
+      internalID: 104041970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-roar_59
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 128
+        width: 183
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22188c7d513954a49996c03c581ad97c
+      internalID: 304001591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      blueank-roar_0: 110596866
+      blueank-roar_1: -1040898190
+      blueank-roar_10: 178540261
+      blueank-roar_11: 385181038
+      blueank-roar_12: 1582642644
+      blueank-roar_13: -966205284
+      blueank-roar_14: -383097228
+      blueank-roar_15: -1977818674
+      blueank-roar_16: 491938083
+      blueank-roar_17: 1343803624
+      blueank-roar_18: -424059831
+      blueank-roar_19: 1633493072
+      blueank-roar_2: -1699223292
+      blueank-roar_20: -90496550
+      blueank-roar_21: 763337261
+      blueank-roar_22: 2113698378
+      blueank-roar_23: -666604963
+      blueank-roar_24: 1535068663
+      blueank-roar_25: -715849729
+      blueank-roar_26: 1935394181
+      blueank-roar_27: 1730858054
+      blueank-roar_28: 995144256
+      blueank-roar_29: 1863961978
+      blueank-roar_3: 1803973848
+      blueank-roar_30: 1937836593
+      blueank-roar_31: -1351016921
+      blueank-roar_32: 1638127889
+      blueank-roar_33: 2139685080
+      blueank-roar_34: 736733888
+      blueank-roar_35: -1174387088
+      blueank-roar_36: 1067357410
+      blueank-roar_37: 1760491987
+      blueank-roar_38: -1473542253
+      blueank-roar_39: -1500948832
+      blueank-roar_4: 1100975588
+      blueank-roar_40: -284343503
+      blueank-roar_41: 1283145932
+      blueank-roar_42: 2052968043
+      blueank-roar_43: 572130313
+      blueank-roar_44: 1876445527
+      blueank-roar_45: -1681817777
+      blueank-roar_46: 379885037
+      blueank-roar_47: 1445499090
+      blueank-roar_48: 12279966
+      blueank-roar_49: 1047031781
+      blueank-roar_5: 1394692814
+      blueank-roar_50: 1448234973
+      blueank-roar_51: -2013695326
+      blueank-roar_52: -140095986
+      blueank-roar_53: 164139273
+      blueank-roar_54: 2010483102
+      blueank-roar_55: 1163665413
+      blueank-roar_56: -1431053332
+      blueank-roar_57: 78440452
+      blueank-roar_58: 104041970
+      blueank-roar_59: 304001591
+      blueank-roar_6: 963031809
+      blueank-roar_7: 278256980
+      blueank-roar_8: -1365507742
+      blueank-roar_9: -784757477
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

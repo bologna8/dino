@@ -1,0 +1,1174 @@
+fileFormatVersion: 2
+guid: bcc963573208f1546b4da8d170be250e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blueank-swing_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1920
+        width: 197
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d958c8b4d7822664193b14a0a58bc1d3
+      internalID: 50721979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1919
+        width: 193
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295b0f740f86d9049bb0cb201c95b656
+      internalID: 282249774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_2
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1919
+        width: 189
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a377c055b73467c46aa3c730484fe689
+      internalID: 1252314291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_3
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1919
+        width: 184
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f40a256e0b0990428bf9951a1f6a19f
+      internalID: 638454483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_4
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 1919
+        width: 179
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112e36343387e92409e7b1ebdf1d9bd1
+      internalID: -2018193229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_5
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 1918
+        width: 173
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7bc80583814d24fa89d353d2122bec
+      internalID: -141226750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_6
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 1918
+        width: 165
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35541df313f9aa944bcab97deaef436e
+      internalID: 1031281820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_7
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 1918
+        width: 157
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87483f7c77bbecc4b8bb4be24ef8defc
+      internalID: -213377684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1662
+        width: 148
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cfad6d8cad129c4c90c20d463702422
+      internalID: 605900851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_9
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1662
+        width: 139
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ffbd134e7729a44998486662994062f
+      internalID: -1946185205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_10
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1662
+        width: 128
+        height: 82
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d571a14d23e6d6e48b92353a138a717b
+      internalID: 1596932858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_11
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 1662
+        width: 122
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37916299078c9441b04dc840b460fec
+      internalID: -1307558778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_12
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 1662
+        width: 115
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ebaa595c8553a43baf5a14f04a7b3c
+      internalID: -609616149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_13
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 1662
+        width: 113
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6f10571aa49b242941a59f9d23b0ce
+      internalID: 945131327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_14
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 1662
+        width: 111
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff6fa3d68923bd4a8f33f4eafd7f258
+      internalID: -1988943856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_15
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 1662
+        width: 107
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89bdfb2ddf2a84d4190ba53c986b7fbb
+      internalID: 1694101721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_16
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1406
+        width: 104
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a90ebdf61c32f748be53100f670e6da
+      internalID: -68375019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_17
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 1406
+        width: 104
+        height: 93
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f96bd82a783d445831a5b457785a77
+      internalID: -381442825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_18
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 1406
+        width: 104
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df1ae7f73078244fa296f964d517133
+      internalID: -1599724163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_19
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 1406
+        width: 103
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2804a9bfd4e8454ca14ce18ef3d246b
+      internalID: -987400558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_20
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 1406
+        width: 102
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f028d9991379d46943f013f8da7e8f
+      internalID: -1844791938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_21
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 1406
+        width: 101
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17907a7d8762ce4095def2a6e5c046e
+      internalID: -1030831468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_22
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 1406
+        width: 103
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d7134c82776ec4aaf078000d434486
+      internalID: 38110391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_23
+      rect:
+        serializedVersion: 2
+        x: 1889
+        y: 1406
+        width: 107
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a51ac230cdfaa4f84608b34025d5a3
+      internalID: -1463389795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_24
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1150
+        width: 111
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b275af102f8e44a4a87761dc05390bd7
+      internalID: 1831391431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_25
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 1150
+        width: 116
+        height: 90
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a40b951041683d489e8cd8c3ee71823
+      internalID: -79446253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_26
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 1150
+        width: 134
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0997408edaa6d4281cc4402ae2aded
+      internalID: 40634649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_27
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 1150
+        width: 149
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef6a7ac8bea4ce40a6d30fed4657fa9
+      internalID: 1169143713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_28
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 1150
+        width: 162
+        height: 84
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88da0940ba0cffd4ea9c2bbe9c83f94c
+      internalID: -2066592516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_29
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 1151
+        width: 174
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b92d6f0d9bdd89498da2d4ff4cc53be
+      internalID: 2060197412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_30
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 1151
+        width: 182
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8131326d0367fa64b95d8bf4b4cb1d92
+      internalID: 1958235036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_31
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 1151
+        width: 184
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0f1a622da370d40842a74ed30829b6
+      internalID: -212604403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_32
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 895
+        width: 180
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f105fc1fde6ed544ab57beccc006045
+      internalID: -344167623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_33
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 895
+        width: 174
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57990fc25ba8ad44e9eca48e3e15ca7b
+      internalID: -848408447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_34
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 895
+        width: 165
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0ad73fd8bbf7b4db678cae34956b17
+      internalID: 748686567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_35
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 894
+        width: 151
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ddc38b8942f8a4690e37011b0ab9b7
+      internalID: 980832329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_36
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 894
+        width: 135
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dbb39215c3e34a43beb1bd03bf78991
+      internalID: 1972689891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_37
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 894
+        width: 139
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1012f98be3154834b8558ca969c7974d
+      internalID: 1042356474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_38
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 894
+        width: 144
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3200367211a3a674e9c0cbdf6041e035
+      internalID: -2081888570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_39
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 894
+        width: 148
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a112b91fb4d3e4fb058ee0a2f6bb5d
+      internalID: 1041786550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_40
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 638
+        width: 153
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ad289aa586f9748a368156832a0f3d
+      internalID: 897439539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_41
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 638
+        width: 156
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f4806ca2d8d4f49a7b7dcd7399884a
+      internalID: -1495481752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_42
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 638
+        width: 160
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ffa393dff227d41b8fa0ab5bbcda1c
+      internalID: 1843487565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_43
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 638
+        width: 163
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897165e5cb4720645834c233e205f9fa
+      internalID: 1894132051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_44
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 638
+        width: 166
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925380f2bfd7ec54f9c3ef3291388256
+      internalID: 1843934188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_45
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 638
+        width: 169
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5797b76202ecc9d4f8c64e268708e7cc
+      internalID: -548100974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-swing_46
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 638
+        width: 172
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14e85d6e7a05a7418b14a57e70cf58d
+      internalID: 558941846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      blueank-swing_0: 50721979
+      blueank-swing_1: 282249774
+      blueank-swing_10: 1596932858
+      blueank-swing_11: -1307558778
+      blueank-swing_12: -609616149
+      blueank-swing_13: 945131327
+      blueank-swing_14: -1988943856
+      blueank-swing_15: 1694101721
+      blueank-swing_16: -68375019
+      blueank-swing_17: -381442825
+      blueank-swing_18: -1599724163
+      blueank-swing_19: -987400558
+      blueank-swing_2: 1252314291
+      blueank-swing_20: -1844791938
+      blueank-swing_21: -1030831468
+      blueank-swing_22: 38110391
+      blueank-swing_23: -1463389795
+      blueank-swing_24: 1831391431
+      blueank-swing_25: -79446253
+      blueank-swing_26: 40634649
+      blueank-swing_27: 1169143713
+      blueank-swing_28: -2066592516
+      blueank-swing_29: 2060197412
+      blueank-swing_3: 638454483
+      blueank-swing_30: 1958235036
+      blueank-swing_31: -212604403
+      blueank-swing_32: -344167623
+      blueank-swing_33: -848408447
+      blueank-swing_34: 748686567
+      blueank-swing_35: 980832329
+      blueank-swing_36: 1972689891
+      blueank-swing_37: 1042356474
+      blueank-swing_38: -2081888570
+      blueank-swing_39: 1041786550
+      blueank-swing_4: -2018193229
+      blueank-swing_40: 897439539
+      blueank-swing_41: -1495481752
+      blueank-swing_42: 1843487565
+      blueank-swing_43: 1894132051
+      blueank-swing_44: 1843934188
+      blueank-swing_45: -548100974
+      blueank-swing_46: 558941846
+      blueank-swing_5: -141226750
+      blueank-swing_6: 1031281820
+      blueank-swing_7: -213377684
+      blueank-swing_8: 605900851
+      blueank-swing_9: -1946185205
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

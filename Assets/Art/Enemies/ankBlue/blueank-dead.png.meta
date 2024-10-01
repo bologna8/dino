@@ -1,0 +1,1020 @@
+fileFormatVersion: 2
+guid: b50520d25e00beb4caa5f8f020b1d39a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blueank-dead_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1918
+        width: 189
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450d73fbaf32bf147b49988a657ec140
+      internalID: -1015414261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_1
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 1918
+        width: 190
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c086c62242f0043b1033f9dd100667
+      internalID: -1064119880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1918
+        width: 190
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424d1c9ab12e5f244a972947f145231a
+      internalID: 916824548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_3
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1918
+        width: 190
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ece8fcb312cad94c97e6ec3f21f5d60
+      internalID: 2063575732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_4
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1918
+        width: 188
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32068c5ee2effd48b4f40c5c3c76900
+      internalID: -150550229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_5
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 1917
+        width: 186
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a262ba74a93e5843ba39945e647229f
+      internalID: -1193970721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_6
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 1917
+        width: 182
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd59033354a76f4f8f12d2c642ccc21
+      internalID: 99497007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_7
+      rect:
+        serializedVersion: 2
+        x: 1836
+        y: 1917
+        width: 178
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d899ab7aebcf347a3b143be23249a4
+      internalID: -1876815815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1661
+        width: 174
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c28a8541a599a142ab4751999384742
+      internalID: 2038435977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_9
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 1661
+        width: 169
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b7843a7c7eaac4c9e9131d7bbf6d60
+      internalID: -313084786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_10
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1661
+        width: 163
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7126b8636bbcca849ab94fceb10965c1
+      internalID: -1886205685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_11
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1660
+        width: 157
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f24db70604cc04fb8f953ebc15f6ea
+      internalID: 2102884762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_12
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 1660
+        width: 150
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880ac2850d4317c40a3b683b7998cb50
+      internalID: -488330097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_13
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 1660
+        width: 143
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b443c39d763a29346b0561437a72f07f
+      internalID: 432932865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_14
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 1660
+        width: 135
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8b8ba0d772376499ae77f8a9780f7d
+      internalID: 664590093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_15
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1659
+        width: 133
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22578b9ac6542e42a58b9e7c04a47ee
+      internalID: -346204345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_16
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 1403
+        width: 129
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25aa174ea7e60fc4a9dbd3aa11579d99
+      internalID: 1214006547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_17
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 1402
+        width: 127
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b105c41b4cf019b4c866f6d9ea513d1f
+      internalID: 944805913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_18
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1402
+        width: 124
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4de01765f02cc4087d3d75cc621474
+      internalID: -1877606905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_19
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 1402
+        width: 121
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbb8808122e35e4a96a47c0cbdc9e6e
+      internalID: -1104766323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_20
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 1403
+        width: 119
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 147976ac6f0de6b45aea2fa26ad9112f
+      internalID: -482291788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_21
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 1404
+        width: 116
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86022ee6e027a514d8cc59a74804799c
+      internalID: 90556195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_22
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 1404
+        width: 115
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e47cb72084dc9d439e547b83558ef7a
+      internalID: 1391360388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_23
+      rect:
+        serializedVersion: 2
+        x: 1889
+        y: 1405
+        width: 115
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3aabe6ec689d2418b1771f32bb6253
+      internalID: -400928370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_24
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1150
+        width: 115
+        height: 59
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b515300c204e70740b27505dea007cac
+      internalID: 281543067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_25
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1150
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cb0793744db8d45a51dae75a9c19c7
+      internalID: 1567683111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_26
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 1149
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0bfaf9e3bc3da459477ccb23c4d9d7
+      internalID: 376309390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_27
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 1149
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bebe6790113574dad2b2b7c2b71718
+      internalID: -1373076659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_28
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 1149
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5863d31ccdf9a7c45950f8525d2e9061
+      internalID: 632451625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_29
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1149
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df820f8bcc529649a3c17eb0844481c
+      internalID: 2146784033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_30
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 1149
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d15558ac9068094bb019524436c22a3
+      internalID: -513575597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_31
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 1149
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17cfc09d6636d6f43a6f7cd93d3e893b
+      internalID: 618977631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_32
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ccd84393a2852946ba8ac4763ee305e
+      internalID: 2127876768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_33
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beeef7838aa94854a90e5a8d1a489ae0
+      internalID: -507602644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_34
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2907d4e5ade8e6341b1ecdee9d035fc1
+      internalID: 1542057236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_35
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e1dbc0e0658c242b1cf0e6277860f0
+      internalID: 2034970526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_36
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b044fa082506d4dbf423ba55645efb
+      internalID: 294836694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_37
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673cda5b2acb2c74980fcead361ac8d4
+      internalID: -29906686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_38
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fcd38580e5f544598ef3eff9beadfa
+      internalID: 20226229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueank-dead_39
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 893
+        width: 115
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d922cfd7174208b44af7541902599e18
+      internalID: 741783420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      blueank-dead_0: -1015414261
+      blueank-dead_1: -1064119880
+      blueank-dead_10: -1886205685
+      blueank-dead_11: 2102884762
+      blueank-dead_12: -488330097
+      blueank-dead_13: 432932865
+      blueank-dead_14: 664590093
+      blueank-dead_15: -346204345
+      blueank-dead_16: 1214006547
+      blueank-dead_17: 944805913
+      blueank-dead_18: -1877606905
+      blueank-dead_19: -1104766323
+      blueank-dead_2: 916824548
+      blueank-dead_20: -482291788
+      blueank-dead_21: 90556195
+      blueank-dead_22: 1391360388
+      blueank-dead_23: -400928370
+      blueank-dead_24: 281543067
+      blueank-dead_25: 1567683111
+      blueank-dead_26: 376309390
+      blueank-dead_27: -1373076659
+      blueank-dead_28: 632451625
+      blueank-dead_29: 2146784033
+      blueank-dead_3: 2063575732
+      blueank-dead_30: -513575597
+      blueank-dead_31: 618977631
+      blueank-dead_32: 2127876768
+      blueank-dead_33: -507602644
+      blueank-dead_34: 1542057236
+      blueank-dead_35: 2034970526
+      blueank-dead_36: 294836694
+      blueank-dead_37: -29906686
+      blueank-dead_38: 20226229
+      blueank-dead_39: 741783420
+      blueank-dead_4: -150550229
+      blueank-dead_5: -1193970721
+      blueank-dead_6: 99497007
+      blueank-dead_7: -1876815815
+      blueank-dead_8: 2038435977
+      blueank-dead_9: -313084786
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

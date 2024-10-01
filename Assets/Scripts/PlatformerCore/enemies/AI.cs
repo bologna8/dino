@@ -139,15 +139,15 @@ public class AI : MonoBehaviour
 
                 bool canGoForward = true;
 
-                if (myMovement.moveInput > 0) 
+                if (myMovement.moveInput > 0 && myMovement.rightHipCheck) 
                 {
-                    if (myMovement.rightWallCheck.touching) { canGoForward = false; }
+                    if (myMovement.rightHipCheck.touching) { canGoForward = false; }
                     else if (myMovement.onGround && !myMovement.rightForwardCheck.touching) { canGoForward = false; }
                 }
 
-                if (myMovement.moveInput < 0)
+                if (myMovement.moveInput < 0 && myMovement.leftHipCheck)
                 { 
-                    if (myMovement.leftWallCheck.touching) { canGoForward = false; } 
+                    if (myMovement.leftHipCheck.touching) { canGoForward = false; } 
                     else if (myMovement.onGround && !myMovement.leftForwardCheck.touching) { canGoForward = false; }
                 }
 
