@@ -8,11 +8,14 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: bcc901c74d064fe4483d49dbbe0e8cd5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Barber/LevelBlockout.unity
     guid: 2bb74f10f718d40c4922d4249b1f7cd9
+  - enabled: 1
+    path: Assets/Scenes/Toby_W/Demo scene.unity
+    guid: 277b8d68e3b1e104dba10f6ebed36a3c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a2e40740f5d28eb4989aeed2c0dc0258, type: 2}
