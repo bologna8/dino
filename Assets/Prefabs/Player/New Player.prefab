@@ -6067,23 +6067,29 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  headCheck: {fileID: 0}
-  passCheck: {fileID: 0}
-  dashCheck: {fileID: 0}
-  groundCheck: {fileID: 0}
-  rightAirCheck: {fileID: 0}
-  rightLedgeCheck: {fileID: 0}
-  rightWallCheck: {fileID: 0}
-  rightHipCheck: {fileID: 0}
-  rightForwardCheck: {fileID: 0}
-  leftAirCheck: {fileID: 0}
-  leftLedgeCheck: {fileID: 0}
-  leftWallCheck: {fileID: 0}
-  leftHipCheck: {fileID: 0}
-  leftForwardCheck: {fileID: 0}
-  myCore: {fileID: 0}
-  baseSpeed: 10
-  airSpeedMultiplier: 1
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  headCheck: {fileID: 4260673958863845753}
+  passCheck: {fileID: 1049108335874848960}
+  dashCheck: {fileID: 2740418553388074095}
+  groundCheck: {fileID: 6404018314857598183}
+  rightAirCheck: {fileID: 5739138009132475240}
+  rightLedgeCheck: {fileID: 5995821045788077000}
+  rightWallCheck: {fileID: 2103235372353586212}
+  rightHipCheck: {fileID: 8374718662539560012}
+  rightForwardCheck: {fileID: 6340610187411464771}
+  leftAirCheck: {fileID: 6405412781969456772}
+  leftLedgeCheck: {fileID: 7477546027447676483}
+  leftWallCheck: {fileID: 9106458856626637265}
+  leftHipCheck: {fileID: 4716684067978515514}
+  leftForwardCheck: {fileID: 783123517180929528}
+  myCore: {fileID: 7513557193232624445}
+  baseSpeed: 8
+  airSpeedMultiplier: 0.75
   moveSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -6115,12 +6121,12 @@ MonoBehaviour:
   verticalInput: 0
   movingRight: 1
   slowPercent: 1
-  landingMomentum: 0.5
+  landingMomentum: 0.9
   myGravityScale: 2
   gravityAcceleration: 3
   minGrav: 1
   terminalVelocity: 20
-  jumpForce: 15
+  jumpForce: 10
   maxJumpTime: 0.5
   minJumpTime: 0.25
   jumpInput: 0
@@ -6195,7 +6201,7 @@ MonoBehaviour:
   gravityWhileAirDashing: 0
   airDashes: 1
   airDashEffect: {fileID: 8080380149315166911, guid: 8098db70917281f499adbdf26341f4ac, type: 3}
-  myBod: {fileID: 0}
+  myBod: {fileID: 340933065370478967}
 --- !u!114 &9030483205541976314
 MonoBehaviour:
   m_ObjectHideFlags: 0
