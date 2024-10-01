@@ -23,7 +23,7 @@ TagManager:
   - Interactable
   - Audio
   - Map Trigger
-  - 
+  - TEST RENDERING LAYER
   - 
   - 
   - 
@@ -38,6 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Environment Background 5
+    uniqueID: 70921581
+    locked: 0
+  - name: Environment Background 4
+    uniqueID: 76065113
+    locked: 0
+  - name: Environment Background 3
+    uniqueID: 1788302949
+    locked: 0
+  - name: Environment Background 2
+    uniqueID: 2798896721
+    locked: 0
+  - name: Environment Background 1
+    uniqueID: 1571102889
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -49,7 +64,4 @@ TagManager:
     locked: 0
   - name: Mask Layer
     uniqueID: 1448770411
-    locked: 0
-  - name: Environment Background
-    uniqueID: 1571102889
     locked: 0
