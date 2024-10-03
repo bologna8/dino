@@ -18,6 +18,7 @@ public class LayerCheck : MonoBehaviour
                touching = true; lastCollided = collision;
                slope = collision.transform.rotation.z;
                ExtraEnterOperations(collision);
+
           }    
      }
 
@@ -44,6 +45,7 @@ public class LayerCheck : MonoBehaviour
 
 
 
+     /*
      public Vector3 findTopCorner(bool topR) //Top right or left corner
      {
           if (lastCollided)
@@ -55,11 +57,25 @@ public class LayerCheck : MonoBehaviour
                if (topR) { cornerPoint.x -= b.extents.x; }
                else { cornerPoint.x += b.extents.x;}
 
+               //lastCollided.ClosestPoint();
+
                return cornerPoint;
           }
 
           Debug.Log("No corner found, defaulting to middle");
           return transform.position;
           
+     }
+     */
+
+     public Vector3 closestCorner(Vector3 position)
+     {
+          if (lastCollided)
+          {
+               return lastCollided.ClosestPoint(position);
+          }
+
+          Debug.Log("no corner found");
+          return transform.position;
      }
 }

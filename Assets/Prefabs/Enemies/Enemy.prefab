@@ -1396,10 +1396,10 @@ MonoBehaviour:
   canWallSlide: 0
   wallSlideSpeed: 1
   wallSliding: 0
-  grabLedges: 1
+  grabLedges: 0
   climbTime: {x: 0.33, y: 0.42}
   onEdge: 0
-  autoVaultOver: 1
+  autoVaultOver: 0
   minVaultMomentum: 0
   vaultSpeed: 0.1
   dashCooldown: 0.9
@@ -1470,6 +1470,8 @@ MonoBehaviour:
   packAttack: 0
   foolish: 0
   frenzied: 0
+  skirmish: 0
+  territorial: 0
   myAim: {fileID: 0}
 --- !u!1 &5933526067178452155
 GameObject:

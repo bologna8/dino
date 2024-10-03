@@ -457,8 +457,10 @@ public class Movement : MonoBehaviour
             { 
                 if (hangTime > hangClimbDelay) 
                 { 
-                    if (rightLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(rightLedgeCheck.findTopCorner(movingRight), climbTime.y, climbTime.x)); }
-                    if (leftLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(leftLedgeCheck.findTopCorner(movingRight), climbTime.y, climbTime.x)); }
+                    //if (rightLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(rightLedgeCheck.findTopCorner(movingRight), climbTime.y, climbTime.x)); }
+                    //if (leftLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(leftLedgeCheck.findTopCorner(movingRight), climbTime.y, climbTime.x)); }
+                    if (rightLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(rightLedgeCheck.closestCorner(rightAirCheck.transform.position), climbTime.y, climbTime.x)); }
+                    if (leftLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(leftLedgeCheck.closestCorner(leftAirCheck.transform.position), climbTime.y, climbTime.x)); }
                 } 
             }
             else if (currentWallTime >= wallLockDelay && canWallJump && !ignoreGravity) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
@@ -630,17 +632,15 @@ public class Movement : MonoBehaviour
 
                 if (movingRight) 
                 { 
-                    cornerHit = rightLedgeCheck.findTopCorner(movingRight); 
+                    cornerHit = rightLedgeCheck.closestCorner(rightAirCheck.transform.position);
                     offset = rightLedgeCheck.transform.localPosition;
                 }
                 else
                 {
-                    cornerHit = leftLedgeCheck.findTopCorner(movingRight);
+                    cornerHit = leftLedgeCheck.closestCorner(leftAirCheck.transform.position);
                     offset = leftLedgeCheck.transform.localPosition;
                 }
 
-                
-                //if (!movingRight) { offset.x *= -1; }
                 transform.position = cornerHit - offset;
 
                 hangTime += Time.deltaTime;
@@ -717,10 +717,10 @@ public class Movement : MonoBehaviour
         if (leftHipCheck && rightHipCheck && leftLedgeCheck && rightLedgeCheck && dashing == null && myBod.velocity.y >= 0) // don't vault when goin down
         {
             if (movingRight && rightHipCheck.touching && rightHipCheck.slope == 0 && !rightLedgeCheck.touching) 
-            { climbing = StartCoroutine(ledgeClimb(rightHipCheck.findTopCorner(movingRight), vaultSpeed)); }
+            { climbing = StartCoroutine(ledgeClimb(rightHipCheck.closestCorner(transform.position), vaultSpeed)); }
 
             if (!movingRight && leftHipCheck.touching && leftHipCheck.slope == 0 && !leftLedgeCheck.touching)
-            { climbing = StartCoroutine(ledgeClimb(leftHipCheck.findTopCorner(movingRight), vaultSpeed)); }
+            { climbing = StartCoroutine(ledgeClimb(leftHipCheck.closestCorner(transform.position), vaultSpeed)); }
 
         }
     }
