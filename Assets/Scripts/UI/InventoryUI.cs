@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour
     public Transform inventoryItemTransform;
     public Transform craftingItemTransform;
 
-    //Highlight 
+    // Highlight 
     public int selectedIndex = 0;
 
     private void Awake()
@@ -109,6 +109,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    /*
     public void UpdateCraftingUI(CraftingRecipe recipe)
     {
         if (recipe == null) return;
@@ -139,13 +140,15 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+    */
+
     private void SetUpCraftingRecipes()
     {
         List<Item> craftingRecipes = GameManager.instance.craftingRecipes;
 
         foreach (Item recipe in craftingRecipes)
         {
-            UpdateCraftingUI((CraftingRecipe)recipe);
+            // UpdateCraftingUI((CraftingRecipe)recipe);
         }
     }
 
@@ -206,18 +209,19 @@ public class InventoryUI : MonoBehaviour
 
     public void HighlightItem(int index)
     {
-        //unhighlight all slots 
+        // Unhighlight all slots 
         foreach (ItemSlot slot in itemSlotList)
         {
             slot.SetHighlight(false);
         }
 
-        //highlight the selected slot
+        // Highlight the selected slot
         if (index >= 0 && index < itemSlotList.Count)
         {
             itemSlotList[index].SetHighlight(true);
         }
     }
+
     public void NavigateInventory(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -227,7 +231,6 @@ public class InventoryUI : MonoBehaviour
             // Only move if the inventory is open
             if (!inventoryOpen) return;
 
-            
             if (navigationInput.y > 0)  // Up
             {
                 selectedIndex = Mathf.Max(0, selectedIndex - 1);
@@ -245,9 +248,7 @@ public class InventoryUI : MonoBehaviour
                 selectedIndex = Mathf.Max(0, selectedIndex - 1);
             }
 
-                HighlightItem(selectedIndex);
-            }
-
+            HighlightItem(selectedIndex);
         }
-
-    } 
+    }
+}

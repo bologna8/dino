@@ -56,7 +56,12 @@ public class PickUp : MonoBehaviour
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                 if (inventoryUI != null)
                 {
-                    inventoryUI.UpdateCraftingUI(recipe);
+                    GameObject recipeSlot = Instantiate(inventoryUI.craftingSlotPrefab, inventoryUI.craftingItemTransform);
+                    ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
+                    if (recipeItemSlot != null)
+                    {
+                        recipeItemSlot.AddItem(recipe);  
+                    }
                 }
             }
 
