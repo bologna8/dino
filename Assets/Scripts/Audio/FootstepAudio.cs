@@ -26,23 +26,35 @@ public class FootstepAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerMovement.onGround && (playerMovement.moveInput >= 0.5 || playerMovement.moveInput <= -0.5)){
-            timeAlive += Time.deltaTime;
+        if(playerMovement != null){
+            if(playerMovement.onGround && (playerMovement.moveInput >= 0.5 || playerMovement.moveInput <= -0.5)){
+                timeAlive += Time.deltaTime;
+            }
+        }else{
+            Debug.Log("Error: no player movement script attached to this script");
         }
 
         if(timeAlive >= SpawnRate){
-            GameObject g = GetFootstep(detectGround.standingOn);
-            PoolManager.Instance.Spawn(g, transform.position, Quaternion.identity);
+            if(detectGround != null){
+                GameObject g = GetFootstep(detectGround.standingOn);
+                PoolManager.Instance.Spawn(g, transform.position, Quaternion.identity);
+            }else{
+                Debug.Log("Error: no detect ground script attached to this script");
+            }
             timeAlive = 0;
         }
 
     }
 
     GameObject GetFootstep(GroundType.Type gt){
-        List<GameObject> lg = FootstepLists[gt];
-        if(lg.Count > 0){
-            int rand = Random.Range(0, lg.Count);
-            return lg[rand];
+        if(FootstepLists != null){
+            List<GameObject> lg = FootstepLists[gt];
+            if(lg.Count > 0){
+                int rand = Random.Range(0, lg.Count);
+                return lg[rand];
+            }
+        }else{
+            Debug.Log("Error: Footstep dictionary is empty");
         }
         
         return null;            

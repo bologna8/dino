@@ -21,7 +21,7 @@ public class TestSpawner : MonoBehaviour
     {
         spawnTime += Time.deltaTime;
         if(spawnTime >= spawnRate){
-            Instantiate(effectToSpawn);
+            if(effectToSpawn != null) Instantiate(effectToSpawn);
             spawnTime = 0;
         }
     }

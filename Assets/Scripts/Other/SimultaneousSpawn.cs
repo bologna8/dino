@@ -7,7 +7,8 @@ public class SimultaneousSpawn : MonoBehaviour
     public GameObject thingToSpawn;
     void OnEnable()
     {
-        PoolManager.Instance.Spawn(thingToSpawn, transform.position, transform.rotation, null);
+        
+        if(thingToSpawn != null) PoolManager.Instance.Spawn(thingToSpawn, transform.position, transform.rotation, null);
     }
 
   

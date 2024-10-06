@@ -11,19 +11,27 @@ public class WallClingSFX : MonoBehaviour
     private bool previous;
     void Start()
     {
-        previous = movementScript.wallSliding;
+        if(movementScript != null) previous = movementScript.wallSliding;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(previous != movementScript.wallSliding){
-            if(movementScript.wallSliding){
-                PoolManager.Instance.Spawn(SFXToSpawn, transform.position, transform.rotation);
+        if(movementScript != null){
+            if(previous != movementScript.wallSliding){
+                if(movementScript.wallSliding){
+                    if(SFXToSpawn != null){
+                        PoolManager.Instance.Spawn(SFXToSpawn, transform.position, transform.rotation);
+                    }else{
+                        Debug.Log("Error: No SFX attached to wallclingsfx");
+                    }
+                }
+
+                previous = movementScript.wallSliding;
+
             }
-
-            previous = movementScript.wallSliding;
-
+        }else{
+            Debug.Log("Error: No movement script attached to wallclingsfx");
         }
     }
 }

@@ -33,32 +33,34 @@ public class CompyAudio : MonoBehaviour
 
     void Update()
     {
-        if(compyAI.currentState == AI.State.chase){
+        if(compyAI != null){
+            if(compyAI.currentState == AI.State.chase){
 
-            ChaseTime += Time.deltaTime;
+                ChaseTime += Time.deltaTime;
 
-            if(ChaseTime >= ChaseSpawnTime){
-                if(chaseSounds.Count > 0){
-                    int x = Random.Range(0, chaseSounds.Count);
-                    Instantiate(chaseSounds[x], this.transform.position, Quaternion.identity);
+                if(ChaseTime >= ChaseSpawnTime){
+                    if(chaseSounds != null && chaseSounds.Count > 0){
+                        int x = Random.Range(0, chaseSounds.Count);
+                        Instantiate(chaseSounds[x], this.transform.position, Quaternion.identity);
+                    }
+                    ChaseTime = 0;
+                    ChaseSpawnTime = Random.Range((float)chaseMinimumSpawnTime, (float)chaseMaximumSpawnTime);
                 }
-                ChaseTime = 0;
-                ChaseSpawnTime = Random.Range((float)chaseMinimumSpawnTime, (float)chaseMaximumSpawnTime);
-            }
 
-        }else{
+            }else{
 
-            NeutralTime += Time.deltaTime;
+                NeutralTime += Time.deltaTime;
 
-             if(NeutralTime >= NeutralSpawnTime){
-                if(neutralSounds.Count > 0){
-                    int x = Random.Range(0, neutralSounds.Count);
-                    Instantiate(neutralSounds[x], this.transform.position, Quaternion.identity);
+                if(NeutralTime >= NeutralSpawnTime){
+                    if(neutralSounds != null && neutralSounds.Count > 0){
+                        int x = Random.Range(0, neutralSounds.Count);
+                        Instantiate(neutralSounds[x], this.transform.position, Quaternion.identity);
+                    }
+                    NeutralTime = 0;
+                    NeutralSpawnTime = Random.Range((float)neutralMinimumSpawnTime, (float)neutralMaximumSpawnTime);
                 }
-                NeutralTime = 0;
-                NeutralSpawnTime = Random.Range((float)neutralMinimumSpawnTime, (float)neutralMaximumSpawnTime);
-            }
 
+            }
         }
     }
 }

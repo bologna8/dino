@@ -31,14 +31,18 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         Mixer.SetFloat(track1, 0); //Temporary
+        if(Mixer != null) Mixer.SetFloat(track1, 0); //Temporary
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach(AudioSource source in Secondary){
-            source.timeSamples = Primary.timeSamples;       
+        if(Primary != null && Secondary != null){
+            foreach(AudioSource source in Secondary){
+                source.timeSamples = Primary.timeSamples;       
+            }
+        }else{
+            Debug.Log("Error: there is no primary and secondary audio sources assigned to music player");
         }
 
         if(doingCrossfade){
@@ -63,16 +67,20 @@ public class MusicPlayer : MonoBehaviour
             }
 
             foreach(string str in allVolumes){
-                float x; 
-                Mixer.GetFloat(str, out x);
-                if(str == volA){
-                    if(x < Mathf.Log10(logValue) * 26){
-                        Mixer.SetFloat(str, Mathf.Log10(logValue) * 26);
+                if(Mixer != null){
+                    float x; 
+                    Mixer.GetFloat(str, out x);
+                    if(str == volA){
+                        if(x < Mathf.Log10(logValue) * 26){
+                            Mixer.SetFloat(str, Mathf.Log10(logValue) * 26);
+                        }
+                    }else{
+                        if(x > Mathf.Log10(invlogValue) * 26){
+                            Mixer.SetFloat(str, Mathf.Log10(invlogValue) * 26);
+                        }
                     }
                 }else{
-                    if(x > Mathf.Log10(invlogValue) * 26){
-                        Mixer.SetFloat(str, Mathf.Log10(invlogValue) * 26);
-                    }
+                    Debug.Log("Error: No Mixer assigned to music player");
                 }
             }
 

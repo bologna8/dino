@@ -11,19 +11,21 @@ public class DigSFX : MonoBehaviour
     private bool previous;
     void Start()
     {
-        previous = buriedScript.digging;
+        if(buriedScript != null) previous = buriedScript.digging;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(previous != buriedScript.digging){
-            if(buriedScript.digging){
-                PoolManager.Instance.Spawn(SFXToSpawn, transform.position, transform.rotation);
+        if(buriedScript != null && SFXToSpawn != null){
+            if(previous != buriedScript.digging){
+                if(buriedScript.digging){
+                    PoolManager.Instance.Spawn(SFXToSpawn, transform.position, transform.rotation);
+                }
+
+                previous = buriedScript.digging;
+
             }
-
-            previous = buriedScript.digging;
-
         }
     }
 }
