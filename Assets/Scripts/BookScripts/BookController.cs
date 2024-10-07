@@ -12,7 +12,6 @@ public class BookController : MonoBehaviour
     private int currentPage = 0;
 
     private List<int> unlockedPages = new List<int>();  
-
     public List<int> alwaysAvailablePages;  
 
     public InputActionReference nextPageAction;
@@ -132,14 +131,32 @@ public class BookController : MonoBehaviour
 
     public void UnlockSpecificPage(int pageIndex)
     {
-        if (!unlockedPages.Contains(pageIndex) && pageIndex >= 0 && pageIndex < pages.Length)
+        if (!unlockedPages.Contains(pageIndex))
         {
-            unlockedPages.Insert(pageIndex, pageIndex);
-            Debug.Log("Page " + pageIndex + " has been unlocked.");
+            if (pageIndex >= 0 && pageIndex < pages.Length)
+            {
+                int insertIndex = alwaysAvailablePages.Count;  
+                for (int i = insertIndex; i < unlockedPages.Count; i++)
+                {
+                    if (unlockedPages[i] > pageIndex)
+                    {
+                        insertIndex = i;
+                        break;
+                    }
+                }
+                unlockedPages.Insert(insertIndex, pageIndex);
+                pages[pageIndex].SetActive(true); 
+                Debug.Log("Page " + pageIndex + " has been unlocked and added at the correct position.");
+            }
+            else
+            {
+                unlockedPages.Add(unlockedPages.Count);
+                Debug.LogWarning("Page " + pageIndex + " is out of range. Added to the next available spot in the queue.");
+            }
         }
         else
         {
-            Debug.LogWarning("Page " + pageIndex + " is either already unlocked or out of range.");
+            Debug.LogWarning("Page " + pageIndex + " is already unlocked.");
         }
     }
 }
