@@ -64,8 +64,7 @@ public class Aim : MonoBehaviour
 
 
 
-    //Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         //safetyLayers = GetComponent<LayerCheck>();
 

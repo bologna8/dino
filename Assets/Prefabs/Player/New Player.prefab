@@ -6173,7 +6173,7 @@ MonoBehaviour:
   wallJumpDelay: 0.15
   wallJumpTime: {x: 0.4, y: 0.5}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
-  wallLockDelay: 0.25
+  wallLockDelay: 0.1
   canWallSlide: 1
   wallSlideSpeed: 1
   wallSliding: 0
@@ -6200,6 +6200,7 @@ MonoBehaviour:
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
   airDashes: 1
+  airDashAngle: 15
   airDashEffect: {fileID: 8080380149315166911, guid: 8098db70917281f499adbdf26341f4ac, type: 3}
   myBod: {fileID: 340933065370478967}
 --- !u!114 &9030483205541976314
