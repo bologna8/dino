@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections.Generic; 
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour
     public Transform inventoryItemTransform;
     public Transform craftingItemTransform;
 
-    // Highlight 
+    //Highlight 
     public int selectedIndex = 0;
 
     private void Awake()
@@ -109,7 +109,6 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    /*
     public void UpdateCraftingUI(CraftingRecipe recipe)
     {
         if (recipe == null) return;
@@ -123,32 +122,24 @@ public class InventoryUI : MonoBehaviour
 
         foreach (var ingredient in recipe.ingredients)
         {
-            GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
-            ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
-            if (ingredientItemSlot != null)
+            for(int i = 0; i<ingredient.amount; i++)
+            {
+                GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
+                ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
+                if (ingredientItemSlot != null)
             {
                 ingredientItemSlot.AddItem(ingredient.item);
-
-                if (Inventory.instance.ContainsItem(ingredient.item, ingredient.amount))
-                {
-                    ingredientItemSlot.SetIconColor(Color.white);
-                }
-                else
-                {
-                    ingredientItemSlot.SetIconColor(Color.gray);
                 }
             }
         }
     }
-    */
-
     private void SetUpCraftingRecipes()
     {
         List<Item> craftingRecipes = GameManager.instance.craftingRecipes;
 
         foreach (Item recipe in craftingRecipes)
         {
-            // UpdateCraftingUI((CraftingRecipe)recipe);
+            UpdateCraftingUI((CraftingRecipe)recipe);
         }
     }
 
@@ -209,19 +200,18 @@ public class InventoryUI : MonoBehaviour
 
     public void HighlightItem(int index)
     {
-        // Unhighlight all slots 
+        //unhighlight all slots 
         foreach (ItemSlot slot in itemSlotList)
         {
             slot.SetHighlight(false);
         }
 
-        // Highlight the selected slot
+        //highlight the selected slot
         if (index >= 0 && index < itemSlotList.Count)
         {
             itemSlotList[index].SetHighlight(true);
         }
     }
-
     public void NavigateInventory(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -231,6 +221,7 @@ public class InventoryUI : MonoBehaviour
             // Only move if the inventory is open
             if (!inventoryOpen) return;
 
+            
             if (navigationInput.y > 0)  // Up
             {
                 selectedIndex = Mathf.Max(0, selectedIndex - 1);
@@ -248,7 +239,9 @@ public class InventoryUI : MonoBehaviour
                 selectedIndex = Mathf.Max(0, selectedIndex - 1);
             }
 
-            HighlightItem(selectedIndex);
+                HighlightItem(selectedIndex);
+            }
+
         }
-    }
-}
+
+    } 
