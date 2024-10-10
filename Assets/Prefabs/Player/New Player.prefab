@@ -5389,6 +5389,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d220cfc6ecdb09f488f1620ca19c88d5, type: 2}
   - {fileID: 11400000, guid: e633e4382defd224082a125546287b35, type: 2}
   craftingRecipes: []
+  recipePrefabs: []
   canvas: {fileID: 0}
   itemInfoPrefab: {fileID: 5761103041928972720, guid: 05fce7ddafc3aec4aae81ccef9eacfbe, type: 3}
   moveX: 180
@@ -6170,8 +6171,8 @@ MonoBehaviour:
   jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
   canWallJump: 1
   wallJumpForce: {x: 10, y: 17}
-  wallJumpDelay: 0.02
-  wallJumpTime: {x: 0.4, y: 0.5}
+  wallJumpDelay: 0.1
+  wallJumpTime: {x: 0.1, y: 0.8}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
   wallLockDelay: 0.1
   canWallSlide: 1
@@ -6185,14 +6186,14 @@ MonoBehaviour:
   vaultSpeed: 0.1
   dashCooldown: 0.9
   dashCancelMultiplier: 0.5
-  momentumMaintained: 1
+  momentumMaintained: 0.8
   momentumBasedDash: 0
-  edgeStopDash: 1
+  edgeStopDash: 0
   changeCollisionLayer: 1
   changeHitboxLayer: 1
   dashLayer: 12
-  dashForce: 16
-  dashTime: {x: 0.3, y: 0.2}
+  dashForce: 12
+  dashTime: {x: 0.3, y: 0.35}
   dashEffect: {fileID: 0}
   airDashLayer: 13
   airDashForce: 15
