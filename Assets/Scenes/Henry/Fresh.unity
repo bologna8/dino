@@ -552,6 +552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trex
       objectReference: {fileID: 0}
+    - target: {fileID: 8113084423703979873, guid: 37dbbdcd34e84164591a48dd0e52ea34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7334,6 +7338,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+--- !u!1001 &1950520922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1945375606870799779, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_Name
+      value: Velocirapter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.406136
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.32702923
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
 --- !u!4 &1969340736 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1064479217120444513, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
@@ -8465,3 +8526,4 @@ SceneRoots:
   - {fileID: 1862131167}
   - {fileID: 2037844014}
   - {fileID: 205799425}
+  - {fileID: 1950520922}

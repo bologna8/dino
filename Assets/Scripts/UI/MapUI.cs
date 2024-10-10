@@ -23,8 +23,7 @@ public class MapUI : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        Debug.Log("map ui: START");
+    { 
     }
 
     // Update is called once per frame
@@ -35,7 +34,6 @@ public class MapUI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("map ui: COLLISION");
         if (mapColliders.Contains(collision))
         {
             colliderIndex = mapColliders.IndexOf(collision);

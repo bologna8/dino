@@ -51,19 +51,16 @@ public class PickUp : MonoBehaviour
                 }
             }
 
+            
             if (recipe)
             {
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                 if (inventoryUI != null)
                 {
-                    GameObject recipeSlot = Instantiate(inventoryUI.craftingSlotPrefab, inventoryUI.craftingItemTransform);
-                    ItemSlot recipeItemSlot = recipeSlot.GetComponent<ItemSlot>();
-                    if (recipeItemSlot != null)
-                    {
-                        recipeItemSlot.AddItem(recipe);  
-                    }
+                    inventoryUI.UpdateCraftingUI(recipe);
                 }
             }
+            
 
             gameObject.SetActive(false);
         }

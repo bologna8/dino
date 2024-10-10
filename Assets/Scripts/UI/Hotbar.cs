@@ -73,29 +73,24 @@ public class Hotbar : MonoBehaviour
 
     void OnOne()
     {
-        if (currentlyEquipped != 0) 
-        { currentlyEquipped = 0; SelectItem(currentlyEquipped); }
+        if (currentlyEquipped != 0) { SelectItem(0); }
     }
 
     void OnTwo()
     {
-        if (currentlyEquipped != 1) 
-        { currentlyEquipped = 1; SelectItem(currentlyEquipped); }
+        if (currentlyEquipped != 1) { SelectItem(1); }
     }
     void OnThree()
     {
-        if (currentlyEquipped != 2) 
-        { currentlyEquipped = 2; SelectItem(currentlyEquipped); }
+        if (currentlyEquipped != 2) { SelectItem(2); }
     }
     void OnFour()
     {
-        if (currentlyEquipped != 3) 
-        { currentlyEquipped = 3; SelectItem(currentlyEquipped); }
+        if (currentlyEquipped != 3) { SelectItem(3); }
     }
     void OnFive()
     {
-        if (currentlyEquipped != 4) 
-        { currentlyEquipped = 4; SelectItem(currentlyEquipped); }
+        if (currentlyEquipped != 4) { SelectItem(4); }
     }
 
 }

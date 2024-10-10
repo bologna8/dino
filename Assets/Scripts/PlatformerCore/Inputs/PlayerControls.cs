@@ -14,6 +14,7 @@ public class PlayerControls : MonoBehaviour
 
     void Awake()
     {
+        if (myControls == null) { myControls = new Controls(); }
         myInput = GetComponent<PlayerInput>();
         myCore = GetComponent<Core>();
         CameraFollow.target = transform;
@@ -21,14 +22,14 @@ public class PlayerControls : MonoBehaviour
 
     void OnEnable()
     {
-        if (myControls == null) { myControls = new Controls(); }
-        myInput.actions.FindActionMap("Aiming").Enable();
         myControls.Enable();
+        myInput.actions.FindActionMap("Aiming").Enable();
     }
 
     void OnDisable()
     {
         myControls.Disable();
+        myInput.actions.FindActionMap("Aiming").Disable();
     }
 
 

@@ -142,6 +142,7 @@ public class Movement : MonoBehaviour
     private bool ignoreGravity = false; //Disable gravity during dashes
     [Tooltip("Number of times you can dash while mid air")] public int airDashes = 0;
     private int remainingDashes; //number of air dashes you have left
+    [Range(-180, 180)] [Tooltip("Angle that air dash travels")] public float airDashAngle;
     public GameObject airDashEffect;
     
     [HideInInspector] public IEnumerator dashing; //Current dash coroutine, all knockbacks are a new dash technically
@@ -250,7 +251,7 @@ public class Movement : MonoBehaviour
             if (myCollider.enabled) //collider disabled while passing through platform
             {
                 airTime = 0; coyoteCurrent = 0;
-                remainingJumps = bonusJumps; remainingDashes = airDashes; 
+                remainingJumps = bonusJumps; remainingDashes = airDashes; dashCurrentCD = 0; 
             }
 
             if (onEdge) { coyoteCurrent = coyoteTime; } //{ airTime = coyoteTime; } //Can't coyote jump just after being on an edge
@@ -326,7 +327,6 @@ public class Movement : MonoBehaviour
         if (onEdge || onGround || ignoreGravity) { applyGravity = false; }
 
         var gravTime = airTime * gravityAcceleration;
-        //if (airTime < coyoteTime) { gravTime = coyoteTime * gravityAcceleration; }
         
         if (applyGravity) { velocity.y -= myGravityScale * Mathf.Pow(minGrav + gravTime, 2); } //G = C * (m/s)^2
         
@@ -414,13 +414,7 @@ public class Movement : MonoBehaviour
 
         //Step to the left
         if (!movingRight) { myVelocity.x *= -1; }
-        /*
-        if (myCore.aimToTurn) 
-        {
-            if (goingLeft) { myVelocity.x *= -1; }
-        }
-        else if (!faceRight) { myVelocity.x *= -1; }
-        */
+        
 
     }
 
@@ -732,6 +726,7 @@ public class Movement : MonoBehaviour
     {
         bool canDash = true;
         if (dashCurrentCD > 0) { canDash = false; }
+
         if (!onGround && remainingDashes < 1) { canDash = false; } //check if have enough air dashes
         if (dashing != null) { canDash = false; }
 
@@ -739,7 +734,11 @@ public class Movement : MonoBehaviour
         {
             dashCurrentCD = dashCooldown + dashTime.x;
 
+            
             var d = Vector2.right * dashForce; //direction and speed to dash
+            //change direction to left
+            if (!movingRight) { d *= -1; }
+
             if (momentumBasedDash) { d *= (momentum + 1f); } //more momentum multiplies dash distances
             var t = dashTime; //duration of dash
             var noGrav = false;
@@ -752,7 +751,9 @@ public class Movement : MonoBehaviour
             
             if (!onGround) //different if air dashing
             { 
-                d = Vector2.right * airDashForce;
+                var ang = new Vector2(Mathf.Cos(airDashAngle * Mathf.Deg2Rad), Mathf.Sin(airDashAngle * Mathf.Deg2Rad));
+                if (!movingRight) { ang = new Vector2(Mathf.Cos((180 - airDashAngle) * Mathf.Deg2Rad), Mathf.Sin((180 - airDashAngle) * Mathf.Deg2Rad)); }
+                d = ang * airDashForce;
                 if (momentumBasedAirDash) { d *= (momentum + 1f); }
                 t = airDashTime;
                 noGrav = !gravityWhileAirDashing;
@@ -767,9 +768,6 @@ public class Movement : MonoBehaviour
             }
             else if (dashEffect)
             { PoolManager.Instance.Spawn(dashEffect, transform.position, Quaternion.identity, transform); }
-            
-            //change direction to left
-            if (!movingRight) { d *= -1;}
             
 
             DoDash(d, t, noGrav, true, edgeStop, changeLayer, changeHP);

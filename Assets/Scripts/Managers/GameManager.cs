@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public List<Item> itemList = new List<Item>();
     public List<Item> craftingRecipes = new List<Item>();
 
+    public List<Item> recipePrefabs = new List<Item>();
+
+    
     public Transform canvas;
     public GameObject itemInfoPrefab;
     private GameObject currentItemInfo = null;
@@ -23,7 +26,15 @@ public class GameManager : MonoBehaviour
     public float moveX = 0f;
     public float moveY = 0f;
 
-
+    public void Start()
+    {
+      foreach(Item recipePrefab in recipePrefabs)
+      {
+        if(recipePrefab != null){
+          craftingRecipes.Add(recipePrefab);
+        }
+      }
+    }
     public void OnStatItemUse(StatItemType itemType, int amount)
     {
         Debug.Log("Consuming " + itemType + " Add amount: " + amount);
