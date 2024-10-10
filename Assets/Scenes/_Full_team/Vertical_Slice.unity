@@ -48664,6 +48664,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3447755419718642538, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3770674761639694908, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -52167,26 +52171,6 @@ PrefabInstance:
     - target: {fileID: 5870049670034722428, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006615077103462235, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      propertyPath: dashEffect
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006615077103462235, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      propertyPath: wallJumpDelay
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006615077103462235, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      propertyPath: wallJumpTime.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006615077103462235, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      propertyPath: wallJumpTime.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006615077103462235, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      propertyPath: wallJumpForce.y
-      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6072205294079493756, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_Enabled
