@@ -7,6 +7,11 @@ public class Damage : MonoBehaviour
 
     [Header("Attack Stats")]
     [Tooltip("Damage dealt on hit")] public float damage = 1f;
+
+    [System.Flags]
+    public enum Type { none = 0, basic = 1 << 1, heavy = 1 << 2, fire = 1 << 3 }
+    public Type myType;
+
     [Tooltip("How long actual attack hitbox lasts. If 0 or less, lasts forever")] public float activeDuration = 0f;    
     private float currentDuration; //how long attack has been going
     [Tooltip("Percent Scale of Hitbox increases or decreases during attack duration")] public AnimationCurve sizeOverTime;
@@ -113,6 +118,7 @@ public class Damage : MonoBehaviour
 
             if (hitList.Contains(hitHealth)) { hitIt = false; } 
             if (hitHealth.invincibleTime > 0) { hitIt = false; }
+            if (hitHealth.immunities.HasFlag(myType) && hitHealth.immunities != 0) { hitIt = false; }
             
 
             if (hitIt)

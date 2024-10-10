@@ -7,6 +7,8 @@ public class Health : MonoBehaviour
     [Tooltip("Maximum Health")] public float maxHP = 10f;
     [Tooltip("Current Health Remaining")] public float currentHP;
 
+    public Damage.Type immunities;
+
 
     [HideInInspector] public Core myCore;
     [HideInInspector] public Spawned mySpawn;
