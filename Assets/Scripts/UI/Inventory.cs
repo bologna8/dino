@@ -27,6 +27,11 @@ public class Inventory : MonoBehaviour
         onItemChange.Invoke();
         UpdateCraftingUI();
 
+        if(item is HotbarItem hotbarItem)
+        {
+            hotbarItem.AddToHotbar();
+        }
+
         PopupManager popupManager = FindObjectOfType<PopupManager>();
         if (popupManager != null)
         {
