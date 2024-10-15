@@ -70,7 +70,11 @@ public class Health : MonoBehaviour
     public void TakeDamage(float dmg, Vector2 stun, Vector2 KB)
     {
         
-        if (hitEffect) { Instantiate(hitEffect, transform.position, Quaternion.identity); }
+        if (hitEffect) 
+        {
+            if (PoolManager.Instance && mySpawn) { PoolManager.Instance.Spawn(hitEffect, transform.position, transform.rotation, transform, mySpawn.team); }
+            else { Instantiate(hitEffect, transform.position, Quaternion.identity); }
+        }
 
         currentHP -= dmg;
 
