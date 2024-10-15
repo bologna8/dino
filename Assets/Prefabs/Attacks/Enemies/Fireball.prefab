@@ -213,7 +213,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 7400000, guid: ca90764a5138ee44689d1932e48674d7, type: 2}
-  startOffset: {x: -8, y: 2, z: 0}
+  startOffset: {x: -3.66, y: 0.66, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6815603982042734992
 MonoBehaviour:
@@ -231,7 +231,7 @@ MonoBehaviour:
   lifetime: 5
   breakLayer:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 0
   breakEffect: {fileID: 0}
   returnTime: 0
 --- !u!114 &7874558438391938455
@@ -270,6 +270,7 @@ MonoBehaviour:
   damage: 1
   myType: 8
   activeDuration: 0
+  refresh: 0
   sizeOverTime:
     serializedVersion: 2
     m_Curve:
