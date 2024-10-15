@@ -788,7 +788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1025
   touching: 0
   lastCollided: {fileID: 0}
   slope: 0
@@ -1423,6 +1423,7 @@ MonoBehaviour:
   airDashAngle: 0
   airDashEffect: {fileID: 0}
   myBod: {fileID: 0}
+  myCollider: {fileID: 0}
 --- !u!114 &215086994315009943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1457,17 +1458,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  chooseAttacksRandomly: 0
   idleTime: {x: 1, y: 2}
   patrolTime: {x: 2, y: 4}
   turnCooldownTime: {x: 1, y: 2}
   turnCooldownCurrent: 0
   curiousIcon: {fileID: 1968476609057965988, guid: d60ac4b6f804c9943be0b4b6dd67cb19, type: 3}
   attackRange: 1
+  proximityRange: 1
   attackAimTime: {x: 0, y: 0}
   scanPauseTime: {x: 1, y: 2}
   angryIcon: {fileID: 2436307126734686301, guid: a8fde059255d9ee4f933f4de77fdb3ce, type: 3}
   chasing: {fileID: 0}
   agroMemoryTime: {x: 3, y: 6}
+  canJump: 0
   attackOnSight: 0
   packAttack: 0
   foolish: 0
@@ -1987,7 +1991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1025
   touching: 0
   lastCollided: {fileID: 0}
   slope: 0

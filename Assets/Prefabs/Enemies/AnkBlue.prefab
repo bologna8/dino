@@ -338,10 +338,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4716684067978515514, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
-      propertyPath: checkMask.m_Bits
-      value: 1025
-      objectReference: {fileID: 0}
     - target: {fileID: 5428119280394531199, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.x
       value: 0.25
@@ -393,10 +389,6 @@ PrefabInstance:
     - target: {fileID: 7858261272643532538, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.x
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8374718662539560012, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
-      propertyPath: checkMask.m_Bits
-      value: 1025
       objectReference: {fileID: 0}
     - target: {fileID: 8416462862343300107, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.y
