@@ -11,6 +11,7 @@ public class AI : MonoBehaviour
 
     private Movement myMovement; 
     private Weapon[] myWeapons;
+    public bool chooseAttacksRandomly; //Otherwise, prioritise melee primary when close 
     private Health myHealth;
 
     [Tooltip("Random range for how long enemy sits still before patroling")] public Vector2 idleTime = new Vector2(1,2);
@@ -21,7 +22,9 @@ public class AI : MonoBehaviour
     [HideInInspector] public float turnCooldownCurrent;
     public GameObject curiousIcon;
 
-    public float attackRange = 1f;
+    public float attackRange = 5f;
+    public float proximityRange = 1f;
+
     [Tooltip("How long must keep in sights before attacking")] public Vector2 attackAimTime = new Vector2(1,2);
     private float currentAimTime;
     //public float sightRange = 10f;
@@ -34,6 +37,7 @@ public class AI : MonoBehaviour
     private float memoryCurrent;
 
     //public bool carnivore = true;
+    [Tooltip ("Jumps while chasing a target")] public bool canJump;
     [Tooltip("Agro instantly, or only once attacked")] public bool attackOnSight;
     [Tooltip("If see a friend start to chase, go agro on that target as well")] public bool packAttack;
     [Tooltip("Will go into a frenzy over certain distractions and damage teammates with attacks")] public bool foolish;
@@ -205,15 +209,17 @@ public class AI : MonoBehaviour
 
             chasing = target;
 
+            /*
             if (myCore) 
             {
                 if (chasing.position.x > transform.position.x && !myCore.lookingRight) { TryToTurn(); }
 
                 if (chasing.position.x < transform.position.x && myCore.lookingRight) { TryToTurn(); }
             }
+            */
         }
 
-        Debug.Log(gameObject.name + " agrod onto: " + target.gameObject.name);
+        //Debug.Log(gameObject.name + " agrod onto: " + target.gameObject.name);
 
         currentState = State.chase; 
         memoryCurrent = Random.Range(agroMemoryTime.x, agroMemoryTime.y);
@@ -236,27 +242,45 @@ public class AI : MonoBehaviour
 
             if (myMovement)
             {
-                if (inRange) { myMovement.moveInput = 0; }
-                else
+                if (myCore)
                 {
-                    if (myCore)
-                    {
-                        if (myCore.lookingRight) { myMovement.moveInput = 1; }
-                        else { myMovement.moveInput = -1; }
+                    if (chasing.position.x > transform.position.x && !myCore.lookingRight) { TryToTurn(); } 
 
-                        if (chasing.position.x > myCore.myAim.transform.position.x && !myCore.lookingRight) { TryToTurn(); } 
+                    if (chasing.position.x < transform.position.x && myCore.lookingRight) { TryToTurn(); } 
 
-                        if (chasing.position.x < myCore.myAim.transform.position.x && myCore.lookingRight) { TryToTurn(); } 
-   
+                    //Reset memory while target is close
+                    if (Vector3.Distance(chasing.position, transform.position) < proximityRange) 
+                    { memoryCurrent = Random.Range(agroMemoryTime.x, agroMemoryTime.y); myMovement.moveInput = 0; }
+                    else if (myCore.lookingRight) { myMovement.moveInput = 1; }
+                    else { myMovement.moveInput = -1; }
+
+                    if (canJump) 
+                    { 
+                        var shouldJump = false;
+
+                        if (myMovement.rightHipCheck && myMovement.movingRight) 
+                        { if (myMovement.rightHipCheck.touching) { shouldJump = true; } }
+
+                        if (myMovement.leftHipCheck && !myMovement.movingRight) 
+                        { if (myMovement.leftHipCheck.touching) { shouldJump = true; } }
+
+                        if (chasing.transform.position.y > (transform.position.y + myMovement.myCollider.bounds.extents.y))
+                        { shouldJump = true; }
+
+                        if (shouldJump) { myMovement.JumpStart(); myMovement.jumpInput = true; }
+                        else if (myMovement.onGround) { myMovement.jumpInput = false; }
+
                     }
-                    else //pre core no turn cooldown crap code
-                    {
-                        if (chasing.position.x > transform.position.x) 
-                        { myMovement.moveInput = 1; }
-                        else { myMovement.moveInput = -1; }
-                    }
+                    
 
                 }
+                else //pre core no turn cooldown crap code
+                {
+                    if (chasing.position.x > transform.position.x) 
+                    { myMovement.moveInput = 1; }
+                    else { myMovement.moveInput = -1; }
+                }
+
             }
             
 
@@ -313,9 +337,21 @@ public class AI : MonoBehaviour
     {
         if (myWeapons.Length > 0)
         {
-            var randomAttack = myWeapons[Random.Range(0, myWeapons.Length)];
-            randomAttack.ignoreTeams = frenzied;
-            if (randomAttack.TryAttack()) 
+            var chosenAttack = myWeapons[0];
+
+            if (myWeapons.Length > 1)
+            {
+                if (chooseAttacksRandomly) { chosenAttack = myWeapons[Random.Range(0, myWeapons.Length)]; }
+                else if (Vector3.Distance(chasing.position, transform.position) > proximityRange) //use other attacks at a range
+                {
+                    chosenAttack = myWeapons[Random.Range(1, myWeapons.Length)];
+                }
+            }
+            
+
+            chosenAttack.ignoreTeams = frenzied;
+            
+            if (chosenAttack.TryAttack()) 
             { return true; }
         }
 

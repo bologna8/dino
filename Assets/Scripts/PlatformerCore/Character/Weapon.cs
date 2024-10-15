@@ -158,7 +158,7 @@ public class Weapon : MonoBehaviour
         }
 
 
-        var startOffset = startSpot - transform.position;
+        //var startOffset = startSpot - transform.position;
         
 
         //Attack move directionally
@@ -190,7 +190,7 @@ public class Weapon : MonoBehaviour
         if (!safety) //Don't spawn anything in walls
         { 
             for (int i = 0; i < attackStats.multiplier; i++)
-            { SpawnAttack(i, startSpot, startOffset, startAngle, dir); }
+            { SpawnAttack(i, startSpot, startAngle, dir); }
         }
 
         yield return new WaitForSeconds(attackStats.attackDuration);
@@ -199,7 +199,7 @@ public class Weapon : MonoBehaviour
 
     }
 
-    public void SpawnAttack(int i, Vector3 startSpot, Vector3 startOffset, Quaternion startAngle, Vector3 dir)
+    public void SpawnAttack(int i, Vector3 startSpot, Quaternion startAngle, Vector3 dir)
     {
 
         bool attackRight = true;
@@ -258,7 +258,11 @@ public class Weapon : MonoBehaviour
         GameObject newAttack = null;
         if (currentAttackPrefab && myAim && myCore)
         {
-            newAttack = PoolManager.Instance.Spawn(currentAttackPrefab, startSpot, fireAngle, myAim.transform, myCore.team, ignoreTeams);
+            var spawnSpot = startSpot + attackStats.startOffset;
+            if (!attackRight) { spawnSpot = startSpot + new Vector3(-attackStats.startOffset.x, attackStats.startOffset.y, attackStats.startOffset.z); }
+            
+
+            newAttack = PoolManager.Instance.Spawn(currentAttackPrefab, spawnSpot, fireAngle, myAim.transform, myCore.team, ignoreTeams);
             var att = newAttack.GetComponent<Attack>();
             if (att) { att.myWeapon = this; }
         }

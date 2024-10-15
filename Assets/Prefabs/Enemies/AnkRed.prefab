@@ -308,11 +308,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackRange
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackOnSight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: proximityRange
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackAimTime.x
@@ -362,6 +366,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4716684067978515514, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: checkMask.m_Bits
+      value: 1025
+      objectReference: {fileID: 0}
     - target: {fileID: 5428119280394531199, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.x
       value: 0.25
@@ -392,7 +400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6934926695596465733, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7034523859284741065, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.x
@@ -414,9 +422,13 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8374718662539560012, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: checkMask.m_Bits
+      value: 1025
+      objectReference: {fileID: 0}
     - target: {fileID: 8416462862343300107, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8478583008990582963, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: maxHP
@@ -476,10 +488,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2661674118543948784, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       insertIndex: 0
       addedObject: {fileID: 5405181920782270057}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 3372337783721760646}
   m_SourcePrefab: {fileID: 100100000, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
 --- !u!4 &1877879966211161490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2661674118543948784, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
   m_PrefabInstance: {fileID: 4539552983481779810}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8113084423703979873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+  m_PrefabInstance: {fileID: 4539552983481779810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3372337783721760646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113084423703979873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1021e41c0a1768b4ab066d0bbd465a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCore: {fileID: 0}
+  myAim: {fileID: 0}
+  attackPrefab: {fileID: 8142958838078798255, guid: cae55248a7be58c4182e03c678dd9228, type: 3}
+  attackReady: 1
+  attackHeld: 0
+  verticalInput: 0
+  upAttackPrefab: {fileID: 0}
+  downAttackPrefab: {fileID: 0}
+  ignoreTeams: 0

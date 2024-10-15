@@ -585,6 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   currentHP: 0
+  immunities: 0
   myCore: {fileID: 0}
   mySpawn: {fileID: 0}
   HealthBarPrefab: {fileID: 0}
@@ -1257,7 +1258,7 @@ MonoBehaviour:
   movingRight: 0
   CharacterArt: {fileID: 8856473957710389766}
   myAnim: {fileID: 0}
-  turnTime: 0.1
+  turnTime: 0
   turning: 0
   hidden: 0
   hidingSpots: 0
@@ -1419,6 +1420,7 @@ MonoBehaviour:
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
   airDashes: 1
+  airDashAngle: 0
   airDashEffect: {fileID: 0}
   myBod: {fileID: 0}
 --- !u!114 &215086994315009943

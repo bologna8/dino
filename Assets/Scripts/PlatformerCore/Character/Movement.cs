@@ -156,7 +156,7 @@ public class Movement : MonoBehaviour
     private Health myHP; //Check stun times and change layer during dashes
     //[HideInInspector] public Animator myAnim; //animation handling needs to be cleaned up...
     [HideInInspector] public Rigidbody2D myBod; //nice bod
-    private Collider2D myCollider; //Collider used by this bod
+    [HideInInspector] public Collider2D myCollider; //Collider used by this bod
 
 
     //Colliders and such, should be under the "Self" game object in inspector

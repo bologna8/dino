@@ -12,8 +12,9 @@ public class Damage : MonoBehaviour
     public enum Type { none = 0, basic = 1 << 1, heavy = 1 << 2, fire = 1 << 3 }
     public Type myType;
 
-    [Tooltip("How long actual attack hitbox lasts. If 0 or less, lasts forever")] public float activeDuration = 0f;    
+    [Tooltip("How long actual attack hitbox lasts. If 0 or less, lasts forever")] public float activeDuration = 0f;
     private float currentDuration; //how long attack has been going
+    [Tooltip("Reset hit list instead of ending attack after active duration")] public bool refresh;
     [Tooltip("Percent Scale of Hitbox increases or decreases during attack duration")] public AnimationCurve sizeOverTime;
     private Vector3 startScale; //Store local starting scale of attack
     [Tooltip("Percent Damage increases or decreases during attack duration")] public AnimationCurve damageOverTime;
@@ -71,7 +72,11 @@ public class Damage : MonoBehaviour
             currentDuration -= Time.deltaTime;
             transform.localScale = startScale * sizeOverTime.Evaluate((activeDuration - currentDuration)/activeDuration);
 
-            if(currentDuration <= 0) { gameObject.SetActive(false); }
+            if(currentDuration <= 0) 
+            { 
+                if (refresh) { currentDuration = activeDuration; hitList.Clear(); }
+                else { gameObject.SetActive(false); }
+            }
         }
 
     }

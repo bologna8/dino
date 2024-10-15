@@ -3483,6 +3483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   currentHP: 0
+  immunities: 0
   myCore: {fileID: 0}
   mySpawn: {fileID: 0}
   HealthBarPrefab: {fileID: 0}
@@ -6033,7 +6034,7 @@ MonoBehaviour:
   movingRight: 0
   CharacterArt: {fileID: 5752957250253356205}
   myAnim: {fileID: 0}
-  turnTime: 0.1
+  turnTime: 0
   turning: 0
   hidden: 0
   hidingSpots: 0

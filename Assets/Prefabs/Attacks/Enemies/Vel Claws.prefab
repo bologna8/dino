@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8352660219446764013}
   - component: {fileID: 1680531606009773765}
   m_Layer: 8
-  m_Name: Ank Attack
+  m_Name: Vel Claws
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
@@ -171,17 +172,17 @@ MonoBehaviour:
   typeOfAmo: 0
   cooldown: 0
   clipSize: 1
-  fireRate: 3
+  fireRate: 1
   multiplier: 1
   spreadEvenly: 0
   momentumLaunch: 0
   attackingAimSpeed: 1
   moveWhileAttacking: 0
-  windup: 0.4
+  windup: 0
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
   noGravityDuringWindup: 0
-  attackDuration: 0.8
+  attackDuration: 0.1
   movementMidAttack: 6
   onlyHorizontalMoveMid: 1
   noGravityDuringAttack: 0
@@ -211,7 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910707473a047bc4e83a69e7e6f43730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 1
+  myType: 0
   activeDuration: 0.2
   sizeOverTime:
     serializedVersion: 2
@@ -263,12 +265,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyOnHit: 0
   endEffect: {fileID: 0}
-  stunTime: {x: 0.4, y: 0.2}
+  stunTime: {x: 0.2, y: 0.1}
   aimedAttack: 1
   faceRight: 1
   directionalKnockback: 100
   useLockedKB: 1
-  lockedKnockback: {x: 20, y: 4}
+  lockedKnockback: {x: 10, y: 2}
   knockbackOverTime:
     serializedVersion: 2
     m_Curve:
@@ -294,7 +296,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   offset: {x: 0, y: 0, z: 0}
-  ignoreTeams: 0
   damageSelf: 0
 --- !u!114 &8352660219446764013
 MonoBehaviour:

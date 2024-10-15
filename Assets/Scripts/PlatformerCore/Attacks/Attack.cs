@@ -41,6 +41,7 @@ public class Attack : MonoBehaviour
     [Tooltip("If more than 0, repeat spread pattern a number of times per clip instead of fire time")] public int repeatPattern = 0;
 
     public AnimationClip attackAnim;
+    public Vector3 startOffset;
 
     [HideInInspector] public Weapon myWeapon;
     public void OnDisable()
