@@ -2454,6 +2454,11 @@ Transform:
   - {fileID: 1229894351}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &589517360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1945375606870799779, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+  m_PrefabInstance: {fileID: 2099321231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619070447
 GameObject:
   m_ObjectHideFlags: 0
@@ -7856,6 +7861,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7922622133724944801, guid: 04214d560946d9a40b2936a35680f9c0, type: 3}
+      propertyPath: respawnThis
+      value: 
+      objectReference: {fileID: 589517360}
     - target: {fileID: 7956141079287316200, guid: 04214d560946d9a40b2936a35680f9c0, type: 3}
       propertyPath: m_Name
       value: Nest

@@ -19,7 +19,7 @@ public class FearLevel : MonoBehaviour
     public AudioSource roar;
     public BookController bookController;
     public int ScaredPage;
-    void Start()
+    void Awake()
     {
         fear = 0;
         lantern = GameObject.Find("Lantern");
@@ -46,6 +46,7 @@ public class FearLevel : MonoBehaviour
                 hasLantern = true;
                 return;
             }
+            else { lantern.SetActive(true); } //Temp fix so we can see!
             if (Time.time > darknessTic)
             {
                 darknessTic = Time.time + darknessDuration;
