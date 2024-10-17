@@ -654,6 +654,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""NextTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""0eff949c-2f17-4bd5-9a80-231c2dce9493"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""70ae39f1-a9aa-4582-8483-3f2edf6b9bd4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchFocus"",
+                    ""type"": ""Button"",
+                    ""id"": ""5916ec06-3da5-4613-8fd1-41db5ebc50bc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -673,17 +700,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""id"": ""5c5fcc7c-a2e9-4533-88ed-772655608f7d"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NextPage"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""76450eed-23c4-4a5a-ae91-179ead2787fb"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""NextPage"",
@@ -714,17 +730,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fda3a71f-21fe-4ec8-8e61-04ef48ea781f"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PreviousPage"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""d36424f8-edc1-4c10-8fc4-fc3237364669"",
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
@@ -737,7 +742,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b1f1af07-2094-43d1-81f3-b7dbff884a02"",
-                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -887,6 +892,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76450eed-23c4-4a5a-ae91-179ead2787fb"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fda3a71f-21fe-4ec8-8e61-04ef48ea781f"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf96eb70-6dbc-4d99-82de-35845b0bf510"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchFocus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -923,6 +961,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
         m_UI_OpenJournal = m_UI.FindAction("OpenJournal", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_NextTab = m_UI.FindAction("NextTab", throwIfNotFound: true);
+        m_UI_PreviousTab = m_UI.FindAction("PreviousTab", throwIfNotFound: true);
+        m_UI_SwitchFocus = m_UI.FindAction("SwitchFocus", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1217,6 +1258,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_OpenInventory;
     private readonly InputAction m_UI_OpenJournal;
     private readonly InputAction m_UI_Navigate;
+    private readonly InputAction m_UI_NextTab;
+    private readonly InputAction m_UI_PreviousTab;
+    private readonly InputAction m_UI_SwitchFocus;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -1226,6 +1270,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @OpenInventory => m_Wrapper.m_UI_OpenInventory;
         public InputAction @OpenJournal => m_Wrapper.m_UI_OpenJournal;
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
+        public InputAction @NextTab => m_Wrapper.m_UI_NextTab;
+        public InputAction @PreviousTab => m_Wrapper.m_UI_PreviousTab;
+        public InputAction @SwitchFocus => m_Wrapper.m_UI_SwitchFocus;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1250,6 +1297,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
+            @NextTab.started += instance.OnNextTab;
+            @NextTab.performed += instance.OnNextTab;
+            @NextTab.canceled += instance.OnNextTab;
+            @PreviousTab.started += instance.OnPreviousTab;
+            @PreviousTab.performed += instance.OnPreviousTab;
+            @PreviousTab.canceled += instance.OnPreviousTab;
+            @SwitchFocus.started += instance.OnSwitchFocus;
+            @SwitchFocus.performed += instance.OnSwitchFocus;
+            @SwitchFocus.canceled += instance.OnSwitchFocus;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1269,6 +1325,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
+            @NextTab.started -= instance.OnNextTab;
+            @NextTab.performed -= instance.OnNextTab;
+            @NextTab.canceled -= instance.OnNextTab;
+            @PreviousTab.started -= instance.OnPreviousTab;
+            @PreviousTab.performed -= instance.OnPreviousTab;
+            @PreviousTab.canceled -= instance.OnPreviousTab;
+            @SwitchFocus.started -= instance.OnSwitchFocus;
+            @SwitchFocus.performed -= instance.OnSwitchFocus;
+            @SwitchFocus.canceled -= instance.OnSwitchFocus;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1318,5 +1383,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnOpenJournal(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
+        void OnNextTab(InputAction.CallbackContext context);
+        void OnPreviousTab(InputAction.CallbackContext context);
+        void OnSwitchFocus(InputAction.CallbackContext context);
     }
 }

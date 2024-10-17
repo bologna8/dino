@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class BookController : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class BookController : MonoBehaviour
     public InputActionReference previousPageAction;
     public InputActionReference openJournal;
 
+    //For tab navigation
+    public Button[] tabButtons; 
+    private int currentTabIndex = 0;
+
     private void Start()
     {
         foreach (int pageIndex in alwaysAvailablePages)
@@ -30,6 +35,9 @@ public class BookController : MonoBehaviour
         {
             pages[i].SetActive(i == currentPage || alwaysAvailablePages.Contains(i));
         }
+
+        //The first tab is highlighted at the start
+        HighlightTab(currentTabIndex);
     }
 
     private void OnEnable()
@@ -46,7 +54,7 @@ public class BookController : MonoBehaviour
 
     public void OpenJournal(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
         {
             isJournalOpen = !isJournalOpen;
             if (isJournalOpen)
@@ -58,6 +66,10 @@ public class BookController : MonoBehaviour
                 CloseJournal();
             }
         }
+
+
+        //Highlight the current tab when the journal opens
+        HighlightTab(currentTabIndex);
     }
 
     private void OpenJournal()
@@ -76,6 +88,34 @@ public class BookController : MonoBehaviour
             Debug.LogError("EventSystem is missing from the scene. Please add it for UI interactions.");
         }
     }
+
+    //Switch to the next tab
+    public void SwitchToNextTab(InputAction.CallbackContext context)
+    {
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+        {
+            currentTabIndex = (currentTabIndex + 1) % tabButtons.Length; //Wrap around to the first tab
+            HighlightTab(currentTabIndex);
+        }
+    }
+
+
+    //Switch to the previous tab
+    public void SwitchToPreviousTab(InputAction.CallbackContext context)
+    {
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+        {
+            currentTabIndex = (currentTabIndex - 1 + tabButtons.Length) % tabButtons.Length; //Wrap around to the last tab
+            HighlightTab(currentTabIndex);
+        }
+    }
+
+    //Highlight the currently selected tab
+    private void HighlightTab(int tabIndex)
+    {
+        EventSystem.current.SetSelectedGameObject(tabButtons[tabIndex].gameObject);
+    }
+
 
     private void CloseJournal()
     {
@@ -101,7 +141,7 @@ public class BookController : MonoBehaviour
 
     public void FlipToNextPage(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
         {
             int nextPageIndex = unlockedPages.IndexOf(currentPage) + 1;
 
@@ -116,7 +156,7 @@ public class BookController : MonoBehaviour
 
     public void FlipToPreviousPage(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
         {
             int prevPageIndex = unlockedPages.IndexOf(currentPage) - 1;
 

@@ -214,7 +214,7 @@ public class InventoryUI : MonoBehaviour
     }
     public void NavigateInventory(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
         {
             Vector2 navigationInput = context.ReadValue<Vector2>();
 
