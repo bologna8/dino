@@ -4162,8 +4162,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4117583768369405317}
   m_HandleRect: {fileID: 1716624284358849445}
   m_Direction: 0
-  m_Value: 0.2955154
-  m_Size: 0.98746985
+  m_Value: 0.29553258
+  m_Size: 0.98747015
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4406,7 +4406,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5309268856038708642}
   m_HandleRect: {fileID: 6296663036754959016}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7857,6 +7857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCore: {fileID: 0}
+  WeaponWheel: {fileID: 0}
   equippedItems:
   - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
   - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
@@ -7864,6 +7865,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
   - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
   currentlyEquipped: 0
+  consumableEquipped: 0
 --- !u!1 &5719252372569665392
 GameObject:
   m_ObjectHideFlags: 0
@@ -10934,8 +10936,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5460166806232533403}
   m_HandleRect: {fileID: 8934712271379577084}
   m_Direction: 0
-  m_Value: 0.29551506
-  m_Size: 0.92777807
+  m_Value: 0.29551587
+  m_Size: 0.92777795
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

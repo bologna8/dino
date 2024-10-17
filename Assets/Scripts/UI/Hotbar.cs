@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;  
+using UnityEngine.UI;
 
 public class Hotbar : MonoBehaviour
 {
-    public Core playerCore;
+    private Core playerCore;
 
     public static Hotbar instance;
+
+    public GameObject WeaponWheel;
+    private Vector2 wheelDirection;
+    private bool usingMouse;
+    //public LayerMask wheelSliceLayer;
+    private Image[] wheelSlices;
+    [Range (0, 1)] public float selectedSliceAlpha;
+    [Range (0, 1)] public float unSelectedSliceAlpha;
+
 
     private Controls myControls;
 
     public List<HotbarItem> equippedItems;
     public int currentlyEquipped;
+
+    public bool consumableEquipped;
 
     private void Awake()
     {
@@ -26,15 +38,65 @@ public class Hotbar : MonoBehaviour
 
         var pc = GetComponentInParent<PlayerControls>(); 
         if (pc) { myControls = pc.myControls; }
+
+        wheelSlices = GetComponentsInChildren<Image>();
     }
 
     void OnMouseMove()
     {
-
+        usingMouse = true;
     }
 
     void OnControllerStick(InputValue val)
     {
+        usingMouse = false;
+        wheelDirection = val.Get<Vector2>();
+    }
+
+    void Update()
+    {
+        
+        /*
+        if (wheelDirection != Vector2.zero)
+        {
+            foreach (var slice in wheelSlices) 
+            { 
+                slice.gameObject.SetActive(true);
+                slice.color = new Color(1, 1, 1, unSelectedSliceAlpha);
+            }
+
+            RaycastHit2D checkSlice = Physics2D.Raycast(WeaponWheel.transform.position, wheelDirection);
+            if (checkSlice)
+            {
+                var selectedSlice = checkSlice.transform.gameObject.GetComponent<Image>();
+                if (selectedSlice) 
+                { 
+                    for(int i = 0; i < equippedItems.Count; i++)
+                    {
+                        if (wheelSlices[i] == selectedSlice)
+                        {
+                            SelectItem(i);
+                            selectedSlice.color = new Color(1, 1, 1, selectedSliceAlpha);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (usingMouse && myControls.Aiming.WeaponWheel.IsPressed())
+        {
+            Vector3 mousePos = Mouse.current.position.ReadValue();
+            mousePos.z = Camera.main.nearClipPlane;
+            var mouseScreenPos = Camera.main.ScreenToWorldPoint(mousePos);  mouseScreenPos.z = 0f;
+
+            wheelDirection = (mouseScreenPos - transform.parent.position).normalized;
+        }
+        else 
+        { 
+            wheelDirection = Vector2.zero;
+            foreach (var slice in wheelSlices) { slice.gameObject.SetActive(false); }
+        }
+        */
         
     }
 

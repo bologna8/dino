@@ -36,6 +36,65 @@ Transform:
   - {fileID: 3835006381584722941}
   m_Father: {fileID: 750962641894375529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &419427815886067801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448336083552305297}
+  - component: {fileID: 1916285054749133888}
+  m_Layer: 5
+  m_Name: Hotbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1448336083552305297
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419427815886067801}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1.1999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2661674118543948784}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 480.00006, y: 270.00003}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1916285054749133888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419427815886067801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9e16c44206d9140a744b04fd8e6c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponWheel: {fileID: 0}
+  selectedSliceAlpha: 0
+  unSelectedSliceAlpha: 0
+  equippedItems:
+  - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
+  - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
+  - {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
+  - {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
+  - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
+  currentlyEquipped: 0
+  consumableEquipped: 0
 --- !u!1 &829955194076484787
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +235,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &1465002264861480660
@@ -272,6 +335,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &1469030504988030348
@@ -507,8 +574,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 3073
+    m_Bits: 19457
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &3186385258300682706
@@ -538,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 3186385258300682706}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.4, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -587,7 +658,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.4}
+  m_Size: {x: 0.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &8374718662539560012
 MonoBehaviour:
@@ -603,8 +674,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 17409
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &4902687498382328493
@@ -701,6 +776,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &4918800356163912119
@@ -795,8 +874,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 17409
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &4956033541124677228
@@ -979,6 +1062,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &5649990236531220739
@@ -1031,6 +1118,7 @@ Transform:
   - {fileID: 750962641894375529}
   - {fileID: 4012163508825719795}
   - {fileID: 6253956121193888403}
+  - {fileID: 1448336083552305297}
   - {fileID: 1630205273341425769}
   - {fileID: 2644349332470760087}
   - {fileID: 2620859758429715580}
@@ -1649,7 +1737,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.2, y: 1.8}
   m_EdgeRadius: 0
 --- !u!114 &2740418553388074095
 MonoBehaviour:
@@ -1667,6 +1755,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &5970834034620693550
@@ -1935,6 +2027,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &6671547296317172837
@@ -2031,6 +2127,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &6815749864330510621
@@ -2351,6 +2451,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &8510929286845500568
@@ -2380,7 +2484,7 @@ Transform:
   m_GameObject: {fileID: 8510929286845500568}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.4, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2429,7 +2533,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.4}
+  m_Size: {x: 0.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &4716684067978515514
 MonoBehaviour:
@@ -2445,8 +2549,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 17409
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &8901523075259124823
@@ -2543,6 +2651,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
 --- !u!1 &8922089222698667369
@@ -2639,5 +2751,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0

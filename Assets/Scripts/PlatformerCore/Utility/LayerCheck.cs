@@ -6,7 +6,11 @@ public class LayerCheck : MonoBehaviour
 {
      [Tooltip("Choose which layer(s) to check")] public LayerMask checkMask;
      //[Tooltip("VIEW ONLY : currently touching something")] 
-     public bool touching = false;
+     public bool touching;
+     public bool touchingLeft;
+     public bool touchingRight;
+     public bool touchingTop;
+     public bool touchingBot;
 
      [HideInInspector] public Collider2D lastCollided;
      [HideInInspector] public float slope;
@@ -18,7 +22,6 @@ public class LayerCheck : MonoBehaviour
                touching = true; lastCollided = collision;
                slope = collision.transform.rotation.z;
                ExtraEnterOperations(collision);
-
           }    
      }
 
@@ -37,6 +40,11 @@ public class LayerCheck : MonoBehaviour
                ExtraExitOperations(lastCollided);
                lastCollided = null;
                touching = false;
+
+               touchingLeft = false;
+               touchingRight = false;
+               touchingTop = false;
+               touchingBot = false;
           }        
           
      }

@@ -376,16 +376,23 @@ public class Movement : MonoBehaviour
             if (rightHipCheck.touching)
             {
                 if (moveInput > 0) { momentum = 0; }
-                if (dashVelocity.x > 0 && movingRight) { dashVelocity.x = 0; }
+                //if (dashVelocity.x > 0 && movingRight) { dashVelocity.x = 0; }
             } 
 
             if (leftHipCheck.touching)
             {
                 if (moveInput < 0) { momentum = 0; }
-                if (dashVelocity.x < 0 && !movingRight) { dashVelocity.x = 0; }
+                //if (dashVelocity.x < 0 && !movingRight) { dashVelocity.x = 0; }
             }
 
         }
+
+        /*
+        if (dashCheck) 
+        { 
+            if(dashCheck.touching) { momentum = 0; } 
+        }
+        */
         
 
         if (wallSliding) 
@@ -826,9 +833,9 @@ public class Movement : MonoBehaviour
             }
 
 
-            //Stop if dashing into a wall
-            if (leftHipCheck) { if (leftHipCheck.touching && dir.x < 0) { endEarly = true; } }
-            if (rightHipCheck) { if (rightHipCheck.touching && dir.x > 0) { endEarly = true; } }
+            //Stop if dashing into a wall (not doin this for now so you can have dashable big enemies)
+            //if (leftHipCheck) { if (leftHipCheck.touching && dir.x < 0) { endEarly = true; } }
+            //if (rightHipCheck) { if (rightHipCheck.touching && dir.x > 0) { endEarly = true; } }
 
 
 
