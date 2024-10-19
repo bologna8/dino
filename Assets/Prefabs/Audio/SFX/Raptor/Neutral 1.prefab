@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4127847963802901184}
   - component: {fileID: -182357239440646663}
+  - component: {fileID: 528315119873978649}
+  - component: {fileID: -5713353850095514999}
   m_Layer: 0
   m_Name: Neutral 1
   m_TagString: Untagged
@@ -43,8 +45,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5480787676610553427, guid: 1378273ee56756c4bb98499363aba46c, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8222236c0aac9f342b043e196a2b2493, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.632
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -52,10 +54,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 10
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -128,3 +130,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &528315119873978649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288326261628243597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65120a15af0a34c4f9106666fa0bf664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 4
+--- !u!114 &-5713353850095514999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288326261628243597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b30c1e8adae4a42b7785604aeb23cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  team: 0
+  ignoreTeams: 0
+  maxCount: 2
+  delayBetweenChildren: 0
+  tracking: 0
+  myCore: {fileID: 0}
+  angle: 0

@@ -214,6 +214,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 7400000, guid: ad96a3d07c3bc764e8cc7b8c0ca8af9d, type: 2}
+  startOffset: {x: 0, y: 0, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6815603982042734992
 MonoBehaviour:
@@ -249,6 +250,7 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0

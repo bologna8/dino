@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompyAudio : MonoBehaviour
+public class DinoAudio : MonoBehaviour
 {
     [Header ("References")]
-    public AI compyAI;
+    public AI dinoAI;
 
     [Header ("Neutral")]
     public List<GameObject> neutralSounds;
@@ -26,22 +26,27 @@ public class CompyAudio : MonoBehaviour
     private double ChaseSpawnTime;
     private double NeutralSpawnTime;
 
+    private AI.State previousAIState;
+
     void Start(){
         ChaseSpawnTime = chaseMaximumSpawnTime;
         NeutralSpawnTime = neutralMaximumSpawnTime;
+        previousAIState = AI.State.idle;
     }
 
     void Update()
     {
-        if(compyAI != null){
-            if(compyAI.currentState == AI.State.chase){
+        if(dinoAI != null){
+            if(dinoAI.currentState == AI.State.chase){
 
                 ChaseTime += Time.deltaTime;
 
-                if(ChaseTime >= ChaseSpawnTime){
+                if(ChaseTime >= ChaseSpawnTime || previousAIState != AI.State.chase){
                     if(chaseSounds != null && chaseSounds.Count > 0){
                         int x = Random.Range(0, chaseSounds.Count);
-                        Instantiate(chaseSounds[x], this.transform.position, Quaternion.identity);
+                        GameObject EffectToSpawn = chaseSounds[x]; 
+                        if (PoolManager.Instance != null) { PoolManager.Instance.Spawn(EffectToSpawn, transform.position); }
+                        
                     }
                     ChaseTime = 0;
                     ChaseSpawnTime = Random.Range((float)chaseMinimumSpawnTime, (float)chaseMaximumSpawnTime);
@@ -52,15 +57,21 @@ public class CompyAudio : MonoBehaviour
                 NeutralTime += Time.deltaTime;
 
                 if(NeutralTime >= NeutralSpawnTime){
+                    
                     if(neutralSounds != null && neutralSounds.Count > 0){
                         int x = Random.Range(0, neutralSounds.Count);
-                        Instantiate(neutralSounds[x], this.transform.position, Quaternion.identity);
+                        GameObject EffectToSpawn = neutralSounds[x]; 
+                        if (PoolManager.Instance != null) { PoolManager.Instance.Spawn(EffectToSpawn, transform.position); }
                     }
                     NeutralTime = 0;
                     NeutralSpawnTime = Random.Range((float)neutralMinimumSpawnTime, (float)neutralMaximumSpawnTime);
+    
                 }
 
             }
+            
+            
+            previousAIState = dinoAI.currentState;
         }
     }
 }

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4127847963802901184}
   - component: {fileID: -182357239440646663}
-  - component: {fileID: -8427697264079608350}
-  - component: {fileID: -2951436728033759987}
+  - component: {fileID: -284686773296183301}
+  - component: {fileID: -6058199070996306233}
   m_Layer: 0
-  m_Name: Neutral 3
+  m_Name: Raptor Pain 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,17 +44,17 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5480787676610553427, guid: 1378273ee56756c4bb98499363aba46c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 90451d0218fa008459303317fca82388, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 50f9b2d47bafd9343bd73846768d53a4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.687
-  m_Pitch: 1
+  m_Volume: 0.672
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
+  MinDistance: 20
   MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
@@ -130,20 +130,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8427697264079608350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288326261628243597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65120a15af0a34c4f9106666fa0bf664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 4
---- !u!114 &-2951436728033759987
+--- !u!114 &-284686773296183301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,3 +151,16 @@ MonoBehaviour:
   tracking: 0
   myCore: {fileID: 0}
   angle: 0
+--- !u!114 &-6058199070996306233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288326261628243597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65120a15af0a34c4f9106666fa0bf664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 4
