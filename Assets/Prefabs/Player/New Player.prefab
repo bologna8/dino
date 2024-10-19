@@ -478,7 +478,7 @@ MonoBehaviour:
   stunTime: 0
   invincibleTime: 0
   myMovement: {fileID: 0}
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 3933424769755576373, guid: 5ee659d475fe9224ca31faa5c96eb99b, type: 3}
   deathEffect: {fileID: 0}
   deathOffset: {x: 0, y: 0, z: 0}
   friendlyFireOnly: 0
@@ -1400,7 +1400,7 @@ MonoBehaviour:
   dashLayer: 12
   dashForce: 12
   dashTime: {x: 0.3, y: 0.35}
-  dashEffect: {fileID: 0}
+  dashEffect: {fileID: 3933424769755576373, guid: c3cc18f2665da984e96ea66905b8157d, type: 3}
   airDashLayer: 13
   airDashForce: 15
   airDashTime: {x: 0.3, y: 0.3}

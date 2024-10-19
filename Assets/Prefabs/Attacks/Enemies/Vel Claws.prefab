@@ -199,6 +199,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 0}
+  startOffset: {x: 0, y: 0, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
@@ -215,6 +216,7 @@ MonoBehaviour:
   damage: 1
   myType: 0
   activeDuration: 0.2
+  refresh: 0
   sizeOverTime:
     serializedVersion: 2
     m_Curve:

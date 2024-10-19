@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 103476329050906479}
   - component: {fileID: 3213928705343423066}
   m_Layer: 0
-  m_Name: Jump Audio
+  m_Name: Slide(Start)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,10 +44,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5480787676610553427, guid: 1378273ee56756c4bb98499363aba46c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6b1f812bf81cac84daeaa9c0db07b7fc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6e92c6227ff149a408bada56982c8d4f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
-  m_Pitch: 1
+  m_Volume: 0.5
+  m_Pitch: 1.4
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -158,8 +158,9 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 2
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0
