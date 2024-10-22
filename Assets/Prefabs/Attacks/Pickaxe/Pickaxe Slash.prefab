@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8783592719945192868}
   - component: {fileID: 6842745424514405945}
   - component: {fileID: 6455027600916288644}
-  - component: {fileID: 8352660219446764013}
   - component: {fileID: 7019152047202207604}
+  - component: {fileID: -13488615059097255}
   m_Layer: 8
   m_Name: Pickaxe Slash
   m_TagString: Untagged
@@ -199,6 +199,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 7400000, guid: 2f4c624efcb40ce45923d04186b8bce2, type: 2}
+  startOffset: {x: 0, y: 0, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
@@ -215,6 +216,7 @@ MonoBehaviour:
   damage: 2
   myType: 4
   activeDuration: 0.2
+  refresh: 0
   sizeOverTime:
     serializedVersion: 2
     m_Curve:
@@ -297,23 +299,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   offset: {x: 0, y: 0, z: 0}
   damageSelf: 0
---- !u!114 &8352660219446764013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7650349434382594507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9af68c6b4a40aa46be9e18f101fe4ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  possibleEffects:
-  - {fileID: 8734611745545370168, guid: 1737eeb5061937440bc195768431074a, type: 3}
-  - {fileID: 8734611745545370168, guid: 543c3c07daa69be4a9f906115fa24155, type: 3}
-  - {fileID: 8734611745545370168, guid: 5d3dc3767a3c8d44189a846c0ab0007b, type: 3}
-  allowRepeats: 0
 --- !u!50 &7019152047202207604
 Rigidbody2D:
   serializedVersion: 4
@@ -341,3 +326,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-13488615059097255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650349434382594507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9af68c6b4a40aa46be9e18f101fe4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleEffects:
+  - {fileID: 8734611745545370168, guid: 551c41735bba1ac40b02f921c6f2cb9a, type: 3}
+  - {fileID: 8734611745545370168, guid: 8aa758183ac01344292ef239049e88fb, type: 3}
+  - {fileID: 8734611745545370168, guid: 376b79450ca72014198ac9174b27bcc5, type: 3}
+  allowRepeats: 0
