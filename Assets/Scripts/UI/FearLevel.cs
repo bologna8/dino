@@ -13,9 +13,13 @@ public class FearLevel : MonoBehaviour
     [SerializeField]
     private float maxFear = 100;
 
-    [Tooltip("how long it takes for Arizona to get 1 point more afraid while in the dark")]
+    [Tooltip("how long it takes for Arizona to get more afraid while in the dark")]
     public float darknessDuration = 3;
+    [Tooltip("how long it takes for Arizona to get more afraid while hidden")]
+    public float hiddenDuration = 3;
+
     private float darknessTic;
+    private float hiddenTic;
     private float damageTic;
 
     private bool hasLantern = false;
@@ -25,6 +29,7 @@ public class FearLevel : MonoBehaviour
 
     private LanternController lanternControl;
     private Health health;
+    private Core core;
 
     [Tooltip("The hallucinogenic noises that Arizona might hear on a high fear.")]
     public List<GameObject> roars;
@@ -33,12 +38,14 @@ public class FearLevel : MonoBehaviour
     //private List<FearPage> FearPages;
     void Awake()
     {
+        //If player isn't assigned, this script destroys itself to prevent errors.
         if (player == null)
         {
             Debug.LogError("FearLevel requires a player prefab to be defined.");
             Destroy(this);
         }
 
+        //Sets this script to be a static object.
         if (FearStatic == null)
         {
             FearStatic = this;
@@ -50,7 +57,7 @@ public class FearLevel : MonoBehaviour
 
         fear = 0;
         
-
+        //Assigns necessary scripts from the Player GameObject's Children
         if (lanternControl == null)
         {
             lanternControl = player.GetComponentInChildren<LanternController>();
@@ -60,13 +67,20 @@ public class FearLevel : MonoBehaviour
         if (health == null)
         {
             health = player.GetComponentInChildren<Health>();
-            if (lanternControl == null) Debug.LogWarning("No script called lanternController found on player or its children. Please add one.");
+            if (lanternControl == null) Debug.LogWarning("No script called Health found on player or its children. Please add one.");
+        }
+        if (core == null)
+        {
+            core = player.GetComponent<Core>();
+            if (lanternControl == null) Debug.LogWarning("No script called Core found on player or its children. Please add one.");
         }
 
-
+        //Sets initial tic timers
         darknessTic = Time.time + darknessDuration;
+        hiddenTic = Time.time + hiddenDuration;
         damageTic = Time.time + 1;
 
+        //Sets important fields scaled to other fields.
         roarChance = maxFear*1000;
         lastCheckedHealth = health.currentHP;
     }
@@ -74,6 +88,7 @@ public class FearLevel : MonoBehaviour
     bool unlockedPages = false;
     float roarChance;
     float lastCheckedHealth;
+    bool hidden = false;
     void FixedUpdate()
     {
 
@@ -105,7 +120,7 @@ public class FearLevel : MonoBehaviour
             if (Time.time > darknessTic)
             {
                 darknessTic = Time.time + darknessDuration;
-                FearIncrease(1+darkMod);
+                FearChange(1+darkMod);
             }
         }
         //Checks if the player got beat up.
@@ -113,26 +128,41 @@ public class FearLevel : MonoBehaviour
         {
             if (lastCheckedHealth == health.currentHP) return;
             float healthDifference = lastCheckedHealth - health.currentHP;
-            FearIncrease(healthDifference*5);
+            FearChange(healthDifference*5);
+        }
+        //Checks if player is hiding.
+        if (Time.time > hiddenTic)
+        {
+            if (core.hidden)
+            {
+                if (!hidden)
+                {
+                    hidden = true;
+                    return;
+                }
+                FearChange(1);
+            }
+            else
+            {
+                if (!hidden) return;
+                hidden = false;
+            }
+        }
+        //Caps fear to the max
+        if (fear > maxFear)
+        {
+            fear = maxFear;
+        }
+        //Keeps fear from going below zero.
+        if (fear < 0)
+        {
+            fear = 0;
         }
     }
 
-    public void FearIncrease(float fearVal)
+    //Increases (or decreases  with a negative) Fear by the float fed into the method.
+    public void FearChange(float fearVal)
     {
         fear += fearVal;
     }
-
-
-    // public void LoadFearPage(Int pageNo)
-    //  {
-    //      bookController.UnlockSpecificPage(pageNo);
-    // }
-    //int test;
-    //  void PageThreshholdCheck()
-    //  {
-    //     for (int i = 0; i < FearPages.Count; i++)
-    //     {
-    //        test = FearPages[i].threshhold;
-    //    }
-    // }
 }
