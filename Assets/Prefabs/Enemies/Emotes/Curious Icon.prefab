@@ -49,11 +49,12 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 9
   delayBetweenChildren: 0
   tracking: 1
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0
 --- !u!114 &8258182232573635480
 MonoBehaviour:
   m_ObjectHideFlags: 0

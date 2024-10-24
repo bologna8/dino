@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;  
-using UnityEngine.UI;
 
 public class Hotbar : MonoBehaviour
 {
@@ -14,10 +13,9 @@ public class Hotbar : MonoBehaviour
     private Vector2 wheelDirection;
     private bool usingMouse;
     //public LayerMask wheelSliceLayer;
-    private Image[] wheelSlices;
+    public MultiSpriteHandler[] wheelSlices;
     [Range (0, 1)] public float selectedSliceAlpha;
     [Range (0, 1)] public float unSelectedSliceAlpha;
-
 
     private Controls myControls;
 
@@ -26,12 +24,9 @@ public class Hotbar : MonoBehaviour
 
     public bool consumableEquipped;
 
-    private void Awake()
+    private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+        if (instance == null) { instance = this; }
         else { Debug.Log("duplicate hotbar somehow"); }
 
         playerCore = GetComponentInParent<Core>();
@@ -39,7 +34,8 @@ public class Hotbar : MonoBehaviour
         var pc = GetComponentInParent<PlayerControls>(); 
         if (pc) { myControls = pc.myControls; }
 
-        wheelSlices = GetComponentsInChildren<Image>();
+        if (WeaponWheel)
+        { wheelSlices = WeaponWheel.GetComponentsInChildren<MultiSpriteHandler>(); }
     }
 
     void OnMouseMove()
@@ -55,48 +51,7 @@ public class Hotbar : MonoBehaviour
 
     void Update()
     {
-        
-        /*
-        if (wheelDirection != Vector2.zero)
-        {
-            foreach (var slice in wheelSlices) 
-            { 
-                slice.gameObject.SetActive(true);
-                slice.color = new Color(1, 1, 1, unSelectedSliceAlpha);
-            }
-
-            RaycastHit2D checkSlice = Physics2D.Raycast(WeaponWheel.transform.position, wheelDirection);
-            if (checkSlice)
-            {
-                var selectedSlice = checkSlice.transform.gameObject.GetComponent<Image>();
-                if (selectedSlice) 
-                { 
-                    for(int i = 0; i < equippedItems.Count; i++)
-                    {
-                        if (wheelSlices[i] == selectedSlice)
-                        {
-                            SelectItem(i);
-                            selectedSlice.color = new Color(1, 1, 1, selectedSliceAlpha);
-                        }
-                    }
-                }
-            }
-        }
-
-        if (usingMouse && myControls.Aiming.WeaponWheel.IsPressed())
-        {
-            Vector3 mousePos = Mouse.current.position.ReadValue();
-            mousePos.z = Camera.main.nearClipPlane;
-            var mouseScreenPos = Camera.main.ScreenToWorldPoint(mousePos);  mouseScreenPos.z = 0f;
-
-            wheelDirection = (mouseScreenPos - transform.parent.position).normalized;
-        }
-        else 
-        { 
-            wheelDirection = Vector2.zero;
-            foreach (var slice in wheelSlices) { slice.gameObject.SetActive(false); }
-        }
-        */
+        UpdateWeaponWheel();
         
     }
 
@@ -117,20 +72,17 @@ public class Hotbar : MonoBehaviour
 
         SelectItem(currentlyEquipped);
     }
-
     
 
     void SelectItem(int index)
     {
-        if (index < equippedItems.Count) 
-        {
-            currentlyEquipped = index;
+        if (index >= equippedItems.Count) { return; }
 
-            if (playerCore)
-            {
-                playerCore.ChangeWeapons(0, equippedItems[index].attackPrefab, equippedItems[index].attackUp, equippedItems[index].attackDown);
-            }
-        }
+        if (playerCore == null) { return; }
+        
+        currentlyEquipped = index;
+
+        playerCore.ChangeWeapons(0, equippedItems[index].attackPrefab, equippedItems[index].attackUp, equippedItems[index].attackDown);
     }
 
     void OnOne()
@@ -153,6 +105,71 @@ public class Hotbar : MonoBehaviour
     void OnFive()
     {
         if (currentlyEquipped != 4) { SelectItem(4); }
+    }
+
+    public void UnEquipItem(int index)
+    {
+        if (index >= equippedItems.Count) { return; }
+
+        equippedItems.RemoveAt(index);
+    }
+
+    public void UseConsumable()
+    {
+        if (!consumableEquipped) { return; }
+
+        consumableEquipped = false;
+        var item = equippedItems[equippedItems.Count];
+        equippedItems.RemoveAt(equippedItems.Count);
+
+        if (Inventory.instance == null) { return; }
+        Inventory.instance.RemoveItem(item);
+
+    }
+
+    void UpdateWeaponWheel()
+    {
+        if (WeaponWheel == null) { return; }
+
+        if (usingMouse)
+        {
+            Vector3 mousePos = Mouse.current.position.ReadValue();
+            mousePos.z = Camera.main.nearClipPlane;
+            var mouseScreenPos = Camera.main.ScreenToWorldPoint(mousePos);  mouseScreenPos.z = 0f;
+
+            wheelDirection = (mouseScreenPos - transform.parent.position).normalized;
+        }
+
+        if (wheelDirection == Vector2.zero || !myControls.Aiming.WeaponWheel.IsPressed()) 
+        {
+            foreach (var slice in wheelSlices) { slice.gameObject.SetActive(false); } 
+            return; 
+        }
+
+
+        foreach (var slice in wheelSlices) 
+        { 
+            slice.gameObject.SetActive(true);
+            slice.changeAlpha(unSelectedSliceAlpha, 1);
+        }
+
+        RaycastHit2D checkSlice = Physics2D.Raycast(WeaponWheel.transform.position, wheelDirection);
+        if (checkSlice)
+        {
+            var selectedSlice = checkSlice.transform.gameObject.GetComponent<MultiSpriteHandler>();
+            if (selectedSlice) 
+            { 
+                for(int i = 0; i < equippedItems.Count; i++)
+                {
+                    if (wheelSlices[i] == selectedSlice)
+                    {
+                        SelectItem(i);
+                        selectedSlice.changeAlpha(selectedSliceAlpha, 1);
+                    }
+                }
+            }
+        }
+    
     }
 
 }

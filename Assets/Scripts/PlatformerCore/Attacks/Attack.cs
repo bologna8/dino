@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
     public enum AttackType { Automatic, Manual, Unload }
     public AttackType typeOfInput;
 
-    public enum AmoType { none, HP, light, heavy, explosive }
+    public enum AmoType { none, single, HP, light, heavy, explosive }
     public AmoType typeOfAmo;
 
     [Tooltip("Time it takes to reload clip and ready next round of attacks")] public float cooldown = 0.1f;

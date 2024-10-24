@@ -20,29 +20,23 @@ public class HotbarItem : Item
 
     public void AddToHotbar()
     {
-        if (Hotbar.instance != null)
+        if (Hotbar.instance == null) { return; }
+
+        if (consumable && Hotbar.instance.consumableEquipped)
         {
-            if (consumable)
-            {
-                if (Hotbar.instance.consumableEquipped)
-                {
-                    ReplaceInHotbar(Hotbar.instance.equippedItems.Count);
-                }
-            }
-            else
-            {
-                Hotbar.instance.equippedItems.Add(this);
-            }
+            ReplaceInHotbar(Hotbar.instance.equippedItems.Count);
+            return;
         }
+
+        Hotbar.instance.equippedItems.Add(this);
     }
 
 
     public void ReplaceInHotbar(int index)
     {
-        if (Hotbar.instance != null)
-        {
-            Hotbar.instance.equippedItems[index] = this;
-        }
+        if (Hotbar.instance == null) { return; }
+        
+        Hotbar.instance.equippedItems[index] = this;
     }
 
 }

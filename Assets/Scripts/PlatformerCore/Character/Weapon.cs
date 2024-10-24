@@ -96,28 +96,29 @@ public class Weapon : MonoBehaviour
 
     public bool TryAttack()
     {
-        if (attackReady && attackStats)
-        {
-            var useAttack = attackPrefab;
+        if (!attackReady || !attackStats) { return false; }
 
-            if (verticalInput > 0 && upAttackPrefab) { useAttack = upAttackPrefab; }
-            if (verticalInput < 0 && downAttackPrefab) { useAttack = downAttackPrefab; }
+        var useAttack = attackPrefab;
 
-
-            if (currentAttackPrefab != useAttack) { changeAttack(useAttack); }
+        if (verticalInput > 0 && upAttackPrefab) { useAttack = upAttackPrefab; }
+        if (verticalInput < 0 && downAttackPrefab) { useAttack = downAttackPrefab; }
 
 
-            if (attackStats.typeOfAmo == Attack.AmoType.none || currentClip > 0) 
-            { 
-                if (currentClip > 0) { currentClip --; }
-                attacking = AttackRoutine();
-                StartCoroutine(attacking);
-                return true;
-            }
-            
+        if (currentAttackPrefab != useAttack) { changeAttack(useAttack); }
+
+
+        if (attackStats.typeOfAmo != Attack.AmoType.none || attackStats.typeOfAmo != Attack.AmoType.single) 
+        { 
+            if (currentClip > 0) { currentClip --; }
+            else { return false; }
         }
+            
+        if (attackStats.typeOfAmo == Attack.AmoType.single && Hotbar.instance != null) 
+        { Hotbar.instance.UseConsumable(); }
 
-        return false;
+        attacking = AttackRoutine();
+        StartCoroutine(attacking);
+        return true;
     }
 
     public IEnumerator AttackRoutine()

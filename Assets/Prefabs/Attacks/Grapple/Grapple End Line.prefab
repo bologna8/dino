@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3273488252824308709}
   - component: {fileID: 3918077316083625331}
   - component: {fileID: 2351276181650133032}
+  - component: {fileID: 3154339718972397741}
   m_Layer: 0
   m_Name: Grapple End Line
   m_TagString: Untagged
@@ -50,10 +51,12 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
   myCore: {fileID: 0}
+  angle: 0
 --- !u!114 &3273488252824308709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,3 +194,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 0.3
+--- !u!114 &3154339718972397741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080380149315166911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9af68c6b4a40aa46be9e18f101fe4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleEffects: []
+  allowRepeats: 0

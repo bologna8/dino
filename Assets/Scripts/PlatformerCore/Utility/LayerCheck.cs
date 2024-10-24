@@ -15,6 +15,13 @@ public class LayerCheck : MonoBehaviour
      [HideInInspector] public Collider2D lastCollided;
      [HideInInspector] public float slope;
 
+     private Bounds myBounds;
+
+     void Awake()
+     {
+          myBounds = GetComponent<Collider2D>().bounds;
+     }
+
      private void OnTriggerStay2D(Collider2D collision)
      {
           if ((checkMask.value & (1 << collision.transform.gameObject.layer)) > 0) 
@@ -22,6 +29,18 @@ public class LayerCheck : MonoBehaviour
                touching = true; lastCollided = collision;
                slope = collision.transform.rotation.z;
                ExtraEnterOperations(collision);
+
+               var pointOfContact = collision.ClosestPoint(transform.position);
+
+               if (pointOfContact.x > (transform.position.x )) { touchingRight = true; }
+               else { touchingRight = false; }
+               if (pointOfContact.x < (transform.position.x )) { touchingLeft = true; }
+               else { touchingLeft = false; }
+
+               if (pointOfContact.y > (transform.position.y )) { touchingTop = true; }
+               else { touchingTop = false; }
+               if (pointOfContact.y < (transform.position.y )) { touchingBot = true; }
+               else { touchingBot = false; }
           }    
      }
 
@@ -30,7 +49,15 @@ public class LayerCheck : MonoBehaviour
      private void OnTriggerExit2D(Collider2D collision)
      {
           if (collision == lastCollided) 
-          { ExtraExitOperations(collision); touching = false; }
+          { 
+               ExtraExitOperations(collision); 
+               touching = false; 
+
+               touchingLeft = false;
+               touchingRight = false;
+               touchingTop = false;
+               touchingBot = false;
+          }
      }
 
      private void OnDisable()

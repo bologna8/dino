@@ -105,6 +105,7 @@ public class Movement : MonoBehaviour
     private float hangClimbDelay = 0.3f; //How long before you can climb input on ledge
     [HideInInspector] public bool onEdge; //Currently grabbing an edge
     [HideInInspector] public Coroutine climbing; //currently started a climb coroutine
+    [Tooltip("Spawn effect when ledge grabbed")] public GameObject GrabLedgeEffect;
     [Tooltip("Climb small hip high obstacles easily")] public bool autoVaultOver = false;
     [Tooltip("Minimum momentum percent needed to vault of obstacles")] [Range(0f, 1f)] public float minVaultMomentum = 0f;
     [Tooltip("Time spent vaulting")] public float vaultSpeed;

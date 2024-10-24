@@ -189,7 +189,9 @@ public class InventoryUI : MonoBehaviour
         if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
+            #if !UNITY_EDITOR
             Cursor.visible = false;
+            #endif
         }
         else
         {

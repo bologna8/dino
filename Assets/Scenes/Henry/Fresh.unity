@@ -2393,6 +2393,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &543594377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4575424089723972148, guid: af4e836c6d2c4414b960403f47452a78, type: 3}
+  m_PrefabInstance: {fileID: 2128828671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &558125408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,6 +3580,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1916285054749133888, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: WeaponWheel
+      value: 
+      objectReference: {fileID: 543594377}
+    - target: {fileID: 1916285054749133888, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: selectedSliceAlpha
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916285054749133888, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: unSelectedSliceAlpha
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2661674118543948784, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
