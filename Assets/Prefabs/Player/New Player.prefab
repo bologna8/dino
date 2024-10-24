@@ -95,7 +95,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
   currentlyEquipped: 0
   consumableEquipped: 0
---- !u!1 &829955194076484787
+--- !u!1 &446021155225169908
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,44 +103,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2620859758429715580}
-  - component: {fileID: 6072205294079493756}
-  m_Layer: 0
+  - component: {fileID: 212168865920863887}
+  - component: {fileID: 2270191661232645506}
+  m_Layer: 6
   m_Name: LanternController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2620859758429715580
+--- !u!4 &212168865920863887
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829955194076484787}
+  m_GameObject: {fileID: 446021155225169908}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2661674118543948784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6072205294079493756
+--- !u!114 &2270191661232645506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829955194076484787}
+  m_GameObject: {fileID: 446021155225169908}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2787635fc3f73f4b9ce7a0adfbdf40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lantern: {fileID: 7151481375275533308}
+  oilItem: {fileID: 11400000, guid: d220cfc6ecdb09f488f1620ca19c88d5, type: 2}
+  maxEnergy: 100
+  currentEnergy: 0
+  depletionRate: 5
+  refillAmount: 50
   lanternItem: {fileID: 11400000, guid: 723b288ed4c0bca4c9b9135ed90a247f, type: 2}
+  doubleClickTime: 0.3
 --- !u!1 &1327237381141930826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,8 +1127,8 @@ Transform:
   - {fileID: 1448336083552305297}
   - {fileID: 1630205273341425769}
   - {fileID: 2644349332470760087}
-  - {fileID: 2620859758429715580}
   - {fileID: 2786310629096168211}
+  - {fileID: 212168865920863887}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &593479598186084569
