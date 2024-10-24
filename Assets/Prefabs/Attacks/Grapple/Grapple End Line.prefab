@@ -206,5 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9af68c6b4a40aa46be9e18f101fe4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleEffects: []
+  possibleEffects:
+  - {fileID: 3933424769755576373, guid: 67c753dd5a3d2104b96e796146239233, type: 3}
   allowRepeats: 0
