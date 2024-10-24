@@ -8,9 +8,10 @@ public class LanternController : MonoBehaviour
     public float maxEnergy = 100f; 
     public float currentEnergy; 
     public float depletionRate = 5f; 
-    public float refillAmount = 50f; 
+    public float refillAmount = 50f;
 
-    private bool isLanternActive = false;
+    [HideInInspector]
+    public bool isLanternActive = false;
     private bool isLanternInInventory = false;
     private Inventory inventory;
 
