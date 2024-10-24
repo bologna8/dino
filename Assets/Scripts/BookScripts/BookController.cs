@@ -125,8 +125,10 @@ public class BookController : MonoBehaviour
         }
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
+        #if !UNITY_EDITOR
         Cursor.visible = false;
+        #endif
     }
 
     public void GoToTab(int tabIndex)

@@ -579,15 +579,13 @@ public class Movement : MonoBehaviour
         if (leftLedgeCheck && leftAirCheck)
         {
             if (!leftAirCheck.touching && leftLedgeCheck.touching && moveInput <= 0)
-            { tryGrab = true; }
-            
+            { tryGrab = true; }   
         }
 
         if (rightLedgeCheck && rightAirCheck)
         {
             if(!rightAirCheck.touching && rightLedgeCheck.touching && moveInput >= 0)
             { tryGrab = true; }
-            
         }
 
 
@@ -597,7 +595,6 @@ public class Movement : MonoBehaviour
         if (myHP) { if (myHP.stunTime > 0) { tryGrab = false; } }
         
         //if(climbing != null) { tryGrab = true; } //stay on ledge while ledge climb started
-
 
         
         if (tryGrab)
@@ -619,6 +616,9 @@ public class Movement : MonoBehaviour
                     movingRight = !movingRight;
                     if (myCore) { myCore.Turn(); }
                 }
+
+                if (!onEdge && GrabLedgeEffect)
+                { PoolManager.Instance.Spawn(GrabLedgeEffect, transform.position, Quaternion.identity, transform); }
 
                 onEdge = true;
                 airTime = 0; //Reset airtime while ya hang
