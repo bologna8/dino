@@ -4296,8 +4296,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4117583768369405317}
   m_HandleRect: {fileID: 1716624284358849445}
   m_Direction: 0
-  m_Value: 0.29553258
-  m_Size: 0.98747015
+  m_Value: 0.29553047
+  m_Size: 0.98747003
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11781,6 +11781,10 @@ PrefabInstance:
     - target: {fileID: 1671831957543297747, guid: 3eaaad08a674bfa4098f0dae4475e5a2, type: 3}
       propertyPath: m_Name
       value: WeaponWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671831957543297747, guid: 3eaaad08a674bfa4098f0dae4475e5a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4458323043377453088, guid: 3eaaad08a674bfa4098f0dae4475e5a2, type: 3}
       propertyPath: m_Pivot.x
