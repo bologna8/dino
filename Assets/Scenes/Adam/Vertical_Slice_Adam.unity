@@ -7163,6 +7163,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+--- !u!1 &978357820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7091465629953614172, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+  m_PrefabInstance: {fileID: 978357819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &980976605
 GameObject:
   m_ObjectHideFlags: 0
@@ -60462,6 +60467,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1916285054749133888, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: WeaponWheel
+      value: 
+      objectReference: {fileID: 978357820}
     - target: {fileID: 2169010027061538377, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_IsActive
       value: 0
