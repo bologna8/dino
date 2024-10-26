@@ -62,6 +62,7 @@ public class FearPage : MonoBehaviour
         {
             if (FearLevel.FearStatic.fear > threshhold)
             {
+                Debug.Log("fear page unlocked");
                 bookController.UnlockSpecificPage(pageNumber);
             }
         }
