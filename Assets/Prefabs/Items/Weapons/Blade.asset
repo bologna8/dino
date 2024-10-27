@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
   m_Name: Blade
   m_EditorClassIdentifier: 
-  name: Serrated Blade
+  name: Blade
   icon: {fileID: -1694158532, guid: a0f4288bcc5a7e240a0abc19c6d55fd4, type: 3}
   itemDescription: Super Sharp
   attackPrefab: {fileID: 7650349434382594507, guid: fafa22cfd1b6b4c4594196ee50315fe7, type: 3}
   attackUp: {fileID: 6889847032303551195, guid: 2ceabd9ce9a319948a998276ebaa091b, type: 3}
   attackDown: {fileID: 0}
+  consumable: 0

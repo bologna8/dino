@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
   m_Name: Shovel
   m_EditorClassIdentifier: 
-  name: Trusty Shovel
+  name: Shovel
   icon: {fileID: 21300000, guid: 93376c3e67616a64d86061fe2e443f4f, type: 3}
   itemDescription: Diggy diggy hole
   attackPrefab: {fileID: 7650349434382594507, guid: a23845e8bc0e35545b6daf28d9357bee, type: 3}
   attackUp: {fileID: 2096241645069915440, guid: ab0d6755b23329345997f73d85988797, type: 3}
   attackDown: {fileID: 0}
+  consumable: 0

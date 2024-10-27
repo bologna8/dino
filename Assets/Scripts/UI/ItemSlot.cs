@@ -6,17 +6,18 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     public Image icon;  
+    public Text itemNameText; 
     private Item item;  
 
     public delegate void OnItemUsed();
     public event OnItemUsed ItemUsed;  
     
-
     private void Start()
     {
         if (item != null)
         {
             item.ItemUsed += OnItemUsedEventHandler;
+            UpdateItemName();
         }
     }
 
@@ -30,6 +31,8 @@ public class ItemSlot : MonoBehaviour
         item = newItem;
         icon.sprite = newItem.icon; 
         icon.enabled = true;         
+        
+        UpdateItemName();
 
         item.ItemUsed += OnItemUsedEventHandler;  
     }
@@ -44,6 +47,16 @@ public class ItemSlot : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;  
+
+        itemNameText.text = ""; 
+    }
+
+    private void UpdateItemName()
+    {
+        if (item != null)
+        {
+            itemNameText.text = item.name; 
+        }
     }
 
     public void UseItem()
@@ -100,7 +113,7 @@ public class ItemSlot : MonoBehaviour
     }
 
     public void SetHighlight(bool highlight)
-    { //adust highlight color when navigating items
+    { // Adjust highlight color when navigating items
         icon.color = highlight ? Color.yellow : Color.white;
     }
 }

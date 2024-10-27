@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponWheel: {fileID: 0}
+  wheelSlices: []
   selectedSliceAlpha: 0
   unSelectedSliceAlpha: 0
   equippedItems:
@@ -145,6 +146,7 @@ MonoBehaviour:
   currentEnergy: 0
   depletionRate: 5
   refillAmount: 50
+  isLanternActive: 0
   lanternItem: {fileID: 11400000, guid: 723b288ed4c0bca4c9b9135ed90a247f, type: 2}
   doubleClickTime: 0.3
 --- !u!1 &1327237381141930826
@@ -933,7 +935,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: []
-  craftingRecipes: []
+  craftingRecipes:
+  - {fileID: 11400000, guid: d48fe323ae413694bb42aa11cf90615e, type: 2}
   recipePrefabs: []
   canvas: {fileID: 0}
   itemInfoPrefab: {fileID: 5761103041928972720, guid: 05fce7ddafc3aec4aae81ccef9eacfbe, type: 3}
@@ -1143,7 +1146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b4311441792b34abffda404705da44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItemList: []
+  inventoryItemList:
+  - {fileID: 11400000, guid: 723b288ed4c0bca4c9b9135ed90a247f, type: 2}
+  - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
+  - {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
+  - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
 --- !u!50 &340933065370478967
 Rigidbody2D:
   serializedVersion: 4
@@ -1393,6 +1400,7 @@ MonoBehaviour:
   grabLedges: 1
   climbTime: {x: 0.2, y: 0.3}
   onEdge: 0
+  GrabLedgeEffect: {fileID: 0}
   autoVaultOver: 0
   minVaultMomentum: 0
   vaultSpeed: 0.1

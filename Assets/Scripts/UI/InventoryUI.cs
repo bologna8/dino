@@ -55,7 +55,7 @@ public class InventoryUI : MonoBehaviour
 
         if (book != null)
         {
-            book.SetActive(false);
+            book.SetActive(true);
         }
     }
 
