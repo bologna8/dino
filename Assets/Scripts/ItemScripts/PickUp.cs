@@ -38,7 +38,8 @@ public class PickUp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player") && lifeTime >= delayPickupTime)
+        var playerCheck = other.GetComponent<PlayerControls>();
+        if (playerCheck && lifeTime >= delayPickupTime)
         {
             if (pickupEffect)
             {
@@ -65,7 +66,6 @@ public class PickUp : MonoBehaviour
                 }
             }
             
-
             gameObject.SetActive(false);
         }
     }

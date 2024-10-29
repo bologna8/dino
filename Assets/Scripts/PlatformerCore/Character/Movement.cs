@@ -356,8 +356,6 @@ public class Movement : MonoBehaviour
     void Run()
     {
         CheckDirectionChange();
-
-        if (dashing != null) { return; }
         
         if (autoVaultOver && momentum >= minVaultMomentum) { VaultOver(); } //Jump over objects //&& InputForward()
 
@@ -489,7 +487,10 @@ public class Movement : MonoBehaviour
             }
 
             if (dashing != null && onGround) //Cancel dash with jump
-            { CancelDash(true, dashTime.y, dashCancelMultiplier); }
+            {
+                if (dashCheck) { if (dashCheck.touching) { return; } } 
+                CancelDash(true, dashTime.y, dashCancelMultiplier); 
+            }
 
             //Actually do the jumping
             if (jumpReady)

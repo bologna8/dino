@@ -4291,8 +4291,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4117583768369405317}
   m_HandleRect: {fileID: 1716624284358849445}
   m_Direction: 0
-  m_Value: 0.295519
-  m_Size: 0.98746985
+  m_Value: 0.29553258
+  m_Size: 0.98747015
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5336,7 +5336,6 @@ RectTransform:
   - {fileID: 5623719106135055730}
   - {fileID: 393812635882520343}
   - {fileID: 1006851511967876758}
-  - {fileID: 6049119341226366031}
   - {fileID: 5225685240662907823}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7701,65 +7700,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &5716525682760494340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6049119341226366031}
-  - component: {fileID: 2874292819525283298}
-  m_Layer: 5
-  m_Name: Hotbar
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6049119341226366031
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5716525682760494340}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8444215621768976249}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0.000030517578}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2874292819525283298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5716525682760494340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9e16c44206d9140a744b04fd8e6c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponWheel: {fileID: 0}
-  wheelSlices: []
-  selectedSliceAlpha: 0
-  unSelectedSliceAlpha: 0
-  equippedItems:
-  - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
-  - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
-  - {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
-  - {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
-  - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
-  currentlyEquipped: 0
 --- !u!1 &5719252372569665392
 GameObject:
   m_ObjectHideFlags: 0
@@ -11388,10 +11328,6 @@ PrefabInstance:
     - target: {fileID: 1671831957543297747, guid: 3eaaad08a674bfa4098f0dae4475e5a2, type: 3}
       propertyPath: m_Name
       value: WeaponWheel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671831957543297747, guid: 3eaaad08a674bfa4098f0dae4475e5a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4458323043377453088, guid: 3eaaad08a674bfa4098f0dae4475e5a2, type: 3}
       propertyPath: m_Pivot.x
