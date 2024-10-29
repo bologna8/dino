@@ -35,7 +35,19 @@ public class Hotbar : MonoBehaviour
 
         if (WeaponWheel)
         { 
+            WeaponWheel.SetActive(true);
             wheelSlices = WeaponWheel.GetComponentsInChildren<MultiSpriteHandler>(); 
+        }
+
+        if (Inventory.instance != null)
+        {
+            foreach (var item in Inventory.instance.inventoryItemList)
+            {
+                if(item is HotbarItem hotbarItem)
+                {
+                    hotbarItem.AddToHotbar();
+                }
+            }
         }
     }
 
@@ -112,7 +124,7 @@ public class Hotbar : MonoBehaviour
         if (index > equippedItems.Length) { return; }
 
         if (wheelSlices.Length >= index)
-        { wheelSlices[index].changeSprite(wheelSlices[index].startSprites[0]); }
+        { wheelSlices[index].changeSprite(wheelSlices[index].startSprites[1], 1); }
 
         if (Inventory.instance != null && consumable) 
         { Inventory.instance.RemoveItem(equippedItems[index]); }
@@ -143,7 +155,7 @@ public class Hotbar : MonoBehaviour
         foreach (var slice in wheelSlices) 
         { 
             slice.gameObject.SetActive(true);
-            slice.changeAlpha(unSelectedSliceAlpha, 1);
+            slice.changeAlpha(unSelectedSliceAlpha);
         }
 
         RaycastHit2D checkSlice = Physics2D.Raycast(WeaponWheel.transform.position, wheelDirection);
@@ -154,9 +166,9 @@ public class Hotbar : MonoBehaviour
             { 
                 for(int i = 0; i < wheelSlices.Length; i++)
                 {
-                    if (wheelSlices[i] == selectedSlice)
+                    if (wheelSlices[i] == selectedSlice && equippedItems[i] != null)
                     {
-                        selectedSlice.changeAlpha(selectedSliceAlpha, 1);
+                        selectedSlice.changeAlpha(selectedSliceAlpha);
                         SelectItem(i);
                     }
                 }

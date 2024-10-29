@@ -28,8 +28,12 @@ public class PickUp : MonoBehaviour
 
     void Update()
     {
-        lifeTime += Time.deltaTime;
-        if (lifeTime > despawnTime) { gameObject.SetActive(false); }
+        if (despawnTime > 0)
+        {
+            lifeTime += Time.deltaTime;
+            if (lifeTime > despawnTime) 
+            { gameObject.SetActive(false); }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

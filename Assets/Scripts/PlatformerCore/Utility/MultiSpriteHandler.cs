@@ -63,7 +63,7 @@ public class MultiSpriteHandler : MonoBehaviour
     public void changeSprite(Sprite newSprite, int index = 0)
     {
         if (!initialized) { return; }
-        
+
         if (imagesInUI)
         {
             if (index > subImages.Length) { return; }

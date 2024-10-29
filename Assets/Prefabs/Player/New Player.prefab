@@ -89,11 +89,11 @@ MonoBehaviour:
   selectedSliceAlpha: 0
   unSelectedSliceAlpha: 0
   equippedItems:
-  - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
-  - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
-  - {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
-  - {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
-  - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentlyEquipped: 0
 --- !u!1 &446021155225169908
 GameObject:
@@ -1106,6 +1106,7 @@ GameObject:
   - component: {fileID: 2409072002369360463}
   - component: {fileID: 4050262974801730107}
   - component: {fileID: 3977442641622030657}
+  - component: {fileID: 408405568146390572}
   m_Layer: 6
   m_Name: New Player
   m_TagString: Player
@@ -1391,13 +1392,13 @@ MonoBehaviour:
   coyoteTime: 0.1
   bonusJumps: 0
   jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
-  canWallJump: 1
+  canWallJump: 0
   wallJumpForce: {x: 10, y: 17}
   wallJumpDelay: 0.02
   wallJumpTime: {x: 0.4, y: 0.5}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
   wallLockDelay: 0.1
-  canWallSlide: 1
+  canWallSlide: 0
   wallSlideSpeed: 1
   wallSliding: 0
   grabLedges: 1
@@ -1423,7 +1424,7 @@ MonoBehaviour:
   airDashTime: {x: 0.3, y: 0.3}
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
-  airDashes: 1
+  airDashes: 0
   airDashAngle: 15
   airDashEffect: {fileID: 8080380149315166911, guid: 8098db70917281f499adbdf26341f4ac, type: 3}
   myBod: {fileID: 340933065370478967}
@@ -1604,6 +1605,20 @@ MonoBehaviour:
   campfireIcons:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &408405568146390572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649990236531220739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6849140526c97645b74b777a6a0dddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallJumpItem: {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
+  airDashItem: {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
 --- !u!1 &5933526067178452155
 GameObject:
   m_ObjectHideFlags: 0
