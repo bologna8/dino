@@ -43,8 +43,6 @@ public class BookController : MonoBehaviour
         //The first tab is highlighted at the start
         HighlightTab(currentTabIndex);
 
-        // Highlight the next/previous page buttons
-        HighlightPageButton();
     }
 
    /* private void OnEnable()
@@ -177,23 +175,7 @@ public class BookController : MonoBehaviour
           }
         //}
     }
-   
-    private void HighlightPageButton()
-    {
-        if (currentPage == 0)
-        {
-            EventSystem.current.SetSelectedGameObject(nextPageButton.gameObject);
-        }
-        else if (currentPage == pages.Length - 1)
-        {
-            EventSystem.current.SetSelectedGameObject(previousPageButton.gameObject);
-        }
-        else
-        {
-            //Default to next page button if on any middle page
-            EventSystem.current.SetSelectedGameObject(nextPageButton.gameObject);
-        }
-    }
+ 
 
     public void UnlockSpecificPage(int pageIndex)
     {
