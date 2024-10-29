@@ -86,8 +86,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponWheel: {fileID: 0}
   wheelSlices: []
-  selectedSliceAlpha: 0
-  unSelectedSliceAlpha: 0
+  selectedSliceAlpha: 0.8
+  unSelectedSliceAlpha: 0.5
   equippedItems:
   - {fileID: 0}
   - {fileID: 0}
