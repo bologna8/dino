@@ -17,6 +17,8 @@ public class FearLevel : MonoBehaviour
     public float darknessDuration = 3;
     [Tooltip("how long it takes for Arizona to get more afraid while hidden")]
     public float hiddenDuration = 3;
+    [Tooltip("how much more fear is gained per 1 damage")]
+    public float damageFearMultiplier = 5;
 
     private float darknessTic;
     private float hiddenTic;
@@ -36,7 +38,10 @@ public class FearLevel : MonoBehaviour
     public List<GameObject> roars;
     [Tooltip("Arizona's Journal UI.")]
     public BookController bookControl;
+    [Tooltip("The popup to see if a page is unlocked")]
+    public PageUnlockPopUp popUp;
     [Tooltip("X = Fear Threshold to unlock, Y = Page number")]
+    [SerializeField]
     private List<Vector2> fearUnlockPages;
 
     private bool hasPlayer = true;
@@ -85,12 +90,11 @@ public class FearLevel : MonoBehaviour
 
         //Sets important fields scaled to other fields.
         roarChance = maxFear*1000;
-        lastCheckedHealth = health.currentHP;
     }
 
     bool unlockedPages = false;
     float roarChance;
-    float lastCheckedHealth;
+    float lastCheckedHealth = -1;
     bool hidden = false;
     void FixedUpdate()
     {
@@ -117,7 +121,6 @@ public class FearLevel : MonoBehaviour
                 {
                     hasLantern = true;
                 }
-                else return;
             }
 
             int darkMod = hasLantern ? 0 : 1;
@@ -130,9 +133,17 @@ public class FearLevel : MonoBehaviour
         //Checks if the player got beat up.
         if (Time.time > damageTic)
         {
-            if (lastCheckedHealth == health.currentHP) return;
-            float healthDifference = lastCheckedHealth - health.currentHP;
-            FearChange(healthDifference*5);
+            if (lastCheckedHealth == -1)
+            {
+                lastCheckedHealth = health.currentHP;
+            }
+            if (lastCheckedHealth != health.currentHP)
+            {
+                float healthDifference = lastCheckedHealth - health.currentHP;
+                FearChange(healthDifference * damageFearMultiplier);
+                lastCheckedHealth = health.currentHP;
+            }
+            damageTic = Time.time;
         }
         //Checks if player is hiding.
         if (Time.time > hiddenTic)
@@ -142,14 +153,12 @@ public class FearLevel : MonoBehaviour
                 if (!hidden)
                 {
                     hidden = true;
-                    return;
                 }
-                FearChange(1);
+                else FearChange(1);
             }
             else
             {
-                if (!hidden) return;
-                hidden = false;
+                if (!hidden) hidden = false;
             }
         }
 
@@ -160,20 +169,16 @@ public class FearLevel : MonoBehaviour
                 if (fear >= fearUnlockPages[i].x)
                 {
                     bookControl.UnlockSpecificPage(((int)fearUnlockPages[i].y));
+                    if (popUp != null)
+                    {
+                        popUp.ShowPopUp("New Page Unlocked!");
+                    }
                     fearUnlockPages.RemoveAt(i);
                 }
             }
         }
-        //Caps fear to the max
-        if (fear > maxFear)
-        {
-            fear = maxFear;
-        }
-        //Keeps fear from going below zero.
-        if (fear < 0)
-        {
-            fear = 0;
-        }
+        
+        fear = Mathf.Clamp(fear, 0, maxFear);
         
     }
 

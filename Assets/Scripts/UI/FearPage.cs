@@ -12,65 +12,37 @@ public class FearPage : MonoBehaviour
 
     public int threshhold = 50;
 
-    private float ticSeconds = 3;
 
-
-    [SerializeField]
-    bool swapPage = false;
     [SerializeField]
     string baseText;
     [TextArea]
     public string fearText;
 
-    [SerializeField]
-    int pageNumber = 0;
-
     bool unlocked = false;
 
+    float startTime;
+
     TMP_Text textbox;
-    private void Start()
+    private void Awake()
     {
         if (bookController == null)
         {
             bookController = FindAnyObjectByType<BookController>();
         }
-
-        if (swapPage) return;
-
-        nextTic = Time.time + ticSeconds;
     }
+
 
     // Checks the fear level and sets 
     void OnEnable()
     {
         //FearLevel.FearStatic.LoadFearPage(this.gameObject);
-        if (swapPage && FearLevel.FearStatic.fear>threshhold && !unlocked)
+        if (Time.time > 1 && FearLevel.FearStatic.fear > threshhold && !unlocked)
         {
             textbox = this.gameObject.GetComponent<TMP_Text>();
             textbox.text = fearText;
+            Debug.Log("text swapped");
         }
-        unlocked = true;
-        
-    }
-
-    float nextTic;
-    bool feared = false;
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (!swapPage && !unlocked)
-        {
-            if (FearLevel.FearStatic.fear > threshhold)
-            {
-                Debug.Log("fear page unlocked");
-                bookController.UnlockSpecificPage(pageNumber);
-            }
-        }
-        else return;
-    }
-
-    public void PageSwap()
-    {
-
+        Debug.Log("Fear swap page enabled");
+        if (Time.time >1) unlocked = true;        
     }
 }
