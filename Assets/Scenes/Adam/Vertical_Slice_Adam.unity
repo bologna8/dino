@@ -60610,15 +60610,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1551716292}
-    - targetCorrespondingSourceObject: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1551716291}
-    - targetCorrespondingSourceObject: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1551716290}
-    - targetCorrespondingSourceObject: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1551716306}
   m_SourcePrefab: {fileID: 100100000, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
 --- !u!1 &1551716285 stripped
@@ -60626,96 +60617,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
   m_PrefabInstance: {fileID: 1551716284}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1551716286 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6006615077103462235, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-  m_PrefabInstance: {fileID: 1551716284}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551716285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 727401023298ebe41bdc8fbba620e261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1551716287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2661674118543948784, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
   m_PrefabInstance: {fileID: 1551716284}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1551716290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551716285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f06fd00aa1ced42d1b02eeeb313f3a6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapSpriteMasks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mapColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  campfireColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  campfireIcons:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1551716291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551716285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa01d70cceb0a3e44a3550894dad9444, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  standingOn: 0
---- !u!114 &1551716292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551716285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fcfd32401095f24fb410bece79a19e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FootstepLists:
-    _serializedList:
-    - Key: 0
-      Value:
-      - {fileID: 744045295040258649, guid: 93b256547db81724a9fbe89348e49b9f, type: 3}
-      - {fileID: 744045295040258649, guid: 0572ff4033d89ef4393426dfface5109, type: 3}
-      - {fileID: 744045295040258649, guid: b750d30b37a32354881b5f72b5720e99, type: 3}
-      - {fileID: 744045295040258649, guid: b27ea1ecc0a73514f93ec2b45b310675, type: 3}
-    - Key: 1
-      Value:
-      - {fileID: 744045295040258649, guid: 5cd1d03de563da54c9604eb20346adf3, type: 3}
-      - {fileID: 744045295040258649, guid: 219edee68bc21a9468959c9d955562b0, type: 3}
-      - {fileID: 744045295040258649, guid: 683b89f89c7c19449bb6df33341e8c1d, type: 3}
-      - {fileID: 744045295040258649, guid: 98ba4c59d7d431546a3c01d8082f62a1, type: 3}
-  playerMovement: {fileID: 1551716286}
-  detectGround: {fileID: 1551716291}
-  SpawnRate: 0.25
 --- !u!114 &1551716306
 MonoBehaviour:
   m_ObjectHideFlags: 0
