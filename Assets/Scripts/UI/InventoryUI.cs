@@ -40,6 +40,8 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
+
+        Time.timeScale = 0;
         if (Inventory.instance != null)
         {
             Inventory.instance.onItemChange += UpdateInventoryUI;

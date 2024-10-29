@@ -38,5 +38,6 @@ public class Buried : LayerCheck, IInteractable
             PoolManager.Instance.Spawn(chosen, transform.position);
             possiblePickupPrefabs.RemoveAt(r); 
         }
+        Destroy(gameObject);
     }
 }

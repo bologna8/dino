@@ -9,7 +9,7 @@ public class FearLevel : MonoBehaviour
     [HideInInspector]
     public static FearLevel FearStatic;
 
-    public float fear;
+    public float fear = 0;
     [SerializeField]
     private float maxFear = 100;
 
@@ -21,6 +21,7 @@ public class FearLevel : MonoBehaviour
     private float darknessTic;
     private float hiddenTic;
     private float damageTic;
+    private float pageTic;
 
     private bool hasLantern = false;
     [Tooltip("This is the player prefab.")]
@@ -35,14 +36,17 @@ public class FearLevel : MonoBehaviour
     public List<GameObject> roars;
     [Tooltip("Arizona's Journal UI.")]
     public BookController bookControl;
-    //private List<FearPage> FearPages;
+    [Tooltip("X = Fear Threshold to unlock, Y = Page number")]
+    private List<Vector2> fearUnlockPages;
+
+    private bool hasPlayer = true;
     void Awake()
     {
         //If player isn't assigned, this script destroys itself to prevent errors.
         if (player == null)
         {
             Debug.LogError("FearLevel requires a player prefab to be defined.");
-            Destroy(this);
+            hasPlayer = false;
         }
 
         //Sets this script to be a static object.
@@ -55,8 +59,6 @@ public class FearLevel : MonoBehaviour
             Debug.LogWarning("There are multiple fearlevel systems in the scene.");
         }
 
-        fear = 0;
-        
         //Assigns necessary scripts from the Player GameObject's Children
         if (lanternControl == null)
         {
@@ -79,6 +81,7 @@ public class FearLevel : MonoBehaviour
         darknessTic = Time.time + darknessDuration;
         hiddenTic = Time.time + hiddenDuration;
         damageTic = Time.time + 1;
+        pageTic = Time.time + 1;
 
         //Sets important fields scaled to other fields.
         roarChance = maxFear*1000;
@@ -91,6 +94,7 @@ public class FearLevel : MonoBehaviour
     bool hidden = false;
     void FixedUpdate()
     {
+        if (!hasPlayer) return;
 
         //Plays a sound efect somewhere around the player when the player has high fear.
         if (fear > 50 && fear>Random.Range(0,roarChance))
@@ -148,6 +152,18 @@ public class FearLevel : MonoBehaviour
                 hidden = false;
             }
         }
+
+        if (Time.time > pageTic)
+        {
+            for (int i = fearUnlockPages.Count - 1; i >= 0; i--)
+            {
+                if (fear >= fearUnlockPages[i].x)
+                {
+                    bookControl.UnlockSpecificPage(((int)fearUnlockPages[i].y));
+                    fearUnlockPages.RemoveAt(i);
+                }
+            }
+        }
         //Caps fear to the max
         if (fear > maxFear)
         {
@@ -158,6 +174,7 @@ public class FearLevel : MonoBehaviour
         {
             fear = 0;
         }
+        
     }
 
     //Increases (or decreases  with a negative) Fear by the float fed into the method.
