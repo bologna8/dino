@@ -197,12 +197,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyOnHit: 0
   endEffect: {fileID: 0}
-  stunTime: {x: 0.1, y: 0.4}
+  stunTime: {x: 0.1, y: 0.8}
   aimedAttack: 0
   faceRight: 1
   directionalKnockback: 100
   useLockedKB: 1
-  lockedKnockback: {x: 0, y: 10}
+  lockedKnockback: {x: 0, y: 15}
   knockbackOverTime:
     serializedVersion: 2
     m_Curve:
