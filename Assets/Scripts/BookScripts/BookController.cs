@@ -15,13 +15,17 @@ public class BookController : MonoBehaviour
     private List<int> unlockedPages = new List<int>();  
     public List<int> alwaysAvailablePages;  
 
-    public InputActionReference nextPageAction;
-    public InputActionReference previousPageAction;
+   // public InputActionReference nextPageAction;
+    //public InputActionReference previousPageAction;
     public InputActionReference openJournal;
 
     //For tab navigation
     public Button[] tabButtons; 
     private int currentTabIndex = 0;
+
+    //Page buttons 
+    public Button nextPageButton;
+    public Button previousPageButton;
 
     private void Start()
     {
@@ -38,9 +42,10 @@ public class BookController : MonoBehaviour
 
         //The first tab is highlighted at the start
         HighlightTab(currentTabIndex);
+
     }
 
-    private void OnEnable()
+   /* private void OnEnable()
     {
         nextPageAction.action.performed += FlipToNextPage;
         previousPageAction.action.performed += FlipToPreviousPage;
@@ -50,7 +55,7 @@ public class BookController : MonoBehaviour
     {
         nextPageAction.action.performed -= FlipToNextPage;
         previousPageAction.action.performed -= FlipToPreviousPage;
-    }
+    }*/
 
     public void OpenJournal(InputAction.CallbackContext context)
     {
@@ -141,10 +146,10 @@ public class BookController : MonoBehaviour
         }
     }
 
-    public void FlipToNextPage(InputAction.CallbackContext context)
+    public void FlipToNextPage()
     {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-        {
+      //  if (UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+        //{
             int nextPageIndex = unlockedPages.IndexOf(currentPage) + 1;
 
             if (nextPageIndex < unlockedPages.Count)
@@ -153,13 +158,13 @@ public class BookController : MonoBehaviour
                 currentPage = unlockedPages[nextPageIndex];
                 pages[currentPage].SetActive(true);
             }
-        }
+       // }
     }
 
-    public void FlipToPreviousPage(InputAction.CallbackContext context)
+    public void FlipToPreviousPage()
     {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-        {
+     //   if (UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+        //{
             int prevPageIndex = unlockedPages.IndexOf(currentPage) - 1;
 
             if (prevPageIndex >= 0)
@@ -167,9 +172,10 @@ public class BookController : MonoBehaviour
                 pages[currentPage].SetActive(false);
                 currentPage = unlockedPages[prevPageIndex];
                 pages[currentPage].SetActive(true);
-            }
-        }
+          }
+        //}
     }
+ 
 
     public void UnlockSpecificPage(int pageIndex)
     {

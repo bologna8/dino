@@ -40,7 +40,7 @@ public class UIStateTracker : MonoBehaviour
 
     public void SwitchFocus(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && context.control.device is Gamepad)
         {
             if (UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
             {

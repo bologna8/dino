@@ -4291,8 +4291,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4117583768369405317}
   m_HandleRect: {fileID: 1716624284358849445}
   m_Direction: 0
-  m_Value: 0.29553047
-  m_Size: 0.98747003
+  m_Value: 0.295519
+  m_Size: 0.98746985
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4535,7 +4535,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5309268856038708642}
   m_HandleRect: {fileID: 6296663036754959016}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5484,19 +5484,7 @@ MonoBehaviour:
     m_ActionId: 27980170-e8e9-44eb-8caa-0f475919c991
     m_ActionName: Base/PauseGame[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Book, Assembly-CSharp
-        m_MethodName: OnNextPage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 40f8159f-3e0a-43c4-990a-e94922f80cea
     m_ActionName: UI/NextPage[/Mouse/rightButton]
   - m_PersistentCalls:
@@ -6182,7 +6170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: 0.000030517578}
+  m_AnchoredPosition: {x: -5, y: 0.000015258789}
   m_SizeDelta: {x: 16.9196, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2139743311161237853
@@ -7772,7 +7760,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
   - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
   currentlyEquipped: 0
-  consumableEquipped: 0
 --- !u!1 &5719252372569665392
 GameObject:
   m_ObjectHideFlags: 0
@@ -8875,7 +8862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: 0.000061035156}
+  m_AnchoredPosition: {x: -5, y: -0.000061035156}
   m_SizeDelta: {x: 16.9196, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4425619459404391096
@@ -10730,8 +10717,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5460166806232533403}
   m_HandleRect: {fileID: 8934712271379577084}
   m_Direction: 0
-  m_Value: 0.29551697
-  m_Size: 0.9277779
+  m_Value: 0.29551587
+  m_Size: 0.92777795
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11722,19 +11709,19 @@ PrefabInstance:
       objectReference: {fileID: 8733378453867413718, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
     - target: {fileID: 5495670791133385514, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5495670791133385514, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 114954952620520940, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
+      objectReference: {fileID: 6684489813829944117}
     - target: {fileID: 5495670791133385514, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_name
+      value: FlipToPreviousPage
       objectReference: {fileID: 0}
     - target: {fileID: 5495670791133385514, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: BookController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5996627430473574466, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_Pivot.x
@@ -11834,19 +11821,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7012482001257218413, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7012482001257218413, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: -3099653987343328536, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
+      objectReference: {fileID: 6684489813829944117}
     - target: {fileID: 7012482001257218413, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_name
+      value: FlipToNextPage
       objectReference: {fileID: 0}
     - target: {fileID: 7012482001257218413, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: BookController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7071705553051233960, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
       propertyPath: m_SizeDelta.x
@@ -12004,6 +11991,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8749760956422030691, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
   m_PrefabInstance: {fileID: 8583791712241934249}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1607387235640843972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7012482001257218413, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
+  m_PrefabInstance: {fileID: 8583791712241934249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2605206993830606827 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5996627430473574466, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
@@ -12019,6 +12017,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4736065467072158310, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
   m_PrefabInstance: {fileID: 8583791712241934249}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4277094059138452611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5495670791133385514, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
+  m_PrefabInstance: {fileID: 8583791712241934249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4365764949851115253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5443041062608523612, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
@@ -12065,14 +12074,14 @@ MonoBehaviour:
   - {fileID: 8098978969844634758}
   - {fileID: 8063422613069373563}
   alwaysAvailablePages: 00000000010000000e00000013000000
-  nextPageAction: {fileID: -3099653987343328536, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
-  previousPageAction: {fileID: 114954952620520940, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
   openJournal: {fileID: 8715761714469784529, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
   tabButtons:
   - {fileID: 1978436829718209132}
   - {fileID: 4198879935022312716}
   - {fileID: 8484265852477238180}
   - {fileID: 4893687872053810764}
+  nextPageButton: {fileID: 1607387235640843972}
+  previousPageButton: {fileID: 4277094059138452611}
 --- !u!224 &6528194315955250708 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3280607557246515645, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}
