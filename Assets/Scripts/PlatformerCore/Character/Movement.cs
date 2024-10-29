@@ -356,6 +356,8 @@ public class Movement : MonoBehaviour
     void Run()
     {
         CheckDirectionChange();
+
+        if (dashing != null) { return; }
         
         if (autoVaultOver && momentum >= minVaultMomentum) { VaultOver(); } //Jump over objects //&& InputForward()
 
