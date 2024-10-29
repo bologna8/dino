@@ -223,7 +223,7 @@ public class Core : MonoBehaviour
 
     public void Turn() //Every now and then
     {
-        if (!turning)
+        if (!turning && !Attacking())
         {
             turning = true;
             lookingRight = !lookingRight;
@@ -269,19 +269,27 @@ public class Core : MonoBehaviour
             if (myHealth.stunTime <= stunTime) { myHealth.stunTime = stunTime; }
         }
 
-        if (myAnim) { StartCoroutine(SpecialAnimation(stunTime, setAnim)); }
+        if (myAnim) { StartCoroutine(StunAnimation(stunTime, setAnim)); }
 
     }
 
-    public IEnumerator SpecialAnimation(float time, AnimationClip newAnim = null)
+    public IEnumerator StunAnimation(float time, AnimationClip newAnim = null)
     {
         myAnim.SetBool("interacting", true);
 
-        if (myAnimOverride && newAnim) { myAnimOverride["playerDig"] = newAnim; }
+        if (newAnim)
+        {
+            var newSpeed = newAnim.length / time;
+            if (time > newAnim.length) { newSpeed = time / newAnim.length; }
+            myAnim.SetFloat("interactingAnimationSpeed", newSpeed);
+        }
+        
+
+        if (myAnimOverride && newAnim) { myAnimOverride["blankInteract"] = newAnim; }
 
         yield return new WaitForSeconds(time);
 
-        if (myAnimOverride && newAnim) { myAnimOverride["playerDig"] = null; }
+        if (myAnimOverride && newAnim) { myAnimOverride["blankInteract"] = null; }
         myAnim.SetBool("interacting", false);
     }
 
@@ -293,7 +301,6 @@ public class Core : MonoBehaviour
         }
 
         return false;
-
     }
 
 
@@ -362,12 +369,11 @@ public class Core : MonoBehaviour
         
     }
 
-    public void ChangeAttackAnimation(AnimationClip newAnim)
+    public void ChangeAttackAnimation(AnimationClip newAnim, float animationSpeedMultiplier = 1)
     {
-        if (myAnimOverride)
-        {
-            myAnimOverride["playerJabSide"] = newAnim;          
-        }
+        if (myAnimOverride) { myAnimOverride["blankAttack"] = newAnim; }
+        
+        if (myAnim) { myAnim.SetFloat("AttackAnimationSpeed", animationSpeedMultiplier); }
     }
 
     public void ChangeWeapons(int index, GameObject newAttack, GameObject newAttackUp = null, GameObject newAttackDown = null)

@@ -11,6 +11,7 @@ public class HotbarItem : Item
     public GameObject attackDown;
 
     public bool consumable;
+    public int HotBarIndex;
 
     public override void Use()
     {
@@ -22,21 +23,10 @@ public class HotbarItem : Item
     {
         if (Hotbar.instance == null) { return; }
 
-        if (consumable && Hotbar.instance.consumableEquipped)
-        {
-            ReplaceInHotbar(Hotbar.instance.equippedItems.Count);
-            return;
-        }
+        Hotbar.instance.equippedItems[HotBarIndex] = this;
 
-        Hotbar.instance.equippedItems.Add(this);
     }
 
 
-    public void ReplaceInHotbar(int index)
-    {
-        if (Hotbar.instance == null) { return; }
-        
-        Hotbar.instance.equippedItems[index] = this;
-    }
 
 }

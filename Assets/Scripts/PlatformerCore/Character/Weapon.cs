@@ -84,6 +84,8 @@ public class Weapon : MonoBehaviour
         attackStats = newAttack.GetComponent<Attack>();
         currentClip = attackStats.clipSize;
 
+        //attackStats.attackAnim.speedMultiplier = attackStats.windup + attackStats.attackDuration;
+
     }
 
     public IEnumerator Reload()
@@ -103,18 +105,19 @@ public class Weapon : MonoBehaviour
         if (verticalInput > 0 && upAttackPrefab) { useAttack = upAttackPrefab; }
         if (verticalInput < 0 && downAttackPrefab) { useAttack = downAttackPrefab; }
 
-
         if (currentAttackPrefab != useAttack) { changeAttack(useAttack); }
 
-
-        if (attackStats.typeOfAmo != Attack.AmoType.none || attackStats.typeOfAmo != Attack.AmoType.single) 
+        if (attackStats.typeOfAmo == Attack.AmoType.single && Hotbar.instance != null) 
+        { 
+            Hotbar.instance.removeItem(Hotbar.instance.currentlyEquipped, true); 
+        }
+        else if (attackStats.typeOfAmo != Attack.AmoType.none) 
         { 
             if (currentClip > 0) { currentClip --; }
             else { return false; }
         }
             
-        if (attackStats.typeOfAmo == Attack.AmoType.single && Hotbar.instance != null) 
-        { Hotbar.instance.UseConsumable(); }
+        
 
         attacking = AttackRoutine();
         StartCoroutine(attacking);
@@ -130,7 +133,16 @@ public class Weapon : MonoBehaviour
         var startAngle = Quaternion.FromToRotation(Vector3.right, dir);
 
 
-        if (myCore && attackStats.attackAnim) { myCore.ChangeAttackAnimation(attackStats.attackAnim); }
+        if (myCore && attackStats.attackAnim) 
+        { 
+            var desiredLength = attackStats.windup + attackStats.attackDuration;
+            var newSpeed = attackStats.attackAnim.length / desiredLength;
+            
+            if (desiredLength > attackStats.attackAnim.length) 
+            { newSpeed = desiredLength / attackStats.attackAnim.length; }
+            
+            myCore.ChangeAttackAnimation(attackStats.attackAnim, newSpeed);
+        }
 
         var safety = false; //don't spawn any porjectiles if aim cursor is touching something like a wall
 

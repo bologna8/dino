@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8352660219446764013}
   - component: {fileID: 1680531606009773765}
   m_Layer: 8
-  m_Name: Vel Claws
+  m_Name: Ank Attack Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -172,17 +172,17 @@ MonoBehaviour:
   typeOfAmo: 0
   cooldown: 0
   clipSize: 1
-  fireRate: 1
+  fireRate: 3
   multiplier: 1
   spreadEvenly: 0
   momentumLaunch: 0
   attackingAimSpeed: 1
   moveWhileAttacking: 0
-  windup: 0
+  windup: 0.4
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
   noGravityDuringWindup: 0
-  attackDuration: 0.1
+  attackDuration: 0.8
   movementMidAttack: 6
   onlyHorizontalMoveMid: 1
   noGravityDuringAttack: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   spreadRange: 1
   alternateNegative: 1
   repeatPattern: 0
-  attackAnim: {fileID: 7400000, guid: bfffce00c0d0cc148819021e6883452b, type: 2}
+  attackAnim: {fileID: 7400000, guid: ca90764a5138ee44689d1932e48674d7, type: 2}
   startOffset: {x: 0, y: 0, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6455027600916288644
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910707473a047bc4e83a69e7e6f43730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   myType: 0
   activeDuration: 0.2
   refresh: 0
@@ -267,12 +267,12 @@ MonoBehaviour:
     m_RotationOrder: 4
   destroyOnHit: 0
   endEffect: {fileID: 0}
-  stunTime: {x: 0.2, y: 0.1}
+  stunTime: {x: 0.4, y: 0.2}
   aimedAttack: 1
   faceRight: 1
   directionalKnockback: 100
   useLockedKB: 1
-  lockedKnockback: {x: 10, y: 2}
+  lockedKnockback: {x: 20, y: 4}
   knockbackOverTime:
     serializedVersion: 2
     m_Curve:
@@ -311,8 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9af68c6b4a40aa46be9e18f101fe4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleEffects:
-  - {fileID: 7288326261628243597, guid: 3a782adf5751832479f1a39570b09671, type: 3}
+  possibleEffects: []
   allowRepeats: 0
 --- !u!50 &1680531606009773765
 Rigidbody2D:

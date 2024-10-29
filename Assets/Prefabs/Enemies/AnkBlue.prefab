@@ -19,7 +19,7 @@ PrefabInstance:
     - target: {fileID: 215086994315009943, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackPrefab
       value: 
-      objectReference: {fileID: 7650349434382594507, guid: afacbeba85e610147bd7f37db1599a76, type: 3}
+      objectReference: {fileID: 7650349434382594507, guid: f7afa29e2970d8c41ba4f3cc44420036, type: 3}
     - target: {fileID: 238067087955223135, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.y
       value: 0.8
@@ -154,11 +154,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackAimTime.x
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackAimTime.y
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3835006381584722941, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_LocalPosition.x

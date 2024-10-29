@@ -10,10 +10,12 @@ public class MultiSpriteHandler : MonoBehaviour
     private SpriteRenderer[] subSprites;
     private Image[] subImages;
 
-    private Sprite[] startSprites;
+    [HideInInspector] public Sprite[] startSprites;
     private Color[] startColors;
 
-    void Start()
+    private bool initialized;
+
+    void Awake()
     {
         if (imagesInUI)
         {
@@ -38,11 +40,14 @@ public class MultiSpriteHandler : MonoBehaviour
             }
         }
         
+        initialized = true;
            
     }
 
     public void changeAlpha(float newAlpha, int index = 0)
     {
+        if (!initialized) { return; }
+
         if (imagesInUI)
         {
             if (index > subImages.Length) { return; }
@@ -57,6 +62,8 @@ public class MultiSpriteHandler : MonoBehaviour
 
     public void changeSprite(Sprite newSprite, int index = 0)
     {
+        if (!initialized) { return; }
+        
         if (imagesInUI)
         {
             if (index > subImages.Length) { return; }

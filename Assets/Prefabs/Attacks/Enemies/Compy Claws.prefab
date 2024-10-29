@@ -150,6 +150,7 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
@@ -197,7 +198,8 @@ MonoBehaviour:
   spreadRange: 1
   alternateNegative: 1
   repeatPattern: 0
-  attackAnim: {fileID: 0}
+  attackAnim: {fileID: 7400000, guid: 355d0e4e93106c344ab979d815da4e84, type: 2}
+  startOffset: {x: 0, y: 0, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6455027600916288644
 MonoBehaviour:
@@ -212,7 +214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  myType: 0
   activeDuration: 0.2
+  refresh: 0
   sizeOverTime:
     serializedVersion: 2
     m_Curve:
@@ -294,7 +298,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   offset: {x: 0, y: 0, z: 0}
-  ignoreTeams: 0
   damageSelf: 0
 --- !u!114 &8352660219446764013
 MonoBehaviour:

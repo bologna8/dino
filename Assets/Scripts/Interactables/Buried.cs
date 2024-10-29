@@ -7,6 +7,8 @@ public class Buried : LayerCheck, IInteractable
     public float timeToDig = 1f;
     public List<GameObject> possiblePickupPrefabs;
 
+    public AnimationClip diggingAnimation;
+
     [HideInInspector] public bool digging;
 
     public void Interact(GameObject interacter)
@@ -16,7 +18,7 @@ public class Buried : LayerCheck, IInteractable
             var coreCheck = interacter.GetComponent<Core>();
             if (coreCheck)
             {
-                coreCheck.Stun(timeToDig);
+                coreCheck.Stun(timeToDig, diggingAnimation);
                 StartCoroutine(DelayedDig());
             }
         }

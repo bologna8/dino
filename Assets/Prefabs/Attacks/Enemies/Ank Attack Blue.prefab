@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8352660219446764013}
   - component: {fileID: 1680531606009773765}
   m_Layer: 8
-  m_Name: Ank Attack
+  m_Name: Ank Attack Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   spreadRange: 1
   alternateNegative: 1
   repeatPattern: 0
-  attackAnim: {fileID: 0}
+  attackAnim: {fileID: 7400000, guid: 035b9f1eb5922024eb0828b3b8bffb57, type: 2}
   startOffset: {x: 0, y: 0, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6455027600916288644
@@ -216,6 +216,7 @@ MonoBehaviour:
   damage: 2
   myType: 0
   activeDuration: 0.2
+  refresh: 0
   sizeOverTime:
     serializedVersion: 2
     m_Curve:

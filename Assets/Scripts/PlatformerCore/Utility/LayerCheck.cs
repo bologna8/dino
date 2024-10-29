@@ -17,9 +17,17 @@ public class LayerCheck : MonoBehaviour
 
      private Bounds myBounds;
 
+     private SpriteRenderer mySprite;
+     private Color startColor;
+     [Range(0,1)] public float unselectedSaturation = 0.5f;
+
      void Awake()
      {
           myBounds = GetComponent<Collider2D>().bounds;
+
+          mySprite = GetComponent<SpriteRenderer>();
+          if (mySprite) { startColor = mySprite.color; }
+          SetSaturation(unselectedSaturation);
      }
 
      private void OnTriggerStay2D(Collider2D collision)
@@ -32,6 +40,7 @@ public class LayerCheck : MonoBehaviour
 
                var pointOfContact = collision.ClosestPoint(transform.position);
 
+               /*
                if (pointOfContact.x > (transform.position.x )) { touchingRight = true; }
                else { touchingRight = false; }
                if (pointOfContact.x < (transform.position.x )) { touchingLeft = true; }
@@ -41,6 +50,9 @@ public class LayerCheck : MonoBehaviour
                else { touchingTop = false; }
                if (pointOfContact.y < (transform.position.y )) { touchingBot = true; }
                else { touchingBot = false; }
+               */
+
+               if (mySprite) { mySprite.color = startColor; }
           }    
      }
 
@@ -57,6 +69,8 @@ public class LayerCheck : MonoBehaviour
                touchingRight = false;
                touchingTop = false;
                touchingBot = false;
+
+               SetSaturation(unselectedSaturation);
           }
      }
 
@@ -72,6 +86,8 @@ public class LayerCheck : MonoBehaviour
                touchingRight = false;
                touchingTop = false;
                touchingBot = false;
+
+               SetSaturation(unselectedSaturation);
           }        
           
      }
@@ -112,5 +128,19 @@ public class LayerCheck : MonoBehaviour
 
           Debug.Log("no corner found");
           return transform.position;
+     }
+
+     void SetSaturation(float saturation)
+     {
+          if (!mySprite) { return; }
+
+          var newColor = Color.grey;
+          float grayScale = (newColor.r + newColor.g + newColor.b) / 3;
+
+          newColor.r = Mathf.Lerp(grayScale, startColor.r, saturation);
+          newColor.g = Mathf.Lerp(grayScale, startColor.g, saturation);
+          newColor.b = Mathf.Lerp(grayScale, startColor.b, saturation);
+
+          mySprite.color = newColor;
      }
 }

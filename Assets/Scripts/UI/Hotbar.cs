@@ -19,11 +19,10 @@ public class Hotbar : MonoBehaviour
 
     private Controls myControls;
 
-    public List<HotbarItem> equippedItems;
+    public HotbarItem[] equippedItems;
     public int currentlyEquipped;
 
-    public bool consumableEquipped;
-
+    //public bool consumableEquipped;
     private void Start()
     {
         if (instance == null) { instance = this; }
@@ -35,7 +34,9 @@ public class Hotbar : MonoBehaviour
         if (pc) { myControls = pc.myControls; }
 
         if (WeaponWheel)
-        { wheelSlices = WeaponWheel.GetComponentsInChildren<MultiSpriteHandler>(); }
+        { 
+            wheelSlices = WeaponWheel.GetComponentsInChildren<MultiSpriteHandler>(); 
+        }
     }
 
     void OnMouseMove()
@@ -52,13 +53,12 @@ public class Hotbar : MonoBehaviour
     void Update()
     {
         UpdateWeaponWheel();
-        
     }
 
     void OnNextWeapon()
     {
         currentlyEquipped ++;
-        if (currentlyEquipped >= equippedItems.Count) 
+        if (currentlyEquipped > equippedItems.Length) 
         { currentlyEquipped = 0; }
 
         SelectItem(currentlyEquipped);
@@ -68,7 +68,7 @@ public class Hotbar : MonoBehaviour
     {
         currentlyEquipped --;
         if (currentlyEquipped < 0) 
-        { currentlyEquipped = equippedItems.Count - 1; }
+        { currentlyEquipped = equippedItems.Length; }
 
         SelectItem(currentlyEquipped);
     }
@@ -76,8 +76,8 @@ public class Hotbar : MonoBehaviour
 
     void SelectItem(int index)
     {
-        if (index >= equippedItems.Count) { return; }
-
+        if (index > equippedItems.Length) { return; }
+        if (equippedItems[index] == null) { return; }
         if (playerCore == null) { return; }
         
         currentlyEquipped = index;
@@ -107,29 +107,28 @@ public class Hotbar : MonoBehaviour
         if (currentlyEquipped != 4) { SelectItem(4); }
     }
 
-    public void UnEquipItem(int index)
+    public void removeItem(int index, bool consumable = false)
     {
-        if (index >= equippedItems.Count) { return; }
+        if (index > equippedItems.Length) { return; }
 
-        equippedItems.RemoveAt(index);
-    }
+        if (wheelSlices.Length >= index)
+        { wheelSlices[index].changeSprite(wheelSlices[index].startSprites[0]); }
 
-    public void UseConsumable()
-    {
-        if (!consumableEquipped) { return; }
+        if (Inventory.instance != null && consumable) 
+        { Inventory.instance.RemoveItem(equippedItems[index]); }
 
-        consumableEquipped = false;
-        var item = equippedItems[equippedItems.Count];
-        equippedItems.RemoveAt(equippedItems.Count);
+        equippedItems[index] = null;
 
-        if (Inventory.instance == null) { return; }
-        Inventory.instance.RemoveItem(item);
-
+        if (index == currentlyEquipped)
+        { SelectItem(currentlyEquipped ++); }
     }
 
     void UpdateWeaponWheel()
     {
         if (WeaponWheel == null) { return; }
+
+        if (myControls.Aiming.WeaponWheel.IsPressed()) { WeaponWheel.SetActive(true); }
+        else { WeaponWheel.SetActive(false); return; }
 
         if (usingMouse)
         {
@@ -138,12 +137,6 @@ public class Hotbar : MonoBehaviour
             var mouseScreenPos = Camera.main.ScreenToWorldPoint(mousePos);  mouseScreenPos.z = 0f;
 
             wheelDirection = (mouseScreenPos - transform.parent.position).normalized;
-        }
-
-        if (wheelDirection == Vector2.zero || !myControls.Aiming.WeaponWheel.IsPressed()) 
-        {
-            foreach (var slice in wheelSlices) { slice.gameObject.SetActive(false); } 
-            return; 
         }
 
 
@@ -159,12 +152,12 @@ public class Hotbar : MonoBehaviour
             var selectedSlice = checkSlice.transform.gameObject.GetComponent<MultiSpriteHandler>();
             if (selectedSlice) 
             { 
-                for(int i = 0; i < equippedItems.Count; i++)
+                for(int i = 0; i < wheelSlices.Length; i++)
                 {
                     if (wheelSlices[i] == selectedSlice)
                     {
-                        SelectItem(i);
                         selectedSlice.changeAlpha(selectedSliceAlpha, 1);
+                        SelectItem(i);
                     }
                 }
             }
