@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6815603982042734992}
   - component: {fileID: 7874558438391938455}
   - component: {fileID: 2594434189312670727}
+  - component: {fileID: 3188048629838199284}
   m_Layer: 9
   m_Name: Fireball
   m_TagString: Untagged
@@ -353,3 +354,18 @@ MonoBehaviour:
     m_RotationOrder: 4
   offset: {x: 0, y: 0, z: 0}
   damageSelf: 0
+--- !u!114 &3188048629838199284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142958838078798255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9af68c6b4a40aa46be9e18f101fe4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleEffects:
+  - {fileID: 6920596282710965463, guid: eb7ffee424948984eb3aa1f24ad9a7fe, type: 3}
+  allowRepeats: 0
