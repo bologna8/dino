@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 4621826593676991584}
   - component: {fileID: 4300487382535365856}
   - component: {fileID: 2775023847605421243}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Grapple Item Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ MonoBehaviour:
   randStartY: {x: 0, y: 0}
   randStartX: {x: 0, y: 0}
   despawnTime: 0
-  delayPickupTime: 0.21
+  delayPickupTime: 0
   item: {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
   recipe: {fileID: 0}
 --- !u!114 &2775023847605421243
@@ -404,6 +404,10 @@ PrefabInstance:
     - target: {fileID: 3032460291833309041, guid: e56ea98788b3fab428de283df208e978, type: 3}
       propertyPath: m_Name
       value: General
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032460291833309041, guid: e56ea98788b3fab428de283df208e978, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
