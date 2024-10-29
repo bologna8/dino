@@ -122,13 +122,13 @@ public class InventoryUI : MonoBehaviour
 
         foreach (var ingredient in recipe.ingredients)
         {
-            for(int i = 0; i<ingredient.amount; i++)
+            for (int i = 0; i < ingredient.amount; i++)
             {
                 GameObject ingredientSlot = Instantiate(craftingSlotPrefab, craftingItemTransform);
                 ItemSlot ingredientItemSlot = ingredientSlot.GetComponent<ItemSlot>();
                 if (ingredientItemSlot != null)
-            {
-                ingredientItemSlot.AddItem(ingredient.item);
+                {
+                    ingredientItemSlot.AddItem(ingredient.item);
                 }
             }
         }
@@ -189,9 +189,9 @@ public class InventoryUI : MonoBehaviour
         if (lockCursor)
         {
             //Cursor.lockState = CursorLockMode.Locked;
-            #if !UNITY_EDITOR
+#if !UNITY_EDITOR
             Cursor.visible = false;
-            #endif
+#endif
         }
         else
         {
@@ -216,34 +216,35 @@ public class InventoryUI : MonoBehaviour
     }
     public void NavigateInventory(InputAction.CallbackContext context)
     {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
+        //if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
+        if (context.performed)
         {
-            Vector2 navigationInput = context.ReadValue<Vector2>();
+                Vector2 navigationInput = context.ReadValue<Vector2>();
 
-            // Only move if the inventory is open
-            if (!inventoryOpen) return;
+                // Only move if the inventory is open
+                if (!inventoryOpen) return;
 
-            
-            if (navigationInput.y > 0)  // Up
-            {
-                selectedIndex = Mathf.Max(0, selectedIndex - 1);
-            }
-            else if (navigationInput.y < 0)  // Down
-            {
-                selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
-            }
-            if (navigationInput.x > 0)  // Right
-            {
-                selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
-            }
-            else if (navigationInput.x < 0)  // Left
-            {
-                selectedIndex = Mathf.Max(0, selectedIndex - 1);
-            }
+
+                if (navigationInput.y > 0)  // Up
+                {
+                    selectedIndex = Mathf.Max(0, selectedIndex - 1);
+                }
+                else if (navigationInput.y < 0)  // Down
+                {
+                    selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
+                }
+                if (navigationInput.x > 0)  // Right
+                {
+                    selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
+                }
+                else if (navigationInput.x < 0)  // Left
+                {
+                    selectedIndex = Mathf.Max(0, selectedIndex - 1);
+                }
 
                 HighlightItem(selectedIndex);
             }
 
         }
 
-    } 
+}
