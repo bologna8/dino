@@ -7246,23 +7246,23 @@ PrefabInstance:
       objectReference: {fileID: 948518289}
     - target: {fileID: 6684489813829944117, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: alwaysAvailablePages.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6684489813829944117, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: alwaysAvailablePages.Array.data[1]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6684489813829944117, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: alwaysAvailablePages.Array.data[2]
-      value: 14
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6684489813829944117, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: alwaysAvailablePages.Array.data[3]
-      value: 19
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6684489813829944117, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: alwaysAvailablePages.Array.data[4]
-      value: 19
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6684489813829944117, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: alwaysAvailablePages.Array.data[5]
@@ -7436,7 +7436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8484265852477238180, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8549218348395885307, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_IsActive
