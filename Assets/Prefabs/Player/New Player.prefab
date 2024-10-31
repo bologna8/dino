@@ -474,11 +474,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a28a97c80f4c0647b33b088f9881434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
+  maxHP: 5
   currentHP: 0
   immunities: 0
   myCore: {fileID: 0}
   mySpawn: {fileID: 0}
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
   HealthBarPrefab: {fileID: 0}
   passiveRegen: 0
   regenBufferTime: 0
@@ -1260,6 +1261,7 @@ MonoBehaviour:
   turning: 0
   hidden: 0
   hidingSpots: 0
+  mySprite: {fileID: 0}
   myAim: {fileID: 0}
   myAI: {fileID: 0}
   attackInput: 
@@ -1619,6 +1621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallJumpItem: {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
   airDashItem: {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
+  canMoveWhileInInventory: 0
 --- !u!1 &5933526067178452155
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6156131079386060931, guid: 6670d61321dd83b4ca0bd5ea8df2d924, type: 3}
+      propertyPath: startOffset.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156131079386060931, guid: 6670d61321dd83b4ca0bd5ea8df2d924, type: 3}
+      propertyPath: startOffset.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156131079386060931, guid: 6670d61321dd83b4ca0bd5ea8df2d924, type: 3}
       propertyPath: startAimAngleOffset
       value: 69
       objectReference: {fileID: 0}

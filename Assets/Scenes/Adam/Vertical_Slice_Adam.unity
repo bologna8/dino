@@ -4749,7 +4749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &737107566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7470,7 +7470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3974881b7db734aa74648ebbb948b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasTransform: {fileID: 0}
+  CanvasTransform: {fileID: 1724860906}
 --- !u!4 &1088339073
 Transform:
   m_ObjectHideFlags: 0
@@ -13190,6 +13190,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722202001}
   m_CullTransparentMesh: 1
+--- !u!224 &1724860906 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8444215621768976249, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+  m_PrefabInstance: {fileID: 978357819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1729846225
 GameObject:
   m_ObjectHideFlags: 0

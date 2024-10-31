@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class BookController : MonoBehaviour
 {
+
+    public static BookController Instance;
     public GameObject journalPanel;
     public bool isJournalOpen = false;
 
@@ -27,6 +29,18 @@ public class BookController : MonoBehaviour
     public Button nextPageButton;
     public Button previousPageButton;
     private bool inPageNavigation = false;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {

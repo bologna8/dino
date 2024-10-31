@@ -53,6 +53,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7400000, guid: bd26dc8a349dc314a8ecb792a9143645, type: 2}
     - target: {fileID: 6842745424514405945, guid: fafa22cfd1b6b4c4594196ee50315fe7, type: 3}
+      propertyPath: movementMidAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842745424514405945, guid: fafa22cfd1b6b4c4594196ee50315fe7, type: 3}
       propertyPath: startAimAngleOffset
       value: 45
       objectReference: {fileID: 0}

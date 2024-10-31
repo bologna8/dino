@@ -12,6 +12,11 @@ public class Health : MonoBehaviour
 
     [HideInInspector] public Core myCore;
     [HideInInspector] public Spawned mySpawn;
+
+    [Tooltip("Recolor sprite when hit")] public Color hitColor = Color.red;
+    private SpriteRenderer mySprite;
+    private Color startColor;
+
     [Tooltip("Health Bar That is shown When Damaged")] public GameObject HealthBarPrefab;
 
     [Tooltip("How much health gained per second while recovering")] public float passiveRegen;
@@ -24,6 +29,8 @@ public class Health : MonoBehaviour
     [HideInInspector] public Movement myMovement;
 
     [Tooltip("Effect spawned Every Time Hit")] public GameObject hitEffect;
+
+
     private TrailRenderer hitTrail;
     [Tooltip("Effect spawned when destroyed")] public GameObject deathEffect;
     [Tooltip("Offset for death deffect")] public Vector3 deathOffset;
@@ -35,6 +42,14 @@ public class Health : MonoBehaviour
         if (myMovement == null) { myMovement = GetComponentInParent<Movement>(); }
 
         if (mySpawn == null) { mySpawn = GetComponentInParent<Spawned>(); }
+
+        if (mySprite == null) 
+        { 
+            if (mySpawn) { mySprite = mySpawn.GetComponentInChildren<SpriteRenderer>(); }
+            else { mySprite = GetComponentInParent<SpriteRenderer>(); }
+
+            if (mySprite) { startColor = mySprite.color; }
+        }
     }
 
     void OnEnable()
@@ -83,9 +98,23 @@ public class Health : MonoBehaviour
         if (currentHP <= 0) { Die(); }
         else
         {
-            if (stunTime <= stun.x) { stunTime = stun.x; }
+            if (stunTime <= stun.x) 
+            { 
+                stunTime = stun.x; 
+                StartCoroutine(flashColor(stun.x));
+            }
 
             if (KB != Vector2.zero && myMovement) { myMovement.DoDash(KB, stun); }
+        }
+    }
+
+    public IEnumerator flashColor(float time)
+    {
+        if (mySprite) 
+        { 
+            mySprite.color = hitColor;
+            yield return new WaitForSeconds(time);
+            mySprite.color = startColor;
         }
     }
 

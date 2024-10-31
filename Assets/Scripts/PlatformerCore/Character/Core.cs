@@ -27,7 +27,7 @@ public class Core : MonoBehaviour
 
     [HideInInspector] public bool hidden;
     [HideInInspector] public int hidingSpots;
-    private SpriteRenderer mySprite;
+    [HideInInspector] public SpriteRenderer mySprite;
 
     //Necessary components to connect too
     //public GameObject aimingPrefab;
@@ -308,16 +308,20 @@ public class Core : MonoBehaviour
 
     public void HandleJump()
     {
-        myMove.JumpStart();
+        if (canMove) { myMove.JumpStart(); }
+        else { myMove.jumpInput = false; }
     }
 
     public void HandleMovement(float input)
     {
-        myMove.moveInput = input;
+        if (canMove) { myMove.moveInput = input; }
+        else { myMove.moveInput = 0; }
     }
 
     public void HandleVertical(float input)
     {
+        if (!canMove) { return; }
+
         myMove.verticalInput = input;
         myAim.verticalInput = input;
 
@@ -334,6 +338,8 @@ public class Core : MonoBehaviour
 
     public void HandleAttack(int attackNumber)
     {
+        if (!canAttack) { return; }
+
         if (myWeapons.Length < attackNumber || Attacking()) { return; }
 
         myWeapons[attackNumber].TryAttack();

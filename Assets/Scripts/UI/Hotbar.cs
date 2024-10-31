@@ -22,6 +22,8 @@ public class Hotbar : MonoBehaviour
     public HotbarItem[] equippedItems;
     public int currentlyEquipped;
 
+    [HideInInspector] public bool canChangeWeapons;
+
     //public bool consumableEquipped;
     private void Start()
     {
@@ -69,6 +71,8 @@ public class Hotbar : MonoBehaviour
 
     void OnNextWeapon()
     {
+        if (!canChangeWeapons) { return; }
+        
         currentlyEquipped ++;
         if (currentlyEquipped > equippedItems.Length) 
         { currentlyEquipped = 0; }
@@ -78,6 +82,8 @@ public class Hotbar : MonoBehaviour
 
     void OnPreviousWeapon()
     {
+        if (!canChangeWeapons) { return; }
+
         currentlyEquipped --;
         if (currentlyEquipped < 0) 
         { currentlyEquipped = equippedItems.Length; }
@@ -91,6 +97,7 @@ public class Hotbar : MonoBehaviour
         if (index > equippedItems.Length) { return; }
         if (equippedItems[index] == null) { return; }
         if (playerCore == null) { return; }
+        if (!canChangeWeapons) { return; }
         
         currentlyEquipped = index;
 
@@ -139,7 +146,7 @@ public class Hotbar : MonoBehaviour
     {
         if (WeaponWheel == null) { return; }
 
-        if (myControls.Aiming.WeaponWheel.IsPressed()) { WeaponWheel.SetActive(true); }
+        if (myControls.Aiming.WeaponWheel.IsPressed() && canChangeWeapons) { WeaponWheel.SetActive(true); }
         else { WeaponWheel.SetActive(false); return; }
 
         if (usingMouse)

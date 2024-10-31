@@ -5,15 +5,19 @@ using UnityEngine;
 public class InventoryAbilityCheck : MonoBehaviour
 {
     private Movement myMove;
+    private Core myCore;
 
     public HotbarItem wallJumpItem;
 
     public HotbarItem airDashItem;
 
+    public bool canMoveWhileInInventory;
+
     // Start is called before the first frame update
     void Start()
     {
         myMove = GetComponent<Movement>();
+        myCore = GetComponent<Core>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,24 @@ public class InventoryAbilityCheck : MonoBehaviour
                 if (Inventory.instance.ContainsItem(airDashItem, 1))
                 { myMove.airDashes = 1; }
             }
+
         }
+
+        if (myCore && !canMoveWhileInInventory)
+        {
+            if (InventoryUI.Instance && BookController.Instance) 
+            {
+                if (InventoryUI.Instance.inventoryOpen || BookController.Instance.isJournalOpen)
+                {
+                    myCore.canMove = false; myCore.canAttack = false;
+                    if (Hotbar.instance) { Hotbar.instance.canChangeWeapons = false; }
+                }
+                else if (Hotbar.instance) { Hotbar.instance.canChangeWeapons = true; }
+
+            }
+
+            
+        }
+
     }
 }
