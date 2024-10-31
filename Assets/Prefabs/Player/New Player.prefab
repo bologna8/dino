@@ -95,6 +95,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   currentlyEquipped: 0
+  canChangeWeapons: 0
 --- !u!1 &446021155225169908
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +149,11 @@ MonoBehaviour:
   isLanternActive: 0
   lanternItem: {fileID: 11400000, guid: 723b288ed4c0bca4c9b9135ed90a247f, type: 2}
   doubleClickTime: 0.3
+  lanternLight: {fileID: 0}
+  maxLightColor: {r: 1, g: 1, b: 1, a: 1}
+  minLightColor: {r: 0, g: 0, b: 0, a: 1}
+  maxLanternRadius: 10
+  minLanternRadius: 3
 --- !u!1 &1327237381141930826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1108,6 @@ GameObject:
   - component: {fileID: 9030483205541976314}
   - component: {fileID: 4096717450585100756}
   - component: {fileID: 215086994315009943}
-  - component: {fileID: 2336375472945322156}
   - component: {fileID: 8949560792627629508}
   - component: {fileID: 2409072002369360463}
   - component: {fileID: 4050262974801730107}
@@ -1495,28 +1500,7 @@ MonoBehaviour:
   attackReady: 1
   attackHeld: 0
   verticalInput: 0
-  upAttackPrefab: {fileID: 7650349434382594507, guid: e8dacd274066eb1408132aaede8c47ec, type: 3}
-  downAttackPrefab: {fileID: 0}
-  ignoreTeams: 0
---- !u!114 &2336375472945322156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649990236531220739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1021e41c0a1768b4ab066d0bbd465a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCore: {fileID: 0}
-  myAim: {fileID: 0}
-  attackPrefab: {fileID: 8142958838078798255, guid: 6e8bdf471547c7041ad853d3bcf48085, type: 3}
-  attackReady: 1
-  attackHeld: 0
-  verticalInput: 0
-  upAttackPrefab: {fileID: 8142958838078798255, guid: e12be2ede53c18445aa5c114bbe39e31, type: 3}
+  upAttackPrefab: {fileID: 2096241645069915440, guid: ab0d6755b23329345997f73d85988797, type: 3}
   downAttackPrefab: {fileID: 0}
   ignoreTeams: 0
 --- !u!114 &8949560792627629508

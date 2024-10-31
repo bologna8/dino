@@ -831,7 +831,7 @@ public class Movement : MonoBehaviour
             { 
                 if(dashCheck.touching && onGround) 
                 { 
-                    if (t >= 0.9f) { t = 0.9f; } //Extend time indefinitely
+                    if (t > 0) { t = 0.5f; } //Extend time indefinitely
                     if (endEarly) { endEarly = false; } //don't do edge stops under ledges 
                 }
             }
