@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class LanternController : MonoBehaviour
 {
@@ -18,12 +19,32 @@ public class LanternController : MonoBehaviour
     public Item lanternItem; 
 
     private float lastClickTime = 0f; 
-    public float doubleClickTime = 0.3f; 
+    public float doubleClickTime = 0.3f;
+
+
+    //Fields for controling the appearance of the lantern's light.
+    [SerializeField]
+    private Light2D lanternLight;
+
+    [Header("The color of light the lantern has when at\nfull energy and and nearly empty energy.")]
+    [SerializeField]
+    private Color maxLightColor = Color.white;
+    [SerializeField]
+    private Color minLightColor = Color.black;
+    private Color currentLightColor;
+
+    [Header("Parameters for the size of the light.")]
+    [SerializeField]
+    private float maxLanternRadius = 10;
+    [SerializeField]
+    private float minLanternRadius = 3;
+    private float currentLanternRadius;
 
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
         lantern.SetActive(true); //switch to false after VS
+        isLanternActive=true;
         currentEnergy = maxEnergy;
 
         if (inventory == null)
@@ -34,6 +55,8 @@ public class LanternController : MonoBehaviour
         {
             inventory.onItemChange += UpdateLanternStatus;
         }
+
+        lanternLight = lantern.GetComponent<Light2D>();
     }
 
     void OnDestroy()
@@ -59,6 +82,9 @@ public class LanternController : MonoBehaviour
         {
             DepleteEnergy();
         }
+
+
+        UpdateLanternLight();
     }
 
     void HandleLanternClick()
@@ -135,6 +161,24 @@ public class LanternController : MonoBehaviour
         else
         {
             Debug.Log("Not enough oil to refill the lantern!");
+        }
+    }
+
+    void UpdateLanternLight()
+    {
+        float currentEnergyRatio = currentEnergy / maxEnergy;
+
+        float radiusMod = (maxLanternRadius - minLanternRadius) * currentEnergyRatio;
+        currentLanternRadius = minLanternRadius + radiusMod;
+        lanternLight.pointLightOuterRadius = currentLanternRadius;
+
+
+        currentLightColor = maxLightColor * currentEnergyRatio + minLightColor * (1 - currentEnergyRatio);
+        lanternLight.color = currentLightColor;
+
+        if (currentEnergy*2 < Random.Range(0, Mathf.Pow(Random.value, 4) * maxEnergy / currentEnergy))
+        {
+            lanternLight.color = Color.black;
         }
     }
 }
