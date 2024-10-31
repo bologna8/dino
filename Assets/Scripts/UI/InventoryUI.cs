@@ -87,6 +87,10 @@ public class InventoryUI : MonoBehaviour
         {
             book.SetActive(true);
         }
+
+        //Set Inventory as the focus screen
+        UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Inventory);
+
     }
 
     private void CloseInventory()
@@ -218,8 +222,8 @@ public class InventoryUI : MonoBehaviour
     }
     public void NavigateInventory(InputAction.CallbackContext context)
     {
-        //if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
-        if (context.performed)
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
+        //if (context.performed)
         {
                 Vector2 navigationInput = context.ReadValue<Vector2>();
 

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+
 public class UIStateTracker : MonoBehaviour
 {
     public static UIStateTracker Instance { get; private set; }
-    public enum UIScreen { Inventory, Journal }
+    public enum UIScreen { Inventory, Journal } //Tracks which screen should be active/focused
     public UIScreen currentScreen = UIScreen.Inventory;
 
     private void Awake()
@@ -21,35 +23,15 @@ public class UIStateTracker : MonoBehaviour
         }
     }
 
-    public void SwitchToInventory()
+    //Sets the current active screen 
+    public void SetActiveScreen(UIScreen screen)
     {
-        currentScreen = UIScreen.Inventory;
-        Debug.Log("Switched to Inventory");
-    }
-
-    public void SwitchToJournal()
-    {
-        currentScreen = UIScreen.Journal;
-        Debug.Log("Switched to Journal");
+        currentScreen = screen;
     }
 
     public UIScreen GetActiveScreen()
     {
         return currentScreen;
     }
-
-    public void SwitchFocus(InputAction.CallbackContext context)
-    {
-        if (context.performed && context.control.device is Gamepad)
-        {
-            if (UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
-            {
-                UIStateTracker.Instance.SwitchToJournal();
-            }
-            else if (UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-            {
-                UIStateTracker.Instance.SwitchToInventory();
-            }
-        }
-    }
 }
+

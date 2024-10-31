@@ -59,7 +59,7 @@ public class BookController : MonoBehaviour
 
     public void OpenJournal(InputAction.CallbackContext context)
     {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+        if (context.performed)
         {
             isJournalOpen = !isJournalOpen;
             if (isJournalOpen)
@@ -92,9 +92,12 @@ public class BookController : MonoBehaviour
         {
             Debug.LogError("EventSystem is missing from the scene. Please add it for UI interactions.");
         }
+        //Set Journal as the focus screen
+        UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Journal);
+
     }
 
-    //Switch to the next tab
+  /*  //Switch to the next tab
     public void SwitchToNextTab(InputAction.CallbackContext context)
     {
         if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
@@ -113,7 +116,7 @@ public class BookController : MonoBehaviour
             currentTabIndex = (currentTabIndex - 1 + tabButtons.Length) % tabButtons.Length; //Wrap around to the last tab
             HighlightTab(currentTabIndex);
         }
-    }
+    }*/
 
     //Highlight the currently selected tab
     private void HighlightTab(int tabIndex)
@@ -175,7 +178,26 @@ public class BookController : MonoBehaviour
           }
         //}
     }
- 
+
+    public void NavigateBook(InputAction.CallbackContext context)
+    {
+        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+        {
+            Vector2 navigationInput = context.ReadValue<Vector2>();
+
+            if (navigationInput.x > 0) //Right
+            {
+                currentTabIndex = Mathf.Min(tabButtons.Length - 1, currentTabIndex + 1);
+            }
+            else if (navigationInput.x < 0) //Left
+            {
+                currentTabIndex = Mathf.Max(0, currentTabIndex - 1);
+            }
+
+            HighlightTab(currentTabIndex);
+        }
+    }
+
 
     public void UnlockSpecificPage(int pageIndex)
     {
