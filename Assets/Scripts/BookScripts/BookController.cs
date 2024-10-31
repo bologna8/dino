@@ -26,6 +26,7 @@ public class BookController : MonoBehaviour
     //Page buttons 
     public Button nextPageButton;
     public Button previousPageButton;
+    private bool inPageNavigation = false;
 
     private void Start()
     {
@@ -124,7 +125,11 @@ public class BookController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(tabButtons[tabIndex].gameObject);
     }
 
-
+    private void HighlightPageButton(bool isNextButton)
+    {
+        inPageNavigation = true;
+        EventSystem.current.SetSelectedGameObject(isNextButton ? nextPageButton.gameObject : previousPageButton.gameObject);
+    }
     private void CloseJournal()
     {
         if (journalPanel != null)
@@ -185,16 +190,40 @@ public class BookController : MonoBehaviour
         {
             Vector2 navigationInput = context.ReadValue<Vector2>();
 
-            if (navigationInput.x > 0) //Right
+            if (inPageNavigation)
             {
-                currentTabIndex = Mathf.Min(tabButtons.Length - 1, currentTabIndex + 1);
+                if (navigationInput.y > 0)
+                {
+                    HighlightTab(currentTabIndex);
+                }
+                else if (navigationInput.x > 0)
+                {
+                    FlipToNextPage();
+                    HighlightPageButton(true);
+                }
+                else if (navigationInput.x < 0)
+                {
+                    FlipToPreviousPage();
+                    HighlightPageButton(false);
+                }
             }
-            else if (navigationInput.x < 0) //Left
+            else
             {
-                currentTabIndex = Mathf.Max(0, currentTabIndex - 1);
+                if (navigationInput.x > 0)
+                {
+                    currentTabIndex = Mathf.Min(tabButtons.Length - 1, currentTabIndex + 1);
+                    HighlightTab(currentTabIndex);
+                }
+                else if (navigationInput.x < 0)
+                {
+                    currentTabIndex = Mathf.Max(0, currentTabIndex - 1);
+                    HighlightTab(currentTabIndex);
+                }
+                else if (navigationInput.y < 0)
+                {
+                    HighlightPageButton(true);
+                }
             }
-
-            HighlightTab(currentTabIndex);
         }
     }
 
