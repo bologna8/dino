@@ -55,7 +55,7 @@ public class BookController : MonoBehaviour
         }
 
         //The first tab is highlighted at the start
-        HighlightTab(currentTabIndex);
+        //HighlightTab(currentTabIndex);
 
     }
 
@@ -88,7 +88,7 @@ public class BookController : MonoBehaviour
 
 
         //Highlight the current tab when the journal opens
-        HighlightTab(currentTabIndex);
+       // HighlightTab(currentTabIndex);
     }
 
     private void OpenJournal()
@@ -132,11 +132,11 @@ public class BookController : MonoBehaviour
         }
     }*/
 
-    //Highlight the currently selected tab
+   /* //Highlight the currently selected tab
     private void HighlightTab(int tabIndex)
     {
         EventSystem.current.SetSelectedGameObject(tabButtons[tabIndex].gameObject);
-    }
+    } */
 
 
     private void CloseJournal()
@@ -193,7 +193,7 @@ public class BookController : MonoBehaviour
         //}
     }
 
-    public void NavigateBook(InputAction.CallbackContext context)
+    /* public void NavigateBook(InputAction.CallbackContext context)
     {
         if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
         {
@@ -210,7 +210,7 @@ public class BookController : MonoBehaviour
 
             HighlightTab(currentTabIndex);
         }
-    }
+    } */
 
 
     public void UnlockSpecificPage(int pageIndex)
