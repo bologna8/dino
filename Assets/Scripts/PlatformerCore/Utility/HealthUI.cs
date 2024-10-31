@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    public Health tracking;
+    [HideInInspector] public Health tracking;
     private Image currentHealth;
     public List<Sprite> healthSprites;
     public bool trackPosition = true;
@@ -20,6 +20,8 @@ public class HealthUI : MonoBehaviour
 
     void Awake()
     {
+        GameObject GO = GameObject.FindGameObjectWithTag("Player");
+        tracking = GO.GetComponentInChildren<Health>();
         currentHealth = GetComponent<Image>();
         if (!mySlider) { mySlider = GetComponent<Slider>(); }
         if (!myRect) { myRect = GetComponent<RectTransform>(); }
