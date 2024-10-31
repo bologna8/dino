@@ -741,9 +741,31 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""5c5fcc7c-a2e9-4533-88ed-772655608f7d"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""62578fe5-83fb-43db-bebb-be77d80cbcf3"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreviousPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e6eb266-17bd-4a67-b97c-119484ad738a"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PreviousPage"",
