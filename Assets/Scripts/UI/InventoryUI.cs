@@ -6,7 +6,7 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI Instance { get; private set; }
 
-    public bool inventoryOpen = false;
+    public bool inventoryOpen = true;
     public bool InventoryOpen => inventoryOpen;
 
     public GameObject inventoryParent;
@@ -79,7 +79,6 @@ public class InventoryUI : MonoBehaviour
         ChangeCursorState(false);
         inventoryOpen = true;
         inventoryParent.SetActive(true);
-        Time.timeScale = 0;
 
         if (book != null)
         {
@@ -96,7 +95,6 @@ public class InventoryUI : MonoBehaviour
         ChangeCursorState(true);
         inventoryOpen = false;
         inventoryParent.SetActive(false);
-        Time.timeScale = 1;
         if (book != null)
         {
             book.SetActive(false);

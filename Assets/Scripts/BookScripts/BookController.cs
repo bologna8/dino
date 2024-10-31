@@ -97,7 +97,6 @@ public class BookController : MonoBehaviour
         {
             journalPanel.SetActive(true);
         }
-        Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -145,7 +144,6 @@ public class BookController : MonoBehaviour
         {
             journalPanel.SetActive(false);
         }
-        Time.timeScale = 1f;
 
         //Cursor.lockState = CursorLockMode.Locked;
         #if !UNITY_EDITOR
