@@ -6,7 +6,7 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI Instance { get; private set; }
 
-    private bool inventoryOpen = false;
+    public bool inventoryOpen = false;
     public bool InventoryOpen => inventoryOpen;
 
     public GameObject inventoryParent;
