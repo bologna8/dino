@@ -29,6 +29,10 @@ public class BookController : MonoBehaviour
     public Button nextPageButton;
     public Button previousPageButton;
 
+    //Item slots in journal to index through 
+    public List<ItemSlot> journalSlotList = new List<ItemSlot>();
+    public int selectedJournalIndex = 0;
+
     void Awake()
     {
         if (Instance == null)
@@ -41,7 +45,15 @@ public class BookController : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void AddRecipeToJournal(List<ItemSlot> recipeAndIngredients)
+    {
+        foreach (ItemSlot item in recipeAndIngredients)
+        {
+            journalSlotList.Add(item);
+        }
+    }
+
+        private void Start()
     {
         foreach (int pageIndex in alwaysAvailablePages)
         {
@@ -131,11 +143,6 @@ public class BookController : MonoBehaviour
         }
     }*/
 
-   /* //Highlight the currently selected tab
-    private void HighlightTab(int tabIndex)
-    {
-        EventSystem.current.SetSelectedGameObject(tabButtons[tabIndex].gameObject);
-    } */
 
 
     private void CloseJournal()
@@ -191,28 +198,54 @@ public class BookController : MonoBehaviour
         //}
     }
 
-    /* public void NavigateBook(InputAction.CallbackContext context)
+    public void HighlightJournalItem(int index)
     {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+        //Unhighlight all journal slots
+        foreach (ItemSlot slot in journalSlotList)
+        {
+            slot.SetHighlight(false);
+        }
+
+        //Highlight the selected journal slot
+        if (index >= 0 && index < journalSlotList.Count)
+        {
+            journalSlotList[index].SetHighlight(true);
+        }
+    }
+
+    public void NavigateJournal(InputAction.CallbackContext context)
+    {
+       // if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
+       if(context.performed)
         {
             Vector2 navigationInput = context.ReadValue<Vector2>();
 
-            if (navigationInput.x > 0) //Right
+            //Only move if the journal is open
+            if (!isJournalOpen) return;
+
+            if (navigationInput.y > 0)  //Up
             {
-                currentTabIndex = Mathf.Min(tabButtons.Length - 1, currentTabIndex + 1);
+                selectedJournalIndex = Mathf.Max(0, selectedJournalIndex - 1);
             }
-            else if (navigationInput.x < 0) //Left
+            else if (navigationInput.y < 0)  //Down
             {
-                currentTabIndex = Mathf.Max(0, currentTabIndex - 1);
+                selectedJournalIndex = Mathf.Min(journalSlotList.Count - 1, selectedJournalIndex + 1);
+            }
+            if (navigationInput.x > 0)  //Right
+            {
+                selectedJournalIndex = Mathf.Min(journalSlotList.Count - 1, selectedJournalIndex + 1);
+            }
+            else if (navigationInput.x < 0)  //Left
+            {
+                selectedJournalIndex = Mathf.Max(0, selectedJournalIndex - 1);
             }
 
-            HighlightTab(currentTabIndex);
+            HighlightJournalItem(selectedJournalIndex);
         }
-    } */
-
+    }
 
     public void UnlockSpecificPage(int pageIndex)
-    {
+    { 
         if (!unlockedPages.Contains(pageIndex))
         {
             if (pageIndex >= 0 && pageIndex < pages.Length)

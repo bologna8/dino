@@ -120,6 +120,8 @@ public class InventoryUI : MonoBehaviour
         if (recipeItemSlot != null)
         {
             recipeItemSlot.AddItem(recipe);
+            List<ItemSlot> recipeAndIngredients = new List<ItemSlot>();
+            BookController.Instance.AddRecipeToJournal(recipeAndIngredients);
         }
 
         foreach (var ingredient in recipe.ingredients)
@@ -131,6 +133,8 @@ public class InventoryUI : MonoBehaviour
                 if (ingredientItemSlot != null)
                 {
                     ingredientItemSlot.AddItem(ingredient.item);
+                    List<ItemSlot> recipeAndIngredients = new List<ItemSlot>();
+                    BookController.Instance.AddRecipeToJournal(recipeAndIngredients);
                 }
             }
         }
@@ -204,13 +208,13 @@ public class InventoryUI : MonoBehaviour
 
     public void HighlightItem(int index)
     {
-        //unhighlight all slots 
+        //Unhighlight all slots 
         foreach (ItemSlot slot in itemSlotList)
         {
             slot.SetHighlight(false);
         }
 
-        //highlight the selected slot
+        //Highlight the selected slot
         if (index >= 0 && index < itemSlotList.Count)
         {
             itemSlotList[index].SetHighlight(true);
@@ -218,8 +222,8 @@ public class InventoryUI : MonoBehaviour
     }
     public void NavigateInventory(InputAction.CallbackContext context)
     {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
-        //if (context.performed)
+        //if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
+        if (context.performed)
         {
                 Vector2 navigationInput = context.ReadValue<Vector2>();
 
@@ -227,19 +231,19 @@ public class InventoryUI : MonoBehaviour
                 if (!inventoryOpen) return;
 
 
-                if (navigationInput.y > 0)  // Up
+                if (navigationInput.y > 0)  //Up
                 {
                     selectedIndex = Mathf.Max(0, selectedIndex - 1);
                 }
-                else if (navigationInput.y < 0)  // Down
+                else if (navigationInput.y < 0)  //Down
                 {
                     selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
                 }
-                if (navigationInput.x > 0)  // Right
+                if (navigationInput.x > 0)  //Right
                 {
                     selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
                 }
-                else if (navigationInput.x < 0)  // Left
+                else if (navigationInput.x < 0)  //Left
                 {
                     selectedIndex = Mathf.Max(0, selectedIndex - 1);
                 }
