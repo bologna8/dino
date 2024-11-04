@@ -1,4 +1,4 @@
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,12 +10,12 @@ public class InventoryUI : MonoBehaviour
     public bool InventoryOpen => inventoryOpen;
 
     public GameObject inventoryParent;
-    public GameObject inventoryTab;
     public GameObject craftingTab;
     public GameObject itemDescriptionPanel;
     public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
+    public List<ItemSlot> craftingTabSlotList = new List<ItemSlot>();
 
     public GameObject inventorySlotPrefab;
     public GameObject craftingSlotPrefab;
@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour
     public Transform inventoryItemTransform;
     public Transform craftingItemTransform;
 
-    //Highlight 
+    // Highlight 
     public int selectedIndex = 0;
 
     private void Awake()
@@ -79,15 +79,11 @@ public class InventoryUI : MonoBehaviour
         ChangeCursorState(false);
         inventoryOpen = true;
         inventoryParent.SetActive(true);
-
         if (book != null)
         {
             book.SetActive(true);
         }
-
-        //Set Inventory as the focus screen
         UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Inventory);
-
     }
 
     private void CloseInventory()
@@ -99,7 +95,6 @@ public class InventoryUI : MonoBehaviour
         {
             book.SetActive(false);
         }
-
         DeactivateItemDescriptionPanel();
     }
 
@@ -120,8 +115,7 @@ public class InventoryUI : MonoBehaviour
         if (recipeItemSlot != null)
         {
             recipeItemSlot.AddItem(recipe);
-            List<ItemSlot> recipeAndIngredients = new List<ItemSlot>();
-            BookController.Instance.AddRecipeToJournal(recipeAndIngredients);
+            craftingTabSlotList.Add(recipeItemSlot); // Ensure you're adding to the correct list
         }
 
         foreach (var ingredient in recipe.ingredients)
@@ -133,19 +127,19 @@ public class InventoryUI : MonoBehaviour
                 if (ingredientItemSlot != null)
                 {
                     ingredientItemSlot.AddItem(ingredient.item);
-                    List<ItemSlot> recipeAndIngredients = new List<ItemSlot>();
-                    BookController.Instance.AddRecipeToJournal(recipeAndIngredients);
+                    craftingTabSlotList.Add(ingredientItemSlot); // Ensure you're adding to the correct list
                 }
             }
         }
     }
+
     private void SetUpCraftingRecipes()
     {
         List<Item> craftingRecipes = GameManager.instance.craftingRecipes;
 
-        foreach (Item recipe in craftingRecipes)
+        foreach (CraftingRecipe recipe in craftingRecipes)
         {
-            UpdateCraftingUI((CraftingRecipe)recipe);
+            UpdateCraftingUI(recipe);
         }
     }
 
@@ -153,11 +147,13 @@ public class InventoryUI : MonoBehaviour
     {
         int currentItemCount = Inventory.instance.inventoryItemList.Count;
 
-        if (currentItemCount > itemSlotList.Count)
+        // Adjust the number of slots as needed
+        while (itemSlotList.Count < currentItemCount)
         {
-            AddItemSlots(currentItemCount);
+            AddItemSlot();
         }
 
+        // Update existing slots and remove excess ones
         for (int i = 0; i < itemSlotList.Count; ++i)
         {
             if (i < currentItemCount)
@@ -168,24 +164,20 @@ public class InventoryUI : MonoBehaviour
             {
                 itemSlotList[i].DestroySlot();
                 itemSlotList.RemoveAt(i);
+                i--; // Adjust index after removal
             }
         }
     }
 
-    private void AddItemSlots(int currentItemCount)
+    private void AddItemSlot()
     {
-        int amount = currentItemCount - itemSlotList.Count;
-
-        for (int i = 0; i < amount; ++i)
+        if (inventorySlotPrefab != null && inventoryItemTransform != null)
         {
-            if (inventorySlotPrefab != null && inventoryItemTransform != null)
+            GameObject go = Instantiate(inventorySlotPrefab, inventoryItemTransform);
+            ItemSlot newSlot = go.GetComponent<ItemSlot>();
+            if (newSlot != null)
             {
-                GameObject go = Instantiate(inventorySlotPrefab, inventoryItemTransform);
-                ItemSlot newSlot = go.GetComponent<ItemSlot>();
-                if (newSlot != null)
-                {
-                    itemSlotList.Add(newSlot);
-                }
+                itemSlotList.Add(newSlot);
             }
         }
     }
@@ -194,7 +186,7 @@ public class InventoryUI : MonoBehaviour
     {
         if (lockCursor)
         {
-            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
 #if !UNITY_EDITOR
             Cursor.visible = false;
 #endif
@@ -208,49 +200,34 @@ public class InventoryUI : MonoBehaviour
 
     public void HighlightItem(int index)
     {
-        //Unhighlight all slots 
+        // Unhighlight all slots 
         foreach (ItemSlot slot in itemSlotList)
         {
             slot.SetHighlight(false);
         }
 
-        //Highlight the selected slot
+        // Highlight the selected slot
         if (index >= 0 && index < itemSlotList.Count)
         {
             itemSlotList[index].SetHighlight(true);
         }
     }
+
     public void NavigateInventory(InputAction.CallbackContext context)
     {
-        //if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Inventory)
-        if (context.performed)
+        if (context.performed && inventoryOpen)
         {
-                Vector2 navigationInput = context.ReadValue<Vector2>();
-
-                // Only move if the inventory is open
-                if (!inventoryOpen) return;
-
-
-                if (navigationInput.y > 0)  //Up
-                {
-                    selectedIndex = Mathf.Max(0, selectedIndex - 1);
-                }
-                else if (navigationInput.y < 0)  //Down
-                {
-                    selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
-                }
-                if (navigationInput.x > 0)  //Right
-                {
-                    selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
-                }
-                else if (navigationInput.x < 0)  //Left
-                {
-                    selectedIndex = Mathf.Max(0, selectedIndex - 1);
-                }
-
-                HighlightItem(selectedIndex);
+            Vector2 navigationInput = context.ReadValue<Vector2>();
+            if (navigationInput.y > 0)  // Up
+            {
+                selectedIndex = Mathf.Max(0, selectedIndex - 1);
+            }
+            else if (navigationInput.y < 0)  // Down
+            {
+                selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
             }
 
+            HighlightItem(selectedIndex);
         }
-
+    }
 }

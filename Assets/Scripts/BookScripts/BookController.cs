@@ -31,7 +31,7 @@ public class BookController : MonoBehaviour
 
     //Item slots in journal to index through 
     public List<ItemSlot> journalSlotList = new List<ItemSlot>();
-    public int selectedJournalIndex = 0;
+    public int selectedCraftingIndex = 0;
 
     void Awake()
     {
@@ -198,51 +198,50 @@ public class BookController : MonoBehaviour
         //}
     }
 
-    public void HighlightJournalItem(int index)
+public void HighlightCraftingItem(int index)
+{
+    // Unhighlight all crafting slots
+    foreach (ItemSlot slot in InventoryUI.Instance.craftingTabSlotList)
     {
-        //Unhighlight all journal slots
-        foreach (ItemSlot slot in journalSlotList)
-        {
-            slot.SetHighlight(false);
-        }
-
-        //Highlight the selected journal slot
-        if (index >= 0 && index < journalSlotList.Count)
-        {
-            journalSlotList[index].SetHighlight(true);
-        }
+        slot.SetHighlight(false);
     }
 
-    public void NavigateJournal(InputAction.CallbackContext context)
+    // Highlight the selected crafting slot
+    if (index >= 0 && index < InventoryUI.Instance.craftingTabSlotList.Count)
     {
-       // if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-       if(context.performed)
-        {
-            Vector2 navigationInput = context.ReadValue<Vector2>();
-
-            //Only move if the journal is open
-            if (!isJournalOpen) return;
-
-            if (navigationInput.y > 0)  //Up
-            {
-                selectedJournalIndex = Mathf.Max(0, selectedJournalIndex - 1);
-            }
-            else if (navigationInput.y < 0)  //Down
-            {
-                selectedJournalIndex = Mathf.Min(journalSlotList.Count - 1, selectedJournalIndex + 1);
-            }
-            if (navigationInput.x > 0)  //Right
-            {
-                selectedJournalIndex = Mathf.Min(journalSlotList.Count - 1, selectedJournalIndex + 1);
-            }
-            else if (navigationInput.x < 0)  //Left
-            {
-                selectedJournalIndex = Mathf.Max(0, selectedJournalIndex - 1);
-            }
-
-            HighlightJournalItem(selectedJournalIndex);
-        }
+        InventoryUI.Instance.craftingTabSlotList[index].SetHighlight(true);
     }
+}
+
+public void NavigateCraftingTab(InputAction.CallbackContext context)
+{
+    if (context.performed && isJournalOpen)
+    {
+        Vector2 navigationInput = context.ReadValue<Vector2>();
+
+        // Navigation through crafting items
+        if (navigationInput.y > 0) // Up
+        {
+            selectedCraftingIndex = Mathf.Max(0, selectedCraftingIndex - 1);
+        }
+        else if (navigationInput.y < 0) // Down
+        {
+            selectedCraftingIndex = Mathf.Min(InventoryUI.Instance.craftingTabSlotList.Count - 1, selectedCraftingIndex + 1);
+        }
+
+        if (navigationInput.x > 0) // Right
+        {
+            selectedCraftingIndex = Mathf.Min(InventoryUI.Instance.craftingTabSlotList.Count - 1, selectedCraftingIndex + 1);
+        }
+        else if (navigationInput.x < 0) // Left
+        {
+            selectedCraftingIndex = Mathf.Max(0, selectedCraftingIndex - 1);
+        }
+
+        HighlightCraftingItem(selectedCraftingIndex);
+    }
+}
+
 
     public void UnlockSpecificPage(int pageIndex)
     { 
