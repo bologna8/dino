@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
-    public List<ItemSlot> craftingTabSlotList = new List<ItemSlot>();
+    public List<ItemSlot> journalSlotList = new List<ItemSlot>();
 
     public GameObject inventorySlotPrefab;
     public GameObject craftingSlotPrefab;
@@ -115,7 +115,7 @@ public class InventoryUI : MonoBehaviour
         if (recipeItemSlot != null)
         {
             recipeItemSlot.AddItem(recipe);
-            craftingTabSlotList.Add(recipeItemSlot); // Ensure you're adding to the correct list
+            journalSlotList.Add(recipeItemSlot); // Ensure you're adding to the correct list
         }
 
         foreach (var ingredient in recipe.ingredients)
@@ -127,7 +127,7 @@ public class InventoryUI : MonoBehaviour
                 if (ingredientItemSlot != null)
                 {
                     ingredientItemSlot.AddItem(ingredient.item);
-                    craftingTabSlotList.Add(ingredientItemSlot); // Ensure you're adding to the correct list
+                    journalSlotList.Add(ingredientItemSlot); // Ensure you're adding to the correct list
                 }
             }
         }
@@ -225,6 +225,14 @@ public class InventoryUI : MonoBehaviour
             else if (navigationInput.y < 0)  // Down
             {
                 selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
+            }
+            else if (navigationInput.x > 0)
+            {
+                selectedIndex = Mathf.Min(itemSlotList.Count-1, selectedIndex +1);
+            }
+            else if(navigationInput.x <0)
+            {
+                selectedIndex = Mathf.Max(0,selectedIndex -1);
             }
 
             HighlightItem(selectedIndex);

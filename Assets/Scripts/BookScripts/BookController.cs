@@ -31,7 +31,7 @@ public class BookController : MonoBehaviour
 
     //Item slots in journal to index through 
     public List<ItemSlot> journalSlotList = new List<ItemSlot>();
-    public int selectedCraftingIndex = 0;
+    public int selectedIndex = 0;
 
     void Awake()
     {
@@ -197,21 +197,18 @@ public class BookController : MonoBehaviour
           }
         //}
     }
-
-public void HighlightCraftingItem(int index)
-{
-    // Unhighlight all crafting slots
-    foreach (ItemSlot slot in InventoryUI.Instance.craftingTabSlotList)
+    public void HighlightItem(int index)
     {
-        slot.SetHighlight(false);
-    }
+        foreach (ItemSlot slot in journalSlotList)
+        {
+            slot.SetHighlight(false);
+        }
 
-    // Highlight the selected crafting slot
-    if (index >= 0 && index < InventoryUI.Instance.craftingTabSlotList.Count)
-    {
-        InventoryUI.Instance.craftingTabSlotList[index].SetHighlight(true);
+        if (index >= 0 && index < journalSlotList.Count)
+        {
+            journalSlotList[index].SetHighlight(true);
+        }
     }
-}
 
 public void NavigateCraftingTab(InputAction.CallbackContext context)
 {
@@ -219,29 +216,26 @@ public void NavigateCraftingTab(InputAction.CallbackContext context)
     {
         Vector2 navigationInput = context.ReadValue<Vector2>();
 
-        // Navigation through crafting items
         if (navigationInput.y > 0) // Up
         {
-            selectedCraftingIndex = Mathf.Max(0, selectedCraftingIndex - 1);
+            selectedIndex = Mathf.Max(0, selectedIndex - 1);
         }
         else if (navigationInput.y < 0) // Down
         {
-            selectedCraftingIndex = Mathf.Min(InventoryUI.Instance.craftingTabSlotList.Count - 1, selectedCraftingIndex + 1);
+            selectedIndex = Mathf.Min(InventoryUI.Instance.journalSlotList.Count - 1, selectedIndex + 1);
         }
-
-        if (navigationInput.x > 0) // Right
+        else if (navigationInput.x > 0) // Right
         {
-            selectedCraftingIndex = Mathf.Min(InventoryUI.Instance.craftingTabSlotList.Count - 1, selectedCraftingIndex + 1);
+            selectedIndex = Mathf.Min(InventoryUI.Instance.journalSlotList.Count - 1, selectedIndex + 1);
         }
         else if (navigationInput.x < 0) // Left
         {
-            selectedCraftingIndex = Mathf.Max(0, selectedCraftingIndex - 1);
+            selectedIndex = Mathf.Max(0, selectedIndex - 1);
         }
 
-        HighlightCraftingItem(selectedCraftingIndex);
+        HighlightItem(selectedIndex);
     }
 }
-
 
     public void UnlockSpecificPage(int pageIndex)
     { 
