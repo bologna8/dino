@@ -69,7 +69,7 @@ public class LanternController : MonoBehaviour
 
     void Update()
     {
-        if (isLanternInInventory && InventoryUI.Instance.InventoryOpen)
+        if (isLanternInInventory && InventoryUI.Instance.inventoryOpen)
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {

@@ -4369,8 +4369,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4117583768369405317}
   m_HandleRect: {fileID: 1716624284358849445}
   m_Direction: 0
-  m_Value: 0.295519
-  m_Size: 0.98746985
+  m_Value: 0.29553258
+  m_Size: 0.98747015
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4613,7 +4613,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5309268856038708642}
   m_HandleRect: {fileID: 6296663036754959016}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5499,12 +5499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d0f78fbdf1ead45957bd3ce20ccffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryOpen: 0
+  inventoryOpen: 1
   inventoryParent: {fileID: 1981601558919217568}
-  inventoryTab: {fileID: 7247211624081857568}
   craftingTab: {fileID: 9024588865726156336}
   itemDescriptionPanel: {fileID: 0}
   book: {fileID: 3937873846514468303}
+  journalSlotList: []
   inventorySlotPrefab: {fileID: 3933648733552199952, guid: f2ea0772736684d41a1809bad652c468, type: 3}
   craftingSlotPrefab: {fileID: 3933648733552199952, guid: c903849019c324245bb4bc80cae1344d, type: 3}
   inventoryItemTransform: {fileID: 3479178216837288186}
@@ -7667,7 +7667,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1642026269872795942}
   m_HandleRect: {fileID: 7624305568858729851}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10848,8 +10848,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5460166806232533403}
   m_HandleRect: {fileID: 8934712271379577084}
   m_Direction: 0
-  m_Value: 0.29551652
-  m_Size: 0.9277779
+  m_Value: 0.29551587
+  m_Size: 0.92777795
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12226,7 +12226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   journalPanel: {fileID: 3937873846514468303}
-  isJournalOpen: 0
+  isJournalOpen: 1
   pages:
   - {fileID: 1041074981737421514}
   - {fileID: 7535814591570282273}
@@ -12258,7 +12258,7 @@ MonoBehaviour:
   nextPageButton: {fileID: 1607387235640843972}
   previousPageButton: {fileID: 4277094059138452611}
   journalSlotList: []
-  selectedJournalIndex: 0
+  selectedIndex: 0
 --- !u!224 &6528194315955250708 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3280607557246515645, guid: e5f6a4d7ad586dd43b8bb56b1329fa01, type: 3}

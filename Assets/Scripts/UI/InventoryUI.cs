@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI Instance { get; private set; }
 
     public bool inventoryOpen = true;
-    public bool InventoryOpen => inventoryOpen;
+    //public bool InventoryOpen => inventoryOpen;
 
     public GameObject inventoryParent;
     public GameObject craftingTab;
@@ -96,6 +96,8 @@ public class InventoryUI : MonoBehaviour
             book.SetActive(false);
         }
         DeactivateItemDescriptionPanel();
+
+        if (BookController.Instance) { if (BookController.Instance.isJournalOpen) { BookController.Instance.CloseJournal(); }}
     }
 
     private void DeactivateItemDescriptionPanel()
@@ -186,7 +188,7 @@ public class InventoryUI : MonoBehaviour
     {
         if (lockCursor)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
 #if !UNITY_EDITOR
             Cursor.visible = false;
 #endif

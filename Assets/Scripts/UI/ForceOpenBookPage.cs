@@ -16,6 +16,8 @@ public class ForceOpenBookPage : MonoBehaviour
 
     public bool activateOnTrigger = false;
 
+    public bool deactivateAfterTrigger = true;
+
     private Collider2D trigger;
     // If the script is set to activate on start, then the page will be opened on start. If it is set to activate on trigger,
     // the script will set a collider2D component to its trigger.
@@ -50,5 +52,7 @@ public class ForceOpenBookPage : MonoBehaviour
         book.UnlockSpecificPage(pageNumber);
         book.OpenJournal();
         book.GoToTab(pageNumber);
+
+        if (deactivateAfterTrigger) { gameObject.SetActive(false); }
     }
 }

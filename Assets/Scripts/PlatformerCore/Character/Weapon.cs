@@ -44,6 +44,8 @@ public class Weapon : MonoBehaviour
     {
         if (attackStats)
         {
+            if (myCore) { if (!myCore.canAttack) { return; } }
+
             if (attackReady) 
             {
                 if (currentSpreadTime > 0) { currentSpreadTime -= Time.deltaTime; }

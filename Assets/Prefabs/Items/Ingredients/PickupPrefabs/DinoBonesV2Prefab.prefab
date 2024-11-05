@@ -152,8 +152,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
+  unselectedSaturation: 0
 --- !u!61 &5740164894219756990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +217,7 @@ GameObject:
   - component: {fileID: 4621826593676991584}
   - component: {fileID: 4300487382535365856}
   - component: {fileID: -8069967677523119116}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: DinoBonesV2Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,11 +347,12 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0
 --- !u!1001 &4796499083264145872
 PrefabInstance:
   m_ObjectHideFlags: 0

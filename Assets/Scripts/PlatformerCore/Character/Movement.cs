@@ -30,6 +30,8 @@ public class Movement : MonoBehaviour
     [HideInInspector] public LayerCheck leftHipCheck; //12
     [HideInInspector] public LayerCheck leftForwardCheck; //13 - check ahead for edges
 
+    [HideInInspector] public LayerCheck overheadCheck; //14 - for stopping unwanted wallslides and ledge pull ups
+
     [HideInInspector] public Core myCore;
     private Vector2 myVelocity; //Control rigidbody velocity directly for tight, snappy, crispy, crunchy code
 
@@ -198,6 +200,8 @@ public class Movement : MonoBehaviour
         if (colliders.Length > 11) { leftWallCheck = colliders[11]; }
         if (colliders.Length > 12) { leftHipCheck = colliders[12]; }
         if (colliders.Length > 13) { leftForwardCheck = colliders[13]; }
+
+        if (colliders.Length > 14) { overheadCheck = colliders[14]; }
         
 
     }
@@ -338,7 +342,7 @@ public class Movement : MonoBehaviour
             if (rightWallCheck && leftWallCheck) //Both wall checks touching same as head check toughing
             { if (rightWallCheck.touching && leftWallCheck.touching) { noHead = false;} } 
             
-            if (headCheck && noHead) { if (headCheck.touching) { noHead = false; } }
+            if (overheadCheck && noHead) { if (overheadCheck.touching) { noHead = false; } }
 
             if(canWallSlide && currentWallTime >= wallLockDelay && noHead) 
             {
@@ -672,6 +676,8 @@ public class Movement : MonoBehaviour
     public IEnumerator ledgeClimb(Vector3 corner, float duration, float delay = 0)
     {
         //if (myAnim) { myAnim.SetBool("climbing", true); }
+
+        if (overheadCheck) { if (overheadCheck.touching) { yield break; } }
 
         yield return new WaitForSeconds(delay);
 

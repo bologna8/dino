@@ -26,7 +26,15 @@ public class Core : MonoBehaviour
     [HideInInspector] public bool turning;
 
     [HideInInspector] public bool hidden;
-    [HideInInspector] public int hidingSpots;
+    public int hidingSpots;
+    [HideInInspector] public bool dashing;
+
+    [HideInInspector] public List<IInteractable> interactables = new List<IInteractable>();
+    /*
+    public LayerMask interactableLayers;
+    public float interactRange = 5f;
+    */
+
     [HideInInspector] public SpriteRenderer mySprite;
 
     //Necessary components to connect too
@@ -127,10 +135,16 @@ public class Core : MonoBehaviour
                 if (!lookingRight && movingRight) { myMove.movingRight = false; }
             }
             
+            if (hidden) { myMove.slowPercent = 0.25f; }
+            else { myMove.slowPercent = 1f;}
+
         }
 
         for (int i = 0; i < myWeapons.Length; i++) 
-        { myWeapons[i].attackHeld = attackInput[i]; }
+        { 
+            if (canAttack) { myWeapons[i].attackHeld = attackInput[i]; }
+            else { myWeapons[i].attackHeld = false; }
+        }
 
         if (myAim)
         {
@@ -191,8 +205,13 @@ public class Core : MonoBehaviour
             if (hidden) { mySprite.sortingOrder = -1; }
             else { mySprite.sortingOrder = 1; }
         }
-        
 
+
+    }
+
+
+    void LateUpdate()
+    {
         if (myHealth)
         {
             if (myHealth.stunTime > 0)
@@ -209,13 +228,8 @@ public class Core : MonoBehaviour
             }
         }
 
-
-    }
-
-
-    void LateUpdate()
-    {
         if (myAnim) { AnimationStation(); }
+
     }
 
 
@@ -258,6 +272,29 @@ public class Core : MonoBehaviour
         CharacterArt.rotation = toAngle;
         CharacterArt.localPosition = new Vector3(flippedX, CharacterArt.localPosition.y, CharacterArt.localPosition.z);
         turning = false;
+
+    }
+
+
+    public void InteractCheck()
+    {
+        if (interactables.Count <= 0) { return; }
+
+        interactables[0].Interact(gameObject);
+
+        /*
+        Collider[] interactableColliders = Physics.OverlapSphere(transform.position, interactRange, interactableLayers, QueryTriggerInteraction.Collide);
+        Debug.Log("ding");
+
+        if (interactableColliders.Length == 0) { return; }
+
+        Debug.Log("dong");
+
+        var interactable = interactableColliders[0].GetComponent<IInteractable>();
+        if (interactable != null) { interactable.Interact(gameObject); }
+
+        Debug.Log("dang");
+        */
 
     }
 
@@ -333,6 +370,7 @@ public class Core : MonoBehaviour
 
     public void HandleDash()
     {
+        if (!canMove) { return; }
         myMove.Dash();
     }
 
@@ -365,9 +403,11 @@ public class Core : MonoBehaviour
             if (myMove.climbing != null) { climbing = true; }
             myAnim.SetBool("climbing", climbing);
 
-            var dashing = false;
+            dashing = false;
             if (myMove.dashing != null) { dashing = true; }
             myAnim.SetBool("dashing", dashing);
+
+            myAnim.SetBool("crouching", hidden);
         }
 
         myAnim.SetBool("attacking", Attacking());

@@ -89,7 +89,6 @@ public class BookController : MonoBehaviour
     {
         if (context.performed)
         {
-            isJournalOpen = !isJournalOpen;
             if (isJournalOpen)
             {
                 OpenJournal();
@@ -111,6 +110,9 @@ public class BookController : MonoBehaviour
         {
             journalPanel.SetActive(true);
         }
+
+        isJournalOpen = true;
+
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -147,12 +149,14 @@ public class BookController : MonoBehaviour
 
 
 
-    private void CloseJournal()
+    public void CloseJournal()
     {
         if (journalPanel != null)
         {
             journalPanel.SetActive(false);
         }
+
+        isJournalOpen = false;
 
         //Cursor.lockState = CursorLockMode.Locked;
         #if !UNITY_EDITOR
