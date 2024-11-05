@@ -46,7 +46,7 @@ public class InventoryAbilityCheck : MonoBehaviour
             {
                 if (InventoryUI.Instance.inventoryOpen || BookController.Instance.isJournalOpen)
                 {
-                    myCore.canMove = false; myCore.canAttack = false;
+                    if (myCore.myHealth) { if (myCore.myHealth.stunTime <= 0) { myCore.myHealth.stunTime = 0.1f; } }
                     if (Hotbar.instance) { Hotbar.instance.canChangeWeapons = false; }
                 }
                 else if (Hotbar.instance) { Hotbar.instance.canChangeWeapons = true; }

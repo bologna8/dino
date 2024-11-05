@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -170683577, guid: 0aa0fdfc6d3b15544a39a8caaec0d5af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b42cf7d82b90d564fa53057206724d54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,8 +152,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
+  touchingLeft: 0
+  touchingRight: 0
+  touchingTop: 0
+  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
+  unselectedSaturation: 0.5
 --- !u!61 &5740164894219756990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +217,7 @@ GameObject:
   - component: {fileID: 4621826593676991584}
   - component: {fileID: 4300487382535365856}
   - component: {fileID: 5713627941420448435}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: PlantFiberPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,8 +234,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6665011124679354821}
   - {fileID: 8078248045555652662}
@@ -342,11 +347,12 @@ MonoBehaviour:
   source: {fileID: 0}
   origin: {x: 0, y: 0, z: 0}
   team: 0
+  ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
   tracking: 0
-  myAim: {fileID: 0}
   myCore: {fileID: 0}
+  angle: 0
 --- !u!1001 &7335759801721991524
 PrefabInstance:
   m_ObjectHideFlags: 0

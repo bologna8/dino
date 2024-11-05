@@ -11,19 +11,38 @@ public class Buried : LayerCheck, IInteractable
 
     [HideInInspector] public bool digging;
 
+    private Core touchingCore;
+
     public void Interact(GameObject interacter)
     {
-        if (possiblePickupPrefabs.Count > 0)
+        if (possiblePickupPrefabs.Count > 0 && touchingCore)
         {
-            var coreCheck = interacter.GetComponent<Core>();
-            if (coreCheck)
-            {
-                coreCheck.Stun(timeToDig, diggingAnimation);
-                StartCoroutine(DelayedDig());
-            }
+            touchingCore.Stun(timeToDig, diggingAnimation);
+            StartCoroutine(DelayedDig());
         }
         
     }
+
+    public override void ExtraEnterOperations(Collider2D collision)
+    {
+        var coreCheck = collision.gameObject.GetComponent<Core>();
+        if (coreCheck && !touchingCore)
+        {
+            touchingCore = coreCheck;
+            touchingCore.interactables.Add(this);
+        }
+    }
+
+    public override void ExtraExitOperations(Collider2D collision)
+    {
+        if (touchingCore)
+        {
+            touchingCore.interactables.Remove(this);
+            touchingCore = null;
+        }
+        
+    }
+
 
     public IEnumerator DelayedDig()
     {

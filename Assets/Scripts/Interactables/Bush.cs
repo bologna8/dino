@@ -9,15 +9,33 @@ public class Bush : LayerCheck, IInteractable
 
     public GameObject bushEnterEffect;
 
+    private Animator myAnim;
+
+    public int setHideLayer;
+    public int defaultPlayerLayer; 
+
+    public void Start()
+    {
+        myAnim = GetComponent<Animator>();
+    }
+
     public void Interact(GameObject interacter)
     {
         if (touchingCore)
         {
+            if (touchingCore.myMove.dashCheck && touchingCore.hidden) 
+            { if (touchingCore.myMove.dashCheck.touching) { return; } }
+
             touchingCore.hidden = !touchingCore.hidden;
-            if (touchingCore.hidden && bushEnterEffect)
+
+            if (myAnim) { myAnim.SetTrigger("rustled"); }
+
+            if (touchingCore.hidden)
             { 
-                PoolManager.Instance.Spawn(bushEnterEffect, transform.position);
+                if (bushEnterEffect) { PoolManager.Instance.Spawn(bushEnterEffect, transform.position); }
+                interacter.layer = setHideLayer;
             }
+            else { interacter.layer = defaultPlayerLayer; }
         }
     }
 
@@ -28,6 +46,7 @@ public class Bush : LayerCheck, IInteractable
         {
             touchingCore = coreCheck;
             touchingCore.hidingSpots ++;
+            touchingCore.interactables.Add(this);   
         }
     }
 
@@ -36,10 +55,21 @@ public class Bush : LayerCheck, IInteractable
         if (touchingCore)
         {
             touchingCore.hidingSpots --;
-            if (touchingCore.hidingSpots <= 0) { touchingCore.hidden = false; }
+            touchingCore.interactables.Remove(this);
+            
+            if (touchingCore.hidingSpots <= 0) 
+            { 
+                touchingCore.hidden = false;
+                if (!touchingCore.dashing) { touchingCore.gameObject.layer = defaultPlayerLayer; }
+            }
+
             touchingCore = null;
+
+            if (myAnim) { myAnim.SetTrigger("rustled"); }
+
         }
         
     }
+
 
 }
