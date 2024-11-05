@@ -52,19 +52,21 @@ public class BookController : MonoBehaviour
             journalSlotList.Add(item);
         }
     }
-
+    //Note: Something I noticed is that the pages don't really need to be set to active at the start since they are set to active when opening that page anyway,
+    //them all being active caused some weird issues with the pages overlapping each other.
         private void Start()
     {
         foreach (int pageIndex in alwaysAvailablePages)
         {
             unlockedPages.Add(pageIndex);
-            pages[pageIndex].SetActive(true); 
+            //pages[pageIndex].SetActive(true); 
         }
 
         for (int i = 0; i < pages.Length; i++)
         {
-            pages[i].SetActive(i == currentPage || alwaysAvailablePages.Contains(i));
-        }
+            pages[i].SetActive(false);
+           // pages[i].SetActive(i == currentPage || alwaysAvailablePages.Contains(i));
+        } 
 
         //The first tab is highlighted at the start
         //HighlightTab(currentTabIndex);
@@ -103,7 +105,7 @@ public class BookController : MonoBehaviour
        // HighlightTab(currentTabIndex);
     }
 
-    private void OpenJournal()
+    public void OpenJournal()
     {
         if (journalPanel != null)
         {
