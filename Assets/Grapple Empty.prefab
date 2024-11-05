@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8142958838078798255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4002401143223492667}
+  - component: {fileID: 6156131079386060931}
+  - component: {fileID: 7874558438391938455}
+  - component: {fileID: 625835789870803260}
+  m_Layer: 9
+  m_Name: Grapple Empty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4002401143223492667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142958838078798255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.21, y: 0.21, z: 0.21}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6156131079386060931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142958838078798255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959840f5bc6de154d995efc123eb1ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeOfInput: 1
+  typeOfAmo: 0
+  cooldown: 2
+  clipSize: 1
+  fireRate: 0
+  multiplier: 1
+  spreadEvenly: 0
+  momentumLaunch: 0
+  attackingAimSpeed: 1
+  moveWhileAttacking: 0
+  windup: 0.2
+  movementPreAttack: 0
+  onlyHorizontalMovePre: 1
+  noGravityDuringWindup: 1
+  attackDuration: 1
+  movementMidAttack: 0
+  onlyHorizontalMoveMid: 1
+  noGravityDuringAttack: 1
+  startAimAngleOffset: 0
+  spreadTime: 0
+  spreadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadIntensity: 0
+  spreadRange: 1
+  alternateNegative: 1
+  repeatPattern: 0
+  attackAnim: {fileID: 7400000, guid: ad96a3d07c3bc764e8cc7b8c0ca8af9d, type: 2}
+  startOffset: {x: 0, y: 0, z: 0}
+  myWeapon: {fileID: 0}
+--- !u!114 &7874558438391938455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142958838078798255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b30c1e8adae4a42b7785604aeb23cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  origin: {x: 0, y: 0, z: 0}
+  team: 0
+  ignoreTeams: 0
+  maxCount: 99
+  delayBetweenChildren: 0
+  tracking: 0
+  myCore: {fileID: 0}
+  angle: 0
+--- !u!114 &625835789870803260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142958838078798255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65120a15af0a34c4f9106666fa0bf664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 1

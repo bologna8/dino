@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -128,13 +129,19 @@ public class Health : MonoBehaviour
 
         }
 
+        //Temporary simple scene reload if player dies
+        if (myCore) { if (!myCore.myAI) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); } }
+
         //var checkParent = transform.parent;
         if (mySpawn) { mySpawn.gameObject.SetActive(false); }
         else { Destroy(gameObject); }
 
+        
+
         //if (checkParent && destroyParent) { Destroy(checkParent.gameObject); }
         //else { Destroy(gameObject); }
     }
+
 
     public void GainHealth(float amount)
     {
