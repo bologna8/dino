@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfInput: 1
-  typeOfAmo: 0
+  typeOfAmo: 1
   cooldown: 2
   clipSize: 1
   fireRate: 0.1
@@ -212,6 +212,7 @@ MonoBehaviour:
   alternateNegative: 1
   repeatPattern: 0
   attackAnim: {fileID: 7400000, guid: ac62f5a837b2fe747a009f6b08eadbdc, type: 2}
+  startOffset: {x: 0, y: 0, z: 0}
   myWeapon: {fileID: 0}
 --- !u!114 &6815603982042734992
 MonoBehaviour:

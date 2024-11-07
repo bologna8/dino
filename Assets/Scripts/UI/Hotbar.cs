@@ -10,12 +10,14 @@ public class Hotbar : MonoBehaviour
     public static Hotbar instance;
 
     public GameObject WeaponWheel;
+    public Sprite SelectableSliceSprite;
     private Vector2 wheelDirection;
     private bool usingMouse;
     //public LayerMask wheelSliceLayer;
     public MultiSpriteHandler[] wheelSlices;
     [Range (0, 1)] public float selectedSliceAlpha;
     [Range (0, 1)] public float unSelectedSliceAlpha;
+    [Range (1,2)] public float selectedSizeScale;
 
     private Controls myControls;
 
@@ -45,10 +47,7 @@ public class Hotbar : MonoBehaviour
         {
             foreach (var item in Inventory.instance.inventoryItemList)
             {
-                if(item is HotbarItem hotbarItem)
-                {
-                    hotbarItem.AddToHotbar();
-                }
+                if(item is HotbarItem hotbarItem) { addItem(hotbarItem, hotbarItem.HotBarIndex); }
             }
         }
     }
@@ -126,15 +125,38 @@ public class Hotbar : MonoBehaviour
         if (currentlyEquipped != 4) { SelectItem(4); }
     }
 
+    public void addItem(HotbarItem newItem, int index)
+    {
+        if (index > equippedItems.Length) { return; }
+
+        equippedItems[index] = newItem;
+
+        if (index > wheelSlices.Length) { return; }
+        wheelSlices[index].changeSprite(SelectableSliceSprite);
+        wheelSlices[index].changeSprite(newItem.icon, 1);
+    }
+
     public void removeItem(int index, bool consumable = false)
     {
         if (index > equippedItems.Length) { return; }
 
         if (wheelSlices.Length >= index)
-        { wheelSlices[index].changeSprite(wheelSlices[index].startSprites[1], 1); }
+        { 
+            wheelSlices[index].changeSprite(null);
+            wheelSlices[index].changeSprite(null, 1); 
+        }
 
         if (Inventory.instance != null && consumable) 
-        { Inventory.instance.RemoveItem(equippedItems[index]); }
+        { 
+            Inventory.instance.RemoveItem(equippedItems[index]);
+            if (Inventory.instance.ContainsItem(equippedItems[index], 1)) 
+            { 
+                foreach (var item in Inventory.instance.inventoryItemList)
+                {
+                    if(item == equippedItems[index]) { return; }
+                }
+            }
+        }
 
         equippedItems[index] = null;
 
@@ -163,6 +185,7 @@ public class Hotbar : MonoBehaviour
         { 
             slice.gameObject.SetActive(true);
             slice.changeAlpha(unSelectedSliceAlpha);
+            slice.changeSize();
         }
 
         RaycastHit2D checkSlice = Physics2D.Raycast(WeaponWheel.transform.position, wheelDirection);
@@ -176,6 +199,7 @@ public class Hotbar : MonoBehaviour
                     if (wheelSlices[i] == selectedSlice && equippedItems[i] != null)
                     {
                         selectedSlice.changeAlpha(selectedSliceAlpha);
+                        selectedSlice.changeSize(selectedSizeScale);
                         SelectItem(i);
                     }
                 }

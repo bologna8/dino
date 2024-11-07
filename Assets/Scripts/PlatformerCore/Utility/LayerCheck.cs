@@ -40,17 +40,19 @@ public class LayerCheck : MonoBehaviour
 
                var pointOfContact = collision.ClosestPoint(transform.position);
 
-               /*
+               
                if (pointOfContact.x > (transform.position.x )) { touchingRight = true; }
                else { touchingRight = false; }
+
                if (pointOfContact.x < (transform.position.x )) { touchingLeft = true; }
                else { touchingLeft = false; }
 
                if (pointOfContact.y > (transform.position.y )) { touchingTop = true; }
                else { touchingTop = false; }
+               
                if (pointOfContact.y < (transform.position.y )) { touchingBot = true; }
                else { touchingBot = false; }
-               */
+               
 
                if (mySprite) { mySprite.color = startColor; }
           }    

@@ -85,9 +85,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponWheel: {fileID: 0}
+  SelectableSliceSprite: {fileID: 1245416294, guid: a5b21e412a94c064cb0b54de62fff8b1, type: 3}
   wheelSlices: []
   selectedSliceAlpha: 0.8
   unSelectedSliceAlpha: 0.5
+  selectedSizeScale: 1.23
   equippedItems:
   - {fileID: 0}
   - {fileID: 0}

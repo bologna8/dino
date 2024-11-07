@@ -13,6 +13,8 @@ public class MultiSpriteHandler : MonoBehaviour
     [HideInInspector] public Sprite[] startSprites;
     private Color[] startColors;
 
+    private Vector3 startScale;
+
     private bool initialized;
 
     void Awake()
@@ -39,6 +41,8 @@ public class MultiSpriteHandler : MonoBehaviour
                 startColors[i] = subSprites[i].color;
             }
         }
+
+        startScale = transform.localScale;
         
         initialized = true;
            
@@ -60,9 +64,11 @@ public class MultiSpriteHandler : MonoBehaviour
         }
     }
 
-    public void changeSprite(Sprite newSprite, int index = 0)
+    public void changeSprite(Sprite newSprite = null, int index = 0)
     {
         if (!initialized) { return; }
+
+        if (newSprite == null) { newSprite = startSprites[index]; }
 
         if (imagesInUI)
         {
@@ -74,5 +80,12 @@ public class MultiSpriteHandler : MonoBehaviour
             if (index > subSprites.Length) { return; }
             subSprites[index].sprite = newSprite;
         }
+    }
+
+    public void changeSize(float percent = 1)
+    {
+        if (!initialized) { return; }
+
+        transform.localScale = startScale * percent;
     }
 }

@@ -23,9 +23,7 @@ public class HotbarItem : Item
     {
         if (Hotbar.instance == null) { return; }
 
-        Hotbar.instance.equippedItems[HotBarIndex] = this;
-        Hotbar.instance.wheelSlices[HotBarIndex].changeSprite(icon, 1);
-
+        Hotbar.instance.addItem(this, HotBarIndex);
     }
 
 

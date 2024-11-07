@@ -85,9 +85,6 @@ public class Weapon : MonoBehaviour
         currentAttackPrefab = newAttack;
         attackStats = newAttack.GetComponent<Attack>();
         currentClip = attackStats.clipSize;
-
-        //attackStats.attackAnim.speedMultiplier = attackStats.windup + attackStats.attackDuration;
-
     }
 
     public IEnumerator Reload()
