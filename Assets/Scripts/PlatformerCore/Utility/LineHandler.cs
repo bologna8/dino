@@ -38,9 +38,31 @@ public class LineHandler : MonoBehaviour
 
         if (findNewEndpoint)
         {
+            bool didHit = false;
             var dir = new Vector2(Mathf.Cos(aimedAngle * Mathf.Deg2Rad), Mathf.Sin(aimedAngle * Mathf.Deg2Rad));
-
-            endPoint = startPoint + (dir * searchRange.x);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(startPoint, dir, searchRange.x);
+            Vector2 tempPoint = new Vector2(99999, 99999);
+            foreach (RaycastHit2D hit in hits) {
+                if (hit.collider.CompareTag("Collision Tiles"))
+                {
+                    if (didHit)
+                    {
+                        tempPoint = endPoint;
+                    } 
+                    endPoint = startPoint + (dir * hit.distance);
+                    Debug.Log("hit");
+                    didHit = true;
+                }
+                if(Vector2.Distance(startPoint,tempPoint)< Vector2.Distance(startPoint, endPoint))
+                {
+                    endPoint = tempPoint;
+                }
+            }
+            if (!didHit)
+            {
+                endPoint = startPoint + (dir * searchRange.x);
+            }
+            
 
             //RaycastHit2D checkHits = Physics2D.CircleCast(endPoint, searchRange.y, Vector2.zero, 0, searchLayers);
             //if (checkHits.point != null) { endPoint = checkHits.point; }
