@@ -50,7 +50,7 @@ public class LineHandler : MonoBehaviour
                         tempPoint = endPoint;
                     } 
                     endPoint = startPoint + (dir * hit.distance);
-                    Debug.Log("hit");
+                    //Debug.Log("hit");
                     didHit = true;
                 }
                 if(Vector2.Distance(startPoint,tempPoint)< Vector2.Distance(startPoint, endPoint))
