@@ -43,7 +43,7 @@ public class LanternController : MonoBehaviour
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();
-        lantern.SetActive(true); //switch to false after VS
+        lantern.SetActive(false); 
         isLanternActive=true;
         currentEnergy = maxEnergy;
 

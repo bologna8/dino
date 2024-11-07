@@ -12,10 +12,14 @@ public class StatItem : Item
     public override void Use()
     {
         base.Use();
-        if (itemType == StatItemType.FoodItem) 
+        if (itemType == StatItemType.FoodItem && GameManager.instance.playerHealth.currentHP < GameManager.instance.playerHealth.maxHP) 
         {
             GameManager.instance.OnStatItemUse(itemType, amount);
             Inventory.instance.RemoveItem(this);
+        }
+        else
+        {
+            Debug.Log("Health is full! Cant consume item");
         }
     }
 }
