@@ -201,8 +201,8 @@ public class BookController : MonoBehaviour
                 currentPage = unlockedPages[prevPageIndex];
                 pages[currentPage].SetActive(true);
           }
-        //}
-    }
+        }
+   /* }
     public void HighlightItem(int index)
     {
         foreach (ItemSlot slot in journalSlotList)
@@ -241,7 +241,7 @@ public void NavigateCraftingTab(InputAction.CallbackContext context)
 
         HighlightItem(selectedIndex);
     }
-}
+}*/
 
     public void UnlockSpecificPage(int pageIndex)
     { 
@@ -274,3 +274,4 @@ public void NavigateCraftingTab(InputAction.CallbackContext context)
         }
     }
 }
+

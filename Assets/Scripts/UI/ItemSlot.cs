@@ -112,8 +112,8 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
-    public void SetHighlight(bool highlight)
-    { // Adjust highlight color when navigating items
-        icon.color = highlight ? Color.yellow : Color.white;
-    }
+    //public void SetHighlight(bool highlight)
+   // { // Adjust highlight color when navigating items
+   //     icon.color = highlight ? Color.yellow : Color.white;
+ //  }
 }

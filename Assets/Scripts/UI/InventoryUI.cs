@@ -199,7 +199,7 @@ public class InventoryUI : MonoBehaviour
             Cursor.visible = true;
         }
     }
-
+/*
     public void HighlightItem(int index)
     {
         // Unhighlight all slots 
@@ -240,4 +240,6 @@ public class InventoryUI : MonoBehaviour
             HighlightItem(selectedIndex);
         }
     }
+}
+*/
 }
