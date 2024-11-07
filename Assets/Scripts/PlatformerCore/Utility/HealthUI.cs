@@ -41,6 +41,22 @@ public class HealthUI : MonoBehaviour
         */
     }
 
+    public void UpdateHealthUI()
+    {
+        if (tracking)
+    {
+        var percent = (tracking.currentHP / tracking.maxHP) * healthSprites.Count;
+        if (percent > healthSprites.Count - 1)
+        {
+            currentHealth.sprite = healthSprites[healthSprites.Count - 1];
+        }
+        else
+        {
+            currentHealth.sprite = healthSprites[(int)percent];
+        }
+    }
+}
+
     // Update is called once per frame
     void Update()
     {

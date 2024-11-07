@@ -26,6 +26,19 @@ public class GameManager : MonoBehaviour
     public float moveX = 0f;
     public float moveY = 0f;
 
+    public Health playerHealth;
+    public HealthUI playerHealthUI;
+
+    public void OnStatItemUse(StatItemType itemType, int amount)
+    {
+      if(itemType == StatItemType.FoodItem)
+      {
+        playerHealth.GainHealth(amount);
+        playerHealthUI.UpdateHealthUI();
+        Debug.Log("Consuming " + itemType + " Add amount: " + amount);
+      }
+    }
+
     public void Start()
     {
       foreach(Item recipePrefab in recipePrefabs)
@@ -34,10 +47,6 @@ public class GameManager : MonoBehaviour
           craftingRecipes.Add(recipePrefab);
         }
       }
-    }
-    public void OnStatItemUse(StatItemType itemType, int amount)
-    {
-        Debug.Log("Consuming " + itemType + " Add amount: " + amount);
     }
 
   public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos)
