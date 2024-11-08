@@ -92132,6 +92132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2877406462878702801, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 14831437}
     - target: {fileID: 2915905897548880708, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -92480,6 +92484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5860450718376781045, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1
@@ -92550,10 +92558,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2661674118543948784, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 353316526}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1551716306}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
 --- !u!1 &1551716285 stripped
 GameObject:
@@ -92565,20 +92570,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2661674118543948784, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
   m_PrefabInstance: {fileID: 1551716284}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1551716306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551716285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a6e653b910a6147bbdd39d7e8fba12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 14831437}
-  <CameraSpeed>k__BackingField: 45
 --- !u!1 &1560184337
 GameObject:
   m_ObjectHideFlags: 0
