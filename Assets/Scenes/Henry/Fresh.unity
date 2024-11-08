@@ -5613,6 +5613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnkBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 8113084423703979873, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
