@@ -11,11 +11,11 @@ public class InventoryUI : MonoBehaviour
 
     public GameObject inventoryParent;
     public GameObject craftingTab;
-    public GameObject itemDescriptionPanel;
+    //public GameObject itemDescriptionPanel;
     public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
-    public List<ItemSlot> journalSlotList = new List<ItemSlot>();
+   // public List<ItemSlot> journalSlotList = new List<ItemSlot>();
 
     public GameObject inventorySlotPrefab;
     public GameObject craftingSlotPrefab;
@@ -47,11 +47,6 @@ public class InventoryUI : MonoBehaviour
 
         UpdateInventoryUI();
         SetUpCraftingRecipes();
-
-        foreach (ItemSlot slot in itemSlotList)
-        {
-            slot.ItemUsed += DeactivateItemDescriptionPanel;
-        }
 
         if (book != null)
         {
@@ -95,19 +90,18 @@ public class InventoryUI : MonoBehaviour
         {
             book.SetActive(false);
         }
-        DeactivateItemDescriptionPanel();
 
         if (BookController.Instance) { if (BookController.Instance.isJournalOpen) { BookController.Instance.CloseJournal(); }}
     }
 
-    private void DeactivateItemDescriptionPanel()
+  /*  private void DeactivateItemDescriptionPanel()
     {
         if (itemDescriptionPanel != null)
         {
             itemDescriptionPanel.SetActive(false);
         }
     }
-
+*/
     public void UpdateCraftingUI(CraftingRecipe recipe)
     {
         if (recipe == null) return;
@@ -117,7 +111,7 @@ public class InventoryUI : MonoBehaviour
         if (recipeItemSlot != null)
         {
             recipeItemSlot.AddItem(recipe);
-            journalSlotList.Add(recipeItemSlot); // Ensure you're adding to the correct list
+            //journalSlotList.Add(recipeItemSlot); // Ensure you're adding to the correct list
         }
 
         foreach (var ingredient in recipe.ingredients)
@@ -129,7 +123,7 @@ public class InventoryUI : MonoBehaviour
                 if (ingredientItemSlot != null)
                 {
                     ingredientItemSlot.AddItem(ingredient.item);
-                    journalSlotList.Add(ingredientItemSlot); // Ensure you're adding to the correct list
+                 //   journalSlotList.Add(ingredientItemSlot); // Ensure you're adding to the correct list
                 }
             }
         }
