@@ -5,9 +5,13 @@ using UnityEngine;
 public class MapUI : MonoBehaviour
 {
     //list of all the masks on the journal map
-    public List<SpriteMask> mapSpriteMasks;
+    //public List<GameObject> mapImage;
+
     //list of all the colliders that activate the masks
     public List<Collider2D> mapColliders;
+
+    //list of map icons
+    public List<GameObject> mapIcons;
 
     //list of campfire colliders
     public List<Collider2D> campfireColliders;
@@ -23,7 +27,8 @@ public class MapUI : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+
     }
 
     // Update is called once per frame
@@ -37,13 +42,15 @@ public class MapUI : MonoBehaviour
         if (mapColliders.Contains(collision))
         {
             colliderIndex = mapColliders.IndexOf(collision);
-            mapSpriteMasks[colliderIndex].gameObject.SetActive(true);
+            mapIcons[colliderIndex].gameObject.SetActive(true);
+            Debug.Log("MAP COLLISION");
         }
 
         if (campfireColliders.Contains(collision))
         {
             colliderIndex = campfireColliders.IndexOf(collision);
             campfireIcons[colliderIndex].gameObject.SetActive(true);
+            Debug.Log("CAMPFIRE COLLISION");
         }
     }
 }
