@@ -8,7 +8,9 @@ public class LoopAtPoint : MonoBehaviour
     public AudioSource source;
 
     public float loopStartTime;
-    private int samples;
+    private int samples; //944975
+
+    private bool isLoop = false;
     
     void Start()
     {
@@ -21,10 +23,14 @@ public class LoopAtPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(samples + " : " + source.timeSamples);
+        //Debug.Log(samples + " : " + source.timeSamples);
         if(source.timeSamples >= samples){
             source.Stop();
             source.time = loopStartTime;
+            if(!isLoop){
+                //samples -= (int) (loopStartTime * 44100);
+                isLoop = true;
+            }
             source.Play();
         }
     }
