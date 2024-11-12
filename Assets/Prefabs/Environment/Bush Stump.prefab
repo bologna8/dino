@@ -4914,6 +4914,7 @@ GameObject:
   - component: {fileID: 7572351494827799145}
   - component: {fileID: 2598606777910762291}
   - component: {fileID: 7471336231433317429}
+  - component: {fileID: 5226149698743095421}
   m_Layer: 3
   m_Name: Bush Stump
   m_TagString: Untagged
@@ -5027,3 +5028,22 @@ MonoBehaviour:
   tracking: 0
   myCore: {fileID: 0}
   angle: 0
+--- !u!114 &5226149698743095421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404173520793160998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c30b4a767c8a14793955eaf6b74612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnThis: {fileID: 0}
+  respawningImage: {fileID: 4404173520793160998}
+  respawnTime: 5
+  respawnOffset: {x: 0, y: -0.65, z: 0}
+  resetOnScreen: 0
+  requiredItem: {fileID: 0}
+  amountOfItem: 0

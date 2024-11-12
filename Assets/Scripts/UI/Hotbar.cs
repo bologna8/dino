@@ -140,33 +140,33 @@ public class Hotbar : MonoBehaviour
     {
         if (index > equippedItems.Length) { return; }
 
+        if (Inventory.instance != null && consumable) 
+        { 
+            Inventory.instance.RemoveItem(equippedItems[index]);
+            
+            if (Inventory.instance.ContainsItem(equippedItems[index], 1)) 
+            { 
+                return;
+            }
+            
+        }
+
         if (wheelSlices.Length >= index)
         { 
             wheelSlices[index].changeSprite(null);
             wheelSlices[index].changeSprite(null, 1); 
         }
 
-        if (Inventory.instance != null && consumable) 
-        { 
-            Inventory.instance.RemoveItem(equippedItems[index]);
-            if (Inventory.instance.ContainsItem(equippedItems[index], 1)) 
-            { 
-                foreach (var item in Inventory.instance.inventoryItemList)
-                {
-                    if(item == equippedItems[index]) { return; }
-                }
-            }
-        }
+        equippedItems[index] = null; 
+        if (index == currentlyEquipped) { SelectItem(0); }
 
-        equippedItems[index] = null;
-
-        if (index == currentlyEquipped)
-        { SelectItem(currentlyEquipped ++); }
     }
 
     void UpdateWeaponWheel()
     {
         if (WeaponWheel == null) { return; }
+
+        if (playerCore) { if (playerCore.Attacking()) { WeaponWheel.SetActive(false); return; } }
 
         if (myControls.Aiming.WeaponWheel.IsPressed() && canChangeWeapons) { WeaponWheel.SetActive(true); }
         else { WeaponWheel.SetActive(false); return; }

@@ -239,7 +239,6 @@ public class AI : MonoBehaviour
             var r = Random.Range(emoteCooldown.x, emoteCooldown.y);
             emoteCooldownCurrent = r;
             myCore.Stun(r, emoteAnimation);
-            Debug.Log(r);
         }        
 
         if (PoolManager.Instance) { PoolManager.Instance.Spawn(emoteEffect, transform.position, Quaternion.identity, transform); }

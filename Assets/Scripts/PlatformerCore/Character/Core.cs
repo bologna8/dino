@@ -165,38 +165,6 @@ public class Core : MonoBehaviour
                 else if (lookingRight) { Turn(); }
             }
             else if (movingRight != lookingRight) { Turn(); }
-            
-
-            /*
-            if (WeaponPivot) 
-            { 
-                if (Mathf.Abs(myAim.currentAng) < 90) 
-                { 
-                    WeaponPivot.eulerAngles = new Vector3(0, 0, myAim.currentAng);
-                    WeaponPivot.localPosition = weaponPivotStart;
-                }
-                else //Flip Weapon if on left side
-                { 
-                    WeaponPivot.eulerAngles = new Vector3(180, 0, 360 - myAim.currentAng);
-                    WeaponPivot.localPosition = new Vector3(-weaponPivotStart.x, weaponPivotStart.y, weaponPivotStart.z);
-                }
-                myAim.offset = WeaponPivot.localPosition;
-
-
-
-                if (RightHand && RightHandle) 
-                { 
-                    RightHand.position = RightHandle.position;
-                    RightHand.rotation = RightHandle.rotation;
-                }
-                if (LeftHand && LeftHandle) 
-                { 
-                    LeftHand.position = LeftHandle.position;
-                    LeftHand.rotation = LeftHandle.rotation;
-                }
-                 
-            }
-            */
 
         }
         

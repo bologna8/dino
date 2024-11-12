@@ -47,6 +47,8 @@ public class Bush : LayerCheck, IInteractable
             touchingCore = coreCheck;
             touchingCore.hidingSpots ++;
             touchingCore.interactables.Add(this);   
+
+            if (myAnim) { myAnim.SetTrigger("rustled"); }
         }
     }
 

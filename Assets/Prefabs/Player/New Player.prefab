@@ -498,9 +498,11 @@ MonoBehaviour:
   invincibleTime: 0
   myMovement: {fileID: 0}
   hitEffect: {fileID: 3933424769755576373, guid: 5ee659d475fe9224ca31faa5c96eb99b, type: 3}
+  friendlyFireOnly: 0
   deathEffect: {fileID: 0}
   deathOffset: {x: 0, y: 0, z: 0}
-  friendlyFireOnly: 0
+  deathAnimation: {fileID: 7400000, guid: f4b7229bd6ef35842a6dfc837644eb1f, type: 2}
+  timeToDie: 0.5
 --- !u!1 &2841616932888521271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,15 +1462,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  coyoteTime: 0.1
+  coyoteTime: 0.2
   bonusJumps: 0
   jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
   canWallJump: 0
   wallJumpForce: {x: 10, y: 17}
-  wallJumpDelay: 0.02
+  wallJumpDelay: 0.1
   wallJumpTime: {x: 0.4, y: 0.5}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
-  wallLockDelay: 0.1
+  wallLockDelay: 0
   canWallSlide: 0
   wallSlideSpeed: 1
   wallSliding: 0
@@ -1631,13 +1633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06fd00aa1ced42d1b02eeeb313f3a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapSpriteMasks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   mapColliders:
   - {fileID: 0}
   - {fileID: 0}
@@ -1645,6 +1640,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  mapIcons: []
   campfireColliders:
   - {fileID: 0}
   - {fileID: 0}

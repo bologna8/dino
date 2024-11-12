@@ -8,7 +8,10 @@ public class Respawn : MonoBehaviour
     public GameObject respawningImage;
 
     public float respawnTime;
-    public float currentRespawnTime;
+    private float currentRespawnTime;
+
+    public Vector3 respawnOffset;
+    private Spawned mySpawn;
 
     [Tooltip("If the nest is visible on screen, won't respawn")] public bool resetOnScreen;
 
@@ -16,9 +19,13 @@ public class Respawn : MonoBehaviour
     [Tooltip("If player has this much of an item or less, won't respawn")] public int amountOfItem;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        if (!mySpawn) { mySpawn = GetComponent<Spawned>(); }
+        if (mySpawn) { respawnThis = mySpawn.source.gameObject; }
+
         currentRespawnTime = respawnTime;
+
     }
 
     // Update is called once per frame
@@ -28,7 +35,7 @@ public class Respawn : MonoBehaviour
         {
             if (!respawnThis.activeSelf)
             {
-                respawningImage.SetActive(true);
+                if (respawningImage) { respawningImage.SetActive(true); }
                 currentRespawnTime -= Time.deltaTime;
 
                 if (resetOnScreen)
@@ -48,12 +55,11 @@ public class Respawn : MonoBehaviour
                 { 
                     currentRespawnTime = respawnTime;
                     respawnThis.SetActive(true);
-                    respawnThis.transform.position = transform.position;
-                    Debug.Log("ding");
+                    respawnThis.transform.position = transform.position + respawnOffset;
                 }
 
             }
-            else { respawningImage.SetActive(false); }
+            else if (respawningImage) { respawningImage.SetActive(false); }
         }
         
     }

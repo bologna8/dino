@@ -142,7 +142,8 @@ public class Health : MonoBehaviour
         { 
             var tempTeam = 0;
             if (mySpawn) { tempTeam = mySpawn.team; }
-            PoolManager.Instance.Spawn(deathEffect, transform.position + deathOffset, transform.rotation, transform, tempTeam);
+            if (PoolManager.Instance) { PoolManager.Instance.Spawn(deathEffect, transform.position + deathOffset, transform.rotation, transform, tempTeam); }
+            else { Instantiate(deathEffect, transform.position + deathOffset, Quaternion.identity); }
 
         }
 

@@ -106,10 +106,6 @@ public class Weapon : MonoBehaviour
 
         if (currentAttackPrefab != useAttack) { changeAttack(useAttack); }
 
-        if (attackStats.typeOfAmo == Attack.AmoType.single && Hotbar.instance != null) 
-        { 
-            Hotbar.instance.removeItem(Hotbar.instance.currentlyEquipped, true); 
-        }
         else if (attackStats.typeOfAmo != Attack.AmoType.none) 
         { 
             if (currentClip > 0) { currentClip --; }
@@ -308,9 +304,14 @@ public class Weapon : MonoBehaviour
             if (myAim) { myAim.attackAngleOffset = 0f; }
             attackReady = true;
 
+            if (attackStats.typeOfAmo == Attack.AmoType.single && Hotbar.instance != null) 
+            { Hotbar.instance.removeItem(Hotbar.instance.currentlyEquipped, true); }
+            
             if (currentClip <= 0 && attackStats.typeOfAmo != Attack.AmoType.none) 
             { StartCoroutine(Reload()); }
         }
+
+        
 
     }
 

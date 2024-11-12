@@ -93,6 +93,7 @@ public class Movement : MonoBehaviour
     [Tooltip("Spawn effect on wall jumps")] public GameObject wallJumpEffect;
     [Tooltip("Dely until you actually lock onto a wall, needed so wall taps don't spam animation")] public float wallLockDelay;
     private float currentWallTime; //How long been on a wall
+    private float leaveWallTime; //Exit wall without wall jumping
     [Tooltip("Change fall speed while pressing into a wall")] public bool canWallSlide = false;
     [Tooltip("Max fall speed while wall sliding")] public float wallSlideSpeed = 1f;
     [HideInInspector] public bool wallSliding; //Currently on a wall while falling
@@ -290,8 +291,11 @@ public class Movement : MonoBehaviour
 
         if (rightWallCheck && leftWallCheck) //Update time since last touched a wall to jump off of
         {
+            bool onWall = false;
+            if (rightWallCheck.touching && movingRight) { onWall = true; }
+            if (leftWallCheck.touching && !movingRight) { onWall = true; }
 
-            if (rightWallCheck.touching || leftWallCheck.touching) { currentWallTime += Time.deltaTime; }
+            if (onWall) { currentWallTime += Time.deltaTime; }
             else if (recentWallJump > 0) { recentWallJump -= Time.deltaTime; currentWallTime = wallLockDelay; }
             else { currentWallTime = 0; }
             
@@ -344,7 +348,7 @@ public class Movement : MonoBehaviour
             
             if (overheadCheck && noHead) { if (overheadCheck.touching) { noHead = false; } }
 
-            if(canWallSlide && currentWallTime >= wallLockDelay && noHead) 
+            if(canWallSlide && currentWallTime > wallLockDelay && noHead) 
             {
                 wallSliding = true;
                 if (moveInput != 0) 
@@ -400,6 +404,7 @@ public class Movement : MonoBehaviour
         */
         
 
+        /*
         if (wallSliding) 
         { 
             if (rightWallCheck.touching) 
@@ -417,6 +422,7 @@ public class Movement : MonoBehaviour
             }
 
         }
+        */
 
         //Slow percent sets maximum to less than 1 if slowed
         momentum = Mathf.Clamp(momentum, 0, slowPercent);
@@ -433,10 +439,22 @@ public class Movement : MonoBehaviour
     public void CheckDirectionChange()
     {
         bool turned = false;
+
         if (moveInput > 0 && !movingRight) { turned = true; }
         if (moveInput < 0 && movingRight) { turned = true; }
 
-        if (turned) { momentum = 0f; movingRight = !movingRight; } // Turn();
+
+
+        if (turned) 
+        {
+            if (wallSliding) 
+            { 
+                leaveWallTime += Time.deltaTime; 
+                if (leaveWallTime < coyoteTime) { return; }
+            }
+            momentum = 0f; movingRight = !movingRight; currentWallTime = 0f; 
+        }
+        else { leaveWallTime = 0f; }
 
     }
 
@@ -564,6 +582,7 @@ public class Movement : MonoBehaviour
     {
         ignoreGravity = true;
         dashVelocity = Vector2.zero;
+        recentWallJump = wallLockDelay;
 
         yield return new WaitForSeconds(wallJumpDelay);
 
