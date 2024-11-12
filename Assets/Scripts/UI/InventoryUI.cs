@@ -141,15 +141,36 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateInventoryUI()
     {
-        int currentItemCount = Inventory.instance.inventoryItemList.Count;
+        //int currentItemCount = Inventory.instance.inventoryItemList.Count;
 
         // Adjust the number of slots as needed
+        /*
         while (itemSlotList.Count < currentItemCount)
         {
+            if ()
             AddItemSlot();
+        }
+        */
+        if (inventoryItemTransform == null) { return; }
+
+        foreach(Transform child in inventoryItemTransform)
+        {
+            Destroy(child.gameObject);
+        }
+
+
+        foreach(var item in Inventory.instance.inventoryItemList)
+        {
+            if (item is HotbarItem hotbarItem) 
+            {
+                if (hotbarItem.HotBarIndex == 4) { AddItemSlot(item); }
+                else { } //position key 4 items, 0 = shovel, 1 = blade, 2 = pick, 3 = grappler
+            }
+            else { AddItemSlot(item); }
         }
 
         // Update existing slots and remove excess ones
+        /*
         for (int i = 0; i < itemSlotList.Count; ++i)
         {
             if (i < currentItemCount)
@@ -163,9 +184,10 @@ public class InventoryUI : MonoBehaviour
                 i--; // Adjust index after removal
             }
         }
+        */
     }
 
-    private void AddItemSlot()
+    private void AddItemSlot(Item item)
     {
         if (inventorySlotPrefab != null && inventoryItemTransform != null)
         {
@@ -173,7 +195,9 @@ public class InventoryUI : MonoBehaviour
             ItemSlot newSlot = go.GetComponent<ItemSlot>();
             if (newSlot != null)
             {
-                itemSlotList.Add(newSlot);
+                newSlot.AddItem(item);
+                //newSlot
+                //itemSlotList.Add(newSlot);
             }
         }
     }

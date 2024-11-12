@@ -13,10 +13,10 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public List<Item> itemList = new List<Item>();
+    //public List<Item> itemList = new List<Item>();
     public List<Item> craftingRecipes = new List<Item>();
 
-    public List<Item> recipePrefabs = new List<Item>();
+    //public List<Item> recipePrefabs = new List<Item>();
 
     
     public Transform canvas;
@@ -41,12 +41,14 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+      /*
       foreach(Item recipePrefab in recipePrefabs)
       {
         if(recipePrefab != null){
           craftingRecipes.Add(recipePrefab);
         }
       }
+      */
     }
 
   public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos)
