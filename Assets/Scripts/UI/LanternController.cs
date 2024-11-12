@@ -127,14 +127,19 @@ public class LanternController : MonoBehaviour
     }
 
     void DepleteEnergy()
-    {
+        {
+         if (InventoryUI.Instance.inventoryOpen || (BookController.Instance != null && BookController.Instance.isJournalOpen))
+         {
+           return;
+         }
+
         currentEnergy -= depletionRate * Time.deltaTime;
         if (currentEnergy <= 0)
         {
-            currentEnergy = 0; 
-            lantern.SetActive(false); 
-            isLanternActive = false; 
-            Debug.Log("Lantern is out of energy!");
+        currentEnergy = 0;
+        lantern.SetActive(false);
+        isLanternActive = false;
+        Debug.Log("Lantern is out of energy!");
         }
     }
 
