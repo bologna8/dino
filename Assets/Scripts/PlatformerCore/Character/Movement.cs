@@ -506,7 +506,11 @@ public class Movement : MonoBehaviour
                 jumpDelayCurrent = jumpDelayTime;
                 justJumped = true;
 
-                if (jumpEffect) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }    
+                if (jumpEffect) 
+                { 
+                    if (PoolManager.Instance) { PoolManager.Instance.Spawn(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
+                    else { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
+                }    
             }
             
         }
@@ -573,7 +577,11 @@ public class Movement : MonoBehaviour
         if (!movingRight) { dir.x *= -1; }
         DoDash(dir, wallJumpTime);
         //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
-        if (wallJumpEffect) { PoolManager.Instance.Spawn(wallJumpEffect, groundCheck.transform.position, Quaternion.identity); }  
+        if (wallJumpEffect) 
+        { 
+            if (PoolManager.Instance) { PoolManager.Instance.Spawn(wallJumpEffect, groundCheck.transform.position, Quaternion.identity); }
+            else { Instantiate(wallJumpEffect, groundCheck.transform.position, Quaternion.identity); }
+        }  
     }
 
 
@@ -625,7 +633,10 @@ public class Movement : MonoBehaviour
                 }
 
                 if (!onEdge && GrabLedgeEffect)
-                { PoolManager.Instance.Spawn(GrabLedgeEffect, transform.position, Quaternion.identity, transform); }
+                { 
+                    if (PoolManager.Instance) { PoolManager.Instance.Spawn(GrabLedgeEffect, transform.position, Quaternion.identity, transform); }
+                    else { Instantiate(GrabLedgeEffect, transform.position, Quaternion.identity); }
+                }
 
                 onEdge = true;
                 airTime = 0; //Reset airtime while ya hang
@@ -781,10 +792,16 @@ public class Movement : MonoBehaviour
                 if (changeHitboxLayer && myHP) { changeHP = airDashLayer; } 
 
                 if (airDashEffect)
-                { PoolManager.Instance.Spawn(airDashEffect, transform.position, Quaternion.identity, transform); }
+                { 
+                    if (PoolManager.Instance) { PoolManager.Instance.Spawn(airDashEffect, transform.position, Quaternion.identity, transform); }
+                    else { Instantiate(airDashEffect, transform.position, Quaternion.identity); }
+                }
             }
             else if (dashEffect)
-            { PoolManager.Instance.Spawn(dashEffect, transform.position, Quaternion.identity, transform); }
+            { 
+                if (PoolManager.Instance) { PoolManager.Instance.Spawn(dashEffect, transform.position, Quaternion.identity, transform); }
+                else { Instantiate(dashEffect, transform.position, Quaternion.identity); }
+            }
             
 
             DoDash(d, t, noGrav, true, edgeStop, changeLayer, changeHP);

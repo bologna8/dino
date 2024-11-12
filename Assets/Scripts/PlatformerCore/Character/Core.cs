@@ -225,6 +225,12 @@ public class Core : MonoBehaviour
                 canMove = true;
                 canAttack = true;
                 canInteract = true;
+
+                if (myMove) 
+                { 
+                    if (myMove.onEdge) { canAttack = false; canInteract = false; }
+                }
+                
             }
         }
 

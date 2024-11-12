@@ -89,6 +89,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: emoteAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 635aafb12732b44499b1ebe4ffebc2a8, type: 2}
+    - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackAimTime.x
       value: 0
       objectReference: {fileID: 0}
@@ -156,6 +160,10 @@ PrefabInstance:
       propertyPath: deathEffect
       value: 
       objectReference: {fileID: 2166410990080991992, guid: 0378aac6f1c72114095f7d0d31a06d58, type: 3}
+    - target: {fileID: 8478583008990582963, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: deathAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 92e5a86c51972514c909c9328dc91cf4, type: 2}
     - target: {fileID: 8505960365540364046, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: lockLength
       value: 0.8

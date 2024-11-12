@@ -608,9 +608,11 @@ MonoBehaviour:
   invincibleTime: 0
   myMovement: {fileID: 0}
   hitEffect: {fileID: 0}
+  friendlyFireOnly: 0
   deathEffect: {fileID: 0}
   deathOffset: {x: 0, y: 0, z: 0}
-  friendlyFireOnly: 0
+  deathAnimation: {fileID: 0}
+  timeToDie: 0.3
 --- !u!1 &2841616932888521271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1511,9 @@ MonoBehaviour:
   attackAimTime: {x: 0, y: 0}
   scanPauseTime: {x: 1, y: 2}
   angryIcon: {fileID: 2436307126734686301, guid: a8fde059255d9ee4f933f4de77fdb3ce, type: 3}
+  emoteAnimation: {fileID: 0}
+  emoteTime: 0.5
+  emoteCooldown: {x: 1, y: 2}
   chasing: {fileID: 0}
   agroMemoryTime: {x: 3, y: 6}
   canJump: 0

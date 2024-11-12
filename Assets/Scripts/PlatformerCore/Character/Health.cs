@@ -31,12 +31,14 @@ public class Health : MonoBehaviour
 
     [Tooltip("Effect spawned Every Time Hit")] public GameObject hitEffect;
 
+    [Tooltip("Will only take damage from its own team, normally other way around")] public bool friendlyFireOnly = false;
 
     private TrailRenderer hitTrail;
     [Tooltip("Effect spawned when destroyed")] public GameObject deathEffect;
     [Tooltip("Offset for death deffect")] public Vector3 deathOffset;
 
-    [Tooltip("Will only take damage from its own team, normally other way around")] public bool friendlyFireOnly = false;
+    [Tooltip("Clip played when HP reaches 0")] public AnimationClip deathAnimation;
+    [Tooltip("How long death animation lasts")] public float timeToDie;
 
     void Awake()
     {
@@ -85,7 +87,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float dmg, Vector2 stun, Vector2 KB)
     {
-        
+        if (currentHP <= 0) { return;}
+
         if (hitEffect) 
         {
             if (PoolManager.Instance && mySpawn) { PoolManager.Instance.Spawn(hitEffect, transform.position, transform.rotation, transform, mySpawn.team); }
@@ -96,7 +99,7 @@ public class Health : MonoBehaviour
 
         if (dmg > 0) { currentRegenBuffer = regenBufferTime; }
 
-        if (currentHP <= 0) { Die(); }
+        if (currentHP <= 0) { StartCoroutine(delayedDeath()); }
         else
         {
             if (stunTime <= stun.x) 
@@ -119,8 +122,22 @@ public class Health : MonoBehaviour
         }
     }
 
+    IEnumerator delayedDeath()
+    {
+        if (myCore) { myCore.Stun(timeToDie, deathAnimation); }
+        yield return new WaitForSeconds(timeToDie);
+
+        Die();
+    }
+
     public void Die()
     {
+
+        //Temporary simple scene reload if player dies
+        //if (myCore) { if (!myCore.myAI) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); } }
+
+        //var checkParent = transform.parent;
+
         if (deathEffect) 
         { 
             var tempTeam = 0;
@@ -129,10 +146,6 @@ public class Health : MonoBehaviour
 
         }
 
-        //Temporary simple scene reload if player dies
-        if (myCore) { if (!myCore.myAI) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); } }
-
-        //var checkParent = transform.parent;
         if (mySpawn) { mySpawn.gameObject.SetActive(false); }
         else { Destroy(gameObject); }
 

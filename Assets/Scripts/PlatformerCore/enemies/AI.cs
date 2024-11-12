@@ -20,6 +20,7 @@ public class AI : MonoBehaviour
     private float patrolCurrent; //how long to patrol before return to idle
     [Tooltip("Time to wait between your turns")] public Vector2 turnCooldownTime = new Vector2(3,6);
     [HideInInspector] public float turnCooldownCurrent;
+
     public GameObject curiousIcon;
 
     public float attackRange = 5f;
@@ -31,6 +32,11 @@ public class AI : MonoBehaviour
     //public LayerMask sightLayers;
     [Tooltip("How long look at max range before scanning to look other way")] public Vector2 scanPauseTime = new Vector2(1,2);
     public GameObject angryIcon;
+    public AnimationClip emoteAnimation;
+    public float emoteTime;
+    public Vector2 emoteCooldown = new Vector2(1,2);
+    private float emoteCooldownCurrent;
+
 
     [HideInInspector] public Transform chasing;
     [Tooltip("Random range for how long it takes to forget about current target")] public Vector2 agroMemoryTime = new Vector2(3,6);
@@ -114,7 +120,7 @@ public class AI : MonoBehaviour
         }
 
         if (turnCooldownCurrent > 0) { turnCooldownCurrent -= Time.deltaTime; }
-        
+        if (emoteCooldownCurrent > 0) { emoteCooldownCurrent -= Time.deltaTime; }
 
     }
 
@@ -228,7 +234,14 @@ public class AI : MonoBehaviour
 
     void Emote(GameObject emoteEffect)
     {
-        myHealth.TakeDamage(0, new Vector2(0.1f, 0), Vector2.zero);
+        if (emoteCooldownCurrent <= 0)
+        {
+            var r = Random.Range(emoteCooldown.x, emoteCooldown.y);
+            emoteCooldownCurrent = r;
+            myCore.Stun(r, emoteAnimation);
+            Debug.Log(r);
+        }        
+
         if (PoolManager.Instance) { PoolManager.Instance.Spawn(emoteEffect, transform.position, Quaternion.identity, transform); }
         else { Instantiate(emoteEffect, transform); }
     }

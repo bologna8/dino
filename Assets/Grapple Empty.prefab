@@ -59,11 +59,11 @@ MonoBehaviour:
   windup: 0.2
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
-  noGravityDuringWindup: 1
+  noGravityDuringWindup: 0
   attackDuration: 1
   movementMidAttack: 0
   onlyHorizontalMoveMid: 1
-  noGravityDuringAttack: 1
+  noGravityDuringAttack: 0
   startAimAngleOffset: 0
   spreadTime: 0
   spreadCurve:
