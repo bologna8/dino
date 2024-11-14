@@ -7,21 +7,18 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI Instance { get; private set; }
 
     public bool inventoryOpen = true;
-    //public bool InventoryOpen => inventoryOpen;
-
     public GameObject inventoryParent;
     public GameObject craftingTab;
-    //public GameObject itemDescriptionPanel;
     public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
-   // public List<ItemSlot> journalSlotList = new List<ItemSlot>();
 
     public GameObject inventorySlotPrefab;
     public GameObject craftingSlotPrefab;
 
     public Transform inventoryItemTransform;
     public Transform craftingItemTransform;
+    public Transform[] hotbarTransforms = new Transform[4];
 
     // Highlight 
     public int selectedIndex = 0;
@@ -71,7 +68,6 @@ public class InventoryUI : MonoBehaviour
 
     private void OpenInventory()
     {
-        ChangeCursorState(false);
         inventoryOpen = true;
         inventoryParent.SetActive(true);
         if (book != null)
@@ -83,7 +79,6 @@ public class InventoryUI : MonoBehaviour
 
     private void CloseInventory()
     {
-        ChangeCursorState(true);
         inventoryOpen = false;
         inventoryParent.SetActive(false);
         if (book != null)
@@ -91,17 +86,12 @@ public class InventoryUI : MonoBehaviour
             book.SetActive(false);
         }
 
-        if (BookController.Instance) { if (BookController.Instance.isJournalOpen) { BookController.Instance.CloseJournal(); }}
-    }
-
-  /*  private void DeactivateItemDescriptionPanel()
-    {
-        if (itemDescriptionPanel != null)
+        if (BookController.Instance && BookController.Instance.isJournalOpen)
         {
-            itemDescriptionPanel.SetActive(false);
+            BookController.Instance.CloseJournal();
         }
     }
-*/
+
     public void UpdateCraftingUI(CraftingRecipe recipe)
     {
         if (recipe == null) return;
@@ -111,7 +101,6 @@ public class InventoryUI : MonoBehaviour
         if (recipeItemSlot != null)
         {
             recipeItemSlot.AddItem(recipe);
-            //journalSlotList.Add(recipeItemSlot); // Ensure you're adding to the correct list
         }
 
         foreach (var ingredient in recipe.ingredients)
@@ -123,7 +112,6 @@ public class InventoryUI : MonoBehaviour
                 if (ingredientItemSlot != null)
                 {
                     ingredientItemSlot.AddItem(ingredient.item);
-                 //   journalSlotList.Add(ingredientItemSlot); // Ensure you're adding to the correct list
                 }
             }
         }
@@ -141,123 +129,53 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateInventoryUI()
     {
-        //int currentItemCount = Inventory.instance.inventoryItemList.Count;
-
-        // Adjust the number of slots as needed
-        /*
-        while (itemSlotList.Count < currentItemCount)
-        {
-            if ()
-            AddItemSlot();
-        }
-        */
         if (inventoryItemTransform == null) { return; }
 
-        foreach(Transform child in inventoryItemTransform)
+        foreach (Transform child in inventoryItemTransform)
         {
             Destroy(child.gameObject);
         }
 
-
-        foreach(var item in Inventory.instance.inventoryItemList)
+        foreach (Transform hotbarTransform in hotbarTransforms)
         {
-            if (item is HotbarItem hotbarItem) 
+            if (hotbarTransform != null)
             {
-                if (hotbarItem.HotBarIndex == 4) { AddItemSlot(item); }
-                else { } //position key 4 items, 0 = shovel, 1 = blade, 2 = pick, 3 = grappler
+                foreach (Transform child in hotbarTransform)
+                {
+                    Destroy(child.gameObject);
+                }
             }
-            else { AddItemSlot(item); }
         }
 
-        // Update existing slots and remove excess ones
-        /*
-        for (int i = 0; i < itemSlotList.Count; ++i)
+        foreach (var item in Inventory.instance.inventoryItemList)
         {
-            if (i < currentItemCount)
+            if (item is HotbarItem hotbarItem && hotbarItem.HotBarIndex >= 0 && hotbarItem.HotBarIndex < hotbarTransforms.Length)
             {
-                itemSlotList[i].AddItem(Inventory.instance.inventoryItemList[i]);
+                AddItemSlot(item, hotbarTransforms[hotbarItem.HotBarIndex]);
             }
             else
             {
-                itemSlotList[i].DestroySlot();
-                itemSlotList.RemoveAt(i);
-                i--; // Adjust index after removal
+                AddItemSlot(item, inventoryItemTransform);
             }
         }
-        */
     }
 
-    private void AddItemSlot(Item item)
+    private void AddItemSlot(Item item, Transform parentTransform)
     {
-        if (inventorySlotPrefab != null && inventoryItemTransform != null)
+        if (inventorySlotPrefab != null && parentTransform != null)
         {
-            GameObject go = Instantiate(inventorySlotPrefab, inventoryItemTransform);
+            GameObject go = Instantiate(inventorySlotPrefab, parentTransform);
             ItemSlot newSlot = go.GetComponent<ItemSlot>();
             if (newSlot != null)
             {
                 newSlot.AddItem(item);
-                //newSlot
-                //itemSlotList.Add(newSlot);
+                itemSlotList.Add(newSlot);
             }
         }
     }
 
-    private void ChangeCursorState(bool lockCursor)
+    private void AddItemSlot(Item item)
     {
-        if (lockCursor)
-        {
-            //Cursor.lockState = CursorLockMode.Locked;
-#if !UNITY_EDITOR
-            Cursor.visible = false;
-#endif
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        AddItemSlot(item, inventoryItemTransform);
     }
-/*
-    public void HighlightItem(int index)
-    {
-        // Unhighlight all slots 
-        foreach (ItemSlot slot in itemSlotList)
-        {
-            slot.SetHighlight(false);
-        }
-
-        // Highlight the selected slot
-        if (index >= 0 && index < itemSlotList.Count)
-        {
-            itemSlotList[index].SetHighlight(true);
-        }
-    }
-
-    public void NavigateInventory(InputAction.CallbackContext context)
-    {
-        if (context.performed && inventoryOpen)
-        {
-            Vector2 navigationInput = context.ReadValue<Vector2>();
-            if (navigationInput.y > 0)  // Up
-            {
-                selectedIndex = Mathf.Max(0, selectedIndex - 1);
-            }
-            else if (navigationInput.y < 0)  // Down
-            {
-                selectedIndex = Mathf.Min(itemSlotList.Count - 1, selectedIndex + 1);
-            }
-            else if (navigationInput.x > 0)
-            {
-                selectedIndex = Mathf.Min(itemSlotList.Count-1, selectedIndex +1);
-            }
-            else if(navigationInput.x <0)
-            {
-                selectedIndex = Mathf.Max(0,selectedIndex -1);
-            }
-
-            HighlightItem(selectedIndex);
-        }
-    }
-}
-*/
 }
