@@ -29,7 +29,7 @@ public class Buried : LayerCheck, IInteractable
 
         if (interactionPrompt != null && touchingCore)
         {
-            interactionPrompt.text = isGamepad ? "Press [X] to dig" : "Press [E] to dig";
+            interactionPrompt.text = isGamepad ? "Press [X] to interact" : "Press [E] to interact";
         }
     }
 
