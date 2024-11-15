@@ -23,6 +23,8 @@ public class InventoryUI : MonoBehaviour
     // Highlight 
     public int selectedIndex = 0;
 
+    private PlayerControls playerControls;
+
     private void Awake()
     {
         if (Instance == null)
@@ -49,6 +51,8 @@ public class InventoryUI : MonoBehaviour
         {
             book.SetActive(true);
         }
+
+        playerControls = FindObjectOfType<PlayerControls>();
     }
 
     public void OpenInventory(InputAction.CallbackContext context)
@@ -74,6 +78,11 @@ public class InventoryUI : MonoBehaviour
         {
             book.SetActive(true);
         }
+
+        if(playerControls !=null)
+        {
+            playerControls.enabled = false;
+        }
         UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Inventory);
     }
 
@@ -84,6 +93,12 @@ public class InventoryUI : MonoBehaviour
         if (book != null)
         {
             book.SetActive(false);
+        }
+
+        if(playerControls != null)
+
+        {
+            playerControls.enabled = true;
         }
 
         if (BookController.Instance && BookController.Instance.isJournalOpen)
