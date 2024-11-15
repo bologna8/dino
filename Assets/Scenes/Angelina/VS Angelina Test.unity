@@ -86185,7 +86185,7 @@ Transform:
   m_GameObject: {fileID: 854774489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13, y: 0.04, z: -7.4279184}
+  m_LocalPosition: {x: -55.29, y: -12.79, z: -7.4279184}
   m_LocalScale: {x: 1, y: 5.88, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86204,7 +86204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookController: {fileID: 530254313}
-  pageToUnlock: 9
+  pageToUnlock: 5
   pageUnlockPopUp: {fileID: 160079045}
 --- !u!61 &854774492
 BoxCollider2D:
@@ -86967,10 +86967,10 @@ MonoBehaviour:
   - {fileID: 489522777}
   alwaysAvailablePages: 050000000600000007000000
   openJournal: {fileID: 8715761714469784529, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
+  tabs: []
   tabButtons: []
   nextPageButton: {fileID: 0}
   previousPageButton: {fileID: 0}
-  journalSlotList: []
   selectedIndex: 0
 --- !u!4 &913055249 stripped
 Transform:
@@ -87156,7 +87156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2090958010258699497, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2185596105933722862, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_AnchorMax.y
@@ -87178,6 +87178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewCanvas10-10
       objectReference: {fileID: 0}
+    - target: {fileID: 4409102066912676848, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4660041025890183121, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -87200,10 +87204,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6296663036754959016, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296663036754959016, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
-      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6357541265094779486, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
@@ -87293,14 +87293,6 @@ PrefabInstance:
     - target: {fileID: 8444215621768976249, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945922170369017779, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 204.3201
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945922170369017779, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 42.380867
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

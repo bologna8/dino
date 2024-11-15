@@ -3,10 +3,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 public class BookController : MonoBehaviour
 {
-
     public static BookController Instance;
     public GameObject journalPanel;
     public bool isJournalOpen = false;
@@ -17,20 +17,24 @@ public class BookController : MonoBehaviour
     private List<int> unlockedPages = new List<int>();  
     public List<int> alwaysAvailablePages;  
 
-   // public InputActionReference nextPageAction;
-    //public InputActionReference previousPageAction;
     public InputActionReference openJournal;
 
-    //For tab navigation
+    [System.Serializable]
+    public struct Tab
+    {
+        public Button button; //Button representing tab
+        public GameObject unlockedIcon; //Icon to show page unlocked within tab 
+        public List<int> associatedPages; //List of pages associated with specific tab
+    }
+
+    public Tab[] tabs;
+
     public Button[] tabButtons; 
     private int currentTabIndex = 0;
 
-    //Page buttons 
     public Button nextPageButton;
     public Button previousPageButton;
 
-    //Item slots in journal to index through 
-    public List<ItemSlot> journalSlotList = new List<ItemSlot>();
     public int selectedIndex = 0;
 
     void Awake()
@@ -45,45 +49,20 @@ public class BookController : MonoBehaviour
         }
     }
 
-    public void AddRecipeToJournal(List<ItemSlot> recipeAndIngredients)
-    {
-        foreach (ItemSlot item in recipeAndIngredients)
-        {
-            journalSlotList.Add(item);
-        }
-    }
-    //Note: Something I noticed is that the pages don't really need to be set to active at the start since they are set to active when opening that page anyway,
-    //them all being active caused some weird issues with the pages overlapping each other.
-        private void Start()
+    private void Start()
     {
         foreach (int pageIndex in alwaysAvailablePages)
         {
             unlockedPages.Add(pageIndex);
-            //pages[pageIndex].SetActive(true); 
         }
 
         for (int i = 0; i < pages.Length; i++)
         {
             pages[i].SetActive(false);
-           // pages[i].SetActive(i == currentPage || alwaysAvailablePages.Contains(i));
         } 
 
-        //The first tab is highlighted at the start
-        //HighlightTab(currentTabIndex);
-
+        UpdateTabIcons();
     }
-
-   /* private void OnEnable()
-    {
-        nextPageAction.action.performed += FlipToNextPage;
-        previousPageAction.action.performed += FlipToPreviousPage;
-    }
-
-    private void OnDisable()
-    {
-        nextPageAction.action.performed -= FlipToNextPage;
-        previousPageAction.action.performed -= FlipToPreviousPage;
-    }*/
 
     public void OpenJournal(InputAction.CallbackContext context)
     {
@@ -98,10 +77,6 @@ public class BookController : MonoBehaviour
                 CloseJournal();
             }
         }
-
-
-        //Highlight the current tab when the journal opens
-       // HighlightTab(currentTabIndex);
     }
 
     public void OpenJournal()
@@ -113,7 +88,6 @@ public class BookController : MonoBehaviour
 
         isJournalOpen = true;
 
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -121,33 +95,10 @@ public class BookController : MonoBehaviour
         {
             Debug.LogError("EventSystem is missing from the scene. Please add it for UI interactions.");
         }
+
         //Set Journal as the focus screen
         UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Journal);
-
     }
-
-  /*  //Switch to the next tab
-    public void SwitchToNextTab(InputAction.CallbackContext context)
-    {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-        {
-            currentTabIndex = (currentTabIndex + 1) % tabButtons.Length; //Wrap around to the first tab
-            HighlightTab(currentTabIndex);
-        }
-    }
-
-
-    //Switch to the previous tab
-    public void SwitchToPreviousTab(InputAction.CallbackContext context)
-    {
-        if (context.performed && UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-        {
-            currentTabIndex = (currentTabIndex - 1 + tabButtons.Length) % tabButtons.Length; //Wrap around to the last tab
-            HighlightTab(currentTabIndex);
-        }
-    }*/
-
-
 
     public void CloseJournal()
     {
@@ -158,7 +109,6 @@ public class BookController : MonoBehaviour
 
         isJournalOpen = false;
 
-        //Cursor.lockState = CursorLockMode.Locked;
         #if !UNITY_EDITOR
         Cursor.visible = false;
         #endif
@@ -176,72 +126,42 @@ public class BookController : MonoBehaviour
 
     public void FlipToNextPage()
     {
-      //  if (UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-        //{
-            int nextPageIndex = unlockedPages.IndexOf(currentPage) + 1;
+        int nextPageIndex = unlockedPages.IndexOf(currentPage) + 1;
 
-            if (nextPageIndex < unlockedPages.Count)
-            {
-                pages[currentPage].SetActive(false);
-                currentPage = unlockedPages[nextPageIndex];
-                pages[currentPage].SetActive(true);
-            }
-       // }
+        if (nextPageIndex < unlockedPages.Count)
+        {
+            pages[currentPage].SetActive(false);
+            DeactivateTabIconForPage(currentPage);
+
+            currentPage = unlockedPages[nextPageIndex];
+            pages[currentPage].SetActive(true);
+        }
     }
 
     public void FlipToPreviousPage()
     {
-     //   if (UIStateTracker.Instance.GetActiveScreen() == UIStateTracker.UIScreen.Journal)
-        //{
-            int prevPageIndex = unlockedPages.IndexOf(currentPage) - 1;
+        int prevPageIndex = unlockedPages.IndexOf(currentPage) - 1;
 
-            if (prevPageIndex >= 0)
+        if (prevPageIndex >= 0)
+        {
+            pages[currentPage].SetActive(false);
+            DeactivateTabIconForPage(currentPage);
+
+            currentPage = unlockedPages[prevPageIndex];
+            pages[currentPage].SetActive(true);
+        }
+    }
+
+    private void DeactivateTabIconForPage(int pageIndex)
+    {
+        foreach (Tab tab in tabs)
+        {
+            if (tab.associatedPages.Contains(pageIndex))
             {
-                pages[currentPage].SetActive(false);
-                currentPage = unlockedPages[prevPageIndex];
-                pages[currentPage].SetActive(true);
-          }
-        }
-   /* }
-    public void HighlightItem(int index)
-    {
-        foreach (ItemSlot slot in journalSlotList)
-        {
-            slot.SetHighlight(false);
-        }
-
-        if (index >= 0 && index < journalSlotList.Count)
-        {
-            journalSlotList[index].SetHighlight(true);
+                tab.unlockedIcon.SetActive(false);
+            }
         }
     }
-
-public void NavigateCraftingTab(InputAction.CallbackContext context)
-{
-    if (context.performed && isJournalOpen)
-    {
-        Vector2 navigationInput = context.ReadValue<Vector2>();
-
-        if (navigationInput.y > 0) // Up
-        {
-            selectedIndex = Mathf.Max(0, selectedIndex - 1);
-        }
-        else if (navigationInput.y < 0) // Down
-        {
-            selectedIndex = Mathf.Min(InventoryUI.Instance.journalSlotList.Count - 1, selectedIndex + 1);
-        }
-        else if (navigationInput.x > 0) // Right
-        {
-            selectedIndex = Mathf.Min(InventoryUI.Instance.journalSlotList.Count - 1, selectedIndex + 1);
-        }
-        else if (navigationInput.x < 0) // Left
-        {
-            selectedIndex = Mathf.Max(0, selectedIndex - 1);
-        }
-
-        HighlightItem(selectedIndex);
-    }
-}*/
 
     public void UnlockSpecificPage(int pageIndex)
     { 
@@ -250,6 +170,7 @@ public void NavigateCraftingTab(InputAction.CallbackContext context)
             if (pageIndex >= 0 && pageIndex < pages.Length)
             {
                 int insertIndex = alwaysAvailablePages.Count;  
+
                 for (int i = insertIndex; i < unlockedPages.Count; i++)
                 {
                     if (unlockedPages[i] > pageIndex)
@@ -258,13 +179,14 @@ public void NavigateCraftingTab(InputAction.CallbackContext context)
                         break;
                     }
                 }
+
                 unlockedPages.Insert(insertIndex, pageIndex);
-                pages[pageIndex].SetActive(true); 
-                Debug.Log("Page " + pageIndex + " has been unlocked and added at the correct position.");
+                //pages[pageIndex].SetActive(true); this was causing the fire ank glitch
+                UpdateTabIcons();
             }
             else
             {
-                unlockedPages.Add(unlockedPages.Count);
+                unlockedPages.Add(unlockedPages.Count); // Add to the end if out of range
                 Debug.LogWarning("Page " + pageIndex + " is out of range. Added to the next available spot in the queue.");
             }
         }
@@ -273,5 +195,13 @@ public void NavigateCraftingTab(InputAction.CallbackContext context)
             Debug.LogWarning("Page " + pageIndex + " is already unlocked.");
         }
     }
-}
 
+    private void UpdateTabIcons()
+    {
+        foreach (Tab tab in tabs)
+        {
+            bool anyPageUnlocked = tab.associatedPages.Any(page => unlockedPages.Contains(page));
+            tab.unlockedIcon.SetActive(anyPageUnlocked);
+        }
+    }
+}
