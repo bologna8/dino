@@ -1190,6 +1190,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (7)
@@ -1478,6 +1486,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (13)
@@ -2059,6 +2075,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (5)
@@ -84233,6 +84257,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1729846226}
     m_Modifications:
     - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: possiblePickupPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -84382,6 +84410,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1729846226}
     m_Modifications:
+    - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: possiblePickupPrefabs.Array.size
       value: 3
@@ -84932,6 +84964,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (6)
@@ -85027,6 +85067,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (2)
@@ -85087,6 +85135,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (9)
@@ -85774,6 +85830,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (3)
@@ -87768,6 +87832,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (12)
@@ -89398,6 +89470,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (4)
@@ -89581,6 +89661,7 @@ MonoBehaviour:
   possiblePickupPrefabs:
   - {fileID: 3561253398169580007, guid: 3088c6c210b25e44bbb71aebe5b941ee, type: 3}
   diggingAnimation: {fileID: 0}
+  interactionPrompt: {fileID: 0}
   digging: 0
 --- !u!1001 &1206305044
 PrefabInstance:
@@ -89889,6 +89970,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (11)
@@ -90883,6 +90972,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1729846226}
     m_Modifications:
     - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: possiblePickupPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -91483,6 +91576,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (10)
@@ -91500,6 +91601,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1729846226}
     m_Modifications:
+    - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: possiblePickupPrefabs.Array.size
       value: 1
@@ -91707,6 +91812,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1729846226}
     m_Modifications:
+    - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: possiblePickupPrefabs.Array.size
       value: 1
@@ -94944,6 +95053,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush
@@ -95513,6 +95630,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867643469}
   m_CullTransparentMesh: 1
+--- !u!114 &1872055280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 122765752170424279, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+  m_PrefabInstance: {fileID: 978357819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1875813656
 GameObject:
   m_ObjectHideFlags: 0
@@ -96459,6 +96587,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
+    - target: {fileID: 6373063978031463531, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+      propertyPath: interactionPrompt
+      value: 
+      objectReference: {fileID: 1872055280}
     - target: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
       propertyPath: m_Name
       value: Bush (8)

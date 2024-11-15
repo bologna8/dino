@@ -1,17 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;  
+using UnityEngine.UI;       
+   
 public class Buried : LayerCheck, IInteractable
 {
     public float timeToDig = 1f;
     public List<GameObject> possiblePickupPrefabs;
-
     public AnimationClip diggingAnimation;
+    public Text interactionPrompt;  //UI text
 
     [HideInInspector] public bool digging;
-
     private Core touchingCore;
+    private bool isGamepad;
+
+    private void Awake()
+    {
+        if (interactionPrompt != null)
+        {
+            interactionPrompt.gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        isGamepad = Gamepad.current != null;
+
+        if (interactionPrompt != null && touchingCore)
+        {
+            interactionPrompt.text = isGamepad ? "Press [X] to dig" : "Press [E] to dig";
+        }
+    }
 
     public void Interact(GameObject interacter)
     {
@@ -20,7 +40,6 @@ public class Buried : LayerCheck, IInteractable
             touchingCore.Stun(timeToDig, diggingAnimation);
             StartCoroutine(DelayedDig());
         }
-        
     }
 
     public override void ExtraEnterOperations(Collider2D collision)
@@ -30,6 +49,11 @@ public class Buried : LayerCheck, IInteractable
         {
             touchingCore = coreCheck;
             touchingCore.interactables.Add(this);
+
+            if (interactionPrompt != null)
+            {
+                interactionPrompt.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -39,10 +63,13 @@ public class Buried : LayerCheck, IInteractable
         {
             touchingCore.interactables.Remove(this);
             touchingCore = null;
-        }
-        
-    }
 
+            if (interactionPrompt != null)
+            {
+                interactionPrompt.gameObject.SetActive(false);
+            }
+        }
+    }
 
     public IEnumerator DelayedDig()
     {
@@ -50,12 +77,12 @@ public class Buried : LayerCheck, IInteractable
         yield return new WaitForSeconds(timeToDig);
         digging = false;
 
-        if (touching) //This is why layercheck inhereted
+        if (touching)
         {
             var r = Random.Range(0, possiblePickupPrefabs.Count);
             var chosen = possiblePickupPrefabs[r];
             PoolManager.Instance.Spawn(chosen, transform.position);
-            possiblePickupPrefabs.RemoveAt(r); 
+            possiblePickupPrefabs.RemoveAt(r);
         }
         Destroy(gameObject);
     }

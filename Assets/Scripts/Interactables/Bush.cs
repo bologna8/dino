@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Bush : LayerCheck, IInteractable
 {
 
     private Core touchingCore;
+
+    private bool isGamepad;
 
     public GameObject bushEnterEffect;
 
@@ -14,9 +18,29 @@ public class Bush : LayerCheck, IInteractable
     public int setHideLayer;
     public int defaultPlayerLayer; 
 
+    public Text interactionPrompt; //UI Text
+
+    private void Awake()
+    {
+        if(interactionPrompt != null)
+        {
+            interactionPrompt.gameObject.SetActive(false);
+        }
+    }
+
     public void Start()
     {
         myAnim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        isGamepad = Gamepad.current != null;
+
+        if(interactionPrompt != null && touchingCore)
+        {
+            interactionPrompt.text = isGamepad ? "Press [X] to hide" : "Press [E] to hide";
+        }
     }
 
     public void Interact(GameObject interacter)
@@ -48,6 +72,11 @@ public class Bush : LayerCheck, IInteractable
             touchingCore.hidingSpots ++;
             touchingCore.interactables.Add(this);   
 
+            if(interactionPrompt !=null)
+            {
+                interactionPrompt.gameObject.SetActive(true);
+            }
+
             if (myAnim) { myAnim.SetTrigger("rustled"); }
         }
     }
@@ -67,7 +96,13 @@ public class Bush : LayerCheck, IInteractable
 
             touchingCore = null;
 
+            if(interactionPrompt != null)
+            {
+                interactionPrompt.gameObject.SetActive(false);
+            }
+
             if (myAnim) { myAnim.SetTrigger("rustled"); }
+
 
         }
         

@@ -69,7 +69,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0.0131984055, y: 0.49467745}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -80,7 +80,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.6}
+  m_Size: {x: 0.7883436, y: 0.9893549}
   m_EdgeRadius: 0
 --- !u!114 &6373063978031463531
 MonoBehaviour:
@@ -108,6 +108,7 @@ MonoBehaviour:
   bushEnterEffect: {fileID: 5988905358313603674, guid: 91dd7d2eaf2177144a8e28c1575cb380, type: 3}
   setHideLayer: 12
   defaultPlayerLayer: 6
+  interactPrompt: {fileID: 0}
 --- !u!212 &6662887053368702288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -208,9 +209,11 @@ MonoBehaviour:
   invincibleTime: 0
   myMovement: {fileID: 0}
   hitEffect: {fileID: 3561253398169580007, guid: 3088c6c210b25e44bbb71aebe5b941ee, type: 3}
+  friendlyFireOnly: 0
   deathEffect: {fileID: 4404173520793160998, guid: 9fb41ff96abaa574bae259295230ec82, type: 3}
   deathOffset: {x: 0, y: 0.65, z: 0}
-  friendlyFireOnly: 0
+  deathAnimation: {fileID: 0}
+  timeToDie: 0
 --- !u!114 &651667716642263642
 MonoBehaviour:
   m_ObjectHideFlags: 0
