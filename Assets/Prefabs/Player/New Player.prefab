@@ -923,7 +923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2644349332470760087
 Transform:
   m_ObjectHideFlags: 0
@@ -951,14 +951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0df3f13bc81634395f08a1cee6b391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList: []
   craftingRecipes:
   - {fileID: 11400000, guid: 365d3a68eeabbe240882a5edbf9ba2e8, type: 2}
-  recipePrefabs: []
-  canvas: {fileID: 0}
-  itemInfoPrefab: {fileID: 5761103041928972720, guid: 05fce7ddafc3aec4aae81ccef9eacfbe, type: 3}
-  moveX: 180
-  moveY: 100
   playerHealth: {fileID: 8478583008990582963}
   playerHealthUI: {fileID: 0}
 --- !u!1 &5085282439056455403

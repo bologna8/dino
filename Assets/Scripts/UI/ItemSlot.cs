@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems; 
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
-    public Image icon;  
-    public Text itemNameText; 
-    private Item item;  
+    public Image icon;
+    private Item item;
 
     public delegate void OnItemUsed();
-    public event OnItemUsed ItemUsed;  
-    
+    public event OnItemUsed ItemUsed;
+
     private void Start()
     {
         if (item != null)
         {
             item.ItemUsed += OnItemUsedEventHandler;
-            UpdateItemName();
         }
     }
 
@@ -29,12 +28,10 @@ public class ItemSlot : MonoBehaviour
         }
 
         item = newItem;
-        icon.sprite = newItem.icon; 
-        icon.enabled = true;         
-        
-        UpdateItemName();
+        icon.sprite = newItem.icon;
+        icon.enabled = true;
 
-        item.ItemUsed += OnItemUsedEventHandler;  
+        item.ItemUsed += OnItemUsedEventHandler;
     }
 
     public void ClearSlot()
@@ -46,17 +43,7 @@ public class ItemSlot : MonoBehaviour
 
         item = null;
         icon.sprite = null;
-        icon.enabled = false;  
-
-        itemNameText.text = ""; 
-    }
-
-    private void UpdateItemName()
-    {
-        if (item != null)
-        {
-            itemNameText.text = item.name; 
-        }
+        icon.enabled = false;
     }
 
     public void UseItem()
@@ -64,7 +51,7 @@ public class ItemSlot : MonoBehaviour
         if (item == null) return;
 
         item.Use();
-        ItemUsed?.Invoke();  
+        ItemUsed?.Invoke();
     }
 
     public void DestroySlot()
@@ -85,35 +72,51 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
-    public void OnCursorEnter()
+    // Mouse hover 
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        if (item == null) return;
-
-        // GameManager.instance.DisplayItemInfo(item.name, item.GetItemDescription(), transform.position);
+        DisplayItemInfo();
     }
 
-    public void OnCursorExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        if (item == null) return;
+        HideItemInfo();
+    }
 
-        // GameManager.instance.DestroyItemInfo();
+    // Controller navigation 
+    public void OnSelect(BaseEventData eventData)
+    {
+        DisplayItemInfo();
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        HideItemInfo();
+    }
+
+    private void DisplayItemInfo()
+    {
+        if (item != null)
+        {
+            UIManager.instance.DisplayItemInfo(item.name, item.GetItemDescription(), transform.position);
+        }
+    }
+
+    private void HideItemInfo()
+    {
+        UIManager.instance.DestroyItemInfo();
     }
 
     private void OnItemUsedEventHandler()
     {
-        
+        // Handle item used event if needed
     }
 
     public void SetIconColor(Color color)
     {
         if (icon != null)
         {
-            icon.color = color; 
+            icon.color = color;
         }
     }
-
-    //public void SetHighlight(bool highlight)
-   // { // Adjust highlight color when navigating items
-   //     icon.color = highlight ? Color.yellow : Color.white;
- //  }
 }

@@ -101,6 +101,11 @@ public class InventoryUI : MonoBehaviour
             playerControls.enabled = true;
         }
 
+        if(UIManager.instance !=null)
+        {
+            UIManager.instance.DestroyItemInfo();
+        }
+
         if (BookController.Instance && BookController.Instance.isJournalOpen)
         {
             BookController.Instance.CloseJournal();

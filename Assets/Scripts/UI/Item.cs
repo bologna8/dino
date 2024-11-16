@@ -6,7 +6,7 @@ public class Item : ScriptableObject
 {
     new public string name = "Default Item";  
     public Sprite icon = null;  
-    public string itemDescription = "Used for crafting";  
+    public string itemDescription = "Description";  
 
     public delegate void OnItemUsed();
     public event OnItemUsed ItemUsed;
