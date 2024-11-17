@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a5b21e412a94c064cb0b54de62fff8b1
+guid: e9e16be652ae9b94496370fc34123885
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,20 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Weapon_Wheel_Slices_0
+      name: Full_Inventory_4x4_0
       rect:
         serializedVersion: 2
-        x: 184
-        y: 788
-        width: 238
-        height: 128
+        x: 13
+        y: 8
+        width: 920
+        height: 521
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02caa72188fd5794e96b7ca28f5cef50
-      internalID: 1245416294
+      spriteID: 4eb827e159ad6f44291e7017ca853fca
+      internalID: -30125377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Weapon_Wheel_Slices_1
+      name: Full_Inventory_4x4_1
       rect:
         serializedVersion: 2
-        x: 184
-        y: 308
-        width: 238
-        height: 128
+        x: 972
+        y: 8
+        width: 920
+        height: 521
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +145,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e71b49ffb46d2db499949133e73110ed
-      internalID: 2100890990
+      spriteID: 287cea87ebd64ec469b50ca93a1f1420
+      internalID: -323747591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Inventory_4x4_2
+      rect:
+        serializedVersion: 2
+        x: 1932
+        y: 8
+        width: 920
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81780a9dd44c1ff42a3345329442dbb4
+      internalID: 1056095614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Inventory_4x4_3
+      rect:
+        serializedVersion: 2
+        x: 2892
+        y: 8
+        width: 919
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd3b1a474e5d324aae3a0cea7442d23
+      internalID: 142558179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Inventory_4x4_4
+      rect:
+        serializedVersion: 2
+        x: 3851
+        y: 8
+        width: 922
+        height: 521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d395d2b621fa48f46b8f7e7a0f70aa3d
+      internalID: 622076053
       vertices: []
       indices: 
       edges: []
@@ -175,8 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Weapon_Wheel_Slices_0: 1245416294
-      Weapon_Wheel_Slices_1: 2100890990
+      Full_Inventory_4x4_0: -30125377
+      Full_Inventory_4x4_1: -323747591
+      Full_Inventory_4x4_2: 1056095614
+      Full_Inventory_4x4_3: 142558179
+      Full_Inventory_4x4_4: 622076053
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

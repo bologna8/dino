@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4803097851c755741b18a0dd21d265d9
+guid: 436782a99c3e5f84fbdaded74724c29c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Half_Book
+      name: tilesets_Temple_0
       rect:
         serializedVersion: 2
-        x: 962
-        y: 203
-        width: 484
-        height: 772
+        x: 176
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f455c2f2d867984f816581ffbed66e6
-      internalID: -1927369205
+      spriteID: 6c5e0ede5ae20664aab11b0973503ea1
+      internalID: 1075473270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Leaf_1
+      name: tilesets_Temple_1
       rect:
         serializedVersion: 2
-        x: 2408
-        y: 203
-        width: 950
-        height: 772
+        x: 192
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71fb3f8be66076d43a1f5026afc74353
-      internalID: -2001381312
+      spriteID: 137dd089afe9abc4aa36ca4611eda669
+      internalID: -1962462676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Leaf_2
+      name: tilesets_Temple_2
       rect:
         serializedVersion: 2
-        x: 4326
-        y: 203
-        width: 956
-        height: 772
+        x: 208
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2e263bfbe1061042bfdbbd18bae7db0
-      internalID: -465744579
+      spriteID: 6a6f44f4b92a2f54b90171a4330d0368
+      internalID: 1737205841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Leaf_3
+      name: tilesets_Temple_3
       rect:
         serializedVersion: 2
-        x: 6249
-        y: 203
-        width: 951
-        height: 772
+        x: 176
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb86fa3e5d86f3d42b2cc1ee791a262d
-      internalID: -506144057
+      spriteID: 00d241afd488cd5409705d0a32046660
+      internalID: -900323066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Leaf_4
+      name: tilesets_Temple_4
       rect:
         serializedVersion: 2
-        x: 8168
-        y: 203
-        width: 950
-        height: 772
+        x: 192
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b102074143d34c4399646094e6d4ef4
-      internalID: -2142762766
+      spriteID: d77e5906758fd6946aede5024122bea1
+      internalID: -2014283964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NoLeaf
+      name: tilesets_Temple_5
       rect:
         serializedVersion: 2
-        x: 10086
-        y: 203
-        width: 956
-        height: 772
+        x: 208
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b42b11daefb54747b30e46314bb595d
-      internalID: 1248108888
+      spriteID: 32e2c6c79322faf4da7c6d702944386b
+      internalID: 280773725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesets_Temple_6
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99acf06c913e1f4abc9d85fa9cb11ff
+      internalID: 1280634915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesets_Temple_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85255a3fc8cf81a418830d1d1240b501
+      internalID: -258994432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesets_Temple_8
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b1883f3e970554e832aec0220ac703
+      internalID: -1042938666
       vertices: []
       indices: 
       edges: []
@@ -246,12 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Half_Book: -1927369205
-      Leaf_1: -2001381312
-      Leaf_2: -465744579
-      Leaf_3: -506144057
-      Leaf_4: -2142762766
-      NoLeaf: 1248108888
+      tilesets_Temple_0: 1075473270
+      tilesets_Temple_1: -1962462676
+      tilesets_Temple_2: 1737205841
+      tilesets_Temple_3: -900323066
+      tilesets_Temple_4: -2014283964
+      tilesets_Temple_5: 280773725
+      tilesets_Temple_6: 1280634915
+      tilesets_Temple_7: -258994432
+      tilesets_Temple_8: -1042938666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
