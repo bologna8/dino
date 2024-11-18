@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce1be3aa6eb56843b32fdf4352dac54, type: 3}
-  m_Name: HerbivoreBaitRecipe
+  m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
+  m_Name: HerbivoreBait
   m_EditorClassIdentifier: 
   name: Default Item
   icon: {fileID: 0}
-  itemDescription: Used for crafting
-  result: {fileID: 0}
-  ingredients:
-  - item: {fileID: 11400000, guid: 871686d110d5f3d4f84a744dc694f69b, type: 2}
-    amount: 2
+  itemDescription: Description
+  attackPrefab: {fileID: 0}
+  attackUp: {fileID: 0}
+  attackDown: {fileID: 0}
+  consumable: 0
+  HotBarIndex: 0

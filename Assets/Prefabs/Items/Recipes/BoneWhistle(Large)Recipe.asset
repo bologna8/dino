@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bone Whistle (Large) Recipe
   icon: {fileID: 0}
-  itemDescription: Scares away small wildlife, may attract larger ones
+  itemDescription: Scares away wildlife, may attract larger ones
   result: {fileID: 11400000, guid: 07af6c5f2ca685b4c810a3decbcb9e5a, type: 2}
   ingredients:
-  - item: {fileID: 11400000, guid: 55c18e0323973004a97c8505db5549c6, type: 2}
-    amount: 2
+  - item: {fileID: 11400000, guid: 871686d110d5f3d4f84a744dc694f69b, type: 2}
+    amount: 1
   - item: {fileID: 11400000, guid: 8dc803d0f48682d42a86aa274daf5a2f, type: 2}
     amount: 2
