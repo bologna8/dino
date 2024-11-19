@@ -23,6 +23,12 @@ public class Buried : LayerCheck, IInteractable
         }
     }
 
+    private void Start()
+    {
+        GameObject textGO = GameObject.FindGameObjectWithTag("Interaction Text");
+        interactionPrompt = textGO.GetComponent<Text>();
+    }
+
     private void Update()
     {
         isGamepad = Gamepad.current != null;
