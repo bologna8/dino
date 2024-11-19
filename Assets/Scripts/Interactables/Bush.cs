@@ -30,9 +30,7 @@ public class Bush : LayerCheck, IInteractable
 
     public void Start()
     {
-        myAnim = GetComponent<Animator>();
-        GameObject textGO = GameObject.FindGameObjectWithTag("Interaction Text");
-        interactionPrompt = textGO.GetComponent<Text>();
+        interactionPrompt = GameManager.instance.InteractionText;
     }
 
     private void Update()

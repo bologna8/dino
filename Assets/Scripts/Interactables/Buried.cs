@@ -25,8 +25,8 @@ public class Buried : LayerCheck, IInteractable
 
     private void Start()
     {
-        GameObject textGO = GameObject.FindGameObjectWithTag("Interaction Text");
-        interactionPrompt = textGO.GetComponent<Text>();
+
+        interactionPrompt = GameManager.instance.InteractionText;
     }
 
     private void Update()
