@@ -121,6 +121,7 @@ public class Movement : MonoBehaviour
     private Vector2 dashVelocity; //Current speed and direction of dash
     private Vector2 dashDecay; //Time it takes for dash velocity to fade, x is current, y is total time
     private Vector2 lastDash; //Initial velocity of the last dash done, used for fall off velocity
+    private bool canCancelDash;
 
     [Tooltip("Multiply velocity when canceling dash")] public float dashCancelMultiplier;
     [Range(0f,1f)] [Tooltip("Percentage of current momentum saved after a dash")] public float momentumMaintained = 1f;
@@ -474,6 +475,13 @@ public class Movement : MonoBehaviour
             if (passCheck) { if (onGround && passCheck.touching && verticalInput < 0) { jumpDown = true; } }
 
             bool jumpReady = false;
+
+            if (dashing != null) //Cancel dash with jump
+            {
+                if (!canCancelDash) { return;}
+                if (dashCheck) { if (dashCheck.touching) { return; } } 
+                CancelDash(true, dashTime.y, dashCancelMultiplier); 
+            }
             
             if (jumpDown) { StartCoroutine(drop()); }
             else if (onGround) { jumpReady = true; } //Normal jump
@@ -506,12 +514,6 @@ public class Movement : MonoBehaviour
             {
                 remainingJumps --;
                 jumpReady = true;
-            }
-
-            if (dashing != null && onGround) //Cancel dash with jump
-            {
-                if (dashCheck) { if (dashCheck.touching) { return; } } 
-                CancelDash(true, dashTime.y, dashCancelMultiplier); 
             }
 
             //Actually do the jumping
@@ -823,32 +825,34 @@ public class Movement : MonoBehaviour
             }
             
 
-            DoDash(d, t, noGrav, true, edgeStop, changeLayer, changeHP);
+            DoDash(d, t, noGrav, true, edgeStop, changeLayer, changeHP, true);
             //if (dashEffect) { dashingEffect = Instantiate(dashEffect, transform); } //spawn dash trail as child obect
 
         }
     }
 
-    public void DoDash(Vector2 dir, Vector2 duration, bool noGrav = false, bool keepMomentum = false, bool edgeStop = false, int newLayer = -1, int layerHP = -1)
+    public void DoDash(Vector2 dir, Vector2 duration, bool noGrav = false, bool keepMomentum = false, bool edgeStop = false, int newLayer = -1, int layerHP = -1, bool dashCancelable = false)
     {
         if (dashing != null) { CancelDash(); }
         if (climbing != null) { StopCoroutine(climbing); climbing = null; }
 
 
-        dashing = DirectionalDash(dir, duration, noGrav, keepMomentum, edgeStop, newLayer, layerHP);
+        dashing = DirectionalDash(dir, duration, noGrav, keepMomentum, edgeStop, newLayer, layerHP, dashCancelable);
         StartCoroutine(dashing);
     }
 
-    public IEnumerator DirectionalDash(Vector2 dir, Vector2 duration, bool noGrav, bool keepMomentum, bool edgeStop, int newLayer, int layerHP)
+    public IEnumerator DirectionalDash(Vector2 dir, Vector2 duration, bool noGrav, bool keepMomentum, bool edgeStop, int newLayer, int layerHP, bool dashCancelable)
     {
         //if (myAnim) { myAnim.SetBool("dashing", true); }
 
         savedMomentum = momentum;
         lastDash = dir; dashVelocity = dir;
 
-
         myBod.velocity = Vector2.zero; //reset current velocity on new dash
         myVelocity = Vector2.zero;
+
+        if (!keepMomentum) { moveInput = 0; momentum = 0; }
+        canCancelDash = dashCancelable;
 
         airTime = 0;
         coyoteCurrent = coyoteTime;

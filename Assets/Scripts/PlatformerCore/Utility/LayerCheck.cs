@@ -21,11 +21,11 @@ public class LayerCheck : MonoBehaviour
      private Color startColor;
      [Range(0,1)] public float unselectedSaturation = 0.5f;
 
-     void Awake()
+     void OnEnable()
      {
-          myBounds = GetComponent<Collider2D>().bounds;
+          if (myBounds == null) { myBounds = GetComponent<Collider2D>().bounds; }
 
-          mySprite = GetComponent<SpriteRenderer>();
+          if (!mySprite) { mySprite = GetComponent<SpriteRenderer>(); }
           if (mySprite) { startColor = mySprite.color; }
           SetSaturation(unselectedSaturation);
      }

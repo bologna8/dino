@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
+    public float activeDistanceFromCamera;
     private Spawned mySpawn;
     private Core myCore; //Pass inputs to your core
     public enum State { idle, patrol, chase, flee };
@@ -45,6 +46,7 @@ public class AI : MonoBehaviour
     //public bool carnivore = true;
     [Tooltip ("Jumps while chasing a target")] public bool canJump;
     [Tooltip("Agro instantly, or only once attacked")] public bool attackOnSight;
+    [Tooltip("Leap before attacking")] public bool jumpAttack;
     [Tooltip("If see a friend start to chase, go agro on that target as well")] public bool packAttack;
     [Tooltip("Will go into a frenzy over certain distractions and damage teammates with attacks")] public bool foolish;
     [HideInInspector] public bool frenzied;
@@ -57,9 +59,9 @@ public class AI : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        if(!mySpawn) { mySpawn = GetComponent<Spawned>(); }
+        if (!mySpawn) { mySpawn = GetComponent<Spawned>(); }
         if (!myCore) { myCore = GetComponent<Core>(); }
-        if(!myMovement) { myMovement = GetComponent<Movement>(); }
+        if (!myMovement) { myMovement = GetComponent<Movement>(); }
         if (myWeapons == null) { myWeapons = GetComponents<Weapon>(); }
         if (!myHealth) { myHealth = GetComponentInChildren<Health>(); }
 
@@ -70,6 +72,11 @@ public class AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Camera.main && activeDistanceFromCamera >= 0)
+        {
+            if (Vector3.Distance(Camera.main.transform.position, transform.position) > activeDistanceFromCamera) { Chill(); return; }
+        }
+        
 
         if (myAim)
         {
@@ -121,6 +128,8 @@ public class AI : MonoBehaviour
 
         if (turnCooldownCurrent > 0) { turnCooldownCurrent -= Time.deltaTime; }
         if (emoteCooldownCurrent > 0) { emoteCooldownCurrent -= Time.deltaTime; }
+
+        if (myMovement) { if (myMovement.onGround && myMovement.jumpInput) { myMovement.jumpInput = false; } }
 
     }
 
@@ -177,16 +186,21 @@ public class AI : MonoBehaviour
 
     void Chill()
     {
+        if (myMovement) { myMovement.moveInput = 0; }
+
+        if (currentState == State.idle) { return; } 
+
         if(currentState == State.chase)
         {
             if (curiousIcon) { Emote(curiousIcon); }
         }
+        chasing = null;
 
         if (myAim) { myAim.AutoAimAt = null; }
-
-        currentState = State.idle; 
+    
         idleCurrent = Random.Range(idleTime.x, idleTime.y);
-        chasing = null;
+        currentState = State.idle; 
+                
     }
 
     public void Agro(Transform target)
@@ -236,9 +250,8 @@ public class AI : MonoBehaviour
     {
         if (emoteCooldownCurrent <= 0)
         {
-            var r = Random.Range(emoteCooldown.x, emoteCooldown.y);
-            emoteCooldownCurrent = r;
-            myCore.Stun(r, emoteAnimation);
+            emoteCooldownCurrent = Random.Range(emoteCooldown.x, emoteCooldown.y);
+            myCore.Stun(emoteTime, emoteAnimation);
         }        
 
         if (PoolManager.Instance) { PoolManager.Instance.Spawn(emoteEffect, transform.position, Quaternion.identity, transform); }
@@ -258,7 +271,7 @@ public class AI : MonoBehaviour
                 {
                     if (chasing.position.x > transform.position.x && !myCore.lookingRight) { TryToTurn(); } 
 
-                    if (chasing.position.x < transform.position.x && myCore.lookingRight) { TryToTurn(); } 
+                    if (chasing.position.x < transform.position.x && myCore.lookingRight) { TryToTurn(); }  
 
                     //Reset memory while target is close
                     if (Vector3.Distance(chasing.position, transform.position) < proximityRange) 
@@ -280,7 +293,7 @@ public class AI : MonoBehaviour
                         { shouldJump = true; }
 
                         if (shouldJump) { myMovement.JumpStart(); myMovement.jumpInput = true; }
-                        else if (myMovement.onGround) { myMovement.jumpInput = false; }
+                        //else if (myMovement.onGround) { myMovement.jumpInput = false; }
 
                     }
                     
@@ -304,8 +317,11 @@ public class AI : MonoBehaviour
             }
             else if (inRange) { attacked = Attack(); }
 
-            if (skirmish && attacked) 
-            { Retreat(chasing); }
+            if (attacked) 
+            { 
+                if (jumpAttack && myMovement) { myMovement.JumpStart(); myMovement.jumpInput = true; }
+                if (skirmish) { Retreat(chasing); }
+            }
 
         }
         else { Chill(); }
@@ -353,6 +369,8 @@ public class AI : MonoBehaviour
 
             if (myWeapons.Length > 1)
             {
+                foreach (var weapon in myWeapons) { if (!weapon.attackReady) { return false; } } // don't start an attack if already doing another attack
+
                 if (chooseAttacksRandomly) { chosenAttack = myWeapons[Random.Range(0, myWeapons.Length)]; }
                 else if (Vector3.Distance(chasing.position, transform.position) > proximityRange) //use other attacks at a range
                 {
@@ -360,11 +378,9 @@ public class AI : MonoBehaviour
                 }
             }
             
-
             chosenAttack.ignoreTeams = frenzied;
             
-            if (chosenAttack.TryAttack()) 
-            { return true; }
+            if (chosenAttack.TryAttack()) { return true; }
         }
 
         return false;

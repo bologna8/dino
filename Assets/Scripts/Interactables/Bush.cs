@@ -101,7 +101,7 @@ public class Bush : LayerCheck, IInteractable
                 interactionPrompt.gameObject.SetActive(false);
             }
 
-            if (myAnim) { myAnim.SetTrigger("rustled"); }
+            //if (myAnim) { myAnim.SetTrigger("rustled"); }
 
 
         }

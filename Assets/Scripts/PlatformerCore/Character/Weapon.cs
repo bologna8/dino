@@ -93,6 +93,8 @@ public class Weapon : MonoBehaviour
 
         currentClip = attackStats.clipSize;
         currentSpreadTime = 0;
+
+        attackReady = true;
     }
 
     public bool TryAttack()
@@ -148,7 +150,11 @@ public class Weapon : MonoBehaviour
             myAim.turnSpeedMultiplier = attackStats.attackingAimSpeed;
             myAim.attackAngleOffset = attackStats.startAimAngleOffset;
 
+            myAim.UpdateAim(); //Apply new aim angle offset instantly
+
             dir = myAim.currentDirection;
+
+
 
             startAngle = Quaternion.FromToRotation(Vector3.right, dir);
             startSpot = myAim.transform.position;
@@ -254,6 +260,7 @@ public class Weapon : MonoBehaviour
             fireAngle = Quaternion.Euler(r.x, r.y, r.z + spread);
         }
 
+        /*
         if (attackStats.startAimAngleOffset != 0)
         {
             var r = fireAngle.eulerAngles;
@@ -261,6 +268,7 @@ public class Weapon : MonoBehaviour
             if (r.z > 90 && r.z < 270) { fireAngle = Quaternion.Euler(r.x, r.y, r.z - attackStats.startAimAngleOffset); }
             else { fireAngle = Quaternion.Euler(r.x, r.y, r.z + attackStats.startAimAngleOffset); }
         }
+        */
 
 
         GameObject newAttack = null;
@@ -301,7 +309,7 @@ public class Weapon : MonoBehaviour
 
             yield return new WaitForSeconds(attackStats.fireRate);
 
-            if (myAim) { myAim.attackAngleOffset = 0f; }
+            if (myAim) { myAim.attackAngleOffset = 0f; myAim.UpdateAim(); }
             attackReady = true;
 
             if (attackStats.typeOfAmo == Attack.AmoType.single && Hotbar.instance != null) 

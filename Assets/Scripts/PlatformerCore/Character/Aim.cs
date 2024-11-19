@@ -105,6 +105,11 @@ public class Aim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateAim();
+    }
+
+    public void UpdateAim()
+    {
         bool lockAim = false;
         
         if (myAimType == AimType.Hold && !myControls.Aiming.AimButton.IsPressed())

@@ -585,6 +585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stallactite (Cling) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876624451929281593, guid: 67de48f537535e249a0ecf6cbcc4251d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6684094745437441204, guid: 67de48f537535e249a0ecf6cbcc4251d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.25
@@ -3757,6 +3761,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5085282439056455403, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5649990236531220739, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: m_Name
       value: New Player
@@ -5569,6 +5577,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 737605161956017015, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
+      propertyPath: emoteCooldown.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 737605161956017015, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
+      propertyPath: emoteCooldown.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1877879966211161490, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.482936
@@ -5609,13 +5625,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428598076513509073, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
+      propertyPath: stunResistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428598076513509073, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
+      propertyPath: knockbackResistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8113084423703979873, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
       propertyPath: m_Name
       value: AnkBlue
       objectReference: {fileID: 0}
     - target: {fileID: 8113084423703979873, guid: b5acef42012cde049a1b5a26188e4a9a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8155,6 +8179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nest
       objectReference: {fileID: 0}
+    - target: {fileID: 7956141079287316200, guid: 04214d560946d9a40b2936a35680f9c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8682,6 +8710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Velocirapter (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1945375606870799779, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8099647393194684240, guid: b9626f2ac7fbe594cb5d7b88e0ba03df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.5
@@ -9090,7 +9122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2378542250037655724, guid: af4e836c6d2c4414b960403f47452a78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2586519619972041323, guid: af4e836c6d2c4414b960403f47452a78, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9464,6 +9496,10 @@ PrefabInstance:
     - target: {fileID: 1876624451929281593, guid: 67de48f537535e249a0ecf6cbcc4251d, type: 3}
       propertyPath: m_Name
       value: Stallactite (Cling)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876624451929281593, guid: 67de48f537535e249a0ecf6cbcc4251d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6684094745437441204, guid: 67de48f537535e249a0ecf6cbcc4251d, type: 3}
       propertyPath: m_LocalPosition.x

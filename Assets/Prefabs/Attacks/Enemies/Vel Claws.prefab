@@ -153,7 +153,7 @@ MonoBehaviour:
   ignoreTeams: 0
   maxCount: 99
   delayBetweenChildren: 0
-  tracking: 0
+  tracking: 1
   myCore: {fileID: 0}
   angle: 0
 --- !u!114 &6842745424514405945
@@ -177,16 +177,16 @@ MonoBehaviour:
   spreadEvenly: 0
   momentumLaunch: 0
   attackingAimSpeed: 1
-  moveWhileAttacking: 0
-  windup: 0
-  movementPreAttack: 0
-  onlyHorizontalMovePre: 1
+  moveWhileAttacking: 1
+  windup: 0.3
+  movementPreAttack: 10
+  onlyHorizontalMovePre: 0
   noGravityDuringWindup: 0
-  attackDuration: 0.1
-  movementMidAttack: 6
+  attackDuration: 0.2
+  movementMidAttack: 5
   onlyHorizontalMoveMid: 1
   noGravityDuringAttack: 0
-  startAimAngleOffset: 0
+  startAimAngleOffset: 30
   spreadTime: 0
   spreadCurve:
     serializedVersion: 2

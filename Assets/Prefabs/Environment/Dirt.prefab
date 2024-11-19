@@ -154,11 +154,13 @@ MonoBehaviour:
   touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
-  unselectedSaturation: 0.5
+  mySprite: {fileID: 0}
+  unselectedSaturation: 0.2
   timeToDig: 1
   possiblePickupPrefabs:
   - {fileID: 0}
   diggingAnimation: {fileID: 7400000, guid: 497164e6102517e43bb311a9aa75c678, type: 2}
+  interactionPrompt: {fileID: 0}
   digging: 0
 --- !u!114 &5009249707400754542
 MonoBehaviour:

@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     [Tooltip("Current Health Remaining")] public float currentHP;
 
     public Damage.Type immunities;
+    [Range(0,1)] public float knockbackResistance;
+    [Range(0,1)] public float stunResistance;
 
 
     [HideInInspector] public Core myCore;
@@ -102,13 +104,19 @@ public class Health : MonoBehaviour
         if (currentHP <= 0) { StartCoroutine(delayedDeath()); }
         else
         {
+            if (stun.x > 0) { stun *= (1 - stunResistance); }
+
             if (stunTime <= stun.x) 
             { 
                 stunTime = stun.x; 
                 StartCoroutine(flashColor(stun.x));
             }
 
-            if (KB != Vector2.zero && myMovement) { myMovement.DoDash(KB, stun); }
+            if (KB != Vector2.zero && myMovement) 
+            {
+                KB *= (1 - knockbackResistance); 
+                myMovement.DoDash(KB, stun); 
+            }
         }
     }
 

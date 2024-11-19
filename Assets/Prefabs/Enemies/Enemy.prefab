@@ -806,7 +806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 17409
   touching: 0
   touchingLeft: 0
   touchingRight: 0
@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 17409
   touching: 0
   touchingLeft: 0
   touchingRight: 0
@@ -1499,6 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5928af2b716869c4b9faf4265ff06703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDistanceFromCamera: 20
   currentState: 0
   chooseAttacksRandomly: 0
   idleTime: {x: 1, y: 2}
@@ -1955,7 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 17409
   touching: 0
   touchingLeft: 0
   touchingRight: 0
@@ -2056,7 +2057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 17409
   touching: 0
   touchingLeft: 0
   touchingRight: 0
@@ -2157,7 +2158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 3073
+    m_Bits: 19457
   touching: 0
   touchingLeft: 0
   touchingRight: 0
@@ -2258,7 +2259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMask:
     serializedVersion: 2
-    m_Bits: 3073
+    m_Bits: 19457
   touching: 0
   touchingLeft: 0
   touchingRight: 0
