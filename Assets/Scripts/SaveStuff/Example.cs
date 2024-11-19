@@ -29,12 +29,12 @@ public class Example : MonoBehaviour, DataPersistence
 
     public void LoadData(GameData data)
     {
-        this.currentName = data.savedName;
+        //this.currentName = data.savedName;
     }
 
     public void SaveData(ref GameData data)
     {
-        data.savedName = this.currentName;
+        //data.savedName = this.currentName;
     }
 
 }

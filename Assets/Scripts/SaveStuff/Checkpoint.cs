@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    [HideInInspector] public int Number;
-    [HideInInspector] public bool active = false;
+    //[HideInInspector] public int Number;
+    public bool active = false;
     public GameObject activeEffect;
     //public static GameObject spawnPlayer;
     //public float respawnOffset = 1;
@@ -18,6 +18,7 @@ public class Checkpoint : MonoBehaviour
         //Number = Save.allPoints.Count -1;
 
         //if (!spawnPlayer && playerPrefab) { spawnPlayer = playerPrefab; }
+        if (GameManager.instance) { GameManager.instance.AllCheckpoints.Add(this); }
     }
 
     // Update is called once per frame
@@ -28,15 +29,20 @@ public class Checkpoint : MonoBehaviour
         //currentActive = allPoints[PlayerPrefs.GetInt("CurrentCheckpoint")];
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         var player = other.gameObject.GetComponent<PlayerControls>();
         if (player)
         { 
             //if (player.interacting && !active) { Save.SetCheckpoint(this); }
+            active = true;
+
+            if (GameManager.instance) { GameManager.instance.LatestCheckpointPosition = transform.position; }
+            if (DataManager.instance) { DataManager.instance.SaveGame(); }
         }
         
     }
+
 
 
 }

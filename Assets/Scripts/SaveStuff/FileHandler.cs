@@ -25,6 +25,8 @@ public class FileHandler
         string fullPath = Path.Combine(dataDirPath, dataFileName);
         GameData loadedData = null;
 
+        Debug.Log(fullPath);
+
         if (File.Exists(fullPath))
         {
             try

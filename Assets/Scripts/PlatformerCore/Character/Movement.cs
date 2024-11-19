@@ -478,7 +478,7 @@ public class Movement : MonoBehaviour
 
             if (dashing != null) //Cancel dash with jump
             {
-                if (!canCancelDash) { return;}
+                if (!canCancelDash) { return; }
                 if (dashCheck) { if (dashCheck.touching) { return; } } 
                 CancelDash(true, dashTime.y, dashCancelMultiplier); 
             }
@@ -495,7 +495,7 @@ public class Movement : MonoBehaviour
                     if (leftLedgeCheck.touching) { climbing = StartCoroutine(ledgeClimb(leftLedgeCheck.closestCorner(leftAirCheck.transform.position), climbTime.y, climbTime.x)); }
                 } 
             }
-            else if (currentWallTime >= wallLockDelay && canWallJump && !ignoreGravity) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
+            else if (currentWallTime > wallLockDelay && canWallJump && !ignoreGravity) //(frontCheck.touching && !turning && wallJump) //wall jumps are just lil dashes
             {
                 if (rightWallCheck.touching || leftWallCheck.touching)
                 {
@@ -504,7 +504,6 @@ public class Movement : MonoBehaviour
                     if (myCore) { myCore.Turn(); }
                     dashing = WallJump(); StartCoroutine(dashing); 
                 }
-                
             } 
             else if (coyoteCurrent < coyoteTime) //jump if just recently left the ground, not via upward
             { 
@@ -825,7 +824,7 @@ public class Movement : MonoBehaviour
             }
             
 
-            DoDash(d, t, noGrav, true, edgeStop, changeLayer, changeHP, true);
+            DoDash(d, t, noGrav, true, edgeStop, changeLayer, changeHP);
             //if (dashEffect) { dashingEffect = Instantiate(dashEffect, transform); } //spawn dash trail as child obect
 
         }
@@ -851,7 +850,7 @@ public class Movement : MonoBehaviour
         myBod.velocity = Vector2.zero; //reset current velocity on new dash
         myVelocity = Vector2.zero;
 
-        if (!keepMomentum) { moveInput = 0; momentum = 0; }
+        //if (!keepMomentum) { momentum = 0; }
         canCancelDash = dashCancelable;
 
         airTime = 0;

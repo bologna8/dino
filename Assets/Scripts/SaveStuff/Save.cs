@@ -29,9 +29,9 @@ public class Save : MonoBehaviour
             allPoints = checkpointParent.GetComponentsInChildren<Checkpoint>();
         }
 
-        for(int i = 0; i <  allPoints.Length; i++) { allPoints[i].Number = i; }
+        //for(int i = 0; i <  allPoints.Length; i++) { allPoints[i].Number = i; }
 
-        Spawn();
+        //Spawn();
         StartCoroutine(Fade(Color.black, Color.clear, 2.2f));
     }
 
@@ -49,9 +49,9 @@ public class Save : MonoBehaviour
 
     }
 
+/*
     public void Spawn()
     {
-        
         var currentPoint = allPoints[PlayerPrefs.GetInt("CurrentCheckpoint", 0)];
         currentPoint.active = true;
         var spawnSpot = currentPoint.transform.position;
@@ -65,6 +65,7 @@ public class Save : MonoBehaviour
         foreach(var check in allPoints) { check.active = false; }
         point.active = true;
     }
+    */
 
     IEnumerator FlashSequence(float brightenTime, float fadeTime)
     {

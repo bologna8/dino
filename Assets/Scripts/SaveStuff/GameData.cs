@@ -7,11 +7,13 @@ using UnityEngine;
 
 public class GameData
 {
-    public string savedName;
+    //public string savedName;
+
+    public Vector3 savedPosition;
 
     public GameData()
     {
-        this.savedName = "";
+        this.savedPosition = new Vector3(-20, 0, 0);
     }
 
 }

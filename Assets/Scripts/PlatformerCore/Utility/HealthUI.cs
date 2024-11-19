@@ -20,41 +20,32 @@ public class HealthUI : MonoBehaviour
 
     void Awake()
     {
-        GameObject GO = GameObject.FindGameObjectWithTag("Player");
-        tracking = GO.GetComponentInChildren<Health>();
-        currentHealth = GetComponent<Image>();
+        //GameObject GO = GameObject.FindGameObjectWithTag("Player");
+        //tracking = GO.GetComponentInChildren<Health>();
+        
         if (!mySlider) { mySlider = GetComponent<Slider>(); }
         if (!myRect) { myRect = GetComponent<RectTransform>(); }
 
         if (!mySpawn) { mySpawn = GetComponent<Spawned>(); }
-        currentHealth.sprite = healthSprites[healthSprites.Count-1];
-    }
 
-    void OnEnable()
-    {
-        
-        /*
-        if (mySpawn)
-        {
-            tracking = mySpawn.source.GetComponentInChildren<Health>();
-        }
-        */
+        if (!currentHealth) { currentHealth = GetComponent<Image>(); }
+        if (currentHealth) { currentHealth.sprite = healthSprites[healthSprites.Count-1]; }
     }
 
     public void UpdateHealthUI()
     {
         if (tracking)
-    {
-        var percent = (tracking.currentHP / tracking.maxHP) * healthSprites.Count;
-        if (percent > healthSprites.Count - 1)
         {
-            currentHealth.sprite = healthSprites[healthSprites.Count - 1];
+            var percent = (tracking.currentHP / tracking.maxHP) * healthSprites.Count;
+            if (percent > healthSprites.Count - 1)
+            {
+                currentHealth.sprite = healthSprites[healthSprites.Count - 1];
+            }
+            else
+            {
+                currentHealth.sprite = healthSprites[(int)percent];
+            }
         }
-        else
-        {
-            currentHealth.sprite = healthSprites[(int)percent];
-        }
-    }
 }
 
     // Update is called once per frame
@@ -63,6 +54,9 @@ public class HealthUI : MonoBehaviour
 
         if (tracking)
         {
+            if (currentHealth) { UpdateHealthUI(); return; } //do it with images
+
+
             gameObject.SetActive(tracking.gameObject.activeSelf);
 
             var percent = (tracking.currentHP / tracking.maxHP) * healthSprites.Count;

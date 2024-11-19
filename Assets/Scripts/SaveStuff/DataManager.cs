@@ -37,7 +37,7 @@ public class DataManager : MonoBehaviour
 
     public void  LoadGame()
     {
-        this.gameData = dataHandler.Load();
+        //this.gameData = dataHandler.Load();
 
         if(this.gameData == null)
         {
@@ -45,7 +45,7 @@ public class DataManager : MonoBehaviour
         }
         else
         {
-
+            this.gameData = dataHandler.Load();
         }
 
         foreach(DataPersistence dataObj in dataPersistentObjects)
@@ -65,10 +65,12 @@ public class DataManager : MonoBehaviour
         dataHandler.Save(gameData);
     }
 
+    /*
     private void OnApplicationQuit()
     {
         SaveGame();
     }
+    */
 
     private List<DataPersistence> FindAllDataPersistences()
     {
