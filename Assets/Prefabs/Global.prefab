@@ -424,8 +424,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerHealth: {fileID: 0}
   playerHealthUI: {fileID: 1506429983707263099}
-  craftingRecipes: []
   InteractionText: {fileID: 3172316508900753667}
+  craftingRecipes: []
 --- !u!1 &6417198718705968174
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewCanvas10-10
       objectReference: {fileID: 0}
+    - target: {fileID: 4198879935022312716, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4409102066912676848, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_Size
       value: 1
@@ -815,6 +819,10 @@ PrefabInstance:
     - target: {fileID: 4660041025890183121, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893687872053810764, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6296663036754959016, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_AnchorMax.x
@@ -915,6 +923,10 @@ PrefabInstance:
     - target: {fileID: 8444215621768976249, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484265852477238180, guid: dab3b69a0dc1b25499c05562c25e4d13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
