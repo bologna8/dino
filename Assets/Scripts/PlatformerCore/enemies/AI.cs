@@ -48,10 +48,14 @@ public class AI : MonoBehaviour
     [Tooltip("Agro instantly, or only once attacked")] public bool attackOnSight;
     [Tooltip("Leap before attacking")] public bool jumpAttack;
     [Tooltip("If see a friend start to chase, go agro on that target as well")] public bool packAttack;
-    [Tooltip("Will go into a frenzy over certain distractions and damage teammates with attacks")] public bool foolish;
-    [HideInInspector] public bool frenzied;
     [Tooltip("Will retreat after attacking")] public bool skirmish;
     [Tooltip("Will retreat when too far from their start, and attack if too close")] public bool territorial;
+    [Tooltip("Will go into a frenzy over certain distractions and damage teammates with attacks")] public bool foolish;
+    [HideInInspector] public bool frenzied;
+
+    [System.Flags]
+    public enum Type { none = 0, carnivore = 1 << 1, herbivore = 1 << 2 }
+    public Type myType;
 
     [HideInInspector] public Aim myAim;
 

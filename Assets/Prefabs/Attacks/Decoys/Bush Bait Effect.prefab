@@ -131,7 +131,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3805809526722605130}
@@ -213,7 +213,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.5896226, b: 0.5896226, a: 0.08235294}
+  m_Color: {r: 0.21560161, g: 0.87058824, b: 0.21560161, a: 0.08235294}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -235,10 +235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58962fd172f5bad48afd46d2152aa996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agroType: 2
+  agroType: 4
   drawAttention: 1
   overrideAgro: 0
-  causeFrenzy: 1
+  causeFrenzy: 0
 --- !u!1 &5988905358313603674
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,13 +250,14 @@ GameObject:
   - component: {fileID: 3805809526722605130}
   - component: {fileID: 1071157204747920862}
   - component: {fileID: 345450334911121528}
+  - component: {fileID: 3895722794258772283}
   - component: {fileID: 8029522491244976621}
   - component: {fileID: 69438241758646488}
   - component: {fileID: 6642596319843681646}
   - component: {fileID: 4675932675174091095}
-  - component: {fileID: 3821423485522638629}
+  - component: {fileID: 8798069377975054726}
   m_Layer: 6
-  m_Name: Bait Effect
+  m_Name: Bush Bait Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +273,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5713779353715009440}
@@ -313,6 +314,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 10
+--- !u!114 &3895722794258772283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988905358313603674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030056cd58e17c7449ef043ad776280c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnOnceStill: {fileID: 8212049413273649575, guid: 827a5085a0a2eba45bee9afb75604555, type: 3}
+  spawnOffset: {x: 0, y: -0.3, z: 0}
+  standStillTime: 0.1
 --- !u!198 &8029522491244976621
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -502,8 +518,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.8018868, g: 0.4709329, b: 0.08699717, a: 1}
-      maxColor: {r: 0.8113208, g: 0.32250965, b: 0.17221434, a: 1}
+      minColor: {r: 0.036845855, g: 0.33962262, b: 0.1198982, a: 1}
+      maxColor: {r: 0.21505529, g: 0.8117647, b: 0.172549, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5178,7 +5194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 15766122, guid: e41ffa6d74bfa1a4ea664bf97ce209e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f68ec2e2a3055c84da0583c5b19ddba9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5189,8 +5205,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3821423485522638629
-CircleCollider2D:
+--- !u!61 &8798069377975054726
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5222,5 +5238,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.15, y: 0.14}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0

@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
-  m_Name: Bait
+  m_Name: Herbivore Bait
   m_EditorClassIdentifier: 
-  name: Bait
-  icon: {fileID: 21300000, guid: 1d51c00a8f259f84e9ac09f325bab357, type: 3}
-  itemDescription: A Carnivor's Favorite
-  attackPrefab: {fileID: 8142958838078798255, guid: 6670d61321dd83b4ca0bd5ea8df2d924, type: 3}
-  attackUp: {fileID: 4652082600101105154, guid: 070adc985affc5d4f93df309af2f467a, type: 3}
+  itemName: Herbivore Bait
+  icon: {fileID: 21300000, guid: f68ec2e2a3055c84da0583c5b19ddba9, type: 3}
+  itemDescription: A Herbivore's Favorite
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9
+  attackPrefab: {fileID: 8142958838078798255, guid: 45850320d1282594e8c98af99092f3a4, type: 3}
+  attackUp: {fileID: 3437304327113319742, guid: 9eacb7a2592354b4e86857b9bbf4bd82, type: 3}
   attackDown: {fileID: 0}
   consumable: 1
-  HotBarIndex: 4
+  HotBarIndex: 3

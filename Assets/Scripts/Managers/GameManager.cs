@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
       }
       
       //PlayerPrefs.DeleteAll();
-      Load();
+      //Load();
       StartCoroutine(Fade(Color.black, 1));
     }
     
@@ -80,7 +80,13 @@ public class GameManager : MonoBehaviour
 
   IEnumerator Fade(Color fadeColor, float fadeDuration = 1, bool fadeOut = false)
   {
-    if (!fadeSprite || fading) { yield break; }
+    if (fading) { yield break; }
+
+    if (!fadeSprite) 
+    { 
+      if (fadeOut) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+      yield break; 
+    }
 
     var startAlpha = 1; 
     var endAlpha = 0;

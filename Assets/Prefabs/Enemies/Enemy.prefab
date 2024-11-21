@@ -361,10 +361,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -462,10 +458,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -596,6 +588,8 @@ MonoBehaviour:
   maxHP: 10
   currentHP: 0
   immunities: 0
+  knockbackResistance: 0
+  stunResistance: 0
   myCore: {fileID: 0}
   mySpawn: {fileID: 0}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
@@ -707,10 +701,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -808,10 +798,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -909,10 +895,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -1010,10 +992,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -1146,10 +1124,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -1519,11 +1493,13 @@ MonoBehaviour:
   agroMemoryTime: {x: 3, y: 6}
   canJump: 0
   attackOnSight: 0
+  jumpAttack: 0
   packAttack: 0
-  foolish: 0
-  frenzied: 0
   skirmish: 0
   territorial: 0
+  foolish: 0
+  frenzied: 0
+  myType: 2
   myAim: {fileID: 0}
 --- !u!1 &5933526067178452155
 GameObject:
@@ -1619,10 +1595,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -1720,10 +1692,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -1821,10 +1789,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -1958,10 +1922,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2059,10 +2019,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2160,10 +2116,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 19457
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2261,10 +2213,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 19457
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5

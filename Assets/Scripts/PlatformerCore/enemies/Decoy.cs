@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Decoy : MonoBehaviour
 {
+    public AI.Type agroType;
     [Tooltip("Alerts enemies that have not seen you yet")] public bool drawAttention = false;
     [Tooltip("Takes the agro if enemy is currently agro on something else")] public bool overrideAgro = false;
     [Tooltip("Causes foolish enemies to go attack in a way that can damage teammates")] public bool causeFrenzy = false;
+
 
     private List<AI> alerted = new List<AI>();
 
@@ -16,6 +18,8 @@ public class Decoy : MonoBehaviour
         var ai = other.GetComponent<AI>();
         if(ai)
         {
+            if (!agroType.HasFlag(ai.myType)) { return; }
+
             if (!alerted.Contains(ai))
             {
                 if (ai.currentState == AI.State.chase) 

@@ -173,7 +173,8 @@ public class Damage : MonoBehaviour
             var tempTeam = 0;
             Transform tempSource = null;
             if (mySpawn) { tempTeam = mySpawn.team; tempSource = mySpawn.source; }
-            PoolManager.Instance.Spawn(endEffect, transform.position, transform.rotation, tempSource, tempTeam);
+            if (PoolManager.Instance) { PoolManager.Instance.Spawn(endEffect, transform.position, transform.rotation, tempSource, tempTeam); }
+            else { Instantiate(endEffect, transform.position, transform.rotation); }
         }
     }
 

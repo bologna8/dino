@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8907528970083157462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -417,14 +417,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abaa4d580edba244978f6463495a18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllRecipes: []
   AllItems: []
+  fadeSprite: {fileID: 7776465039061783838}
+  CheckpointParent: {fileID: 0}
   AllCheckpoints: []
-  LatestCheckpointPosition: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   playerHealth: {fileID: 0}
+  playerInventory: {fileID: 0}
   playerHealthUI: {fileID: 1506429983707263099}
   InteractionText: {fileID: 3172316508900753667}
+  AllRecipes: []
   craftingRecipes: []
 --- !u!1 &6417198718705968174
 GameObject:
