@@ -154,8 +154,6 @@ MonoBehaviour:
   lanternLight: {fileID: 0}
   maxLightColor: {r: 0.9924528, g: 0.9907458, b: 0.8295407, a: 1}
   minLightColor: {r: 0.509434, g: 0.50703865, b: 0.38736206, a: 1}
-  maxLanternRadius: 16
-  minLanternRadius: 4
 --- !u!1 &1327237381141930826
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,10 +248,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -351,10 +345,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -486,6 +476,8 @@ MonoBehaviour:
   maxHP: 5
   currentHP: 0
   immunities: 0
+  knockbackResistance: 0
+  stunResistance: 0
   myCore: {fileID: 0}
   mySpawn: {fileID: 0}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
@@ -597,10 +589,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 19457
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -698,10 +686,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -799,10 +783,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -900,61 +880,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
---- !u!1 &4956033541124677228
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2644349332470760087}
-  - component: {fileID: 7007198534415870085}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2644349332470760087
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4956033541124677228}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2661674118543948784}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7007198534415870085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4956033541124677228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0df3f13bc81634395f08a1cee6b391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftingRecipes:
-  - {fileID: 11400000, guid: 365d3a68eeabbe240882a5edbf9ba2e8, type: 2}
-  playerHealth: {fileID: 8478583008990582963}
-  playerHealthUI: {fileID: 0}
 --- !u!1 &5085282439056455403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,10 +1067,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -1196,7 +1120,6 @@ Transform:
   - {fileID: 6253956121193888403}
   - {fileID: 1448336083552305297}
   - {fileID: 1630205273341425769}
-  - {fileID: 2644349332470760087}
   - {fileID: 2786310629096168211}
   - {fileID: 212168865920863887}
   - {fileID: 2382176206906280583}
@@ -1764,10 +1687,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2037,10 +1956,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2138,10 +2053,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2463,10 +2374,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2564,10 +2471,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2665,10 +2568,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17409
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2766,10 +2665,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -2867,10 +2762,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
