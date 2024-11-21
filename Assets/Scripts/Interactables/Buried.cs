@@ -27,13 +27,16 @@ public class Buried : LayerCheck, IInteractable
             interactionPrompt.gameObject.SetActive(false);
         }
 
-        interactionPrompt = GameManager.instance.InteractionText;
 
         if (Inventory.instance && checkInventoryForItem) 
         { 
             if (Inventory.instance.ContainsItem(checkInventoryForItem, 1))
             { gameObject.SetActive(false); }
         }
+    }
+    private void Start()
+    {
+        interactionPrompt = GameManager.instance.InteractionText;
     }
 
     private void Update()
