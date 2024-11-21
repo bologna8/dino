@@ -96,10 +96,13 @@ public class NewMusicPlayer : MonoBehaviour
 */
 
     private float FadeOutDuration = 0f;
-    private bool FadeOut(List<string> allVolumes, float fadeTime){  // Fades Out all Music Tracks. returns true when complete;
+    public bool FadeOut(float fadeTime){  // Fades Out all Music Tracks. returns true when complete;
         
+        FadeInDuration = -2;
+
         if(FadeOutDuration >= fadeTime){
             FadeOutDuration = 0f;
+            FadeInDuration = 0f;
             return true;
         }
         
@@ -111,7 +114,7 @@ public class NewMusicPlayer : MonoBehaviour
             invlogValue = 0.001f;
         }
 
-        foreach(string str in allVolumes){
+        foreach(string str in tracks){
             if(Mixer != null){
                 float x; 
                 Mixer.GetFloat(str, out x);
@@ -129,7 +132,7 @@ public class NewMusicPlayer : MonoBehaviour
     private float FadeInDuration = 0f;
     public bool FadeIn(Track track, float fadeTime){  // Fades In specified Music Track. returns true when complete;
         
-        if(FadeInDuration >= fadeTime){
+        if(FadeInDuration >= fadeTime || FadeInDuration <= -1f){
             FadeInDuration = 0f;
             return true;
         }

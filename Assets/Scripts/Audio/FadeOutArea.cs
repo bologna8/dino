@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeInArea : MonoBehaviour
+public class FadeOutArea : MonoBehaviour
 {
     private NewMusicPlayer mp;
 
-    public NewMusicPlayer.Track track;
-
     public float fadeTime = 3f;
 
-    private bool isFadingIn = false;
+    private bool isFadingOut = false;
 
     // Update is called once per frame
 
@@ -23,16 +21,16 @@ public class FadeInArea : MonoBehaviour
 
     void Update(){
 
-        if(isFadingIn && mp != null){
-            bool b = mp.FadeIn(track,fadeTime);
-            isFadingIn = !b;
+        if(isFadingOut && mp != null){
+            bool b = mp.FadeOut(fadeTime);
+            isFadingOut = !b;
         }
 
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.transform.gameObject.tag == "Player"){
-            isFadingIn = true;
+            isFadingOut = true;
         }
     }
 }
