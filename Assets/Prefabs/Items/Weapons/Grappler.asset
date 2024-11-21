@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
   m_Name: Grappler
   m_EditorClassIdentifier: 
-  name: Grappler
+  itemName: Default Item
   icon: {fileID: 21300000, guid: d7157064d1a2b7143ada6600d540e2ad, type: 3}
   itemDescription: I'm hooked
+  isStackable: 0
+  stackCount: 1
+  maxStack: 9
   attackPrefab: {fileID: 8142958838078798255, guid: 16131678946a78c4ba1a1c44d043d6f9, type: 3}
   attackUp: {fileID: 0}
   attackDown: {fileID: 0}

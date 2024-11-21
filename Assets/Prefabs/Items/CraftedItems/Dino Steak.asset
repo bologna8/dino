@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5316463ce859cb4cbdfd4ca4df211c5, type: 3}
   m_Name: Dino Steak
   m_EditorClassIdentifier: 
-  name: Dino Steak
+  itemName: Dino Steak
   icon: {fileID: -1722053406, guid: 1265425c81abfa442a97ec875129a8e6, type: 3}
   itemDescription: Can Consume
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9
   itemType: 1
   amount: 2

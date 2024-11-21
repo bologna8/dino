@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    #region singleton
+    #region Singleton
 
     public static Inventory instance;
+
     private void Awake()
     {
         if (instance == null)
@@ -21,29 +22,88 @@ public class Inventory : MonoBehaviour
 
     public List<Item> inventoryItemList = new List<Item>();
 
-    public void AddItem(Item item)
+
+public void AddItem(Item item)
+{
+   if (item.isStackable)
+{
+    Item existingItem = inventoryItemList.Find(i => i.itemName == item.itemName);
+
+    if (existingItem != null)
     {
-        inventoryItemList.Add(item);
-        onItemChange.Invoke();
-        UpdateCraftingUI();
-
-        if(item is HotbarItem hotbarItem)
+        if (existingItem.stackCount < existingItem.maxStack)
         {
-            hotbarItem.AddToHotbar();
+            existingItem.stackCount++;
         }
-
-        PopupManager popupManager = FindObjectOfType<PopupManager>();
-        if (popupManager != null)
+        else
         {
-            popupManager.ShowPopup(item.name); 
+            Debug.Log($"Stack is full for item: {item.itemName}. Cannot add more.");
         }
     }
+    else
+    {
+        Item newItem = Instantiate(item); // Create a new instance 
+        newItem.stackCount = 1;
+        newItem.name = item.itemName; 
+        inventoryItemList.Add(newItem);
+    }
+}
+    else
+    {
+        // Non-stackable item, always add a new entry
+        inventoryItemList.Add(item);
+    }
+ 
+    onItemChange.Invoke();
+
+    if (item is HotbarItem hotbarItem)
+    {
+        hotbarItem.AddToHotbar();
+    }
+
+    PopupManager popupManager = FindObjectOfType<PopupManager>();
+    if (popupManager != null)
+    {
+        popupManager.ShowPopup(item.itemName);
+    }
+}
 
     public void RemoveItem(Item item)
     {
         if (inventoryItemList.Contains(item))
         {
-            inventoryItemList.Remove(item);
+            if (item.isStackable && item.stackCount > 1)
+            {
+                item.stackCount--;
+            }
+            else
+            {
+                inventoryItemList.Remove(item);
+            }
+        }
+
+        onItemChange.Invoke();
+    }
+
+    public void RemoveItems(Item item, int amount)
+    {
+        if (!inventoryItemList.Contains(item))
+        {
+            Debug.LogWarning("Item not found in inventory.");
+            return;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+            if (item.isStackable && item.stackCount > 1)
+            {
+                item.stackCount--;
+            }
+            else
+            {
+                inventoryItemList.Remove(item);
+                break;
+            }
         }
 
         onItemChange.Invoke();
@@ -51,38 +111,12 @@ public class Inventory : MonoBehaviour
 
     public bool ContainsItem(Item item, int amount)
     {
-        int itemCounter = 0;
-
-        foreach (Item i in inventoryItemList)
+        if (!item.isStackable)
         {
-            if (i == item)
-            {
-                itemCounter++;
-            }
+            return inventoryItemList.FindAll(i => i.itemName == item.itemName).Count >= amount;
         }
 
-        return itemCounter >= amount;
-    }
-    private void UpdateCraftingUI()
-    {
-        
-    }
-
-    public void RemoveItems(Item item, int amount)
-    {
-        if (!inventoryItemList.Contains(item))
-        {
-            return;
-        }
-
-        for (int i = 0; i < amount; i++)
-        {
-            if (!inventoryItemList.Contains(item))
-            {
-                break;
-            }
-
-            RemoveItem(item);
-        }
+        Item existingItem = inventoryItemList.Find(i => i.itemName == item.itemName);
+        return existingItem != null && existingItem.stackCount >= amount;
     }
 }

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1569f4d78dabf05428872ca329c73c4e, type: 3}
   m_Name: Obsidian
   m_EditorClassIdentifier: 
-  name: Obsidian
+  itemName: Obsidian
   icon: {fileID: 0}
   itemDescription: Used in Crafting
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9

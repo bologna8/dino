@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1569f4d78dabf05428872ca329c73c4e, type: 3}
   m_Name: Lantern
   m_EditorClassIdentifier: 
-  name: Lantern
+  itemName: Lantern
   icon: {fileID: -1883283394, guid: c684e740d95da0c4892004a4d698f05a, type: 3}
   itemDescription: 'Used for light '
+  isStackable: 0
+  stackCount: 1
+  maxStack: 9

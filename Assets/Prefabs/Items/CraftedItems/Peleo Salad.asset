@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5316463ce859cb4cbdfd4ca4df211c5, type: 3}
   m_Name: Peleo Salad
   m_EditorClassIdentifier: 
-  name: Paleo Salad
+  itemName: Paleo Salad
   icon: {fileID: -1019155705, guid: 0aa0fdfc6d3b15544a39a8caaec0d5af, type: 3}
   itemDescription: Can Consume
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9
   itemType: 0
   amount: 1

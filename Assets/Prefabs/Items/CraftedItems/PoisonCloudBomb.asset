@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1569f4d78dabf05428872ca329c73c4e, type: 3}
   m_Name: PoisonCloudBomb
   m_EditorClassIdentifier: 
-  name: Poison Cloud Bomb
+  itemName: Poison Cloud Bomb
   icon: {fileID: 1855234568, guid: 14e2ec7db4fe2fd4e8f4c2157e430b4a, type: 3}
   itemDescription: Use to attack
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9

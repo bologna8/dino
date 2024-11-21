@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
   m_Name: HerbivoreBait
   m_EditorClassIdentifier: 
-  name: Default Item
+  itemName: Herbivore Bait
   icon: {fileID: 0}
   itemDescription: Description
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9
   attackPrefab: {fileID: 0}
   attackUp: {fileID: 0}
   attackDown: {fileID: 0}

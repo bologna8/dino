@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1569f4d78dabf05428872ca329c73c4e, type: 3}
   m_Name: Glowing Mushroom
   m_EditorClassIdentifier: 
-  name: Mushroom
+  itemName: Glowing Mushroom
   icon: {fileID: -1025490028, guid: 5bc855ac1672f8842aaacb99f20bd025, type: 3}
   itemDescription: Can Use with Lantern Recipe
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9

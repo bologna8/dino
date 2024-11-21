@@ -4,9 +4,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "Item/baseItem")]
 public class Item : ScriptableObject
 {
-    new public string name = "Default Item";  
+    [Header("Basic Properties")]
+    public string itemName = "Default Item";  
     public Sprite icon = null;  
     public string itemDescription = "Description";  
+
+    [Header("Stacking")]
+    public bool isStackable = true; // Determines if the item can stack
+    public int stackCount = 1;      // Tracks the number of items in the stack
+    public int maxStack = 9;        // Maximum stack size for stackable items
 
     public delegate void OnItemUsed();
     public event OnItemUsed ItemUsed;
@@ -23,6 +29,13 @@ public class Item : ScriptableObject
 
     public virtual string GetItemDescription()
     {
-        return itemDescription;
+        if (isStackable)
+        {
+            return $"{itemDescription} (Stack: {stackCount}/{maxStack})";
+        }
+        else
+        {
+            return itemDescription;
+        }
     }
 }
