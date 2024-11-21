@@ -252,7 +252,7 @@ public class Core : MonoBehaviour
 
     public void InteractCheck()
     {
-        if (interactables.Count <= 0) { return; }
+        if (interactables.Count <= 0 || !canInteract) { return; }
 
         interactables[0].Interact(gameObject);
 

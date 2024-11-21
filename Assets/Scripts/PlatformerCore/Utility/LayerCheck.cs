@@ -7,10 +7,12 @@ public class LayerCheck : MonoBehaviour
      [Tooltip("Choose which layer(s) to check")] public LayerMask checkMask;
      //[Tooltip("VIEW ONLY : currently touching something")] 
      public bool touching;
+     /*
      public bool touchingLeft;
      public bool touchingRight;
      public bool touchingTop;
      public bool touchingBot;
+     */
 
      [HideInInspector] public Collider2D lastCollided;
      [HideInInspector] public float slope;
@@ -40,7 +42,7 @@ public class LayerCheck : MonoBehaviour
 
                var pointOfContact = collision.ClosestPoint(transform.position);
 
-               
+               /*
                if (pointOfContact.x > (transform.position.x )) { touchingRight = true; }
                else { touchingRight = false; }
 
@@ -52,7 +54,7 @@ public class LayerCheck : MonoBehaviour
                
                if (pointOfContact.y < (transform.position.y )) { touchingBot = true; }
                else { touchingBot = false; }
-               
+               */
 
                if (mySprite) { mySprite.color = startColor; }
           }    
@@ -67,10 +69,12 @@ public class LayerCheck : MonoBehaviour
                ExtraExitOperations(collision); 
                touching = false; 
 
+               /*
                touchingLeft = false;
                touchingRight = false;
                touchingTop = false;
                touchingBot = false;
+               */
 
                SetSaturation(unselectedSaturation);
           }
@@ -84,10 +88,12 @@ public class LayerCheck : MonoBehaviour
                lastCollided = null;
                touching = false;
 
+               /*
                touchingLeft = false;
                touchingRight = false;
                touchingTop = false;
                touchingBot = false;
+               */
 
                SetSaturation(unselectedSaturation);
           }        
@@ -132,7 +138,7 @@ public class LayerCheck : MonoBehaviour
           return transform.position;
      }
 
-     void SetSaturation(float saturation)
+     public void SetSaturation(float saturation)
      {
           if (!mySprite) { return; }
 

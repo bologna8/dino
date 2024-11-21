@@ -7,9 +7,9 @@ public class InventoryAbilityCheck : MonoBehaviour
     private Movement myMove;
     private Core myCore;
 
-    public HotbarItem wallJumpItem;
+    public Item wallJumpItem;
 
-    public HotbarItem airDashItem;
+    public Item airDashItem;
 
     public bool canMoveWhileInInventory;
 

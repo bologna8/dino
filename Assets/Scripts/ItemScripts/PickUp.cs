@@ -16,13 +16,15 @@ public class PickUp : MonoBehaviour
     public Item item;
     public CraftingRecipe recipe;
 
-    void Start()
+    void OnEnable()
     {
+        lifeTime = 0f;
+
         var randX = Random.Range(randStartX.x, randStartX.y);
         var randY = Random.Range(randStartY.x, randStartY.y);
         if (Random.Range(0f, 1f) > 0.5f) { randX *= -1; }
 
-        myBod = GetComponent<Rigidbody2D>();
+        if (!myBod) { myBod = GetComponent<Rigidbody2D>(); }
         if (myBod) { myBod.AddForce(new Vector2(randX, randY)); }
     }
 
@@ -36,18 +38,15 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         var playerCheck = other.GetComponent<PlayerControls>();
         if (playerCheck && lifeTime >= delayPickupTime)
         {
-            if (pickupEffect)
-            {
-                PoolManager.Instance.Spawn(pickupEffect, transform.position);
-            }
-
             if (item)
             {
+                if (Inventory.instance.ContainsItem(item, 9)) { return; } //Can't pickup if already have too many
+
                 Inventory.instance.AddItem(item);
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
                 if (inventoryUI != null)
@@ -64,6 +63,11 @@ public class PickUp : MonoBehaviour
                 {
                     inventoryUI.UpdateCraftingUI(recipe);
                 }
+            }
+
+            if (pickupEffect)
+            {
+                PoolManager.Instance.Spawn(pickupEffect, transform.position);
             }
             
             gameObject.SetActive(false);

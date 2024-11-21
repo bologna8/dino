@@ -8,7 +8,12 @@ public class Buried : LayerCheck, IInteractable
 {
     public float timeToDig = 1f;
     public List<GameObject> possiblePickupPrefabs;
+    public Vector2 numberOfDrops = new Vector2(1,1);
     public AnimationClip diggingAnimation;
+    public Item checkInventoryForItem;
+    public float resetCooldown;
+    private float currentCooldown;
+    private bool recharging;
     public Text interactionPrompt;  //UI text
 
     [HideInInspector] public bool digging;
@@ -21,19 +26,28 @@ public class Buried : LayerCheck, IInteractable
         {
             interactionPrompt.gameObject.SetActive(false);
         }
-    }
-
-    private void Start()
-    {
 
         interactionPrompt = GameManager.instance.InteractionText;
+
+        if (Inventory.instance && checkInventoryForItem) 
+        { 
+            if (Inventory.instance.ContainsItem(checkInventoryForItem, 1))
+            { gameObject.SetActive(false); }
+        }
     }
 
     private void Update()
     {
         isGamepad = Gamepad.current != null;
 
-        if (interactionPrompt != null && touchingCore)
+        if (recharging)
+        {
+            currentCooldown -= Time.deltaTime;
+            SetSaturation(0);
+            if (currentCooldown <= 0) 
+            { recharging = false; SetSaturation(unselectedSaturation); }
+        }
+        else if (interactionPrompt != null && touchingCore)
         {
             interactionPrompt.text = isGamepad ? "Press [X] to interact" : "Press [E] to interact";
         }
@@ -41,7 +55,7 @@ public class Buried : LayerCheck, IInteractable
 
     public void Interact(GameObject interacter)
     {
-        if (possiblePickupPrefabs.Count > 0 && touchingCore)
+        if (possiblePickupPrefabs.Count > 0 && touchingCore && !recharging)
         {
             touchingCore.Stun(timeToDig, diggingAnimation);
             StartCoroutine(DelayedDig());
@@ -51,7 +65,7 @@ public class Buried : LayerCheck, IInteractable
     public override void ExtraEnterOperations(Collider2D collision)
     {
         var coreCheck = collision.gameObject.GetComponent<Core>();
-        if (coreCheck && !touchingCore)
+        if (coreCheck && !touchingCore && !recharging)
         {
             touchingCore = coreCheck;
             touchingCore.interactables.Add(this);
@@ -63,7 +77,7 @@ public class Buried : LayerCheck, IInteractable
         }
     }
 
-    public override void ExtraExitOperations(Collider2D collision)
+    public override void ExtraExitOperations(Collider2D collision = null)
     {
         if (touchingCore)
         {
@@ -87,9 +101,16 @@ public class Buried : LayerCheck, IInteractable
         {
             var r = Random.Range(0, possiblePickupPrefabs.Count);
             var chosen = possiblePickupPrefabs[r];
-            PoolManager.Instance.Spawn(chosen, transform.position);
-            possiblePickupPrefabs.RemoveAt(r);
+            int amount = Random.Range((int)numberOfDrops.x, (int)numberOfDrops.y);
+            for(int i = 0; i < amount; i ++)
+            { PoolManager.Instance.Spawn(chosen, transform.position); }
+            
+            //possiblePickupPrefabs.RemoveAt(r);
         }
-        Destroy(gameObject);
+
+        if (resetCooldown > 0) 
+        { recharging = true; currentCooldown = resetCooldown; ExtraExitOperations(); }
+        else { gameObject.SetActive(false); }
+        //Destroy(gameObject);
     }
 }

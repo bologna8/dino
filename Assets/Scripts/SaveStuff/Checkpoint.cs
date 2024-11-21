@@ -18,7 +18,7 @@ public class Checkpoint : MonoBehaviour
         //Number = Save.allPoints.Count -1;
 
         //if (!spawnPlayer && playerPrefab) { spawnPlayer = playerPrefab; }
-        if (GameManager.instance) { GameManager.instance.AllCheckpoints.Add(this); }
+        //if (GameManager.instance) { GameManager.instance.AllCheckpoints.Add(this); }
     }
 
     // Update is called once per frame
@@ -34,11 +34,9 @@ public class Checkpoint : MonoBehaviour
         var player = other.gameObject.GetComponent<PlayerControls>();
         if (player)
         { 
-            //if (player.interacting && !active) { Save.SetCheckpoint(this); }
+            if (GameManager.instance) { GameManager.instance.Save(this); }
             active = true;
 
-            if (GameManager.instance) { GameManager.instance.LatestCheckpointPosition = transform.position; }
-            if (DataManager.instance) { DataManager.instance.SaveGame(); }
         }
         
     }
