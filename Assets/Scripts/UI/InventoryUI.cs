@@ -1,6 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class InventoryUI : MonoBehaviour
     public int selectedIndex = 0;
 
     private PlayerControls playerControls;
+    private EventSystem eventSystem;
 
     private void Awake()
     {
@@ -37,23 +39,29 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private void Start()
+private void Start()
+{
+    if (Inventory.instance != null)
     {
-        if (Inventory.instance != null)
-        {
-            Inventory.instance.onItemChange += UpdateInventoryUI;
-        }
-
-        UpdateInventoryUI();
-        SetUpCraftingRecipes();
-
-        if (book != null)
-        {
-            book.SetActive(true);
-        }
-
-        playerControls = FindObjectOfType<PlayerControls>();
+        Inventory.instance.onItemChange += UpdateInventoryUI;
     }
+
+    UpdateInventoryUI();
+    SetUpCraftingRecipes();
+
+    if (book != null)
+    {
+        book.SetActive(true);
+    }
+
+    playerControls = FindObjectOfType<PlayerControls>();
+
+    if (Gamepad.all.Count > 0 && itemSlotList.Count > 0)
+    {
+        EventSystem.current.SetSelectedGameObject(itemSlotList[0].gameObject);
+    }
+}
+
 
     public void OpenInventory(InputAction.CallbackContext context)
     {
@@ -70,21 +78,29 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private void OpenInventory()
-    {
-        inventoryOpen = true;
-        inventoryParent.SetActive(true);
-        if (book != null)
-        {
-            book.SetActive(true);
-        }
+private void OpenInventory()
+{
+    inventoryOpen = true;
+    inventoryParent.SetActive(true);
 
-        if(playerControls !=null)
-        {
-            playerControls.enabled = false;
-        }
-        UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Inventory);
+    if (book != null)
+    {
+        book.SetActive(true);
     }
+
+    if (playerControls != null)
+    {
+        playerControls.enabled = false;
+    }
+
+    UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Inventory);
+
+    if (Gamepad.all.Count > 0 && itemSlotList.Count > 0)
+    {
+        EventSystem.current.SetSelectedGameObject(itemSlotList[0].gameObject);
+    }
+}
+
 
     private void CloseInventory()
     {
@@ -95,13 +111,12 @@ public class InventoryUI : MonoBehaviour
             book.SetActive(false);
         }
 
-        if(playerControls != null)
-
+        if (playerControls != null)
         {
             playerControls.enabled = true;
         }
 
-        if(UIManager.instance !=null)
+        if (UIManager.instance != null)
         {
             UIManager.instance.DestroyItemInfo();
         }
@@ -147,38 +162,41 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void UpdateInventoryUI()
+public void UpdateInventoryUI()
+{
+    if (inventoryItemTransform == null) { return; }
+
+    itemSlotList.Clear();
+
+    foreach (Transform child in inventoryItemTransform)
     {
-        if (inventoryItemTransform == null) { return; }
+        Destroy(child.gameObject);
+    }
 
-        foreach (Transform child in inventoryItemTransform)
+    foreach (Transform hotbarTransform in hotbarTransforms)
+    {
+        if (hotbarTransform != null)
         {
-            Destroy(child.gameObject);
-        }
-
-        foreach (Transform hotbarTransform in hotbarTransforms)
-        {
-            if (hotbarTransform != null)
+            foreach (Transform child in hotbarTransform)
             {
-                foreach (Transform child in hotbarTransform)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
-        }
-
-        foreach (var item in Inventory.instance.inventoryItemList)
-        {
-            if (item is HotbarItem hotbarItem && hotbarItem.HotBarIndex >= 0 && hotbarItem.HotBarIndex < hotbarTransforms.Length)
-            {
-                AddItemSlot(item, hotbarTransforms[hotbarItem.HotBarIndex]);
-            }
-            else
-            {
-                AddItemSlot(item, inventoryItemTransform);
+                Destroy(child.gameObject);
             }
         }
     }
+
+    foreach (var item in Inventory.instance.inventoryItemList)
+    {
+        if (item is HotbarItem hotbarItem && hotbarItem.HotBarIndex >= 0 && hotbarItem.HotBarIndex < hotbarTransforms.Length)
+        {
+            AddItemSlot(item, hotbarTransforms[hotbarItem.HotBarIndex]);
+        }
+        else
+        {
+            AddItemSlot(item, inventoryItemTransform);
+        }
+    }
+}
+
 
     private void AddItemSlot(Item item, Transform parentTransform)
     {
