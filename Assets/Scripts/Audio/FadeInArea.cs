@@ -15,9 +15,9 @@ public class FadeInArea : MonoBehaviour
     // Update is called once per frame
 
     void Start(){
-        mp = GameObject.FindWithTag("MusicPlayer");
+        mp = GameObject.FindWithTag("MusicPlayer").GetComponent<NewMusicPlayer>();
         if(mp == null){
-            Debug.log("Error: No Music Player detected in scene");
+            Debug.Log("Error: No Music Player detected in scene");
         }
     }
 
