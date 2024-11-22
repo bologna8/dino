@@ -25,6 +25,7 @@ public class FadeInArea : MonoBehaviour
 
         if(isFadingIn && mp != null){
             bool b = mp.FadeIn(track,fadeTime);
+            mp.PlayMusic(track);
             isFadingIn = !b;
         }
 

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5300908004204861510}
   - component: {fileID: 5873980532038274490}
-  - component: {fileID: 4028714708947872126}
   m_Layer: 0
   m_Name: MycelialLava
   m_TagString: Untagged
@@ -42,8 +41,8 @@ AudioSource:
   m_GameObject: {fileID: 1976548685571048586}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -2222038275128875876, guid: 1378273ee56756c4bb98499363aba46c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: c5fea57f86e8f8a4895f036d6d97ecfa, type: 3}
+  OutputAudioMixerGroup: {fileID: -2693815479887673555, guid: 1378273ee56756c4bb98499363aba46c, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 111295398e99b9141abf547473db3294, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -129,17 +128,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4028714708947872126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976548685571048586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cd6eb054e2cedf4083cb20df96b793b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 5873980532038274490}
-  loopStartTime: 21.428

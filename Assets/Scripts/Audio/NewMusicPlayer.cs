@@ -6,8 +6,10 @@ using UnityEngine.Audio;
 public class NewMusicPlayer : MonoBehaviour
 {
   [Header("References")]
-    public AudioSource Primary;
-    public List<AudioSource> Secondary;
+
+    public List<GameObject> musicTrackObjects;
+    private AudioSource Primary;
+    private List<AudioSource> Secondary = new List<AudioSource> {};
 
     public AudioMixer Mixer;
     
@@ -32,6 +34,14 @@ public class NewMusicPlayer : MonoBehaviour
     void Start()
     {
         //if(Mixer != null) Mixer.SetFloat(track1, 0); //Temporary
+
+        /*
+        Primary = musicTrackObjects[0].GetComponent<AudioSource>();
+
+        for(int i = 1; i < musicTrackObjects.Count; i++){
+            Secondary.Add(musicTrackObjects[i].GetComponent<AudioSource>());
+        }
+        */
     }
 
     // Update is called once per frame
@@ -103,6 +113,15 @@ public class NewMusicPlayer : MonoBehaviour
         if(FadeOutDuration >= fadeTime){
             FadeOutDuration = 0f;
             FadeInDuration = 0f;
+
+            foreach(string str in tracks){
+                if(Mixer != null){
+                    Mixer.SetFloat(str, -80);  
+                }else{
+                    Debug.Log("Error: No Mixer assigned to music player");
+                }
+            }
+
             return true;
         }
         
@@ -156,5 +175,17 @@ public class NewMusicPlayer : MonoBehaviour
         return false;
     }
 
+    public void PlayMusic(Track track){
+        AudioSource a = musicTrackObjects[(int)track].GetComponent<AudioSource>();
+        if(!a.isPlaying){
+            a.Play();
+        }
+    }
+
+    public void StopMusic(){
+        foreach(GameObject g in musicTrackObjects){
+            g.GetComponent<AudioSource>().Stop();
+        }
+    }
 
 }

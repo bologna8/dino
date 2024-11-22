@@ -23,6 +23,9 @@ public class FadeOutArea : MonoBehaviour
 
         if(isFadingOut && mp != null){
             bool b = mp.FadeOut(fadeTime);
+            if(b){
+                mp.StopMusic();
+            }
             isFadingOut = !b;
         }
 
