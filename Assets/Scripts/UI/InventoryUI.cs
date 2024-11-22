@@ -186,9 +186,10 @@ public void UpdateInventoryUI()
 
     foreach (var item in Inventory.instance.inventoryItemList)
     {
-        if (item is HotbarItem hotbarItem && hotbarItem.HotBarIndex >= 0 && hotbarItem.HotBarIndex < hotbarTransforms.Length)
+        //if (item is HotbarItem hotbarItem && hotbarItem.HotBarIndex >= 0 && hotbarItem.HotBarIndex < hotbarTransforms.Length)
+        if (item.coreItemPosition > 0)
         {
-            AddItemSlot(item, hotbarTransforms[hotbarItem.HotBarIndex]);
+            AddItemSlot(item, hotbarTransforms[item.coreItemPosition -1]);
         }
         else
         {

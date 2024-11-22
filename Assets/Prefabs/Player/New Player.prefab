@@ -1137,11 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b4311441792b34abffda404705da44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItemList:
-  - {fileID: 11400000, guid: 723b288ed4c0bca4c9b9135ed90a247f, type: 2}
-  - {fileID: 11400000, guid: d0cd28f4e1424064399084b7c2677f5c, type: 2}
-  - {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
-  - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
+  inventoryItemList: []
 --- !u!50 &340933065370478967
 Rigidbody2D:
   serializedVersion: 4
@@ -1475,11 +1471,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCore: {fileID: 0}
   myAim: {fileID: 0}
-  attackPrefab: {fileID: 7650349434382594507, guid: a23845e8bc0e35545b6daf28d9357bee, type: 3}
+  attackPrefab: {fileID: 0}
   attackReady: 1
   attackHeld: 0
   verticalInput: 0
-  upAttackPrefab: {fileID: 2096241645069915440, guid: ab0d6755b23329345997f73d85988797, type: 3}
+  upAttackPrefab: {fileID: 0}
   downAttackPrefab: {fileID: 0}
   ignoreTeams: 0
 --- !u!114 &8949560792627629508
@@ -1576,8 +1572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6849140526c97645b74b777a6a0dddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallJumpItem: {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
-  airDashItem: {fileID: 11400000, guid: 1ad83e97d32f77d4ba6fcdcfa60ab709, type: 2}
+  wallJumpItem: {fileID: 11400000, guid: b1d898006538ee140ba29e67c09408e2, type: 2}
+  airDashItem: {fileID: 11400000, guid: d79dfff55649a1a418c27b392ea04edd, type: 2}
   canMoveWhileInInventory: 0
 --- !u!114 &2877406462878702801
 MonoBehaviour:

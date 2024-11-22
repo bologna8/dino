@@ -27,12 +27,6 @@ public class Buried : LayerCheck, IInteractable
             interactionPrompt.gameObject.SetActive(false);
         }
 
-
-        if (Inventory.instance && checkInventoryForItem) 
-        { 
-            if (Inventory.instance.ContainsItem(checkInventoryForItem, 1))
-            { gameObject.SetActive(false); }
-        }
     }
     private void Start()
     {
@@ -53,6 +47,11 @@ public class Buried : LayerCheck, IInteractable
         else if (interactionPrompt != null && touchingCore)
         {
             interactionPrompt.text = isGamepad ? "Press [X] to interact" : "Press [E] to interact";
+        }
+        else if (Inventory.instance && checkInventoryForItem) 
+        { 
+            if (Inventory.instance.ContainsItem(checkInventoryForItem, 1))
+            { gameObject.SetActive(false); }
         }
     }
 

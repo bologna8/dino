@@ -417,7 +417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abaa4d580edba244978f6463495a18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllItems: []
+  AllItems:
+  - {fileID: 11400000, guid: 7d63fa368db88194fb7241a9813546f1, type: 2}
+  - {fileID: 11400000, guid: c1d52318d9423c34ca4a8428df03881f, type: 2}
+  - {fileID: 11400000, guid: b1d898006538ee140ba29e67c09408e2, type: 2}
+  - {fileID: 11400000, guid: d79dfff55649a1a418c27b392ea04edd, type: 2}
+  - {fileID: 11400000, guid: 44ccdae88c8620749be6331f5981383a, type: 2}
+  - {fileID: 11400000, guid: 062c86d7587f0da4fa673c304ec5fac7, type: 2}
+  - {fileID: 11400000, guid: ee4f0f08ec4648d488beb2b1551a031e, type: 2}
+  - {fileID: 11400000, guid: f943a5ca384b9a5448d36d9dcbe25535, type: 2}
   fadeSprite: {fileID: 7776465039061783838}
   CheckpointParent: {fileID: 0}
   AllCheckpoints: []

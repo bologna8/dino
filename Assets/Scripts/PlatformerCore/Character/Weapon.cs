@@ -72,7 +72,7 @@ public class Weapon : MonoBehaviour
         
     }
 
-    public void setNewAttacks(GameObject newBaseAttack, GameObject newUpAttack = null, GameObject newDownAttack = null)
+    public void setNewAttacks(GameObject newBaseAttack = null, GameObject newUpAttack = null, GameObject newDownAttack = null)
     {
         attackPrefab = newBaseAttack;
         upAttackPrefab = newUpAttack;
@@ -80,9 +80,11 @@ public class Weapon : MonoBehaviour
         changeAttack(newBaseAttack);
     }
 
-    void changeAttack(GameObject newAttack)
+    void changeAttack(GameObject newAttack = null)
     {
         currentAttackPrefab = newAttack;
+
+        if (newAttack == null) { attackStats = null; return; }
         attackStats = newAttack.GetComponent<Attack>();
         currentClip = attackStats.clipSize;
     }

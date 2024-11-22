@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     public string itemName = "Default Item";  
     public Sprite icon = null;  
     public string itemDescription = "Description";  
+    public int coreItemPosition = 0;
 
     [Header("Stacking")]
     public bool isStackable = true; // Determines if the item can stack

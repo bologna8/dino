@@ -174,11 +174,11 @@ MonoBehaviour:
   momentumLaunch: 0
   attackingAimSpeed: 1
   moveWhileAttacking: 1
-  windup: 0.2
+  windup: 0.4
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
   noGravityDuringWindup: 0
-  attackDuration: 1
+  attackDuration: 0.6
   movementMidAttack: 0
   onlyHorizontalMoveMid: 1
   noGravityDuringAttack: 0
