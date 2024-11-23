@@ -59,7 +59,7 @@ public class NewMusicPlayer : MonoBehaviour
                 source.timeSamples = Primary.timeSamples;       
             }
         }else{
-            Debug.Log("Error: there is no primary and secondary audio sources assigned to music player");
+            //Debug.Log("Error: there is no primary and secondary audio sources assigned to music player");
         }
 
     }
@@ -177,14 +177,27 @@ public class NewMusicPlayer : MonoBehaviour
 
     public void PlayMusic(Track track){
         AudioSource a = musicTrackObjects[(int)track].GetComponent<AudioSource>();
-        if(!a.isPlaying){
+        AudioClipSequence acs = musicTrackObjects[(int)track].GetComponent<AudioClipSequence>();
+
+        if(acs != null){
+            acs.PlayFirstClip();
+        }
+        if(a != null && !a.isPlaying){
             a.Play();
         }
     }
 
     public void StopMusic(){
         foreach(GameObject g in musicTrackObjects){
-            g.GetComponent<AudioSource>().Stop();
+            
+            if(g.GetComponent<AudioSource>() != null){
+                g.GetComponent<AudioSource>().Stop();
+            }
+
+            if(g.GetComponent<AudioClipSequence>() != null){
+                g.GetComponent<AudioClipSequence>().ResetAudioSequence();
+            }
+
         }
     }
 
