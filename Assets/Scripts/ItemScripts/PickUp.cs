@@ -55,7 +55,7 @@ public class PickUp : MonoBehaviour
                 }
             }
 
-            
+            /*
             if (recipe)
             {
                 InventoryUI inventoryUI = FindObjectOfType<InventoryUI>();
@@ -64,7 +64,7 @@ public class PickUp : MonoBehaviour
                     inventoryUI.UpdateCraftingUI(recipe);
                 }
             }
-
+*/
             if (pickupEffect)
             {
                 PoolManager.Instance.Spawn(pickupEffect, transform.position);

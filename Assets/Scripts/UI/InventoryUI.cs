@@ -7,18 +7,18 @@ public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI Instance { get; private set; }
 
-    public bool inventoryOpen = true;
+    public bool inventoryOpen = false;
     public GameObject inventoryParent;
-    public GameObject craftingTab;
+    //public GameObject craftingTab;
     public GameObject book;
 
     private List<ItemSlot> itemSlotList = new List<ItemSlot>();
 
     public GameObject inventorySlotPrefab;
-    public GameObject craftingSlotPrefab;
+    //public GameObject craftingSlotPrefab;
 
     public Transform inventoryItemTransform;
-    public Transform craftingItemTransform;
+    //public Transform craftingItemTransform;
     public Transform[] hotbarTransforms = new Transform[4];
 
     // Highlight 
@@ -41,18 +41,15 @@ public class InventoryUI : MonoBehaviour
 
 private void Start()
 {
+
+    inventoryOpen = false;
     if (Inventory.instance != null)
     {
         Inventory.instance.onItemChange += UpdateInventoryUI;
     }
 
     UpdateInventoryUI();
-    SetUpCraftingRecipes();
-
-    if (book != null)
-    {
-        book.SetActive(true);
-    }
+    //SetUpCraftingRecipes();
 
     playerControls = FindObjectOfType<PlayerControls>();
 
@@ -73,27 +70,24 @@ private void Start()
             }
             else
             {
+                if(BookController.Instance!=null && BookController.Instance.isJournalOpen)
+                {
+                    BookController.Instance.CloseJournal();
+                }
                 OpenInventory();
             }
         }
     }
 
-private void OpenInventory()
+public void OpenInventory()
 {
     inventoryOpen = true;
     inventoryParent.SetActive(true);
-
-    if (book != null)
-    {
-        book.SetActive(true);
-    }
 
     if (playerControls != null)
     {
         playerControls.enabled = false;
     }
-
-    UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Inventory);
 
     if (Gamepad.all.Count > 0 && itemSlotList.Count > 0)
     {
@@ -102,7 +96,7 @@ private void OpenInventory()
 }
 
 
-    private void CloseInventory()
+    public void CloseInventory()
     {
         inventoryOpen = false;
         inventoryParent.SetActive(false);
@@ -127,6 +121,7 @@ private void OpenInventory()
         }
     }
 
+/*
     public void UpdateCraftingUI(CraftingRecipe recipe)
     {
         if (recipe == null) return;
@@ -161,7 +156,7 @@ private void OpenInventory()
             UpdateCraftingUI(recipe);
         }
     }
-
+*/
 public void UpdateInventoryUI()
 {
     if (inventoryItemTransform == null) { return; }

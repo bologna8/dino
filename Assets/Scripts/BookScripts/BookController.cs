@@ -49,35 +49,49 @@ public class BookController : MonoBehaviour
         }
     }
 
-    private void Start()
+private void Start()
+{
+    foreach (int pageIndex in alwaysAvailablePages)
     {
-        foreach (int pageIndex in alwaysAvailablePages)
-        {
-            unlockedPages.Add(pageIndex);
-        }
-
-        for (int i = 0; i < pages.Length; i++)
-        {
-            pages[i].SetActive(false);
-        } 
-
-        UpdateTabIcons();
+        unlockedPages.Add(pageIndex);
     }
 
-    public void OpenJournal(InputAction.CallbackContext context)
+    for (int i = 0; i < pages.Length; i++)
     {
-        if (context.performed)
+        pages[i].SetActive(false);
+    } 
+
+    UpdateTabIcons();
+
+    if (journalPanel != null)
+    {
+        journalPanel.SetActive(true);
+    }
+
+    isJournalOpen = true;
+    Cursor.visible = true;
+}
+public void OpenJournal(InputAction.CallbackContext context)
+{
+    if (context.performed)
+    {
+        if (isJournalOpen)
         {
-            if (isJournalOpen)
+            CloseJournal();
+        }
+        else
+        {
+            if (InventoryUI.Instance != null && InventoryUI.Instance.inventoryOpen)
             {
-                OpenJournal();
+                InventoryUI.Instance.CloseInventory();
             }
-            else
-            {
-                CloseJournal();
-            }
+
+            OpenJournal(); 
         }
     }
+}
+
+
 
     public void OpenJournal()
     {
@@ -96,8 +110,6 @@ public class BookController : MonoBehaviour
             Debug.LogError("EventSystem is missing from the scene. Please add it for UI interactions.");
         }
 
-        //Set Journal as the focus screen
-        UIStateTracker.Instance.SetActiveScreen(UIStateTracker.UIScreen.Journal);
     }
 
     public void CloseJournal()
