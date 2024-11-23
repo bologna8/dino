@@ -7,6 +7,8 @@ public class AudioClipSequenceAdvanceTransition : MonoBehaviour
     public AudioClipSequence audioClipSequence;
 
     public int loopIndex;
+
+    private bool willBreakThru = false;
     void Start()
     {
         
@@ -15,12 +17,15 @@ public class AudioClipSequenceAdvanceTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(willBreakThru){
+            bool b = audioClipSequence.BreakThruLoop(loopIndex);
+            willBreakThru = !b;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.transform.gameObject.tag == "Player"){
-            audioClipSequence.BreakThruLoop(loopIndex);
+            willBreakThru = true;
         }
     }
 }

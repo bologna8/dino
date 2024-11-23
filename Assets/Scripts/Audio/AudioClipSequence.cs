@@ -70,7 +70,7 @@ public class AudioClipSequence : MonoBehaviour
             
 
             
-            Debug.Log("Scheduled source " + flip + " to start at time " + nextEventTime);
+            Debug.Log("Scheduled source " + flip + " to start " + currentClip + " clip at time " + nextEventTime);
 
             
             nextEventTime += audioClips[currentClip].length;
@@ -117,9 +117,11 @@ public class AudioClipSequence : MonoBehaviour
         }
     }
 
-    public void BreakThruLoop(int loopIndex){
+    public bool BreakThruLoop(int loopIndex){ // returns true if loop broken thru
         if(loopIndex == currentClip){
             currentClip++;
+            return true;
         }
+        return false;
     }
 }
