@@ -20,8 +20,8 @@ public class HealthUI : MonoBehaviour
 
     void Awake()
     {
-        //GameObject GO = GameObject.FindGameObjectWithTag("Player");
-        //tracking = GO.GetComponentInChildren<Health>();
+        GameObject GO = GameObject.FindGameObjectWithTag("Player");
+        tracking = GO.GetComponentInChildren<Health>();
         
         if (!mySlider) { mySlider = GetComponent<Slider>(); }
         if (!myRect) { myRect = GetComponent<RectTransform>(); }
