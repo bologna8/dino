@@ -87,6 +87,7 @@ public class BookController : MonoBehaviour
         }
 
         UpdateTabIcons();
+        HighlightDefaultTab();
 
         if (journalPanel != null)
         {
@@ -95,6 +96,8 @@ public class BookController : MonoBehaviour
 
         isJournalOpen = true;
         Cursor.visible = true;
+
+
     }
 
     //why is there two open journals 
@@ -129,6 +132,7 @@ public class BookController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        HighlightDefaultTab();
 
         if (EventSystem.current == null)
         {
@@ -171,6 +175,15 @@ public class BookController : MonoBehaviour
             }
         }
     }
+
+private void HighlightDefaultTab()
+{
+    if (tabs.Length > 0 && tabs[currentTabIndex].button != null)
+    {
+        EventSystem.current.SetSelectedGameObject(null); 
+        tabs[currentTabIndex].button.Select();
+    }
+}
 
     private void DisplayPage(int pageIndex)
     {

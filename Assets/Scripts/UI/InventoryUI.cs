@@ -90,7 +90,8 @@ public void OpenInventory()
         playerControls.enabled = false;
     }
 
-    if (Gamepad.all.Count > 0 && itemSlotList.Count > 0)
+    if (Gamepad.all.Count > 0 && itemSlotList.Count > 0 && 
+        (BookController.Instance == null || !BookController.Instance.isJournalOpen))
     {
         EventSystem.current.SetSelectedGameObject(itemSlotList[0].gameObject);
     }
