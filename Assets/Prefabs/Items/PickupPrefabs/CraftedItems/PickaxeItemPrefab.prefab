@@ -152,10 +152,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3073
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -330,7 +326,7 @@ MonoBehaviour:
   randStartX: {x: 42, y: 123}
   despawnTime: 123
   delayPickupTime: 0.21
-  item: {fileID: 11400000, guid: d32bd7f5a509d7645aa5aababbc6af16, type: 2}
+  item: {fileID: 11400000, guid: b1d898006538ee140ba29e67c09408e2, type: 2}
   recipe: {fileID: 0}
 --- !u!114 &2775023847605421243
 MonoBehaviour:

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
-  itemName: Default Item
+  itemName: Pickaxe
   icon: {fileID: 21300000, guid: d12377940047c934e921c7a9d3df209f, type: 3}
   itemDescription: Mine and Climb
+  coreItemPosition: 0
   isStackable: 0
   stackCount: 1
   maxStack: 9
