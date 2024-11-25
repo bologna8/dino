@@ -11,6 +11,7 @@ public class BookController : MonoBehaviour
     public GameObject journalPanel;
     public bool isJournalOpen = false;
 
+    //Individual is one page, Spread is two pages 
     [System.Serializable]
     public enum PageType
     {
@@ -21,9 +22,9 @@ public class BookController : MonoBehaviour
     [System.Serializable]
     public class Page
     {
-        public GameObject[] pageObjects; 
+        public GameObject[] pageObjects;  //Prefabs 
         public PageType pageType;         // Page type (individual or book spread)
-        public bool isUnlocked;
+        public bool isUnlocked;           //bool for if page is unlocked or not
     }
 
     public Page[] pages;  
@@ -65,6 +66,7 @@ public class BookController : MonoBehaviour
 
     private void Start()
     {
+        //Pages that are available from start will be automatically unlocked and available 
         foreach (int pageIndex in alwaysAvailablePages)
         {
             unlockedPages.Add(pageIndex);
@@ -95,6 +97,7 @@ public class BookController : MonoBehaviour
         Cursor.visible = true;
     }
 
+    //why is there two open journals 
     public void OpenJournal(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -147,6 +150,7 @@ public class BookController : MonoBehaviour
         #endif
     }
 
+    //This brings the user to a specific page index on a button click.
     public void GoToTab(int tabIndex)
     {
         if (unlockedPages.Contains(tabIndex) || alwaysAvailablePages.Contains(tabIndex))

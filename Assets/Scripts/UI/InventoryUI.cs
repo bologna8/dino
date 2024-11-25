@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
+//Referencing the UI for Inventory System 
 public class InventoryUI : MonoBehaviour
 {
     public static InventoryUI Instance { get; private set; }
