@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92731a75fd2e5343afe6c39b159ce3d, type: 3}
   m_Name: Blade
   m_EditorClassIdentifier: 
-  itemName: Serrated Blade
+  itemName: Default Item
   icon: {fileID: 21300000, guid: fb8b816d2b2899f499b782bb88b0d4cf, type: 3}
   itemDescription: Super Sharp
-  coreItemPosition: 2
   isStackable: 0
   stackCount: 1
   maxStack: 9
