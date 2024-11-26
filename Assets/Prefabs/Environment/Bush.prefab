@@ -98,10 +98,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4160
   touching: 0
-  touchingLeft: 0
-  touchingRight: 0
-  touchingTop: 0
-  touchingBot: 0
   lastCollided: {fileID: 0}
   slope: 0
   unselectedSaturation: 0.5
@@ -197,6 +193,8 @@ MonoBehaviour:
   maxHP: 1
   currentHP: 0
   immunities: 0
+  knockbackResistance: 0
+  stunResistance: 0
   myCore: {fileID: 0}
   mySpawn: {fileID: 0}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
@@ -208,7 +206,7 @@ MonoBehaviour:
   stunTime: 0
   invincibleTime: 0
   myMovement: {fileID: 0}
-  hitEffect: {fileID: 3561253398169580007, guid: 3088c6c210b25e44bbb71aebe5b941ee, type: 3}
+  hitEffect: {fileID: 0}
   friendlyFireOnly: 0
   deathEffect: {fileID: 4404173520793160998, guid: 9fb41ff96abaa574bae259295230ec82, type: 3}
   deathOffset: {x: 0, y: 0.65, z: 0}
