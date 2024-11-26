@@ -27,7 +27,7 @@ public class LayerCheck : MonoBehaviour
      {
           if (myBounds == null) { myBounds = GetComponent<Collider2D>().bounds; }
 
-          if (!mySprite) { mySprite = GetComponent<SpriteRenderer>(); }
+          if (!mySprite) { mySprite = GetComponentInChildren<SpriteRenderer>(); }
           if (mySprite) { startColor = mySprite.color; }
           SetSaturation(unselectedSaturation);
      }

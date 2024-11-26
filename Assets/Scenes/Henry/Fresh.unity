@@ -3753,7 +3753,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 593479598186084569, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: inventoryItemList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 593479598186084569, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: inventoryItemList.Array.data[0]
@@ -3770,11 +3770,11 @@ PrefabInstance:
     - target: {fileID: 593479598186084569, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: inventoryItemList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: ee4f0f08ec4648d488beb2b1551a031e, type: 2}
+      objectReference: {fileID: 11400000, guid: 44ccdae88c8620749be6331f5981383a, type: 2}
     - target: {fileID: 593479598186084569, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: inventoryItemList.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: f943a5ca384b9a5448d36d9dcbe25535, type: 2}
+      objectReference: {fileID: 11400000, guid: 44ccdae88c8620749be6331f5981383a, type: 2}
     - target: {fileID: 593479598186084569, guid: 3158aab97d175c34eb5c8d4d15832e2f, type: 3}
       propertyPath: inventoryItemList.Array.data[5]
       value: 
@@ -9267,7 +9267,7 @@ PrefabInstance:
     - target: {fileID: 954470155514628742, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: possiblePickupPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 3561253398169580007, guid: 4b1b91c050777ca498b830eef957e329, type: 3}
+      objectReference: {fileID: 3561253398169580007, guid: 18db02eb65ea78948be2ba35608c6a78, type: 3}
     - target: {fileID: 2528636699876349145, guid: cf9684512c1f1784293ccc930fde8c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.74

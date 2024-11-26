@@ -1,0 +1,1284 @@
+fileFormatVersion: 2
+guid: d62fac1a0e828de45a26eacfd67bad84
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trex-idle_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1802
+        width: 224
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3019f4579b2fbe64ea3d708e77e33983
+      internalID: 1145176703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1918
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95f032a9dfbcd346acc9e71d5dabbcb
+      internalID: 457491347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_2
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1802
+        width: 224
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809a1bc79e00a5b4bb651e74160c2f6a
+      internalID: -1527766689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_3
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1918
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0397a150ef9f5e418f99e796a64d49e
+      internalID: 1657800732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_4
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1802
+        width: 224
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39b50aa616f9644cb756858a1a16e0b
+      internalID: 368539599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_5
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 1918
+        width: 208
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3675fd1b49092754dabd93fdaa71ffa9
+      internalID: 569643960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_6
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1802
+        width: 218
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57aa30e3946f2e448856a6a1f64a58db
+      internalID: -1508503937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_7
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 1918
+        width: 208
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec413e25ecbb7e4ca927867b61a64df
+      internalID: -1346034243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_8
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1918
+        width: 179
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05deab17a5436ef40882102eae547057
+      internalID: -1602435920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_9
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1802
+        width: 193
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d31708986711e46a2ede09fffc7baa
+      internalID: 1663744797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_10
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 1802
+        width: 204
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a581a77b8752d440bf9d6971042066f
+      internalID: -778251630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_11
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1918
+        width: 179
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6069e623514ef604ab2fe6c4247562b0
+      internalID: -1344693597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_12
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 1802
+        width: 212
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c27f59928b96054abd405b1ee5b868b
+      internalID: -249172684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_13
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 1918
+        width: 209
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ddf0d1f839c434294bb7970c029420
+      internalID: 1816840391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_14
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 1802
+        width: 222
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118cb636e3afa5e4181210a02f44eed3
+      internalID: -361636420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_15
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 1918
+        width: 209
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c402a87b0add13458a8caf03e4b9968
+      internalID: -302949319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_16
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1546
+        width: 221
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1455aa327e20d1643aec813db59c33b4
+      internalID: 686877526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_17
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1662
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e3813672079ca3459713d9eb7de0d22
+      internalID: 1637437200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_18
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1546
+        width: 217
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529528648122df64e8fad63369bac4aa
+      internalID: -592215751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_19
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1662
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9d30c05305ad7f4eb189ddeb3bd9743
+      internalID: -1128780862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_20
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 1546
+        width: 209
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2d40009cbe2884eac4b1c26e2eed0a
+      internalID: -1288754093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_21
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1662
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a64664fc86ced64a9d1b599238acb92
+      internalID: -53057336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_22
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1546
+        width: 197
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1dee3a26d525c4c9bfff083c0b7049
+      internalID: 2058123269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_23
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1662
+        width: 169
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15563da315e0ff94bb5f29131360ca8f
+      internalID: 219057418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_24
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 1546
+        width: 185
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 079b7fcdc88d0f74a8f71a4b9335d989
+      internalID: 838139127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_25
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1662
+        width: 169
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee6581c709caa845bb71875a078b1d9
+      internalID: 451996558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_26
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 1546
+        width: 173
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0fc4e46b10ffc40a66f7a6e8db879c
+      internalID: 995713323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_27
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 1662
+        width: 169
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11d69804efe69445923e766ebf05bb1
+      internalID: 661359544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_28
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 1546
+        width: 170
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9e4dbfd9e40944a9bd035078b1a28e
+      internalID: 1588851547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_29
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 1662
+        width: 163
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9186e73d60ddd4c8ce599277aa7679
+      internalID: 449747473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_30
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 1662
+        width: 163
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3edaff79e6b701e4285b2381bf3b3b78
+      internalID: 2137331728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_31
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 1546
+        width: 166
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31751c35b4bab144ba693b1c1af7e590
+      internalID: 1525838682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_32
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1406
+        width: 163
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d781cd0e219cd84ca8196c0d9a0ef19
+      internalID: -1805353365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1290
+        width: 161
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bab2565bfd0c3438eef6dd8a0b9262
+      internalID: 652574488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_34
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1406
+        width: 176
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8e4f2290ffde64cac7450343108cba
+      internalID: -1977255832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_35
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1290
+        width: 168
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcde714dcb7d3dc4f941981cb908e5db
+      internalID: -1491641235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_36
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1290
+        width: 176
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69c1ec671e8eb542bd05a7e9338c633
+      internalID: 251824935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_37
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1406
+        width: 176
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6c3433fdba2ff45a4d573870cf2ec4
+      internalID: -317807757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_38
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1290
+        width: 187
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711585bd143fdc34fa1407e1d7c614a9
+      internalID: 1625512724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_39
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 1406
+        width: 176
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: decdfac0fde50c3438f429191cfc1c4b
+      internalID: 1437746296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_40
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 1290
+        width: 198
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19dd6ccbb3b21b45b78173f15a71d67
+      internalID: -423242473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_41
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 1406
+        width: 176
+        height: 121
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa7bb0b8b2aa624fb06989284380a56
+      internalID: 980069049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_42
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 1290
+        width: 209
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb73ab5b612f114bb99966a25f83c6b
+      internalID: -874120331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_43
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 1406
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcba6572598ef643ac0235c31fc3c3a
+      internalID: 533469672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_44
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 1290
+        width: 216
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873cf46f4abb4d74991478403ba3cf6b
+      internalID: 169180706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_45
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 1406
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105d0ad2880c2e74e87c70f497f9c63c
+      internalID: -1653659654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_46
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 1290
+        width: 221
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7c77c3136a8a6479976142c724fb65
+      internalID: -575520321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_47
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 1406
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4665146b47596f64a873d3e69ff3f6d3
+      internalID: 1441079451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_48
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1034
+        width: 224
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5edad23d241cea14fad850b1fc585a48
+      internalID: 1838720199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_49
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1150
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc151aed6d7b4d49ae5636f4daba7f8
+      internalID: -820215814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_50
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1034
+        width: 224
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f744c6eb9cf9567478904d572c7618af
+      internalID: -201881165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-idle_51
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1150
+        width: 223
+        height: 120
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43bb67c6532b9a54684691b556cdfb7e
+      internalID: 2087983738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Trex-idle_0: 1145176703
+      Trex-idle_1: 457491347
+      Trex-idle_10: -778251630
+      Trex-idle_11: -1344693597
+      Trex-idle_12: -249172684
+      Trex-idle_13: 1816840391
+      Trex-idle_14: -361636420
+      Trex-idle_15: -302949319
+      Trex-idle_16: 686877526
+      Trex-idle_17: 1637437200
+      Trex-idle_18: -592215751
+      Trex-idle_19: -1128780862
+      Trex-idle_2: -1527766689
+      Trex-idle_20: -1288754093
+      Trex-idle_21: -53057336
+      Trex-idle_22: 2058123269
+      Trex-idle_23: 219057418
+      Trex-idle_24: 838139127
+      Trex-idle_25: 451996558
+      Trex-idle_26: 995713323
+      Trex-idle_27: 661359544
+      Trex-idle_28: 1588851547
+      Trex-idle_29: 449747473
+      Trex-idle_3: 1657800732
+      Trex-idle_30: 2137331728
+      Trex-idle_31: 1525838682
+      Trex-idle_32: -1805353365
+      Trex-idle_33: 652574488
+      Trex-idle_34: -1977255832
+      Trex-idle_35: -1491641235
+      Trex-idle_36: 251824935
+      Trex-idle_37: -317807757
+      Trex-idle_38: 1625512724
+      Trex-idle_39: 1437746296
+      Trex-idle_4: 368539599
+      Trex-idle_40: -423242473
+      Trex-idle_41: 980069049
+      Trex-idle_42: -874120331
+      Trex-idle_43: 533469672
+      Trex-idle_44: 169180706
+      Trex-idle_45: -1653659654
+      Trex-idle_46: -575520321
+      Trex-idle_47: 1441079451
+      Trex-idle_48: 1838720199
+      Trex-idle_49: -820215814
+      Trex-idle_5: 569643960
+      Trex-idle_50: -201881165
+      Trex-idle_51: 2087983738
+      Trex-idle_6: -1508503937
+      Trex-idle_7: -1346034243
+      Trex-idle_8: -1602435920
+      Trex-idle_9: 1663744797
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

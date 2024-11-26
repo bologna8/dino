@@ -161,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 215086994315009943, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8113084423703979873}
     - target: {fileID: 238067087955223135, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Size.y
       value: 0.8
@@ -295,6 +295,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: emoteAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: ba683284d0f2c0f4a98a7c162f11ae46, type: 2}
+    - target: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: attackAimTime.x
       value: 0.1
       objectReference: {fileID: 0}
@@ -311,9 +315,21 @@ PrefabInstance:
       value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 3882941796004582005, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882941796004582005, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882941796004582005, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 267412021, guid: 9236cb0d06caae648bc2be13e3f30cf6, type: 3}
+      objectReference: {fileID: 1145176703, guid: d62fac1a0e828de45a26eacfd67bad84, type: 3}
+    - target: {fileID: 3882941796004582005, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4042421843958214111, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -382,6 +398,10 @@ PrefabInstance:
       propertyPath: maxHP
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8478583008990582963, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: deathAnimation
+      value: 
+      objectReference: {fileID: 7400000, guid: 61bb0a4855f5de14d8822348860ce84b, type: 2}
     - target: {fileID: 8505960365540364046, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: lockLength
       value: 1.23
@@ -441,5 +461,10 @@ PrefabInstance:
 --- !u!4 &1877879966211161490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2661674118543948784, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+  m_PrefabInstance: {fileID: 4539552983481779810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8113084423703979873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
   m_PrefabInstance: {fileID: 4539552983481779810}
   m_PrefabAsset: {fileID: 0}

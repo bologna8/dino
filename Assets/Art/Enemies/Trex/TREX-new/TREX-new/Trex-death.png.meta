@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9236cb0d06caae648bc2be13e3f30cf6
+guid: 1954f03eec4a72a4ebd6186446a204a8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,33 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trex-idle_0
+      name: Trex-death_0
       rect:
         serializedVersion: 2
         x: 23
-        y: 1838
-        width: 223
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7dde629c61e9777439093c327f5f0626
-      internalID: 267412021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trex-idle_1
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 1838
-        width: 208
+        y: 1793
+        width: 225
         height: 121
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -158,41 +137,209 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92be4a4a7e784fe48a92d2e403addd84
-      internalID: 1535166922
+      spriteID: bd06fad39385af841a270bcc89125d52
+      internalID: -1141441893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trex-idle_2
+      name: Trex-death_1
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1792
+        width: 219
+        height: 125
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06433b6e9a7e94347930869d3d7207ef
+      internalID: 417477097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1792
+        width: 213
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea4e0b83927f3d5459c38ee3122c75a0
+      internalID: 1532852111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_3
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 1792
+        width: 205
+        height: 126
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e836f4e7e07356d4fba8b8d06c615565
+      internalID: -1893500547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_4
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 1793
+        width: 197
+        height: 129
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9450cfa26ec520543adc8dbe877f515c
+      internalID: 1721975548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_5
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 1792
+        width: 186
+        height: 134
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2704ba0fd9b562644ab48b4197d5d440
+      internalID: -2736646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_6
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 1792
+        width: 172
+        height: 137
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a62dc77626306408f5218c6152a775
+      internalID: 1128214114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_7
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 1792
+        width: 186
+        height: 123
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039f70e6ec77da24c8ccbbfb8ac9a22a
+      internalID: -46057590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1536
+        width: 195
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc213ecafbfb4774e83cdda33ae71908
+      internalID: 1630098995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_9
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1536
+        width: 200
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f921977294d1fcd4780cae54a54cdf9e
+      internalID: -1475734965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trex-death_10
       rect:
         serializedVersion: 2
         x: 536
-        y: 1838
-        width: 179
-        height: 121
-      alignment: 9
-      pivot: {x: 0.6, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74b124126ba3f61489c6c724db0ffa18
-      internalID: -714771552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trex-idle_3
-      rect:
-        serializedVersion: 2
-        x: 791
-        y: 1838
-        width: 209
-        height: 121
+        y: 1536
+        width: 203
+        height: 65
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +347,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac86c0ddcd1138c459fe248527c9c3f0
-      internalID: 1933252997
+      spriteID: 4ddf9798747c2eb41975a4baba87e3b0
+      internalID: -658470763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trex-idle_4
+      name: Trex-death_11
       rect:
         serializedVersion: 2
-        x: 1047
-        y: 1838
-        width: 223
-        height: 120
+        x: 793
+        y: 1536
+        width: 201
+        height: 57
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,71 +368,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a07b3d94d92006f4497c7794c4bb6a57
-      internalID: -1712337129
+      spriteID: 9c2192714e56f1649bd25b772e5a6bcd
+      internalID: -477706698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trex-idle_5
+      name: Trex-death_12
       rect:
         serializedVersion: 2
-        x: 1310
-        y: 1838
-        width: 169
-        height: 121
-      alignment: 9
-      pivot: {x: 0.6, y: 0}
+        x: 1054
+        y: 1536
+        width: 202
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf114e4964f7924380a8506b745f6bf
-      internalID: -189364879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trex-idle_6
-      rect:
-        serializedVersion: 2
-        x: 1560
-        y: 1838
-        width: 163
-        height: 121
-      alignment: 9
-      pivot: {x: 0.65, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e18138ca3adf634f80a7c7c8fac71b7
-      internalID: 57014340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trex-idle_7
-      rect:
-        serializedVersion: 2
-        x: 1815
-        y: 1838
-        width: 176
-        height: 121
-      alignment: 9
-      pivot: {x: 0.6, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f566900de4da064899ac44fefb204a8
-      internalID: 407366464
+      spriteID: ae30995dc716a824d9d20c6c59e9ea6a
+      internalID: 2147239626
       vertices: []
       indices: 
       edges: []
@@ -301,14 +406,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trex-idle_0: 267412021
-      trex-idle_1: 1535166922
-      trex-idle_2: -714771552
-      trex-idle_3: 1933252997
-      trex-idle_4: -1712337129
-      trex-idle_5: -189364879
-      trex-idle_6: 57014340
-      trex-idle_7: 407366464
+      Trex-death_0: -1141441893
+      Trex-death_1: 417477097
+      Trex-death_10: -658470763
+      Trex-death_11: -477706698
+      Trex-death_12: 2147239626
+      Trex-death_2: 1532852111
+      Trex-death_3: -1893500547
+      Trex-death_4: 1721975548
+      Trex-death_5: -2736646
+      Trex-death_6: 1128214114
+      Trex-death_7: -46057590
+      Trex-death_8: 1630098995
+      Trex-death_9: -1475734965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
