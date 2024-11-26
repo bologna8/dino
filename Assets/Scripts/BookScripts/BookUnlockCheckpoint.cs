@@ -5,9 +5,10 @@ public class BookUnlockCheckpoint : MonoBehaviour
     private bool checkpointTriggered = false; 
     public BookController bookController;
 
-    [Tooltip("Index of the spread to unlock in the journal.")]
-    public int spreadToUnlock; //Element that you want to unlock from pages array 
+    [Tooltip("Index of the page or spread to unlock in the journal.")]
+    public int pageToUnlock; 
 
+    public bool unlockAsSpread = false; 
     public PageUnlockPopUp pageUnlockPopUp;
 
     private void Start()
@@ -33,14 +34,21 @@ public class BookUnlockCheckpoint : MonoBehaviour
         {
             checkpointTriggered = true; 
 
-            UnlockSpread(spreadToUnlock);
+            if (unlockAsSpread)
+            {
+                UnlockSpread(pageToUnlock);
+            }
+            else
+            {
+                UnlockIndividualPage(pageToUnlock);
+            }
 
             if (pageUnlockPopUp != null)
             {
-                pageUnlockPopUp.ShowPopUp("New Pages Unlocked!");
+                pageUnlockPopUp.ShowPopUp("New Page Unlocked!");
             }
 
-            Debug.Log("Checkpoint triggered! Unlocking spread: " + spreadToUnlock);
+            Debug.Log("Checkpoint triggered! Unlocking: " + (unlockAsSpread ? "Spread" : "Page") + " " + pageToUnlock);
 
             Destroy(gameObject);
         }
@@ -62,5 +70,23 @@ public class BookUnlockCheckpoint : MonoBehaviour
         }
 
         bookController.UnlockSpecificPage(spreadIndex);
+    }
+
+    private void UnlockIndividualPage(int pageIndex)
+    {
+        if (pageIndex < 0 || pageIndex >= bookController.pages.Length)
+        {
+            Debug.LogError("Page index is out of range: " + pageIndex);
+            return;
+        }
+
+        BookController.Page individualPage = bookController.pages[pageIndex];
+        if (individualPage.pageType != BookController.PageType.Individual)
+        {
+            Debug.LogError("Specified index does not correspond to an individual page: " + pageIndex);
+            return;
+        }
+
+        bookController.UnlockSpecificPage(pageIndex);
     }
 }
