@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
       }
       
       //PlayerPrefs.DeleteAll();
-      //Load();
+      Load();
       StartCoroutine(Fade(Color.black, 1));
     }
     
