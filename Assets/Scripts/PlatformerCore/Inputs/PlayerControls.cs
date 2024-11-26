@@ -35,6 +35,7 @@ public class PlayerControls : MonoBehaviour
     {
         myCore.jumpHeld = myControls.Base.Jump.IsPressed();
 
+        if (myCore.attackInput.Length <= 0) { return; } //idk
         myCore.attackInput[0] = myControls.Base.Primary.IsPressed();
         //myCore.attackInput[1] = myControls.Base.Secondary.IsPressed();
 

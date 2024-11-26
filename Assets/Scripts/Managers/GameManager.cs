@@ -123,15 +123,16 @@ public class GameManager : MonoBehaviour
     {
       for(int i = 0; i < AllItems.Length; i++) 
       {
-        if (item == AllItems[i]) { saveInventoryArray[i]++; }
+        if (item.name == AllItems[i].name) { saveInventoryArray[i] += item.stackCount; }
       }
+      
     }
 
     string s = "";
     foreach (int i in saveInventoryArray) { s += "" +i; }
 
     PlayerPrefs.SetString("Saved Inventory", s);
-    //Debug.Log("Saved: "+s);
+    Debug.Log("Saved: "+s);
 
   }
 
