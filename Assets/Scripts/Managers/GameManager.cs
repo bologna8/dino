@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     foreach (int i in saveInventoryArray) { s += "" +i; }
 
     PlayerPrefs.SetString("Saved Inventory", s);
+    //Debug.Log("Saved: "+s);
 
   }
 
@@ -142,11 +143,12 @@ public class GameManager : MonoBehaviour
     if (!playerInventory) { return; }
     playerInventory.inventoryItemList.Clear();
 
-    var defaultString = "1"; //Start with shovel at least
+    var defaultString = "1"; //Start with shovel and lantern at least
     for (int i = 1; i < AllItems.Length; i++)
     { defaultString += "0"; }
 
     var inventoryString = PlayerPrefs.GetString("Saved Inventory", defaultString);
+    //Debug.Log("Load: " +inventoryString);
 
     for(int i = 0; i < AllItems.Length; i ++)
     {
@@ -158,6 +160,12 @@ public class GameManager : MonoBehaviour
       
     }
 
+  }
+
+  public void Reset()
+  {
+    PlayerPrefs.DeleteAll();
+    StartCoroutine(Fade(Color.black, 1, true));
   }
 
 
