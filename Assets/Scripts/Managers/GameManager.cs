@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
   public List<Item> AllRecipes;
   public List<Item> craftingRecipes = new List<Item>();
 
+  public NewMusicPlayer music;
+
   public void Awake()
   {
     if (instance == null) { instance = this; }
@@ -81,6 +83,8 @@ public class GameManager : MonoBehaviour
   IEnumerator Fade(Color fadeColor, float fadeDuration = 1, bool fadeOut = false)
   {
     if (fading) { yield break; }
+
+    if (music && fadeOut) { music.FadeOut(fadeDuration); }
 
     if (!fadeSprite) 
     { 
