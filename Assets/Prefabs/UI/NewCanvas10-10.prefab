@@ -3529,7 +3529,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: GoToTab
+        m_MethodName: DisplaySpread
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5016,7 +5016,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: GoToTab
+        m_MethodName: DisplaySpread
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11561,50 +11561,60 @@ MonoBehaviour:
   pages:
   - pageObjects:
     - {fileID: 217435324534878434}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 1031207575549146211}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 3437519804188677072}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 2666546103677890011}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 3717294596702248430}
+    - {fileID: 2744442481219775638}
+    pageType: 1
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 6937982380224179880}
     pageType: 0
     isUnlocked: 1
   - pageObjects:
-    - {fileID: 2744442481219775638}
+    - {fileID: 2999667059991005509}
+    pageType: 0
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 8599279050886130651}
+    pageType: 0
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 8098978969844634758}
+    pageType: 0
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 7451157536283749325}
     pageType: 0
     isUnlocked: 1
   - pageObjects:
     - {fileID: 4365764949851115253}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 921824497949196930}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 6625420619241548042}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 6956589431171511762}
-    pageType: 0
-    isUnlocked: 1
-  - pageObjects:
     - {fileID: 1195614818405623163}
+    - {fileID: 7773465586216560116}
     pageType: 0
     isUnlocked: 1
   - pageObjects:
-    - {fileID: 7773465586216560116}
+    - {fileID: 8680204004439332484}
+    pageType: 0
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 2423833755484607017}
+    pageType: 0
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 8549218348395885307}
+    pageType: 0
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 7054090547146566962}
+    pageType: 0
+    isUnlocked: 1
+  - pageObjects:
+    - {fileID: 690993466198190306}
     pageType: 0
     isUnlocked: 1
   - pageObjects:
