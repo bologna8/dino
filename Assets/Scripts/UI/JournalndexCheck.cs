@@ -2,46 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class JournalndexCheck : MonoBehaviour
 {
-    BookController controller;
+    [SerializeField]
+    private BookController controller;
 
     public int pageNum;
     private Button button;
-    private Image image;
+    private TMP_Text text;
 
     Color color;
     // Start is called before the first frame update
     void Start()
     {
+
         button = this.gameObject.GetComponent<Button>();
-        image = this.gameObject.GetComponent<Image>();
-        color = image.color;
+        text = this.gameObject.GetComponentInChildren<TMP_Text>();
+        color = text.color;
+
+        buttonCheckTic = Time.time+1;
+
+        pageCheck();
     }
+
+    float buttonCheckTic;
+
+    bool isUnlocked = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (buttonCheckTic < Time.time)
+        {
+            if (!isUnlocked)
+            {
+                pageCheck();
+            }
+        }
     }
-    void OnEnable()
+    void pageCheck()
     {
         if (controller.pages[pageNum].isUnlocked == false)
         {
             color.a = 0;
-            image.color = color;
+            text.color = color;
 
             button.interactable = false;
         }
         else
         {
             color.a = 1;
-            image.color = color;
+            text.color = color;
 
             button.interactable = true;
+            isUnlocked = true;
         }
 
 
-    }
+    } 
 }
