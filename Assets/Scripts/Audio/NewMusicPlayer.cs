@@ -20,10 +20,18 @@ public class NewMusicPlayer : MonoBehaviour
 
     private static readonly List<string> tracks = new List<string> {track1, track2, track3, track4};
 
+    private const string Master = "Master";
+    private const string Music = "Music";
+    private const string SFX = "SFX";
+
+    private static readonly List<string> audioOutputs = new List<string> {Master, Music, SFX};
+
     
 
     //public bool doingCrossfade = false;
     public enum Track {track1, track2, track3, track4}
+
+    public enum Output {Master, Music, SFX}
 
     [Header("Crossfade Properties")]
     public Track trackToBringOut = 0;
@@ -198,6 +206,14 @@ public class NewMusicPlayer : MonoBehaviour
                 g.GetComponent<AudioClipSequence>().ResetAudioSequence();
             }
 
+        }
+    }
+
+    public void AdjustVolume(UnityEngine.UI.Slider slider, Output output){
+        if(slider.value <= 0f){
+            Mixer.SetFloat(audioOutputs[(int)output], -80f);
+        }else{
+            Mixer.SetFloat(audioOutputs[(int)output], Mathf.Log10(slider.value) * 26);
         }
     }
 
