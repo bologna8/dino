@@ -4432,6 +4432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63dd55a4525b9054d90af25960b5a393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookController: {fileID: 0}
 --- !u!114 &1780594335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4970,6 +4971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63dd55a4525b9054d90af25960b5a393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookController: {fileID: 0}
 --- !u!114 &2100059821
 MonoBehaviour:
   m_ObjectHideFlags: 0

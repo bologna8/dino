@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public BookController bookController;
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -14,5 +16,10 @@ public class Menu : MonoBehaviour
     {
         Debug.Log("Quit Game");
         Application.Quit();
+    }
+
+    public void ResumeGame()
+    {
+        BookController.Instance.CloseJournal();
     }
 }

@@ -87,7 +87,7 @@ public class BookController : MonoBehaviour
         }
 
         UpdateTabIcons();
-        HighlightDefaultTab();
+        HighlightDefaultTab(0);
 
         if (journalPanel != null)
         {
@@ -103,6 +103,7 @@ public class BookController : MonoBehaviour
     //why is there two open journals 
     public void OpenJournal(InputAction.CallbackContext context)
     {
+
         if (context.performed)
         {
             if (isJournalOpen)
@@ -129,10 +130,11 @@ public class BookController : MonoBehaviour
         }
 
         isJournalOpen = true;
+        Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        HighlightDefaultTab();
+        HighlightDefaultTab(0);
 
         if (EventSystem.current == null)
         {
@@ -148,6 +150,7 @@ public class BookController : MonoBehaviour
         }
 
         isJournalOpen = false;
+        Time.timeScale = 1f;
 
         #if !UNITY_EDITOR
         Cursor.visible = false;
@@ -176,14 +179,63 @@ public class BookController : MonoBehaviour
         }
     }
 
-private void HighlightDefaultTab()
+private void HighlightDefaultTab(int tabIndex)
 {
-    if (tabs.Length > 0 && tabs[currentTabIndex].button != null)
+    if (tabs.Length > 0 &&
+        tabIndex >= 0 &&
+        tabIndex < tabs.Length &&
+        tabs[tabIndex].button != null)
     {
-        EventSystem.current.SetSelectedGameObject(null); 
-        tabs[currentTabIndex].button.Select();
+        bool hasUnlockedPage = tabs[tabIndex].associatedPages.Any(pageIndex =>
+            unlockedPages.Contains(pageIndex) || alwaysAvailablePages.Contains(pageIndex));
+
+        if (hasUnlockedPage)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+
+            tabs[tabIndex].button.Select();
+
+            currentTabIndex = tabIndex;
+        }
+        else
+        {
+            Debug.LogWarning($"Tab {tabIndex} cannot be highlighted because it is associated with locked pages only.");
+            HighlightNearestButton(tabs[tabIndex].button);
+        }
+    }
+    else
+    {
+        Debug.LogWarning($"Invalid tab index: {tabIndex} or no tabs available.");
+        if (tabs.Length > 0)
+        {
+            HighlightNearestButton(tabs[0].button); 
+        }
     }
 }
+
+private void HighlightNearestButton(Button currentButton)
+{
+    if (currentButton == null)
+        return;
+
+    Selectable selectable = currentButton;
+    Selectable nextSelectable = selectable.FindSelectableOnDown()
+                              ?? selectable.FindSelectableOnUp()
+                              ?? selectable.FindSelectableOnRight()
+                              ?? selectable.FindSelectableOnLeft();
+
+    if (nextSelectable != null)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        nextSelectable.Select();
+    }
+    else
+    {
+        Debug.LogWarning("No nearby selectable buttons found.");
+    }
+}
+
+
 
     private void DisplayPage(int pageIndex)
     {
