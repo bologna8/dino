@@ -26,7 +26,7 @@ public class NewGameConfirmation : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Gold Scene Crunch");
+        SceneManager.LoadScene("Gold Blockout 1");
     }
 
     public void CancelNewGame()
