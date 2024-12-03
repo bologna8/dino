@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.SceneManagement;
 
-public class Checkpoint : MonoBehaviour
+public class Checkpoint : MonoBehaviour, IInteractable
 {
     //[HideInInspector] public int Number;
     public bool active = false;
     public GameObject activeEffect;
+
+    private Core touchingCore;
     //public static GameObject spawnPlayer;
     //public float respawnOffset = 1;
 
@@ -36,9 +38,32 @@ public class Checkpoint : MonoBehaviour
         { 
             if (GameManager.instance) { GameManager.instance.Save(this); }
             active = true;
+            if (!touchingCore) 
+            { 
+                touchingCore = player.transform.GetComponent<Core>();
+                if (touchingCore) { touchingCore.interactables.Add(this); }
+            }
+            
 
         }
         
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (touchingCore) 
+        {
+            if (other.transform == touchingCore.transform) 
+            { 
+                touchingCore.interactables.Remove(this);
+                touchingCore = null; 
+            }
+        }
+    }
+
+    public void Interact(GameObject interacter)
+    {
+        if (GameManager.instance) { GameManager.instance.Save(this); GameManager.instance.Load(); }
     }
 
 

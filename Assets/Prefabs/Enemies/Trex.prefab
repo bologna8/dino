@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5405181920782270057
 Transform:
   m_ObjectHideFlags: 0
@@ -349,6 +349,10 @@ PrefabInstance:
     - target: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Name
       value: Trex
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6006615077103462235, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: baseSpeed

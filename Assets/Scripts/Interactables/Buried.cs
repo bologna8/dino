@@ -20,17 +20,14 @@ public class Buried : LayerCheck, IInteractable
     private Core touchingCore;
     private bool isGamepad;
 
-    private void Awake()
+    private void Start()
     {
+        interactionPrompt = GameManager.instance.InteractionText;
+        
         if (interactionPrompt != null)
         {
             interactionPrompt.gameObject.SetActive(false);
         }
-
-    }
-    private void Start()
-    {
-        interactionPrompt = GameManager.instance.InteractionText;
     }
 
     private void Update()
