@@ -28,7 +28,7 @@ public class BookUnlockCheckpoint : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !checkpointTriggered)
         {
@@ -54,7 +54,7 @@ public class BookUnlockCheckpoint : MonoBehaviour
         }
     }
 
-    private void UnlockSpread(int spreadIndex)
+    public void UnlockSpread(int spreadIndex)
     {
         if (spreadIndex < 0 || spreadIndex >= bookController.pages.Length)
         {
@@ -72,7 +72,7 @@ public class BookUnlockCheckpoint : MonoBehaviour
         bookController.UnlockSpecificPage(spreadIndex);
     }
 
-    private void UnlockIndividualPage(int pageIndex)
+    public void UnlockIndividualPage(int pageIndex)
     {
         if (pageIndex < 0 || pageIndex >= bookController.pages.Length)
         {
