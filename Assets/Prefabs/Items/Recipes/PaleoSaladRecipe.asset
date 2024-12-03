@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce1be3aa6eb56843b32fdf4352dac54, type: 3}
   m_Name: PaleoSaladRecipe
   m_EditorClassIdentifier: 
-  name: Paleo Salad Recipe
+  itemName: Paleo Salad
   icon: {fileID: -1019155705, guid: 0aa0fdfc6d3b15544a39a8caaec0d5af, type: 3}
   itemDescription: Can Consume
+  coreItemPosition: 0
+  isStackable: 1
+  stackCount: 1
+  maxStack: 9
   result: {fileID: 11400000, guid: 3403bc8a03464cc448be540a492682d7, type: 2}
   ingredients:
   - item: {fileID: 11400000, guid: 871686d110d5f3d4f84a744dc694f69b, type: 2}
