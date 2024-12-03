@@ -496,7 +496,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 5
+  pageNum: 19
 --- !u!1 &362384738759480951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,7 +3788,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 5
+  pageNum: 17
 --- !u!1 &1463986202147722172
 GameObject:
   m_ObjectHideFlags: 0
@@ -7110,7 +7110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 1
+  pageNum: 12
 --- !u!1 &2887502453507222905
 GameObject:
   m_ObjectHideFlags: 0
@@ -11498,7 +11498,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11521,7 +11521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 5
+  pageNum: 15
 --- !u!1 &4453079429795595728
 GameObject:
   m_ObjectHideFlags: 0
@@ -13458,7 +13458,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13481,7 +13481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 5
+  pageNum: 16
 --- !u!1 &5345515220371146304
 GameObject:
   m_ObjectHideFlags: 0
@@ -14554,7 +14554,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14577,7 +14577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 3
+  pageNum: 13
 --- !u!1 &5962319523478886863
 GameObject:
   m_ObjectHideFlags: 0
@@ -17513,7 +17513,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17536,7 +17536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 5
+  pageNum: 18
 --- !u!1 &7348737545366798919
 GameObject:
   m_ObjectHideFlags: 0
@@ -18297,7 +18297,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18320,7 +18320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 4
+  pageNum: 14
 --- !u!1 &7691824412021780115
 GameObject:
   m_ObjectHideFlags: 0
