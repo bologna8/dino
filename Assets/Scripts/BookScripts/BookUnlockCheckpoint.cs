@@ -11,7 +11,7 @@ public class BookUnlockCheckpoint : MonoBehaviour
     public bool unlockAsSpread = false; 
     public PageUnlockPopUp pageUnlockPopUp;
 
-    private void Start()
+    public virtual void Start()
     {
         if (bookController == null)
         {
