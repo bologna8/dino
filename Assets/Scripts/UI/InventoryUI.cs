@@ -82,6 +82,7 @@ private void Start()
 
 public void OpenInventory()
 {
+    Cursor.visible = true;
     inventoryOpen = true;
     inventoryParent.SetActive(true);
 
@@ -100,6 +101,7 @@ public void OpenInventory()
 
     public void CloseInventory()
     {
+        Cursor.visible = false;
         inventoryOpen = false;
         inventoryParent.SetActive(false);
         if (book != null)

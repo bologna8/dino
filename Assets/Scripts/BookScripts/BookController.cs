@@ -133,7 +133,6 @@ public class BookController : MonoBehaviour
         isJournalOpen = true;
         Time.timeScale = 0f;
 
-        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         HighlightDefaultTab(0);
 
