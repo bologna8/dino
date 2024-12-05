@@ -179,10 +179,51 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4018877890923391227}
   m_SourcePrefab: {fileID: 100100000, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+--- !u!1 &1945375606870799779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+  m_PrefabInstance: {fileID: 6095499920383415456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4018877890923391227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945375606870799779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182fc669d4492f64aaf70624c407d77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dinoAI: {fileID: 6941265827160986037}
+  neutralSounds:
+  - {fileID: 7288326261628243597, guid: a0333a2b83ac3924cb109a8ee2aa1589, type: 3}
+  - {fileID: 7288326261628243597, guid: 2dffe7f9f5585104bb3ea9eb9926332f, type: 3}
+  neutralMinimumSpawnTime: 5
+  neutralMaximumSpawnTime: 6
+  chaseSounds:
+  - {fileID: 7288326261628243597, guid: 17c4d5f535ffa3e4fa8073e5af48e8b4, type: 3}
+  chaseMinimumSpawnTime: 1
+  chaseMaximumSpawnTime: 4
 --- !u!4 &3350419487503644326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8856473957710389766, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
   m_PrefabInstance: {fileID: 6095499920383415456}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6941265827160986037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3802098700119770389, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+  m_PrefabInstance: {fileID: 6095499920383415456}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945375606870799779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5928af2b716869c4b9faf4265ff06703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
