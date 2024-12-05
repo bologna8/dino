@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 4621826593676991584}
   - component: {fileID: 4300487382535365856}
   - component: {fileID: 1091006530788707599}
-  - component: {fileID: -3223260964705170163}
+  - component: {fileID: -4390928461600167498}
   m_Layer: 12
   m_Name: LanternPickUpPrefab
   m_TagString: Untagged
@@ -349,7 +349,7 @@ MonoBehaviour:
   tracking: 0
   myCore: {fileID: 0}
   angle: 0
---- !u!114 &-3223260964705170163
+--- !u!114 &-4390928461600167498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,10 +358,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3561253398169580007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1beadaff09784124190cba8a7c6b39b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 756a84d764be6f047a01dd3f3a7db368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookController: {fileID: 0}
-  pageToUnlock: 13
-  unlockAsSpread: 0
-  pageUnlockPopUp: {fileID: 0}
+  book: {fileID: 0}
+  pageNumber: 13
+  activateOnStart: 0
+  activateOnTrigger: 0
+  deactivateAfterTrigger: 1

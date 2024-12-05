@@ -23,6 +23,11 @@ public class ForceOpenBookPage : MonoBehaviour
     // the script will set a collider2D component to its trigger.
     void Start()
     {
+        if (book == null)
+        {
+            book = FindObjectsOfType<BookController>(true)[0];
+        }
+
         if (!activateOnStart && !activateOnTrigger) return;
 
         if (activateOnStart)
@@ -49,10 +54,9 @@ public class ForceOpenBookPage : MonoBehaviour
     //Uses BookController to open up to a specific page. 
     void PageOpenTo()
     {
+        if (book.pages[pageNumber].isUnlocked) return;
         book.UnlockSpecificPage(pageNumber);
         book.OpenJournal();
         book.GoToTab(pageNumber);
-
-        if (deactivateAfterTrigger) { gameObject.SetActive(false); }
     }
 }
