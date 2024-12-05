@@ -63,6 +63,8 @@ public class Checkpoint : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interacter)
     {
+        var HP = interacter.GetComponentInChildren<Health>();
+        if (HP) { HP.GainHealth(99); }
         if (GameManager.instance) { GameManager.instance.Save(this); GameManager.instance.Load(); }
     }
 

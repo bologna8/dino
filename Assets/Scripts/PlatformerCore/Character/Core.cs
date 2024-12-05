@@ -207,7 +207,7 @@ public class Core : MonoBehaviour
 
                 if (myMove) 
                 { 
-                    if (myMove.onEdge) { canAttack = false; canInteract = false; }
+                    if (myMove.onEdge || myMove.wallSliding) { canAttack = false; canInteract = false; }
                 }
                 
             }
