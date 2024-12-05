@@ -36,6 +36,8 @@ public class Core : MonoBehaviour
     */
 
     [HideInInspector] public SpriteRenderer mySprite;
+    [HideInInspector] public int sortingOrder;
+    [HideInInspector] public int hiddenSortingOrder;
 
     //Necessary components to connect too
     //public GameObject aimingPrefab;
@@ -119,6 +121,15 @@ public class Core : MonoBehaviour
                 myAnim.runtimeAnimatorController = myAnimOverride; 
             }
         }
+
+        if (this.GetComponentInChildren<SpriteRenderer>() != null)
+        {
+            sortingOrder = this.GetComponentInChildren<SpriteRenderer>().sortingOrder;
+            hiddenSortingOrder = sortingOrder - 3;
+        }
+
+
+
     }
 
     // Update is called once per frame
@@ -170,8 +181,8 @@ public class Core : MonoBehaviour
         
         if (mySprite)
         {
-            if (hidden) { mySprite.sortingOrder = -1; }
-            else { mySprite.sortingOrder = 1; }
+            if (hidden) { mySprite.sortingOrder = hiddenSortingOrder; }
+            else { mySprite.sortingOrder = sortingOrder; }
         }
 
 
