@@ -1427,6 +1427,8 @@ MonoBehaviour:
   hidingSpots: 0
   dashing: 0
   mySprite: {fileID: 0}
+  sortingOrder: 0
+  hiddenSortingOrder: 0
   myAim: {fileID: 0}
   myAI: {fileID: 0}
   attackInput: 
@@ -1562,7 +1564,7 @@ MonoBehaviour:
   jumpEffect: {fileID: 3933424769755576373, guid: 2bd325a52a48657459c8e983afef6d0a, type: 3}
   canWallJump: 0
   wallJumpForce: {x: 10, y: 17}
-  wallJumpDelay: 0.1
+  wallJumpDelay: 0.2
   wallJumpTime: {x: 0.4, y: 0.5}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
   wallLockDelay: 0

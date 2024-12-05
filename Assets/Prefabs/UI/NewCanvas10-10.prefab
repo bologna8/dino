@@ -700,7 +700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1771, y: -200}
+  m_AnchoredPosition: {x: 1771, y: -513}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2177112489679792426
@@ -979,7 +979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 543, y: 480}
+  m_AnchoredPosition: {x: 543, y: 378}
   m_SizeDelta: {x: 1090.314, y: 442.3158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1660760975096334695
@@ -1024,8 +1024,8 @@ MonoBehaviour:
     friend, Professor Stones, uncovered a interesting new dig site, and I had to
     go see what there is to see.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
+  m_sharedMaterial: {fileID: 5234255007638776013, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3241,7 +3241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1771, y: -51}
+  m_AnchoredPosition: {x: 1771, y: -212}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3964494704759899591
@@ -4741,7 +4741,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1771, y: -495}
+  m_AnchoredPosition: {x: 1771, y: -49}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7079273302447620234
@@ -4886,7 +4886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 649, y: 478}
+  m_AnchoredPosition: {x: 649, y: 264}
   m_SizeDelta: {x: 1200, y: 135.5403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9114961388144668098
@@ -4924,11 +4924,11 @@ MonoBehaviour:
     this at dig sites. Who knew it would actually come in handy?
 
 
-    [Press E or    
+    [Press E or 
     to dig]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
+  m_sharedMaterial: {fileID: 5234255007638776013, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6687,7 +6687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 649, y: 543}
+  m_AnchoredPosition: {x: 649, y: 427}
   m_SizeDelta: {x: 1200, y: 135.5403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8056525491528543517
@@ -6729,10 +6729,10 @@ MonoBehaviour:
     this in too?
 
 
-    [Press Shift or     while in the air to swing]'
+    [Press Shift or .  while in the air to swing]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
+  m_sharedMaterial: {fileID: 5234255007638776013, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20614,7 +20614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1650905768276741913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25587,11 +25587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 772
+      value: 945
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -501
+      value: -284
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26521,12 +26521,16 @@ MonoBehaviour:
     - {fileID: 5089090867425810392}
     pageType: 0
     isUnlocked: 0
+  - pageObjects:
+    - {fileID: 8523906422228876620}
+    pageType: 0
+    isUnlocked: 0
   alwaysAvailablePages: 00000000010000000b0000000c000000
   openJournal: {fileID: 8715761714469784529, guid: dc00cf82dad2fc349924fe31f97bb233, type: 3}
   tabs:
   - button: {fileID: 274506423989254465}
     unlockedIcon: {fileID: 1907483835908030658}
-    associatedPages: 0b0000000c0000000d0000000e0000000f0000001000000011000000120000001300000015000000
+    associatedPages: 0b0000000c0000000d0000000e0000000f0000001000000011000000120000001300000019000000
   - button: {fileID: 8484265852477238180}
     unlockedIcon: {fileID: 2080939758830447098}
     associatedPages: 000000000100000002000000030000000400000015000000160000001700000018000000
@@ -26581,15 +26585,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.360396
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.360396
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.360396
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26621,11 +26625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 611
+      value: 608
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -370
+      value: -267
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
