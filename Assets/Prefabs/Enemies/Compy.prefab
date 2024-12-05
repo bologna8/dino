@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 921309583, guid: 23167697f1cd84df19f36b689f42c1a8, type: 3}
+    - target: {fileID: 3882941796004582005, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5649990236531220739, guid: ce0ec4c5064623742a50b8944258a78d, type: 3}
       propertyPath: m_Name
       value: Compy
