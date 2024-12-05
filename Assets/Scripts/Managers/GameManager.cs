@@ -127,7 +127,8 @@ public class GameManager : MonoBehaviour
     {
       for(int i = 0; i < AllItems.Length; i++) 
       {
-        if (item.name == AllItems[i].name) { saveInventoryArray[i] += item.stackCount; }
+        if (item.name == AllItems[i].name) //Name needs to be exactly the same in S.O. description, otherwise causes issues
+        { saveInventoryArray[i] += item.stackCount; }
       }
       
     }
@@ -136,7 +137,7 @@ public class GameManager : MonoBehaviour
     foreach (int i in saveInventoryArray) { s += "" +i; }
 
     PlayerPrefs.SetString("Saved Inventory", s);
-    Debug.Log("Saved: "+s);
+    //Debug.Log("Saved: "+s);
 
   }
 
@@ -170,7 +171,7 @@ public class GameManager : MonoBehaviour
   public void Reset()
   {
     PlayerPrefs.DeleteAll();
-    StartCoroutine(Fade(Color.black, 1, true));
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
   }
 
 
