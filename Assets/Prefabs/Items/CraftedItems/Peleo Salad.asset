@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: Paleo Salad
   icon: {fileID: -1019155705, guid: 0aa0fdfc6d3b15544a39a8caaec0d5af, type: 3}
   itemDescription: Can Consume
+  coreItemPosition: 0
   isStackable: 1
   stackCount: 1
   maxStack: 9
-  itemType: 0
+  itemType: 1
   amount: 1
