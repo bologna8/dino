@@ -101,7 +101,6 @@ public void OpenInventory()
 
     public void CloseInventory()
     {
-        Cursor.visible = false;
         inventoryOpen = false;
         inventoryParent.SetActive(false);
         if (book != null)

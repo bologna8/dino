@@ -40,6 +40,7 @@ public class Hotbar : MonoBehaviour
         if (WeaponWheel)
         { 
             WeaponWheel.SetActive(true);
+            Cursor.visible = true;
             wheelSlices = WeaponWheel.GetComponentsInChildren<MultiSpriteHandler>(); 
         }
 
