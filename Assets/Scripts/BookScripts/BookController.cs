@@ -66,7 +66,6 @@ public class BookController : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale =0f;
         //Pages that are available from start will be automatically unlocked and available 
         foreach (int pageIndex in alwaysAvailablePages)
         {
