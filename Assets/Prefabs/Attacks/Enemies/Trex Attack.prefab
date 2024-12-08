@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -178,11 +178,11 @@ MonoBehaviour:
   momentumLaunch: 0
   attackingAimSpeed: 1
   moveWhileAttacking: 0
-  windup: 0.4
+  windup: 0.8
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
   noGravityDuringWindup: 0
-  attackDuration: 0.8
+  attackDuration: 1
   movementMidAttack: 6
   onlyHorizontalMoveMid: 1
   noGravityDuringAttack: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  myType: 0
+  myType: 4
   activeDuration: 0.2
   refresh: 0
   sizeOverTime:
