@@ -170,7 +170,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2
 --- !u!212 &3589448385290332271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agroType: 4
   drawAttention: 1
-  overrideAgro: 0
+  overrideAgro: 1
   causeFrenzy: 0
 --- !u!1 &5988905358313603674
 GameObject:
