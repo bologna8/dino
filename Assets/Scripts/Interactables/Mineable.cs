@@ -8,8 +8,9 @@ public class Mineable : LayerCheck, IInteractable
 {
 
     public Text interactionPrompt;  //UI text
+    public Vector2 numberOfDrops = new Vector2(1, 1);
     private bool isGamepad;
-
+    public List<GameObject> possiblePickupPrefabs;
     public AnimationClip miningAnimation;
     public float mineTime = 1f;
     public Item requiredToMine;
@@ -84,7 +85,33 @@ public class Mineable : LayerCheck, IInteractable
         yield return new WaitForSeconds(mineTime);
         mining = false;
 
-        if (touchingCore != null) { gameObject.SetActive(false); }
+        if (touchingCore != null)
+        {
+            SpawnPickups();
+            gameObject.SetActive(false); // Disable or destroy the object after mining
+        }
+    }
+
+    private void SpawnPickups()
+    {
+        if (possiblePickupPrefabs.Count > 0)
+        {
+            int amount = Random.Range((int)numberOfDrops.x, (int)numberOfDrops.y);
+            for (int i = 0; i < amount; i++)
+            {
+                var randomIndex = Random.Range(0, possiblePickupPrefabs.Count);
+                var chosenPickup = possiblePickupPrefabs[randomIndex];
+
+                if (PoolManager.Instance != null)
+                {
+                    PoolManager.Instance.Spawn(chosenPickup, transform.position);
+                }
+                else
+                {
+                    Instantiate(chosenPickup, transform.position, Quaternion.identity);
+                }
+            }
+        }
     }
 
 }
