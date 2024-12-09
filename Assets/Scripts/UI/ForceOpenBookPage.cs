@@ -19,6 +19,10 @@ public class ForceOpenBookPage : MonoBehaviour
     public bool deactivateAfterTrigger = true;
 
     private Collider2D trigger;
+
+    private float delay;
+    private bool isDelayed = false;
+
     // If the script is set to activate on start, then the page will be opened on start. If it is set to activate on trigger,
     // the script will set a collider2D component to its trigger.
     void Start()
@@ -26,6 +30,13 @@ public class ForceOpenBookPage : MonoBehaviour
         if (book == null)
         {
             book = FindObjectsOfType<BookController>(true)[0];
+        }
+
+        PickUp thisPickup = this.gameObject.GetComponent<PickUp>();
+        if (thisPickup != null)
+        {
+            delay = thisPickup.delayPickupTime;
+            isDelayed = true;
         }
 
         if (!activateOnStart && !activateOnTrigger) return;
@@ -43,14 +54,20 @@ public class ForceOpenBookPage : MonoBehaviour
             }
 
         }
+
+        
     }
+    bool inTrigger;
+    //if the player enters the trigger, the page will be opened after some amount of delay.
     private void OnTriggerEnter2D(Collider2D player)
     {
         if (player.gameObject.CompareTag("Player"))
         {
-            PageOpenTo();
+            if (!isDelayed) Invoke("PageOpenTo", 0.1f);
+            if (isDelayed) Invoke("PageOpenTo", 0.1f + delay);
         }
     }
+    
     //Uses BookController to open up to a specific page. 
     void PageOpenTo()
     {
