@@ -21,4 +21,13 @@ public class GroundType : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col){
+        if(col.transform.gameObject.tag == "Player"){
+            
+            if(col.transform.gameObject.GetComponent<DetectGround>() != null){
+                col.transform.gameObject.GetComponent<DetectGround>().standingOn = type;
+            }
+        }
+    }
 }
