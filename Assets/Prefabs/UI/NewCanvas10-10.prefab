@@ -14095,12 +14095,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6684489813829944117}
         m_TargetAssemblyTypeName: BookController, Assembly-CSharp
-        m_MethodName: DisplaySpread
+        m_MethodName: GoToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 26
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -14118,7 +14118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 5
+  pageNum: 26
 --- !u!1 &4561132848944930316
 GameObject:
   m_ObjectHideFlags: 0
@@ -19098,7 +19098,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19116,7 +19116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6684489813829944117}
-  pageNum: 8
+  pageNum: 7
 --- !u!1 &6699502480388408954
 GameObject:
   m_ObjectHideFlags: 0
