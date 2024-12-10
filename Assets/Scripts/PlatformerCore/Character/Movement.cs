@@ -90,6 +90,7 @@ public class Movement : MonoBehaviour
     [Tooltip("Horizontal and vertical direction from wall jumps")] public Vector2 wallJumpForce;
     [Tooltip("Delay before wall jump for animation windup")] public float wallJumpDelay;
     [Tooltip("Duration of wall jump, x is locked in time, y is time for force to fade")] public Vector2 wallJumpTime;
+    public AnimationClip wallSlideAnimation;
     public AnimationClip wallJumpAnimation;
     [Tooltip("Spawn effect on wall jumps")] public GameObject wallJumpEffect;
     [Tooltip("Dely until you actually lock onto a wall, needed so wall taps don't spam animation")] public float wallLockDelay;
@@ -587,6 +588,8 @@ public class Movement : MonoBehaviour
         ignoreGravity = true;
         dashVelocity = Vector2.zero;
         recentWallJump = wallLockDelay;
+
+        if (myCore) { myCore.ChangeDashAnimation(wallSlideAnimation); }
 
         yield return new WaitForSeconds(wallJumpDelay);
 
