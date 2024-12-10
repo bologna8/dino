@@ -365,9 +365,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: interacting
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: dashing
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2342394866246744622}
   m_Solo: 0

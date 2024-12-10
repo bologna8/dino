@@ -16,6 +16,8 @@ public class PickUp : MonoBehaviour
     public Item item;
     public CraftingRecipe recipe;
 
+    public bool uniqueItem;
+
     void OnEnable()
     {
         lifeTime = 0f;
@@ -26,6 +28,12 @@ public class PickUp : MonoBehaviour
 
         if (!myBod) { myBod = GetComponent<Rigidbody2D>(); }
         if (myBod) { myBod.AddForce(new Vector2(randX, randY)); }
+    }
+
+    void Start()
+    {
+        if (uniqueItem && Inventory.instance) 
+        { if (Inventory.instance.ContainsItem(item, 1)) { gameObject.SetActive(false); Debug.Log("ding"); } }
     }
 
     void Update()

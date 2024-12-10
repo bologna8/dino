@@ -179,7 +179,7 @@ MonoBehaviour:
   windup: 0.2
   movementPreAttack: 0
   onlyHorizontalMovePre: 1
-  noGravityDuringWindup: 1
+  noGravityDuringWindup: 0
   attackDuration: 1
   movementMidAttack: 0
   onlyHorizontalMoveMid: 1
@@ -442,17 +442,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: -0.0000010952353
       value: -0.00005269167
-      inSlope: -1.9909837
-      outSlope: -1.9909837
+      inSlope: -4.717993
+      outSlope: -4.717993
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.2525369
-      value: -0.5028517
-      inSlope: 0.02150333
-      outSlope: 0.02150333
+      time: 0.06765478
+      value: -0.31925264
+      inSlope: -1.9896207
+      outSlope: -1.9896207
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -492,17 +492,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: -0.0000010952353
       value: -0.00005269167
-      inSlope: -1.9909837
-      outSlope: -1.9909837
+      inSlope: 1.9980414
+      outSlope: 1.9980414
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.2525369
-      value: -0.5028517
-      inSlope: 0.02150333
-      outSlope: 0.02150333
+      time: 0.25006497
+      value: 0.49958968
+      inSlope: -0.0015836954
+      outSlope: -0.0015836954
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -510,26 +510,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.49973524
       value: -0.000052674917
-      inSlope: 2.7997026
-      outSlope: 2.7997026
+      inSlope: -2.514946
+      outSlope: -2.514946
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.15035011
+      inWeight: 0.12612145
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.759874
-      value: 0.49907857
-      inSlope: 0.055709295
-      outSlope: 0.055709295
-      tangentMode: 0
+      time: 0.74994045
+      value: -0.49961907
+      inSlope: 0.0005970597
+      outSlope: 0.0005970597
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.540709
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.9999961
       value: -0.000052658375
-      inSlope: -2.0786557
-      outSlope: -2.0786557
+      inSlope: 1.9978207
+      outSlope: 1.9978207
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -620,8 +620,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.48235294, g: 0.16470589, b: 0.16470589, a: 1}
+      key1: {r: 0.48235294, g: 0.16470589, b: 0.16470589, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

@@ -1325,6 +1325,7 @@ MonoBehaviour:
   wallJumpForce: {x: 10, y: 17}
   wallJumpDelay: 0.2
   wallJumpTime: {x: 0.4, y: 0.5}
+  wallSlideAnimation: {fileID: 7400000, guid: 5b9abb77750ea814597e7cc57756b971, type: 2}
   wallJumpAnimation: {fileID: 7400000, guid: 557567bc4cca24444aafd7f54801f119, type: 2}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
   wallLockDelay: 0
