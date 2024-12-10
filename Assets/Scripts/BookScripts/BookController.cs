@@ -66,6 +66,8 @@ public class BookController : MonoBehaviour
 
     private void Start()
     {
+        LoadUnlockedPages();
+
         //Pages that are available from start will be automatically unlocked and available 
         foreach (int pageIndex in alwaysAvailablePages)
         {
@@ -320,6 +322,38 @@ private void HighlightNearestButton(Button currentButton)
         }
         return nextIndex < pages.Length ? nextIndex : -1;
     }
+
+    public void SaveUnlockedPages()
+    {
+        string unlockedPagesString = string.Join(",", unlockedPages); 
+        PlayerPrefs.SetString("UnlockedPages", unlockedPagesString);
+        PlayerPrefs.Save();
+        Debug.Log("Unlocked pages saved: " + unlockedPagesString);
+    }
+
+    public void LoadUnlockedPages()
+    {
+        if (PlayerPrefs.HasKey("UnlockedPages"))
+        {
+            string unlockedPagesString = PlayerPrefs.GetString("UnlockedPages");
+            unlockedPages = unlockedPagesString.Split(',').Select(int.Parse).ToList(); 
+            Debug.Log("Unlocked pages loaded: " + unlockedPagesString);
+
+            foreach (int pageIndex in unlockedPages)
+            {
+            if (pageIndex >= 0 && pageIndex < pages.Length)
+            {
+                pages[pageIndex].isUnlocked = true;
+            }
+        }
+        UpdateTabIcons(); 
+        }
+        else
+        {
+            Debug.LogWarning("No saved unlocked pages found.");
+        }
+    }
+
 
     public void FlipToNextPage()
     {

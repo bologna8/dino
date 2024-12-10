@@ -130,13 +130,14 @@ public class GameManager : MonoBehaviour
         if (item.name == AllItems[i].name) //Name needs to be exactly the same in S.O. description, otherwise causes issues
         { saveInventoryArray[i] += item.stackCount; }
       }
-      
+
     }
 
     string s = "";
     foreach (int i in saveInventoryArray) { s += "" +i; }
 
     PlayerPrefs.SetString("Saved Inventory", s);
+    BookController.Instance.SaveUnlockedPages();
     //Debug.Log("Saved: "+s);
 
   }

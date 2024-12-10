@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 1900189272691835322}
   - {fileID: 3236021798205473016}
   - {fileID: 7699552626737237659}
+  - {fileID: 3717182216705109934}
   Mixer: {fileID: 24100000, guid: 1378273ee56756c4bb98499363aba46c, type: 2}
   trackToBringOut: 0
   CrossfadeTime: 0
@@ -187,6 +188,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe5c620e92605f49bee6e213cdea07a, type: 3}
+--- !u!1 &3717182216705109934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1976548685571048586, guid: abe5c620e92605f49bee6e213cdea07a, type: 3}
+  m_PrefabInstance: {fileID: 2952119480146275108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7019021338849768290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300908004204861510, guid: abe5c620e92605f49bee6e213cdea07a, type: 3}
