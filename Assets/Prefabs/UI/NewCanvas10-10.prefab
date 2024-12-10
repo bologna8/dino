@@ -4810,8 +4810,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fitness
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
+  m_sharedMaterial: {fileID: 5234255007638776013, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10864,7 +10864,9 @@ MonoBehaviour:
 
 
     [LShift
-    or    to slide'
+    or    to slide]
+
+    [Controls page in settings]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
   m_sharedMaterial: {fileID: 5234255007638776013, guid: 913026ad5ae674cef859cc04a0da682d, type: 2}
@@ -10891,8 +10893,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 84
-  m_fontSizeBase: 84
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26205,11 +26207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 99
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -881.4
+      value: -711
       objectReference: {fileID: 0}
     - target: {fileID: 4669276879604830722, guid: ea4be3a8fc549824c809a346868c4d6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
