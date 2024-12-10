@@ -400,6 +400,13 @@ public class Core : MonoBehaviour
         
     }
 
+    public void ChangeDashAnimation(AnimationClip newAnim, float animationSpeedMultiplier = 1)
+    {
+        if (myAnimOverride) { myAnimOverride["blankDash"] = newAnim; }
+        
+        if (myAnim) { myAnim.SetFloat("dashAnimationSpeed", animationSpeedMultiplier); }
+    }
+
     public void ChangeAttackAnimation(AnimationClip newAnim, float animationSpeedMultiplier = 1)
     {
         if (myAnimOverride) { myAnimOverride["blankAttack"] = newAnim; }

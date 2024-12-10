@@ -429,6 +429,7 @@ MonoBehaviour:
   stunResistance: 0
   myCore: {fileID: 0}
   mySpawn: {fileID: 0}
+  damagedAnimation: {fileID: 7400000, guid: 64d8e6c02a334ea40b9fa3e818a1dac3, type: 2}
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   HealthBarPrefab: {fileID: 0}
   passiveRegen: 0
@@ -1324,6 +1325,7 @@ MonoBehaviour:
   wallJumpForce: {x: 10, y: 17}
   wallJumpDelay: 0.2
   wallJumpTime: {x: 0.4, y: 0.5}
+  wallJumpAnimation: {fileID: 7400000, guid: 557567bc4cca24444aafd7f54801f119, type: 2}
   wallJumpEffect: {fileID: 3933424769755576373, guid: 3f659d3626a8b6b49969d125d79e536c, type: 3}
   wallLockDelay: 0
   canWallSlide: 0
@@ -1346,10 +1348,12 @@ MonoBehaviour:
   dashLayer: 12
   dashForce: 12
   dashTime: {x: 0.3, y: 0.35}
+  dashAnimation: {fileID: 7400000, guid: 6d7be52ca315b3444b52b66f7206d1dd, type: 2}
   dashEffect: {fileID: 3933424769755576373, guid: c3cc18f2665da984e96ea66905b8157d, type: 3}
   airDashLayer: 12
   airDashForce: 15
   airDashTime: {x: 0.3, y: 0.3}
+  airDashAnimation: {fileID: 7400000, guid: 9a46d99c8e398ad439de37463c1e47d6, type: 2}
   momentumBasedAirDash: 0
   gravityWhileAirDashing: 0
   airDashes: 0

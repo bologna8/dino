@@ -50,7 +50,7 @@ public class Damage : MonoBehaviour
         if (!mySpawn) { mySpawn = GetComponentInParent<Spawned>(); }
 
         faceRight = true;
-        var ang = transform.rotation.eulerAngles.y % 360;
+        var ang = transform.rotation.eulerAngles.z % 360;
         if (ang > 90 && ang < 270) { faceRight = false; }
 
         hitList.Clear();
@@ -81,11 +81,13 @@ public class Damage : MonoBehaviour
 
     }
 
+    /*
     public void Flip()
     {
         faceRight = !faceRight;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
+    */
 
 
     void OnTriggerEnter2D(Collider2D other)
@@ -139,7 +141,7 @@ public class Damage : MonoBehaviour
                 if (aimedAttack) //change horizontal knockback if aimed or locked
                 { 
                     dir.x = Mathf.Abs(dir.x);
-                    if (!faceRight) { dir.x *= -1; KB *= -1; }
+                    if (!faceRight) { dir.x *= -1; KB.x *= -1; }
                 }
                 else if (dir.x < 0) { KB.x *= -1; } //locked KB should still check direction for horizontal
                 

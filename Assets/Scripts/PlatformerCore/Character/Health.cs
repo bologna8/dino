@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     [HideInInspector] public Core myCore;
     [HideInInspector] public Spawned mySpawn;
 
+    [Tooltip("Animation to play after taking damage while stunned")] public AnimationClip damagedAnimation;
     [Tooltip("Recolor sprite when hit")] public Color hitColor = Color.red;
     private SpriteRenderer mySprite;
     private Color startColor;
@@ -114,7 +115,7 @@ public class Health : MonoBehaviour
             if (KB != Vector2.zero && myMovement) 
             {
                 KB *= (1 - knockbackResistance); 
-                myMovement.DoDash(KB, stun); 
+                myMovement.DoDash(KB, stun, damagedAnimation); 
             }
         }
     }
