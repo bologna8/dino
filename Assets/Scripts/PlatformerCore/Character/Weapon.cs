@@ -195,12 +195,12 @@ public class Weapon : MonoBehaviour
 
         //Start Actual Attack
         if (!attackStats.moveWhileAttacking && myMovement && attackStats.windup > 0) 
-        { myMovement.DoDash(preMove, new Vector2(attackStats.windup, 0f), attackStats.noGravityDuringWindup); }
+        { myMovement.DoDash(preMove, new Vector2(attackStats.windup, 0f), null, attackStats.noGravityDuringWindup); }
         
         yield return new WaitForSeconds(attackStats.windup);
         
         if (!attackStats.moveWhileAttacking && myMovement && attackStats.attackDuration > 0) 
-        { myMovement.DoDash(midMove, new Vector2(attackStats.attackDuration, 0f), attackStats.noGravityDuringAttack); }
+        { myMovement.DoDash(midMove, new Vector2(attackStats.attackDuration, 0f), null, attackStats.noGravityDuringAttack); }
 
 
         if (!safety) //Don't spawn anything in walls

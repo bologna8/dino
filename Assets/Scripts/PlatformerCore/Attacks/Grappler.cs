@@ -187,8 +187,8 @@ public class Grappler : MonoBehaviour
             if (dist > maxEffectiveRange) { dist = maxEffectiveRange; }
             dir *= Mathf.Lerp(grappleDashSpeed.x, grappleDashSpeed.y, dist / maxEffectiveRange);
 
-            mySpawn.myCore.Stun(grappleDashDuration.x, pulledAnimation);
-            mySpawn.myCore.myMove.DoDash(dir, grappleDashDuration, true, true);
+            //mySpawn.myCore.Stun(grappleDashDuration.x, pulledAnimation);
+            mySpawn.myCore.myMove.DoDash(dir, grappleDashDuration, pulledAnimation, true, true);
             
         }
     }

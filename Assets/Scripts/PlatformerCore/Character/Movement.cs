@@ -90,6 +90,7 @@ public class Movement : MonoBehaviour
     [Tooltip("Horizontal and vertical direction from wall jumps")] public Vector2 wallJumpForce;
     [Tooltip("Delay before wall jump for animation windup")] public float wallJumpDelay;
     [Tooltip("Duration of wall jump, x is locked in time, y is time for force to fade")] public Vector2 wallJumpTime;
+    public AnimationClip wallJumpAnimation;
     [Tooltip("Spawn effect on wall jumps")] public GameObject wallJumpEffect;
     [Tooltip("Dely until you actually lock onto a wall, needed so wall taps don't spam animation")] public float wallLockDelay;
     private float currentWallTime; //How long been on a wall
@@ -136,12 +137,14 @@ public class Movement : MonoBehaviour
     [Range(0, 30)] [Tooltip("Layer while dashing on ground")] public int dashLayer;
     [Tooltip("Speed while dashing")] public float dashForce = 20f;
     [Tooltip("Duration time of dash, x is time locked in animation, y is time of residual speed fall off")] public Vector2 dashTime;
+    public AnimationClip dashAnimation;
     public GameObject dashEffect;
 
 
     [Range(0, 30)] [Tooltip("Layer while dashing on ground")] public int airDashLayer;
     [Tooltip("Speed while dashing in air")] public float airDashForce = 20f;
     [Tooltip("Duration time of air dash, x is time locked in animation, y is time of residual speed fall off")] public Vector2 airDashTime;
+    public AnimationClip airDashAnimation;
     [Tooltip("Multiply dash distances based on current momentum")] public bool momentumBasedAirDash = false;
     [Tooltip("Affected by gravity while dashing in air")] public bool gravityWhileAirDashing = false;
     private bool ignoreGravity = false; //Disable gravity during dashes
@@ -595,7 +598,7 @@ public class Movement : MonoBehaviour
 
         var dir = wallJumpForce; 
         if (!movingRight) { dir.x *= -1; }
-        DoDash(dir, wallJumpTime);
+        DoDash(dir, wallJumpTime, wallJumpAnimation);
         //if (jumpEffect) { Instantiate(jumpEffect, groundCheck.transform.position, Quaternion.identity); }
         if (wallJumpEffect) 
         { 
@@ -791,6 +794,7 @@ public class Movement : MonoBehaviour
             var t = dashTime; //duration of dash
             var noGrav = false;
             var edgeStop = edgeStopDash;
+            var anim = dashAnimation;
 
             int changeLayer = -1; //negative means don't change
             if (changeCollisionLayer) { changeLayer = dashLayer; }
@@ -806,6 +810,7 @@ public class Movement : MonoBehaviour
                 t = airDashTime;
                 noGrav = !gravityWhileAirDashing;
                 edgeStop = false;
+                anim = airDashAnimation;
                 remainingDashes --;
 
                 if (changeCollisionLayer) { changeLayer = airDashLayer; }
@@ -824,23 +829,23 @@ public class Movement : MonoBehaviour
             }
             
 
-            DoDash(d, t, noGrav, true, edgeStop, changeLayer, changeHP);
+            DoDash(d, t, anim, noGrav, true, edgeStop, changeLayer, changeHP);
             //if (dashEffect) { dashingEffect = Instantiate(dashEffect, transform); } //spawn dash trail as child obect
 
         }
     }
 
-    public void DoDash(Vector2 dir, Vector2 duration, bool noGrav = false, bool keepMomentum = false, bool edgeStop = false, int newLayer = -1, int layerHP = -1, bool dashCancelable = false)
+    public void DoDash(Vector2 dir, Vector2 duration, AnimationClip dashAnim = null, bool noGrav = false, bool keepMomentum = false, bool edgeStop = false, int newLayer = -1, int layerHP = -1, bool dashCancelable = false)
     {
         if (dashing != null) { CancelDash(); }
         if (climbing != null) { StopCoroutine(climbing); climbing = null; }
 
 
-        dashing = DirectionalDash(dir, duration, noGrav, keepMomentum, edgeStop, newLayer, layerHP, dashCancelable);
+        dashing = DirectionalDash(dir, duration, dashAnim, noGrav, keepMomentum, edgeStop, newLayer, layerHP, dashCancelable);
         StartCoroutine(dashing);
     }
 
-    public IEnumerator DirectionalDash(Vector2 dir, Vector2 duration, bool noGrav, bool keepMomentum, bool edgeStop, int newLayer, int layerHP, bool dashCancelable)
+    public IEnumerator DirectionalDash(Vector2 dir, Vector2 duration, AnimationClip dashAnim, bool noGrav, bool keepMomentum, bool edgeStop, int newLayer, int layerHP, bool dashCancelable)
     {
         //if (myAnim) { myAnim.SetBool("dashing", true); }
 
@@ -849,6 +854,16 @@ public class Movement : MonoBehaviour
 
         myBod.velocity = Vector2.zero; //reset current velocity on new dash
         myVelocity = Vector2.zero;
+
+        if (myCore && dashAnim != null) 
+        { 
+            var newSpeed = dashAnim.length / duration.x;
+            
+            if (duration.x > dashAnim.length) 
+            { newSpeed = duration.x / dashAnim.length; }
+
+            myCore.ChangeDashAnimation(dashAnim, newSpeed); 
+        }
 
         //if (!keepMomentum) { momentum = 0; }
         canCancelDash = dashCancelable;
@@ -918,7 +933,13 @@ public class Movement : MonoBehaviour
 
             //if (myAnim) { myAnim.SetBool("dashing", false); }
 
-            if (dashingEffect) { Destroy(dashingEffect); }
+            if (dashingEffect) 
+            { 
+                if (PoolManager.Instance != null) { dashingEffect.SetActive(false); }
+                else { Destroy(dashingEffect); }
+            }
+
+            myCore.ChangeDashAnimation(null); 
 
             dashing = null;
         }
